@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chart 1</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/adapters/standalone-framework.js"></script>
+
+<script>
+$(document).ready(function() {
+  Highcharts.setOptions({chart: {renderTo: 'chart'}});
+  var chart = new Highcharts.Chart({
+      colors: ["#2b505e", "#6A848E", "#55504c", "#C75363", "#af0a21"],
+      chart: {
+         defaultSeriesType: 'bar',
+         spacingBottom: 25
+      },
+      title: {
+         text: ''
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+          categories: ['One-year plan', 'Five-year plan'],
+          labels: {
+          enabled: true,  
+            }
+      },
+      yAxis: {
+         title: {
+         text: ''
+         },
+      labels: {
+            formatter: function() {
+                return this.value + '%';
+            }
+      },
+
+      },
+      
+      tooltip: {
+            shared: true,
+            useHTML: true,
+            headerFormat: '<strong><center>{point.key}</center></strong><table>',
+            pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+                '<td style="text-align: right"><b>{point.y} %</b></td></tr>',
+            footerFormat: '</table>',
+            valueDecimals: 1
+        },
+      legend: {
+         enabled: true,
+         reversed: true
+      },
+      series: [
+         	   {
+         stacking: 'percent',
+         pointWidth: 100,
+         name: 'Very confident',
+         data: [1.3, 2.7]},
+               {
+         stacking: 'percent',
+         pointWidth: 100,
+         name: 'Somewhat confident',
+         data: [14.7, 24.0]},
+               {
+         stacking: 'percent',
+         pointWidth: 100,
+         name: 'Neither confident nor unconfident',
+         data: [17.3, 13.3]},
+               {
+         stacking: 'percent',
+         pointWidth: 100,
+         name: 'Not very confident',
+         data: [32.0, 32.0]},
+               {
+         stacking: 'percent',
+         pointWidth: 100,
+         name: 'Not at all confident',
+         data: [34.7, 28.0]},
+              ],
+      
+    plotOptions: {
+        series: {
+            pointWidth: 10,
+            groupPadding:0.5,
+            pointPadding:0
+
+        }
+    }
+     
+   });
+});
+
+</script>
+
+</head>
+
+<body>
+<div class="chart" id='chart'></div>
+</body>
+</html>
