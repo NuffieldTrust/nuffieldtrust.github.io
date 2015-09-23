@@ -1,0 +1,102 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chart 1</title>
+  <meta name="description" content="Chart 1 - Health Leaders' Panel">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+$(document).ready(function() {
+  Highcharts.setOptions({chart: {renderTo: 'chart'}});
+  var chart = new Highcharts.Chart({
+      colors: ["#af0a21","#C75363","#E7B5BC", "#55504c", "#d5d1c8"],
+      chart: {
+         defaultSeriesType: 'pie',
+         spacingBottom: 25,
+         style: {
+                fontFamily: 'Georgia'
+            } 
+      },
+      title: {
+         text: ''
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      xAxis: {
+          labels: {
+          enabled: true,  
+            }
+      },
+      yAxis: {
+         title: {
+         text: ''
+         },
+      labels: {
+            formatter: function() {
+                return this.value + '%';
+            }
+      },
+
+      },
+      
+      tooltip: {
+          pointFormat: '{point.percentage:.1f}%</b>',
+          valueDecimals: 1,
+          
+        },
+      legend: {
+         enabled: false,
+      },
+		series: [{
+            name: "Impact of NICE guidelines on safe staffing",
+            data: [{
+                name: "Significant impact",
+                y: 25.3
+            }, {
+                name: "Moderate impact",
+                y: 22.7,
+            }, {
+                name: "Slight impact",
+                y: 20.0
+            }, {
+                name: "No impact",
+                y: 18.7
+            }, {
+                name: "Don't know",
+                y: 13.3
+            }]
+        }],
+      
+    plotOptions: {
+        series: {
+            pointWidth: 10,
+            groupPadding:0.5,
+            pointPadding:0
+
+        }
+    }
+     
+   });
+});
+
+</script>
+
+<body>
+<div class="chart" id='chart'></div>
+</body>
+</html>
