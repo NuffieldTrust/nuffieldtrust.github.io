@@ -38,23 +38,6 @@ $(document).ready(function() {
         text: '© Nuffield Trust',
         href: 'http://www.nuffieldtrust.org.uk'
     },
-      xAxis: {
-          labels: {
-          enabled: true,  
-            }
-      },
-      yAxis: {
-         title: {
-         text: ''
-         },
-      labels: {
-            formatter: function() {
-                return this.value + '%';
-            }
-      },
-
-      },
-      
       tooltip: {
           pointFormat: '{point.percentage:.1f}%</b>',
           valueDecimals: 1,
