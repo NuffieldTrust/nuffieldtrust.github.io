@@ -22,7 +22,7 @@
 $(document).ready(function() {
   Highcharts.setOptions({chart: {renderTo: 'chart'}});
   var chart = new Highcharts.Chart({
-      colors: ["#af0a21", "#C75363", "#C75363", "#C75363", "#C75363"],
+      colors: ["#B21228", "#AF0A21", "#B51B31", "#C64F60", "#C24354", "#CB5F6E", "#D6808C", "#DF9EA7", "#E4ACB4", "#E6B2B9", "#EBC2C8", "#F0D2D6"],
       chart: {
          defaultSeriesType: 'column',
          spacingBottom: 25
@@ -37,8 +37,8 @@ $(document).ready(function() {
       labels: {
           enabled: true,
       },
-          categories: ['Admission reduction and demand management','Reconfiguration','Basic efficiency improvements','Procurement, prices and pay','Other']
-            
+          categories: ['Band 1','Band 2','Band 3','Band 4','Band 5','Band 6','Band 7','Band 8a','Band 8b','Band 8c','Band 8d','Band 9']
+           
       },
       yAxis: {
          title: {
@@ -56,7 +56,7 @@ $(document).ready(function() {
       tooltip: {
          formatter: function() {
             return ''+
-               '<strong>' + this.x +':</strong> '+ this.y + '%';
+               '<strong>' + this.x +':</strong> '+ +Highcharts.numberFormat(this.y, 1, '.') + '%';
          }
       },
       legend: {
@@ -64,8 +64,8 @@ $(document).ready(function() {
       },
       series: [
          	   {
-         pointWidth: 100,
-         data: [75.7,58.6,55.7,42.9,42.9]},
+         pointWidth: 40,
+         data: [5.94810243694857,6.12841827785441,5.68536528562282,4.43315364376911,4.70372593308073,4.02569386179413,3.17556808366203,2.44119452227127,2.09584428712025,1.94382489511844,1.53137693954303,1.17379578008288]},
               ],
     plotOptions: {
         series: {
