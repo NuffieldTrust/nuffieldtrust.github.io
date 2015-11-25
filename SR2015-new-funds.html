@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chart 2 - NHS staff absences by grade</title>
+  <meta name="description" content="Source of new NHS funds set out in the 2015 Spending Review">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(document).ready(function() {
+  Highcharts.setOptions({chart: {renderTo: 'chart'}});
+  var chart = new Highcharts.Chart({
+      
+   colors: ["#af0a21", "#2b505e", "#3c1f75", "#55504c","#C75363","#6A848E","#76629e","#878180"], 
+    chart: {
+      type: 'area',
+      renderTo: 'chart',
+      spacingBottom: 25,
+      style: { 	fontFamily: 'Futura, Arial, Helvetica, sans-serif', // default font
+	fontSize: '12px'
+},
+    },    
+      title: {
+         text: 'Source of new NHS funds set out in the 2015 Spending Review'
+      },
+      credits: {
+            text: '© Nuffield Trust'
+        },
+      xAxis: {
+         categories: ['2015/16','2016/17','2017/18','2018/19','2019/20','2020/21'],
+labels: {
+                rotation: -45,
+    			align: "right"
+            }
+      },
+      yAxis: {
+         title: {
+            text: 'Real terms £bn'
+         },
+      labels: {
+            formatter: function() {
+                return this.value;
+            }
+      },
+      min: 0, max: 8
+      },
+      
+      tooltip: {
+shared: true,
+            useHTML: true,
+            headerFormat: '<small>{point.key}</small><table>',
+            pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+                '<td style="text-align: right"><b>£{point.y}bn</b></td></tr>',
+            footerFormat: '</table>',
+            valueDecimals: 2
+      },
+      legend: {
+         enabled: true,
+         margin: 30
+      },
+      series: [
+               {
+         name: 'Funds recycled from DH',
+         type: 'area',
+         marker: {
+                    enabled: false
+                },
+         data: [0,1.72733529990167,2.25355653304435,2.39829905057991,2.93806610161216,3.14412381614453]
+
+                                 
+},                       {
+         name: 'New funds for NHS',
+         type: 'area',
+         marker: {
+                    enabled: false
+                },
+         data: [0,1.98741396263522,2.88840362173117,3.12869326282654,3.26971599253382,4.15508485387616]
+
+                            
+},  
+               
+              ],
+    plotOptions: {
+        area: {
+                stacking: 'normal'
+        },
+        series: {
+            pointWidth: 10,
+            groupPadding:0.5,
+            pointPadding:0
+
+        }
+    }
+
+   
+      });
+});
+</script>
+</head>
+
+<body>
+<div class="chart" id='chart'></div>
+</body>
+</html>
