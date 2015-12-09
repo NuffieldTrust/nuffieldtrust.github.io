@@ -1,0 +1,181 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Actual use of A&E winter funding, 2014/15</title>
+  <meta name="description" content="Actual use of A&E winter funding, 2014/15">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/treemap.js"></script>
+
+<script>
+
+
+$(function () {
+    $('#container').highcharts({
+        series: [{
+            type: "treemap",
+            layoutAlgorithm: 'squarified',
+            alternateStartingDirection: true,
+            tooltip: {
+            useHTML: true,
+            headerFormat: '<small>{point.key}</small><br />',
+            pointFormat: '<small><b>£{point.value:,.0f}<br /></b><b>{point.percent:,.2f}%</b></small>',
+            footerFormat: '</table>',
+            valueDecimals: 2
+        },
+            levels: [{
+                level: 1,
+                layoutAlgorithm: 'squarified',
+                dataLabels: {
+                    enabled: true,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    format: '{point.name} <br>{point.percent:,.1f}%',
+                    style: {
+                        fontSize: '10px',
+                        fontWeight: 'normal',
+                        font: 'Arial'
+                    }
+                }
+            },
+            {
+                level: 2,
+                layoutAlgorithm: 'squarified',
+                dataLabels: {
+                    enabled: false,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'normal',
+                        font: 'Arial'
+                    }
+                }
+            }],
+            data: [{
+                id: 'O',
+                name: 'Other',
+                color: '#d5d1c8',
+                percent: 8.730932511
+            }, {
+                name: 'Additional capacity - beds & staff',
+                color: "#2b505e",
+                value: 254460507,
+                percent: 40.76809792
+            }, {
+                name: 'Minimising delayed discharges',
+                color: "#af0a21",
+                value: 73526464,
+                percent: 11.779958
+            }, {
+                name: 'Seven-day working',
+                color: "#55504c",
+                value: 61140028,
+                percent: 9.795479376
+            }, {
+                name: 'Improving established pathways',
+                color: "#3c1f75",
+                value: 58973199,
+                percent: 9.448323356
+
+            }, {
+                name: 'Other - miscellaneous',
+                parent: 'O',
+                value: 41262413,
+                percent: 6.610810115
+            }, {
+                name: 'Implementing/ improving rapid assessment',
+                color: "#C75363",
+                value: 32454473,
+                percent: 5.199656123
+            }, {
+                name: 'Data modeling, performance management',
+                color: "#6A848E",
+                value: 31941281,
+                percent: 5.117435656
+            }, {
+                name: 'Reducing unscheduled care',
+                color: "#878180",
+                value: 26436852,
+                percent: 4.235549885
+            }, {
+                name: 'Implementing/ improving other clinical models',
+                value: 16243207,
+                color: '#76629e',
+                percent: 2.602386757
+            }, {
+                name: 'Preventing avoidable readmissions',
+                value: 7432801,
+                color: '#E7B5BC',
+                percent: 1.190837677
+            }, {
+                name: 'Better working with ambulance services',
+                value: 7061454,
+                color: '#BFCACE',
+                percent: 1.131342744
+            }, {
+                name: 'Improving referral management',
+                value: 2763068,
+                parent: 'O',
+                percent: 0.442681767
+            }, {
+                name: 'Improving 111 services',
+                value: 2728804,
+                parent: 'O',
+                percent: 0.437192199
+            }, {
+                name: 'Reduction in permanent admissions to  care homes',
+                value: 1980414,
+                parent: 'O',
+                percent: 0.317289755
+            }, {
+                name: 'See & Treat and/or Hear & Treat',
+                value: 1800156,
+                parent: 'O',
+                percent: 0.288409926
+            }, {
+                name: 'Patient awareness',
+                value: 1692799,
+                parent: 'O',
+                percent: 0.271209848
+            }, {
+                name: 'Staff training and development',
+                value: 1566332,
+                parent: 'O',
+                percent: 0.250948083
+            }, {
+                name: 'Data validation',
+                value: 405500,
+                parent: 'O',
+                percent: 0.064966717
+            }, {
+                name: 'Flu and vaccination planning',
+                value: 296005,
+                parent: 'O',
+                percent: 0.047424101
+            }]
+        }],
+        title: {
+            text: 'Actual use of A&E winter funding, 2014/15'
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
