@@ -24,6 +24,10 @@
 
 $(function () {
     $('#container').highcharts({
+        credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk',
+    },
         series: [{
             type: "treemap",
             layoutAlgorithm: 'squarified',
