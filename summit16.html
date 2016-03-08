@@ -23,7 +23,12 @@
         itemsTablet: [850,1],
         itemsMobile: [479,1]
       });
-      
+        $(".next").click(function(){
+    owl.trigger('owl.next');
+  })
+  $(".prev").click(function(){
+    owl.trigger('owl.prev');
+  })
     });
     </script>
 
@@ -36,6 +41,19 @@
   width: 100%;
   height: auto;
   align: center;
+}
+
+.customNavigation{
+  text-align: center;
+}
+//use styles below to disable ugly selection
+.customNavigation a{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 </style>
