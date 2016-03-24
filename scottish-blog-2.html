@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Four country A&E waiting time target</title>
+  <meta name="description" content="Chart 1 - Scottish blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c","#d5d1c8"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart',
+         style: {
+                fontFamily: "'Futura','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Per capita health spending across the four countries of the UK'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> £{point.y:.2f}<br />',
+          valueDecimals: 1,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2010-11','2011-12','2012-13','2013-14','2014-15']
+        },
+				yAxis: {
+        title: {text:'Per cent of patients waiting in <br>A&E for less than four hours', x: -15},
+        labels: {
+            formatter: function() {
+                return '£' + this.value;
+            }
+            },
+
+        },
+        series: [{
+            name: 'Scotland',
+            data: [2215.22039674629,2201.42047553215,2200.13679607022,2182.51954116333,2160]
+        },
+        {
+            name: 'England',
+            data: [2001.95050852544,1982.96695758625,1984.57935208407,2022.12973302203,2057]
+        },
+                {
+            name: 'Wales',
+            data: [2159.49158173381,2099.0533680889,2029.14170829274,2028.22048522993,2084]
+        },
+                {
+            name: 'Northern Ireland',
+            data: [2134.84229817059,2116.99399516658,2184.59178809045,2146.99015328393,2125]
+        },
+        {
+            name: 'UK',
+            dashStyle: 'longdash',
+            data: [2031.31041881164,2010.7240265698,2010.43481721378,2039.31609884544,2068.75665358531]
+        },
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
