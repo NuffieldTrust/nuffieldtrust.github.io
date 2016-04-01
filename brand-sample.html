@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Four country per capita spend</title>
+  <meta name="description" content="Chart 2 - Scottish blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+    
+    chart: {
+      type: 'line',
+      renderTo: 'chart',
+      backgroundColor: '#dfdfe7',
+      spacingBottom: 25,
+      style: {
+	fontFamily: '"FuturaTS-Regular", Helvetica, sans-serif', // default font
+	fontSize: '12px'
+}
+      
+    },    
+    title: {
+        text: 'Annual prescribing spend per person in the four countries: 2006-2013'    
+    },
+    
+    subtitle: {
+        text: '(in real terms at 2013 prices)'  
+    },
+    credits: {
+            text: '© Nuffield Trust'
+        },
+    colors: ['#008aff','#ff6b57','#8752ff', '#45e399'],
+    plotOptions: {
+        series: {
+        lineWidth: 4,
+            marker: {
+                enabled: false,
+                states: {
+                    hover: {
+                        enabled: true,
+                        symbol: 'circle',
+                        radius: 5,
+                        lineWidth: 1
+                    }
+                }
+            }
+        }
+    },
+    
+    xAxis: {    
+        tickmarkPlacement: 'on',
+        categories: ['2006','2007','2008','2009','2010','2011','2012','2013']  
+    },
+    
+    yAxis: [{
+        min: 0,
+        max: 230,
+        tickInterval:50,
+        tickPosition: 'outside',
+        gridLineColor: '#9798a6',
+        minorGridLineColor: '#9798a6',
+        minorTickLength: 2,
+        minorTickInterval: 12.5,
+        labels: {
+            formatter: function() {
+                return '£' + this.value.toFixed(0);
+            }
+        },
+        title: {
+            text: 'Spend per person per year'
+        }
+    }],
+
+    series: [
+        {
+            name: 'England',
+            data: [165.09, 163.83, 156.28, 154.33, 155.13, 150.15, 142.93, 141.50]      
+        },
+       
+        {
+            name: 'Wales',
+            data: [187.14, 188.90, 185.50, 187.64, 188.50, 185.64, 175.70, 179.17]
+        },
+        {
+            name: 'Scotland',
+            data: [172.49, 170.79, 174.16, 178.92, 180.63, 183.72, 171.30, 176.50]
+        },
+        {
+            name: 'N. Ireland',
+            data: [219.27, 220.72, 214.60, 215.38, 221.73, 213.39, 201.03, 197.22]
+        } 
+               
+    ],
+     tooltip: {
+         valueDecimals: 2,
+        formatter: function() {
+        return this.series.name + ', ' + this.x + ': £' + Highcharts.numberFormat(this.y,0);
+        },
+      style: {
+      'line-height': '120%'
+      }
+    }
+
+});
+});
+</script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
