@@ -25,7 +25,7 @@ $(function () {
     chart: {
       type: 'line',
       renderTo: 'chart',
-      backgroundColor: '#dfdfe7',
+      backgroundColor: '#dedee6',
       spacingBottom: 25,
       style: {
 	fontFamily: '"FuturaTS-Regular", Helvetica, sans-serif', // default font
@@ -43,10 +43,10 @@ $(function () {
     credits: {
             text: '© Nuffield Trust'
         },
-    colors: ['#008aff','#ffd63d','#8752ff', '#45e399'],
+    colors: ['#0089ff','#ffd53f','#8653ff', '#47e298'],
     plotOptions: {
         series: {
-        lineWidth: 3,
+        lineWidth: 4,
             marker: {
                 enabled: false,
                 states: {
@@ -63,18 +63,20 @@ $(function () {
     
     xAxis: {    
         tickmarkPlacement: 'on',
+        tickColor: '#9798a6',
+        tickLength: 0,
+        lineColor: '#9798a6',
         categories: ['2006','2007','2008','2009','2010','2011','2012','2013']  
     },
     
     yAxis: [{
         min: 0,
         max: 230,
-        tickInterval:50,
-        tickPosition: 'outside',
+        tickInterval:20,
         gridLineColor: '#9798a6',
+        gridLineWidth: 1,
         minorGridLineColor: '#9798a6',
-        minorTickLength: 2,
-        minorTickInterval: 12.5,
+
         labels: {
             formatter: function() {
                 return '£' + this.value.toFixed(0);
@@ -84,7 +86,6 @@ $(function () {
             text: 'Spend per person per year'
         }
     }],
-
     series: [
         {
             name: 'England',
@@ -114,7 +115,6 @@ $(function () {
       'line-height': '120%'
       }
     }
-
 });
 });
 </script>
