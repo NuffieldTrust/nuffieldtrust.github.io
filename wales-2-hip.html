@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Four country A&E waiting time target</title>
+  <meta name="description" content="Chart 1 - Scottish blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+     colors: ["#af0a21","#3c1f75","#C75363","#76629e","#E7B5BC","#c4bbd5"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart',
+         style: {
+                fontFamily: "'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Average waiting times for hip replacement surgery in England and Wales<br /> 2011/12 to 2014/15'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}<br />',
+          valueDecimals: 1,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2011/12',	'2012/13','2013/14','2014/15']
+        },
+				yAxis: {
+        title: {text:'Days', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+ name: 'England',
+            data: [87.058568587018,84.2660683265779,83.986368112787,87.132451172123],
+        },{
+            name: 'Wales',
+            data: [168.565536106346,167.734747088476,184.2,205.89552181253],
+        },
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
