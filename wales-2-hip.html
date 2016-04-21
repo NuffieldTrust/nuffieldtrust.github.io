@@ -47,8 +47,10 @@ $(function () {
             labels: {rotation: -45, y: 40},
             categories: ['2011/12',	'2012/13','2013/14','2014/15']
         },
-				yAxis: {
+	yAxis: {
         title: {text:'Days', x: -5},
+        max: 250,
+        min: 0,
         labels: {
             formatter: function() {
                 return this.value;
