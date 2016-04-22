@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Waiting times in England and Wales</title>
+  <meta name="description" content="Chart 2 - Walse blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<style>
+button {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #55504c;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button.on {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #55504c;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button.off {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #878180;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #d5d1c8;
+  text-decoration: none;
+}
+
+#legend {
+  align: center;
+  padding: 5px 10px 5px 10px;
+  }
+}
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {        // the button action
+    $button = $('#cataract');
+    $button.click(function () {
+        $( "#container" ).attr('src', '//nuffieldtrust.github.io/wales-2-cataract.html');
+        $( "#cataract" ).attr('class', 'on');
+        $( "#bypass" ).attr('class', 'off');
+        $( "#angio" ).attr('class', 'off');
+        $( "#hip" ).attr('class', 'off');
+        });
+        $button = $('#bypass');
+    $button.click(function () {
+        $( "#container" ).attr('src', '//nuffieldtrust.github.io/wales-2-bypass.html');
+        $( "#cataract" ).attr('class', 'off');
+        $( "#bypass" ).attr('class', 'on');
+        $( "#angio" ).attr('class', 'off');
+        $( "#hip" ).attr('class', 'off');
+        });
+         $button = $('#angio');
+    $button.click(function () {
+        $( "#container" ).attr('src', '//nuffieldtrust.github.io/wales-2-angio.html');
+        $( "#cataract" ).attr('class', 'off');
+        $( "#bypass" ).attr('class', 'off');
+        $( "#angio" ).attr('class', 'on');
+        $( "#hip" ).attr('class', 'off');
+        });
+         $button = $('#hip');
+    $button.click(function () {
+        $( "#container" ).attr('src', '//nuffieldtrust.github.io/wales-2-hip.html');
+        $( "#cataract" ).attr('class', 'off');
+        $( "#bypass" ).attr('class', 'off');
+        $( "#angio" ).attr('class', 'off');
+        $( "#hip" ).attr('class', 'on');
+        });   
+     });
+   
+</script>
+</head>
+
+<body>
+<div id="legend">
+<center><button id="cataract" class="on">Cataract</button> <button id="bypass" class="off">Coronary bypass
+</button> <button id="angio" class="off">Coronary angioplasty</button> <button id="hip" class="off">Hip replacement</button></center></div>
+
+<iframe id="container" src="//nuffieldtrust.github.io/wales-2-cataract.html" height="425px" width="100%" frameborder='0'>
+</iframe>
+</body>
+</html>
