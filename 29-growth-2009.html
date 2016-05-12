@@ -1,0 +1,192 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>2.9% growth with 2015 baseline</title>
+  <meta name="description" content="2.9% growth with 2015 baseline<">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <style>
+  button {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #55504c;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+button.on {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #55504c;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+button.off {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #878180;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+button:hover {
+  background: #d5d1c8;
+  text-decoration: none;
+}
+#legend {
+  align: center;
+  padding: 5px 10px 5px 10px;
+  }
+}
+</style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+     colors: ["#af0a21","#3c1f75","#2b505e","#6A848E"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart',
+         style: {
+                fontFamily: "'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: '2.9% growth vs full NHS England budget, <b>without</b> STF <br />Indexed to 2015-16'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}<br />',
+          valueDecimals: 1,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'NHS E budget, no STF (2015-16=1)',
+            id: 'NHSEnoSTF',
+            data: [1,1.04,1.06,1.09,1.12,1.16],
+        },{
+            name: 'Cash cost to commissioners, no STF (2015-16=1)',
+            id: 'NHSEwSTF',
+            data: [1,1.05,1.08,1.11,1.15,1.2]
+        },
+                {
+            name: 'Cash cost to providers (2015-16 = 1.05)',
+            id: 'SCBnoSTF',
+            data: [1.05,1.092,1.126,1.158,1.203,1.248]
+        },{
+            name: 'Cash cost to providers with no efficiencies after 2014-15 (2015-16=1.05)',
+            id: 'SCBwSTF',
+            dashStyle: 'longdash',
+            data: [1.05,1.11,1.17,1.23,1.3,1.38]
+        },
+               
+]
+    });
+    
+            // the button action
+    var chart = $('#container').highcharts(),
+        $button = $('#NHSEnoSTF');
+    $button.click(function () {
+        if ($button.hasClass( "on" )) {
+        } else {
+            chart.title.attr('text', '2.9% growth vs full NHS England budget, <b>without</b> STF<br />Indexed to 2015-16');
+            $button.attr('class', 'on');
+            chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+            chart.series[0].update({name:"NHS E budget, no STF (2015-16=1)"}, true);
+            chart.series[1].setData([1,1.05,1.08,1.11,1.15,1.2],true);
+            chart.series[1].update({name:"Cash cost to commissioners, no STF (2015-16=1)"}, true);
+            $('#NHSEwSTF').attr('class', 'off');
+            $('#SCBnoSTF').attr('class', 'off');
+            $('#SCBwSTF').attr('class', 'off');
+        }
+    });
+    var chart = $('#container').highcharts(),
+        $button1 = $('#NHSEwSTF');
+    $button1.click(function () {
+        if ($button1.hasClass( "on" )) {
+        } else {
+            chart.title.attr('text', '2.9% growth vs full NHS England budget, <b>with</b> STF<br />Indexed to 2015-16');
+            $button1.attr('class', 'on');
+            chart.series[0].setData([1,1.06,1.09,1.12,1.15,1.19],true);
+            chart.series[0].update({name:"NHS E budget with STF (2015-16=1)"}, true);
+            chart.series[1].setData([1,1.08,1.1,1.13,1.17,1.21],true);
+            chart.series[1].update({name:"Cash cost to commissioners with STF (2015-16=1)"}, true);
+            $('#NHSEnoSTF').attr('class', 'off');
+            $('#SCBnoSTF').attr('class', 'off');
+            $('#SCBwSTF').attr('class', 'off');
+        }
+    });
+    var chart = $('#container').highcharts(),
+        $button2 = $('#SCBnoSTF');
+    $button2.click(function () {
+        if ($button2.hasClass( "on" )) {
+        } else {
+            chart.title.attr('text', '2.9% growth vs secondary care budget, <b>without</b> STF<br />Indexed to 2015-16');
+            $button2.attr('class', 'on');
+            chart.series[0].setData([1,1.04,1.07,1.1,1.12,1.17],true);
+            chart.series[0].update({name:"Secondary care budget, no STF (2015-16 = 1)"}, true);
+            chart.series[1].setData([1,1.05,1.08,1.11,1.15,1.2],true);
+            chart.series[1].update({name:"Cash cost to commissioners, no STF (2015-16=1)"}, true);
+            $button1.attr('class', 'off');
+            $button.attr('class', 'off');
+            $('#SCBwSTF').attr('class', 'off');
+        }
+    });
+var chart = $('#container').highcharts(),
+        $button3 = $('#SCBwSTF');
+    $button3.click(function () {
+        if ($button3.hasClass( "on" )) {
+        } else {
+            chart.title.attr('text', '2.9% growth vs secondary care budget, <b>with</b> STF<br />Indexed to 2015-16');
+            $button3.attr('class', 'on');
+            chart.series[0].setData([1,1.07,1.1,1.13,1.17,1.21],true);
+            chart.series[0].update({name:"Secondary care budget with STF (2015-16 = 1)"}, true);
+            chart.series[1].setData([1,1.08,1.1,1.13,1.17,1.21],true);
+            chart.series[1].update({name:"Cash cost to commissioners with STF (2015-16=1)"}, true);
+            $button1.attr('class', 'off');
+            $button.attr('class', 'off');
+            $button2.attr('class', 'off');
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container" style="height: 400px"></div> 
+
+<div id="legend">
+<center><button id="NHSEnoSTF" class="on">NHS England budget, without STF</button> <button id="NHSEwSTF" class="off">NHS England budget, with STF</button><br /><button id="SCBnoSTF" class="off">Secondary care budget, without STF</button> <button id="SCBwSTF" class="off">Secondary care budget, with STF</button></center></div>
+</body>
+</html>
