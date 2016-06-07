@@ -1,0 +1,110 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Health Leader's Panel 6</title>
+  <meta name="description" content="Chart 7 - Health Leaders' Panel 6">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(document).ready(function() {
+  Highcharts.setOptions({chart: {renderTo: 'chart'}});
+  var chart = new Highcharts.Chart({
+      colors: ["#2b505e", "#6A848E", "#55504c", "#C75363", "#af0a21"],
+      chart: {
+         defaultSeriesType: 'bar',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "'Futura','Arial'"
+            } 
+      },
+      title: {
+         text: ''
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      xAxis: {
+      	  categories: [''],
+          labels: {
+          enabled: true,  
+            }
+      },
+      yAxis: {
+         title: {
+         text: ''
+         },
+      labels: {
+            formatter: function() {
+                return this.value + '%';
+            }
+      },
+      },
+      
+      tooltip: {
+         formatter: function() {
+      return this.series.name + ': ' + Highcharts.numberFormat(this.y,1) + '%';
+        },
+        },
+      legend: {
+         enabled: true,
+         reversed: true
+      },
+      series: [
+         	   {
+         stacking: 'percent',
+         pointWidth: 150,
+         name: 'Strongly agree',
+         data: [0]},
+               {
+         stacking: 'percent',
+         pointWidth: 150,
+         name: 'Agree',
+         data: [16.1]},
+               {
+         stacking: 'percent',
+         pointWidth: 150,
+         name: 'Neither agree or disagree',
+         data: [54.8]},
+               {
+         stacking: 'percent',
+         pointWidth: 150,
+         name: 'Disagree',
+         data: [22.6]},
+         {
+         stacking: 'percent',
+         pointWidth: 150,
+         name: 'Strongly disagree',
+         data: [6.4]},
+              ],
+      
+    plotOptions: {
+        series: {
+            pointWidth: 10,
+            groupPadding:0.5,
+            pointPadding:0
+        }
+    },
+     
+   });
+});
+</script>
+</head>
+
+<body>
+<div id="chart"></div>
+</body>
+</html>
