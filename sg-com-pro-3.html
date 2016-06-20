@@ -1,0 +1,290 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NHS commissioner and provider spend</title>
+  <meta name="description" content="Chart 3 - NHS spending">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<style>
+#scenario {
+    margin: 0px 50px 0px 50px;
+}
+
+#slider {
+  margin: 15px;
+  background: #af021a;
+  width: 60%;
+  float: left;
+}
+
+#toggle-box {
+  float: left;
+  margin: 0px 0px 0px 30px;
+  width: 30%;
+}
+
+#toggle-text {
+  margin: 0px 0px 0px 35px;
+}
+
+#slider-toggle {
+	float: left;
+  height: 50px;
+}
+#slider-toggle.off .noUi-handle {
+	border-color: #af021a;
+}
+</style>
+
+<link href="//refreshless.com/nouislider/documentation/assets/base.css" rel="stylesheet">
+	<link href="//refreshless.com/nouislider/documentation/assets/prism.css" rel="stylesheet">
+	<script src="//refreshless.com/nouislider/documentation/assets/wNumb.js"></script>
+
+	<link href="//refreshless.com/noUiSlider/distribute/nouislider.min.css" rel="stylesheet">
+	<script src="//refreshless.com/noUiSlider/distribute/nouislider.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+var nonLinearSlider = document.getElementById('slider');
+
+noUiSlider.create(nonLinearSlider, {
+	start: [ 2.9 ],
+  snap: true,
+  connect: 'lower',
+  tooltips: wNumb({ decimals: 1, postfix: '%' }),
+  format: wNumb({ decimals: 1, postfix: '%' }),
+	range: {
+		'min': [  2.9 ],
+		'30%': [  3.2 ],
+		'70%': [  3.6 ],
+		'max': [ 3.9 ]
+	}
+});
+
+var toggleSlider = document.getElementById('slider-toggle');
+
+noUiSlider.create(toggleSlider, {
+	orientation: "vertical",
+	start: 0,
+	range: {
+		'min': [0, 1],
+		'max': 1
+	},
+	format: wNumb({
+		decimals: 0
+	})
+})
+
+toggleSlider.noUiSlider.on('update', function( values, handle ){
+	if ( values[handle] === '1' ) {
+		toggleSlider.className += ' off';
+	} else {
+		toggleSlider.className = toggleSlider.className.slice(0, -4);
+	}
+});
+
+$(function () {
+    $('#container').highcharts({
+     colors: ["#af0a21","#3c1f75","#2b505e","#6A848E"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart',
+         style: {
+                fontFamily: "'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: '2.9% growth vs full NHS England budget, <b>without</b> STF'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'', x: -5},
+        max: 1.6,
+        min: 1,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'NHS E budget (2015-16=1)',
+            id: 'NHSEnoSTF',
+            data: [1,1.04,1.06,1.09,1.12,1.16],
+        },{
+            name: 'Cash cost to commissioners (2015-16=1)',
+            id: 'NHSEwSTF',
+            data: [1,1.05,1.08,1.11,1.15,1.2]
+        },
+                {
+            name: 'Cash cost to providers (2015-16 = 1.05)',
+            id: 'SCBnoSTF',
+            data: [1.05,1.092,1.126,1.158,1.203,1.248]
+        },{
+            name: 'Cash cost to providers with no efficiencies after 2014-15 (2015-16=1.05)',
+            id: 'SCBwSTF',
+            dashStyle: 'longdash',
+            data: [1.05,1.11,1.17,1.23,1.3,1.38]
+        },
+               
+]
+    });
+
+var stp = 0;
+toggleSlider.noUiSlider.on('update', function ( values, handle ) {
+	if ( values[handle] == 0 ) {
+   $stp = "without";
+  } else {
+   $stp = "with";
+  }
+});
+
+var scenario = "";
+slider.noUiSlider.on('update', function ( values, handle ) {
+   $scenario = values[handle];
+});
+
+    var chart = $('#container').highcharts();
+toggleSlider.noUiSlider.on('update', function ( values, handle ) {
+		chart.title.attr('text', $scenario + ' growth vs full NHS England budget, <b>' + $stp + '</b> STF');
+    if ( $scenario == "2.9%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1,1.05,1.08,1.11,1.15,1.2],true);
+    chart.series[2].setData([1.05,1.092,1.126,1.158,1.203,1.248],true);
+    chart.series[3].setData([1.05,1.11,1.17,1.23,1.3,1.38],true);
+    } else if ( $scenario == "2.9%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1,1.08,1.1,1.13,1.17,1.21],true);
+    chart.series[2].setData([1.05,1.092,1.126,1.158,1.203,1.248],true);
+    chart.series[3].setData([1.05,1.11,1.17,1.23,1.3,1.38],true);
+    } else if ( $scenario == "3.2%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1.00,1.05,1.09,1.12,1.17,1.22],true);
+    chart.series[2].setData([1.05,1.095,1.133,1.169,1.217,1.267],true);
+    chart.series[3].setData([1.05,1.12,1.18,1.24,1.32,1.40],true);
+    } else if ( $scenario == "3.2%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1.00,1.08,1.11,1.14,1.18,1.22],true);
+    chart.series[2].setData([1.05,1.095,1.133,1.169,1.217,1.267],true);
+    chart.series[3].setData([1.05,1.12,1.18,1.24,1.32,1.40],true);
+    } else if ( $scenario == "3.6%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1.00,1.05,1.10,1.13,1.19,1.24],true);
+    chart.series[2].setData([1.05,1.099,1.142,1.182,1.236,1.291],true);
+    chart.series[3].setData([1.05,1.12,1.19,1.26,1.34,1.43],true);
+    } else if ( $scenario == "3.6%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1.00,1.08,1.12,1.15,1.20,1.25],true);
+    chart.series[2].setData([1.05,1.099,1.142,1.182,1.236,1.291],true);
+    chart.series[3].setData([1.05,1.12,1.19,1.26,1.34,1.43],true);
+    } else if ( $scenario == "3.9%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1.00,1.06,1.10,1.15,1.20,1.26],true);
+    chart.series[2].setData([1.05,1.103,1.149,1.194,1.253,1.313],true);
+    chart.series[3].setData([1.05,1.12,1.20,1.27,1.36,1.45],true);
+    } else if ( $scenario == "3.9%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1.00,1.09,1.13,1.16,1.22,1.271],true);
+    chart.series[2].setData([1.05,1.103,1.149,1.194,1.253,1.313],true);
+    chart.series[3].setData([1.05,1.12,1.20,1.27,1.36,1.45],true);
+    }
+    });
+    
+slider.noUiSlider.on('update', function ( values, handle ) {
+		chart.title.attr('text', $scenario + ' growth vs full NHS England budget, <b>' + $stp + '</b> STF');
+        if ( $scenario == "2.9%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1,1.05,1.08,1.11,1.15,1.2],true);
+    chart.series[2].setData([1.05,1.092,1.126,1.158,1.203,1.248],true);
+    chart.series[3].setData([1.05,1.11,1.17,1.23,1.3,1.38],true);
+    } else if ( $scenario == "2.9%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1,1.08,1.1,1.13,1.17,1.21],true);
+    chart.series[2].setData([1.05,1.092,1.126,1.158,1.203,1.248],true);
+    chart.series[3].setData([1.05,1.11,1.17,1.23,1.3,1.38],true);
+    } else if ( $scenario == "3.2%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1.00,1.05,1.09,1.12,1.17,1.22],true);
+    chart.series[2].setData([1.05,1.095,1.133,1.169,1.217,1.267],true);
+    chart.series[3].setData([1.05,1.12,1.18,1.24,1.32,1.40],true);
+    } else if ( $scenario == "3.2%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1.00,1.08,1.11,1.14,1.18,1.22],true);
+    chart.series[2].setData([1.05,1.095,1.133,1.169,1.217,1.267],true);
+    chart.series[3].setData([1.05,1.12,1.18,1.24,1.32,1.40],true);
+    } else if ( $scenario == "3.6%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1.00,1.05,1.10,1.13,1.19,1.24],true);
+    chart.series[2].setData([1.05,1.099,1.142,1.182,1.236,1.291],true);
+    chart.series[3].setData([1.05,1.12,1.19,1.26,1.34,1.43],true);
+    } else if ( $scenario == "3.6%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1.00,1.08,1.12,1.15,1.20,1.25],true);
+    chart.series[2].setData([1.05,1.099,1.142,1.182,1.236,1.291],true);
+    chart.series[3].setData([1.05,1.12,1.19,1.26,1.34,1.43],true);
+    } else if ( $scenario == "3.9%" && $stp == "without") {
+    chart.series[0].setData([1,1.04,1.06,1.09,1.12,1.16],true);
+    chart.series[1].setData([1.00,1.06,1.10,1.15,1.20,1.26],true);
+    chart.series[2].setData([1.05,1.103,1.149,1.194,1.253,1.313],true);
+    chart.series[3].setData([1.05,1.12,1.20,1.27,1.36,1.45],true);
+    } else if ( $scenario == "3.9%" && $stp == "with") {
+    chart.series[0].setData([1.00,1.06,1.09,1.12,1.15,1.19],true);
+    chart.series[1].setData([1.00,1.09,1.13,1.16,1.22,1.271],true);
+    chart.series[2].setData([1.05,1.103,1.149,1.194,1.253,1.313],true);
+    chart.series[3].setData([1.05,1.12,1.20,1.27,1.36,1.45],true);
+    }
+	
+});
+
+
+
+});    
+   
+</script>
+</head>
+
+<body>
+<div id="scenario">
+<h2>
+Select a scenario
+</h2><br/><br/>
+<div id="slider"></div>
+<div id="toggle-box">
+<div id="slider-toggle"></div>
+<div id="toggle-text">
+<p> without STF<br/> with STF</p>
+</div></div>
+
+</div>
+<div id="container" style="height: 400px"></div> 
+
+
+</body>
+</html>
