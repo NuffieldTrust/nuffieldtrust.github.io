@@ -55,6 +55,7 @@
 <script src="//code.highcharts.com/modules/exporting.js"></script>
 
 <script>
+$( document ).ready(function() {
 var nonLinearSlider = document.getElementById('slider');
 
 noUiSlider.create(nonLinearSlider, {
@@ -261,11 +262,8 @@ slider.noUiSlider.on('update', function ( values, handle ) {
     }
 	
 });
-
-
-
-});    
-   
+});
+});
 </script>
 </head>
 
