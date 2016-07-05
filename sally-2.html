@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sally blog 1</title>
+  <meta name="description" content="Chart 1 - Sally blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="https://rawgithub.com/laff/technical-indicators/master/technical-indicators.src.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart',
+         style: {
+                fontFamily: "'Futura','Arial'", 
+            } 
+      },
+      title: {
+         text: 'The declining fortunes of commissioners'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}%<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2010-11','2011-12','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'Year-on-year per cent change', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value + '%';
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'Change in commissioner cash allocations',
+            id: 'primary',
+            data: [4.36319018404907,3.34132806621521,1.94754149182343,3.01809335563326,3.47470402816872,3.72581581816145,2.51546999312446,2.44799800710924,2.52791650300208,3.84387342765145]
+        },
+        {
+                name: 'Linear Trendline',
+                linkedTo: 'primary',
+                showInLegend: false,
+                enableMouseTracking: false,
+                type: 'trendline',
+                algorithm: 'linear',
+                dashStyle: 'shortdash',
+                color: '#AF021A'
+            },
+{
+            name: 'Change in commissioner buying power',
+            id: 'secondary',
+            data: [4.36319018404907,4.91505387433016,3.29031559455262,4.58689680774951,5.15721954082187,1.89176406499161,2.25574041247678,2.48899360455106,1.5731290895602,2.97680869841084]
+        },
+        {
+                name: 'Linear Trendline',
+                linkedTo: 'secondary',
+                showInLegend: false,
+                enableMouseTracking: false,
+                type: 'trendline',
+                algorithm: 'linear',
+                dashStyle: 'shortdash',
+                color: '#2b505e'
+            },
+
+                
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
