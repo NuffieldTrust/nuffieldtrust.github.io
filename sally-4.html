@@ -1,0 +1,148 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sally blog 1</title>
+  <meta name="description" content="Chart 3 - Sally blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {
+    $('#chart1').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         style: {
+                fontFamily: "'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Funding gap in secondary care: What 2.9% activity growth a year looks like to providers and commissioners'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> {point.y}<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'£bn cash', x: -5},
+        min: 70,
+        max: 110,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'Secondary care commissioning budget, no STF',
+            color: "#af0a21",
+            visible: false,
+            marker: { enabled: false },
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
+        },{
+            name: 'Secondary care commissioning budget, with STF',
+            color: "#af0a21",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cash cost to provider after 2% recurrent efficiencies',
+            color: "#3c1f75",
+            visible: false,
+            dashStyle: 'longdash',
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
+        },{
+            name: 'Tariff cost to commissioners',
+            color: "#2b505e",
+            visible: false,
+            marker: { enabled: false },
+            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
+        },
+        {
+            name: 'Cash cost to provider with no efficiencies after 2013-14',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+        },
+        {
+            name: '2.9% growth cost to provider after extra 1.8% efficiency in 2016-17 and 2017-18',
+            dashStyle: 'longdash',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,75.8618753103998,76.8227155748725,79.0189540968132,82.0748225010176,85.1661033891639]
+        },{
+            name: 'Cost to provider after staged 1pp reduction in activity 2018-19 to 2020-21 (incs extra efficiency over the 2% in 2016-17 and 2017-18)',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,75.8618753103998,76.8227155748725,78.7279611350721,81.2083532566791,83.4480780153312]
+        },
+        {
+            name: 'Cash cost to commissioner after staged 1pp activity reduction',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'dot',
+            visible: false,
+            data: [68.6801186545368,69.8281630332418,70.6630178862509,74.0956038119783,76.4915474711495,78.3877668136355,80.8574408205785,83.0874874212612]
+        },
+        {
+            name: 'Cost to provider after staged 1pp reduction in activity 2018-19 to 2020-21 WITHOUT extra efficiency over the 2% in 2016-17 and 2017-18',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.7253008469226,81.7016846768937,84.2757665160881,86.6000904710865]
+        },
+        {
+            name: 'Net provider cost in cash after activity growth reduction to 1.5%, with just 2% efficiency only',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.454126354246,81.1696362871858,83.4483845393486,85.4132852362275]
+        },{
+            name: 'Commissioner cash cost after activity growth reduction to 1.5% ',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [68.6801186545369,69.8281630332418,70.6630178862509,74.0427626471247,76.1237174614867,77.7673198699411,79.9505518312379,81.8330915098218]
+        },
+               
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="chart1"></div>
+</body>
+</html>
