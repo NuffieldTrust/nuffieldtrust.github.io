@@ -1,0 +1,669 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sally blog 1</title>
+  <meta name="description" content="Sally blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+
+window.onscroll = function (oEvent) {
+  var mydivpos = document.getElementById("prvdr1").offsetTop;
+  var scrollPos = document.getElementsByTagName("body")[0].scrollTop;
+  var mydivpos2 = document.getElementById("prvdr2").offsetTop;
+  var mydivpos3 = document.getElementById("prvdr3").offsetTop;
+  var chart1 = document.getElementById("chart1");
+  var chart2 = document.getElementById("chart2"); 
+ 
+  
+  if(scrollPos <= mydivpos-50)
+    $('#chart1').show(300);
+    
+  if(scrollPos >= mydivpos-50 && scrollPos <= mydivpos2-50)
+    $('#chart1').hide(300);  
+    
+  if(scrollPos >= mydivpos-50 && scrollPos <= mydivpos2-50)
+    $('#chart2').show(300);      
+    
+  if(scrollPos >= mydivpos2-50 && scrollPos <= mydivpos3-50)
+    $('#chart2').hide(300);
+    
+  if(scrollPos >= mydivpos2-50 && scrollPos <= mydivpos3-50)
+    $('#chart3').show(300); 
+
+ if(scrollPos >= mydivpos3-50)
+    $('#chart3').hide(300);
+ 
+  if(scrollPos >= mydivpos3-50)
+    $('#chart2').hide(300);   
+
+ if(scrollPos >= mydivpos3-50)
+    $('#chart1').hide(300);
+          
+};
+
+$(function chart1() {
+    $('#chart1').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart1',
+         style: {
+                fontFamily: "'Futura','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Index of tariff unit prices versus provider unit costs'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2009-10','2010-11','2011-12','2012-13','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'Index: 2009-10 = 1', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'Tariff unit cash prices',
+            data: [1,1,0.96727,0.95469549,0.94037505765,0.9253290567276,0.941984979748697,0.944377621597259,0.94399987054862,0.952873469331777,0.96089666394355]
+        },{
+            name: 'Provider unit cash costs, after inflation and reported efficiencies - actual',
+            data: [1,0.996705,0.967862105504622,0.970138517176769,0.972913113335895,0.971570493239491,0.981655394959317,null,null,null,null]
+        },{
+            name: 'Provider unit cash costs, after inflation and reported efficiencies - anticipated',
+            data: [null,null,null,null,null,null,0.981655394959317,0.984148799662513,0.983755140142648,0.993002438459989,1.00136351899182],
+            color: '#2b505e',
+            dashStyle: 'shortdash',
+
+        },
+                
+]
+    });
+});
+
+
+$(function chart2() {
+    $('#chart2').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart2',
+         style: {
+                fontFamily: "'Futura','Arial'", 
+            } 
+      },
+      title: {
+         text: 'The declining fortunes of commissioners'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}%<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2010-11','2011-12','2012-13','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'Year-on-year per cent change', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value + '%';
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'Change in commissioner cash allocations',
+            data: [4.36319018404907,3.34132806621521,2.75432888120319,1.94754149182343,3.01809335563326,3.47470402816872,3.72581581816145,2.51546999312446,2.44799800710924,2.52791650300208,3.84387342765145]
+        },
+        {
+                name: 'Trend - Change in commissioner cash allocations',
+                data: [4.9,4.61,4.32,4.03,3.74,3.45,3.16,2.87,2.58,2.29,2],
+                showInLegend: false,
+                enableMouseTracking: false,
+                dashStyle: 'shortdot',
+                color: '#2b505e'
+            },
+{
+            name: 'Change in commissioner buying power',
+            data: [4.36319018404907,4.91505387433016,4.63780945132708,3.29031559455262,4.58689680774951,5.15721954082187,1.89176406499161,2.25574041247678,2.48899360455106,1.5731290895602,2.97680869841084]
+        },
+        {
+
+                name: 'Trend - Change in commissioner buying power',
+                data: [3.32,3.28,3.24,3.2,3.16,3.12,3.08,3.04,3,2.96,2.92],
+                showInLegend: false,
+                enableMouseTracking: false,
+                dashStyle: 'shortdot',
+                color: '#AF021A'
+            },
+
+                
+]
+    });
+});
+
+$(function () {
+    $('#chart3').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         renderTo: 'chart3',     
+         style: {
+                fontFamily: "'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Index of 3.07% annual activity growth applied to NHS-wide costs'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> {point.y}<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'', x: -5},
+        min: 100,
+        max: 160,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'NHS England commissioning budget, without STF (2013-14=100)',
+            color: "#af0a21",
+            marker: { enabled: false },
+            data: [100,103.0180934,106.5976672,110.5692999,113.3506375,116.1254589,119.0610135,123.6375681],
+        },{
+            name: 'NHS England commissioning budget, with STF (2013-14=100)',
+            color: "#af0a21",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [100,103.02,106.81,112.89,116.46,119.33,122.79,127.34]
+        },
+                {
+            name: 'Cash cost to commissioner under tariff rates',
+            color: "#2b505e",
+            marker: { enabled: false },
+            data: [100,103.104777283795,104.569772443265,109.720105617504,113.375757682626,116.809650886105,121.527426815691,126.312993863388]
+        },{
+            name: 'Cash cost to provider after 2% recurrent efficiencies (2013-14=100.7)',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [100.7,105.709090909091,108.8040029832,113.308343562164,117.083548460185,120.629742192554,125.501806185477,130.443878307341]
+        },{
+            name: 'Cash cost to provider with no efficiencies after 2013-14 (2013-14 =100.7)',
+            dashStyle: 'longdash',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [100.7,106.38627725,111.735730344845,118.736163801691,125.196135403102,131.620449895177,139.731033638168,148.197378885614]
+        },{
+            name: '5YFV provider cost counterfactual, no efficiencies and cost growth of 3.02%/year (2013-14=100.7)',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [100.7,106.86284,113.402845808,120.34309997145,127.708097689702,135.523833268312,143.817891864333,152.61954684643]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         renderTo: 'chart4a',     
+         style: {
+                fontFamily: "'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> {point.y}<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'£bn cash', x: -5},
+        min: 65,
+        max: 105,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no STF',
+            color: "#af0a21",
+            visible: false,
+            marker: { enabled: false },
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
+        },{
+            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            color: "#af0a21",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            color: "#3c1f75",
+            visible: false,
+            dashStyle: 'longdash',
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
+        },{
+            name: 'Cost to commissioners, 2.9% activity growth',
+            color: "#2b505e",
+            visible: false,
+            marker: { enabled: false },
+            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
+        },{
+            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+        },{
+            name: 'Cost to providers of 2.9% growth with extra effiency (to 3.1% ) 2016-17 to 2018-19',
+            dashStyle: 'longdash',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            data:  [69.8324057480175,72.3367225485695,74.3317679097245,76.382341398808,77.8804478298186,79.1750691556179,82.2369749350455,85.3343631616545]
+        },{
+            name: 'Cost to providers of 2.9% growth to 2017-18 then staged reductions by 1 % point from 2018-19 to 2020-21, with extra efficiency (to 3.1%) 2016-17 to 2018-19 of edu cost',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data:  [69.8331300754291,72.3374728516765,74.3325389061763,76.3831336645626,77.8812556344844,78.883501288984,81.3687938369046,83.6129435435505]
+        },{
+            name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'dot',
+            visible: false,
+            data: [68.6801186545368,69.8281630332418,70.6630178862509,74.0956038119783,76.4915474711495,78.3877668136355,80.8574408205785,83.0874874212612]
+        },{
+            name: 'Cost to provider after reduction in activity growth to 1.9% by 2020-21 with only 2% efficiencies each year',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.7253008469226,81.7016846768937,84.2757665160881,86.6000904710865]
+        },{
+            name: 'Cost to provider of activity growth reduction to 1.5% by 2020-21 and only 2% efficiency',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.454126354246,81.1696362871858,83.4483845393486,85.4132852362275]
+        },{
+            name: 'Cost to commissioners of activity growth reduction to 1.5% by 2020-21',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [68.6801186545369,69.8281630332418,70.6630178862509,74.0427626471247,76.1237174614867,77.7673198699411,79.9505518312379,81.8330915098218]
+        },
+               
+]
+    });
+});
+
+$(document).ready(function(){
+ 
+            // hide #back-top first
+            $("#back-top").hide();
+           
+            // fade in #back-top
+            $(function () {
+                        $(window).scroll(function () {
+                                    if ($(this).scrollTop() > 2000) {
+                                                $('#back-top').fadeIn();
+                                    } else {
+                                                $('#back-top').fadeOut();
+                                    }
+                        });
+ 
+                        // scroll body to 0px on click
+                        $('#back-top a').click(function () {
+                                    $('body,html').animate({
+                                                scrollTop: 1800
+                                    }, 800);
+                                    return false;
+                        });
+            });
+            
+});
+
+function growDiv() {
+    var growDiv = document.getElementById('grow');
+    if (growDiv.clientHeight) {
+      growDiv.style.height = 0;
+    } else {
+      var wrapper = document.querySelector('.measuringWrapper');
+      growDiv.style.height = wrapper.clientHeight + "px";
+    }
+document.getElementById("more-button").value=document.getElementById("more-button").value=='+'?'x':'+';
+};
+
+
+</script>
+
+<style>
+.container {
+  float: right;
+  position: fixed;
+  right: 0;
+  width: 50%;
+  height: 98vh;
+}
+
+#chart1 {
+	display: inline;
+	z-index: 100;
+}
+
+#chart2 {
+	display: inline;
+	z-index: 90;
+}
+
+#chart3 {
+	display: inline;
+	z-index: 80;
+}
+
+#chart4title {
+	height: 10vh;
+	width: 100%;
+	float: left;
+}
+
+#chart4a {
+	height: 50vh;
+	width: 100%;
+	float: left;
+}
+
+#chart4b {
+	height: 40vh;
+	width: 100%;
+	float: left;
+}
+
+#text{
+  float: left;
+  width: 48%;
+}
+
+p {
+ font-family: arial;
+}
+
+h2 {
+ font-family: Futura, arial;
+}
+
+h1 {
+ font-family: Futura, Arial;
+}
+
+
+button {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #55504c;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button.on {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #af0a21;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button.off {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #C75363;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #E7B5BC;
+  text-decoration: none;
+}
+
+#back-top {
+            position: fixed;
+            bottom: 5px;
+            left: 47%;
+            z-index: 1000;
+}
+ 
+#back-top a {
+            width: 50px;
+            display: block;
+            text-align: center;
+            font: 11px/100% Arial sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #6A848E;
+ 
+            /* transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+}
+#back-top a:hover {
+            color: #2b505e;
+}
+ 
+/* arrow icon (span tag) */
+#back-top span {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin-bottom: 7px;
+            background: rgba(43,80,94,0.7) url(http://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55bba872e4b0a3278f9a5941/1438361714274/up-arrow-small.png) no-repeat center center;
+ 
+ 
+            /* transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+}
+#back-top a:hover span {
+            background-color: rgba(43,80,94,0.9);
+}
+
+#more-button{border-style:none;background-color:#af021a;font:16px Arial,Sans-Serif;color:#ffffff;margin: 0 0 10px 0;box-shadow: 0px 0px 0px #888888;}
+ 
+#grow input:checked{color:#C75363;}
+ 
+#more-button:hover{color:#C75363;}
+ 
+#grow {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+  }
+
+</style>
+
+
+</head>
+
+<body>
+<div class="container" id="chart1"></div>
+<div class="container" id="chart2"></div>
+<div class="container" id="chart3"></div>
+<div class="container"><div id="chart4title"><center><p><b>Scenarios:</b> <button id="base" class="on">Base reform case</button> <button id="31provider" class="off">Extra provider efficiency to 3.1% for 3 years</button> <button id="1pp" class="off">1 pp reduction scenario</button> <button id="demo" class="off">Demographic growth only scenario</button></p></center></div>
+<div id="chart4a"></div><div id="chart4b"></div></div>
+<div id="text">
+<p>The NHS faces a £22bn funding shortfall four and a half years from now. We know that, because <a href="https://www.england.nhs.uk/2013/07/call-to-action/">the Department of Health and its main arms-length body, NHS England, have told us so, several times, for three years how</a>.</p>
+<p>What NHS England and the DH have been less forthcoming about is how that gap will be closed. This analysis is an attempt to set out how it might be closed in theory, if things go well, and raise some alarms about what might happen in practice if they don’t.</p>
+<h2>The trouble with tariff: Or how things went £3.5bn wrong</h2>
+<p>The huge financial deficit now sat on balance sheets of NHS hospitals and other providers – around £3.5bn after the smoke and mirrors of one off accountancy adjustments have been removed – is testament to the fact the traditional method of saving NHS cash has ran out of steam [FN underlying deficit]. That method cannot be put too simply: Over the last five years it has boiled down to paying hospitals less – in cash terms – to do the same thing, for each year that has passed.</p> 
+<p>The mechanism for doing this was the NHS tariff, which determines a national price for 1000s of treatments and packages of care. Every year between 2010-11 and 2015-16 the tariff was ratchetted down another notch, cutting the cash amount hospitals were effectively paid for each patient by 1.5 percent. Factor in NHS-specific inflation, and that was a real terms cut of 3.8 percent, year after year.</p>
+<p>The rationale for that was to drive waste out of NHS providers; to force hospitals and other services to cut their unit costs in order to stay profitable, or at least to ensure their rapidly diminishing income-per-treatment covered the expense of their care and treatment.</p>
+<p>That worked for a few years, but by 2013-14, the pace of provider cost cutting started to fall behind the pace of the year-on-year cuts to their tariff income. To keep up with the cuts in their income, providers needed to make a 4 percent cut in their operating costs every year from 2011-12. By 2013-14, however, their annual cost cutting efforts were nearer 2 percent. That year, a £600m underlying deficit first emerged in NHS provider accounts. The following year the underlying deficit more than doubled to £1.5bn, and then in 2015-16 it more than doubled again. [link to graph 1]. By that year, NHS providers were being paid £925 in cash for the same procedure that would be paid £1,000 to perform in 2011-12, a real terms cut in payment for providers of 20 per cent. </p>
+
+<p>This year, things have had to be different. Forced by the sheer size and unsustainability of the provider deficit, tariff prices have been increased, in cash terms, for the first time this decade. The increase is modest – just 1.8 percent in cash terms, which is more than outstripped by the expected inflation in provider costs (determined predominantly by salary, drug and equipment costs), but it will at least mean that instead of needing to find 4 percent cost cuts a year, providers will only need to find 2 percent, to keep a pace with the cuts to their income. That would not leave NHS providers laughing, but it would mean their deficits would stop getting larger, so long as they continue their recent trend of 2 percent cost cuts a year.</p>
+<div id="prvdr1"></div><p>The more significant impact, however, is on the organisations that buy NHS care, on behalf of patients. These are the NHS commissioners: NHS England centrally, and clinical commissioning groups locally. For them, the main measure of their spending power is not simply much how much extra cash they get from the government each year, but what direction cash prices in the tariff are moving. When tariff cash prices are cut, commissioner buying power is increased above and beyond the headline increase in their allocations. But when tariff cash prices shift upwards, the reverse is true, and commissioner buying power is diminished. </p>
+<p>So while annual increases in NHS commissioner headline cash allocations will remain fairly constant over this current decade – averaging 3.1 percent a year 2009-10 to 2015-16 and 3 percent from 2016-17 onwards, the cash increase in tariff prices means that 3 percent increase a year will translate into significantly less buying power than commissioners have been used to: an average of just 2.2 percent growth a year from 2016-17 onwards, down from an average of 4.5 percent a year between 2009-10 and 2015-16. [FN on STF here]</p>
+
+
+<p>That is a significant problem for commissioners because demand for hospital and other NHS services is currently growing at 3.1 percent a year; considerably faster than commissioner ability to pay for it, this year and beyond.</p>
+<p>This means that while measures to curtail NHS spending in the first half of this decade centred almost exclusively on reducing the unit cost of care by squeezing ever more efficiencies out of providers, the second half of this decade will see a sharpening of the incentive for commissioners to curtail spending by scaling back the quantity of care purchased.</p>
+<div id="prvdr2"></div>
+<h2>Unit costs up + activity up = commissioners go bust?</h2>
+<p>We can bring this incentive into sharp relief – and explore its potential implications – by calculating the future cost to commissioners and providers of NHS care, if the volume of care provided continues to grow at its current rate. These costs can then be compared to the NHS’s commissioning budget up to 2020-21.</p>
+<p>NHS England’s base case assumption for activity growth across the NHS as a whole is a continuation of the recent trend of 3.07 percent a year until 2020-21; that is, that NHS hospitals and other services will provide 3.07 percent more care in each year, by treating more patients, with more complications through more intense and advanced medicine. https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf 
+</p><p>We can price up that growing quantum of care by using the information set out in the NHS tariff prices to 2020-21. This shows how much inflation providers are expected to face, and how much prices will increase for commissioners. Although the tariff only applies directly to secondary care (over two thirds of all NHS care) it is reasonable to assume - at least for this headline analysis - that similar cost pressures (staff, drugs, equipment) will apply across all NHS services. 
+</p><p>Graph 3.1 shows these costs and sets them against the NHS commissioning budget, announced as part of the November 2015 Spending Review. We display this graph as an index, where costs in 2013-14 are set at 100, and a 10 per cent increase in cost is shown as 110, because in practice the tariff does not apply to primary care or community prescribing. (We will zoom in on the secondary care cash budget alone in more detail further below). 
+</p><p>You can read more about our method for doing this here. <input type="button" onClick="growDiv()" value="+" id="more-button"><div id='grow'>
+    <div class='measuringWrapper'>
+    <div class="text"><p>Here is some more text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae urna nulla. Vivamus a purus mi. In hac habitasse platea dictumst. In ac tempor quam. Vestibulum eleifend vehicula ligula, et cursus nisl gravida sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>asdf</p><p>asdf</p></div>
+    </div>
+</div>
+
+</p><p>The shape of the graph is familiar: The purple dotted line at the top represents NHS England’s “do nothing” scenario, where unit costs simply rise in line with inflation (around 3 per cent a year) because providers make no efficiencies to mitigate it. The blue dashed line towards the bottom shows the NHS’s total available resources – its core budget, supplemented by the £2bn to £3.4bn a year Sustainability and Transformation Fund, which we will talk more about later. The 24 percentage point gap between the two is equivalent to £22bn – the original “NHS funding gap” highlighted in NHS England’s Five Year Forward View. 
+</p><p>Since the calculation of that £22bn gap three years ago, NHS England has revised-down its estimate of average annual NHS provider inflation from 2013-14 onwards, from 3 per cent to 2.5 percent – largely to reflect the effect of continued public sector pay restraint announced in XXXX. Our purple dashed line factors that revision into the “do nothing” cost forecast. It reduces the gap to £18bn – the £4bn difference making up part of the “central savings” claimed by NHS England towards the total £22bn target. [fn why this isn’t as big as NHSE say]
+</p><p>There is further good news: Things may be bad for NHS providers, but we do not (yet) live in a world where hospitals and other services do not make any year-on-year efficiency savings. The green line in the middle shows provider costs after recurrent provider efficiencies of 2 per cent a year – around the level of efficiencies achieved in recent years – and the scale of efficiencies providers will now need to keep making if they are to keep up with the 2 percent real terms cut to tariff prices each year.
+</p><p>But here is our problem: even after those 2 percent recurrent cost savings, year on year, the gap between the provider costs (green line) and the total NHS budget (blue dotted line - including the S&TF) gets progressively wider from 2017-18 onwards. By 2020-21 it reaches 2.4 per cent of total available resources, indicating a £3bn net deficit in the NHS budget. 
+</p><p>And then there is the question of the S&TF. That £2bn to £3.4bn a year fund is supposed to be available for investment in much needed service transformation; to secure the long term sustainability of NHS services. But here we have it being swallowed up just funding the annual increases in day to day activity. The solid blue line at the bottom of the graph shows what the budget would be without it: heading straight for a £6bn NHS-wide deficit by 2020-21. 
+</p><p>This is the backdrop against which NHS England, NHS Improvement and most particularly the Treasury are demanding two further changes from local NHS organisations: From providers, they want to see additional efficiencies, above and beyond the 2 per cent they have achieved in recent years; and from commissioners they hope to see a full percentage point reduction in the rate of activity growth.
+</p><p>To explore the likely impact of those further efficiencies and spending reductions it is useful now to shift away from the NHS England budget as a whole to look more specifically and in cash terms at the secondary care sector, which makes up approximately 72 per cent of the NHS commissioning budget, and from where the vast bulk of NHS England’s estimated £15bn of “locally delivered” savings will come. 
+</p>
+<div id="prvdr3"></div>
+<h2>Zoom in on secondary care: sharing the pain of 5 more years of deficits?</h2>
+</p><p>Graph 3.2 below presents the secondary care-only version of the £22bn funding gap. The core secondary care budget (solid blue line) is set at 72 per cent of NHS England’s resource budget – a figure taken from the modelling behind the NHS England’s Five Year Forward View – while the blue dashed line supplements that by adding the entire S&TF.
+</p><p>You can read more about our workings on this here
+Graph 3.2
+
+</p><p>A slightly lower rate of activity increase is shown here (2.9 percent a year rather than 3.07 percent) as this echoes NHS England’s assumption for activity growth in the sector in the years until 2020-21 (the overall growth rate is pushed up to 3.07 per cent by an expected increase in community prescribing activity of just under 5 per cent a year).
+</p><p>Our headline starting “gap” here is the £15bn gap between the secondary care budget (including the full S&TF) and the cost of providing activity with no additional efficiencies since 2013-14 (shown again by the purple line). This is analogous to what NHS England refers to as the local share of the £22bn funding gap, or productivity challenge. Provider efficiencies of 2 per cent a year would reduce that gap by £9.4bn to leave a secondary care-wide deficit of £1.8bn in 2020-21 [fn on why this £9.4bn is more than NHS E 8.5bn fig] – but only after it had absorbed the entire S&TF on funding the cost of the growing volume of day-to-day care.
+</p><p>The core secondary care budget without the S&TF is shown by the solid blue line. Our analysis shows that without the S&TF, the secondary care deficit would be £5.2bn by 2020-21. That is the stubborn end of the £15bn funding gap that is now causing sleepless nights amongst commissioners and providers in the secondary care sector.
+</p><p>We can get a sense of how commissioners and providers are sharing the pain of that £5.2bn funding gap by looking now at how much the growing quantity of secondary care would cost commissioners. This is shown by our red line, which prices up the expected volume of care by the NHS tariff to show the price that will need to be paid to providers by commissioners. 
+</p><p>At no point does it meet the actual cost of providing care – that much we know: Even if providers make 2 percent cost savings a year, the amount they will get paid under the tariff will be cut by an equal amount, and so the level of their deficit will remain similar in proportion to what it is today – reaching around £3.7bn by 2020-21.
+</p><p>The bigger change, as discussed above, will be for commissioners. The gradual modest cash increases in tariff prices, combined with the growing volume of care purchased, means that from 2018-19 onwards, the core secondary care budget would be insufficient to cover commissioner tariff bills, forcing them to dip ever further into the S&TF to pay for the day to day costs of secondary care. 
+</p><p>By 2019-20, over a third of the S&TF would be needed to subsidise commissioner costs under the tariff, while the remaining £2bn or so would be absorbed in provider deficits. No S&TF would be available for investment in “service transformation”. The underling £5.2bn deficit against the core commissioning budget would be formed of a £3.7bn deficit in provider accounts and a £1.5bn overspend by commissioners. 
+<h2>Increase provider efficiency free up investment for transformation?</h2>
+</p><p>We saw earlier that the £3.5bn underlying provider deficit in 2015-16 was testament to the redundancy of relying almost exclusively on high levels of provider cost saving to curtail NHS spending. Indeed, Lord Carter’s report on hospital efficiency published earlier this year looked extensively at the opportunities for further cost savings in acute hospitals to 2020 and found a rate of just 2 percent could be expected: half the rate required of hospitals in recent years.
+</p><p>Nevertheless, secondary care providers are now been asked to exceed that. The rationale is simply that without further efficiencies from providers, the entire S&TF will be dwindled to naught.
+</p><p>The need for a higher level of efficiency was implicit in the original “control total” set for the provider sector for 2016-17. This commanded that secondary care providers needed to end 2016-17 with an underlying deficit of £1.8bn, down from £3.5bn in 2015-16. That would entail a 3.8 percent cut in costs in 2016-17, and the same again in 2017-18, to get the provider deficit down to around £500m a year.
+</p><p>By the end of June 2016 however, it had become apparent that such a level of cost reduction (almost twice the rate achieved in recent years) was not realistic, resulting in an easing (or “re-set”) of the control total to an underlying deficit for 2016-17 of £2.35bn (which will be reported in provider accounts as a deficit of £0.55bn, after the absorption to their bottom lines of £1.8bn of “sustainability” funding).<footnote
+</p><p>Meeting that re-set target will require providers to make an extra 1.1 per cent recurrent efficiency saving, over and above the 2 percent already planned (and required by the tariff). Providers will need to make that level of efficiency for at least three years if they are to come close to bringing their costs into line with the income they receive under the tariff. 
+</p><p>Graph 3.3 shows the impact that extra “re-set” efficiency would have on provider costs, assuming it was achieved for three years in a row from 2016-17, with recurrent efficiency savings returning to 2 per cent from 2019-20 onwards. (To make viewing easier, we have dispensed with the purple “do nothing” lines. Doing nothing, after all, is not a plausible option).
+Graph 3.3
+
+
+</p><p>As graph 3.3 shows, three years of recurrent efficiency savings at just over 3 per cent (that is, over a third higher than the rate achieved since 2013-14) would bring provider costs almost in line with the payments due to them under the tariff by 2018-19 (although our “almost” here is relative: providers would still be left with an annual trading deficit of around £600m).  That would bring provider costs down to under the level of the total budget (after it had been supplemented with the S&TF) and reduce the secondary care deficit against its core budget in 2020-21 from £5.2bn to £2.2bn. 
+</p><p>Crucially, the extra provider efficiency would remove the need for very large “sustainability” payments to providers from 2018-19 onwards, freeing up part of the S&TF for investment instead in transformation.
+</p><p>What it would not do, however, is reduce core tariff costs for commissioners, on whose side the bulk of the £2.2bn core deficit would then sit. That is because provider efficiency does nothing – at least in the short term – to reduce tariff bills for commissioners, which are determined by the volume of care purchased. Commissioners would still be left unable to pay their tariff bills out of their core budgets from 2019-20, and would instead need to use almost two thirds of the STF just to fund recurrent activity under the tariff. The pain of the core £2.2bn deficit, then, rest predominantly (£1.5bn worth) with commissioners. 
+</p><p>Beside from the begging bowl outside the Treasury, that leaves commissioners with nowhere else to turn but to reduce the rate at which activity levels are growing.
+</p><p>We are in the realm of theory rather than evidence-based practice here, but it is worth considering what the impact on secondary care costs would be if the modest amounts of S&TF freed up through extra provider efficiencies were invested in measures to reduce the speed at which activity levels were growing. 
+</p><p>Chart 1 below shows how much S&TF would be available for genuine investment in service transformation in each of the five years to 2020-21 if, and only if, providers managed to find three years of 3 per cent recurrent efficiencies. 
+
+</p><p>While the vast bulk of the S&TF would be eaten up by provider deficits in 2016-17, around £1.6bn (still only around half of the headline £2.9bn amount) would, in theory, be available for investment in 2017-18. Somewhat paradoxically, 2018-19 (the year the NHS as a whole is set to receive its lowest real terms funding increase) would emerge as the year with the most significant investment fund for transformation, at around £2bn. After that, the continued rise in secondary care activity would again require the bulk of the S&TF to be used to fund the cost of that recurrent demand, as commissioner tariff bills exceeded their core budgets.
+</p><p>There is very little systematic evidence on the scale and cost effectiveness of investment in demand management, but it is NHS England’s hope that investment in early diagnosis, better primary care and improved patient self-management, for example, will serve to improve population health and therefore slow the pace of activity growth by around one percentage point: from 2.9 per cent activity growth a year in secondary care to 1.9 per cent.
+</p><p>As we have seen, substantial funds will not be available for investment in that transformation until 2017-18. It therefore does not seem plausible to expect any real change in the activity growth rate until after then. Graph 3.4 then models the impact on secondary care costs of a staged 1 percentage point reduction in the activity growth rate over the three years from 2018-19 to 2020-21.
+ Graph 3.4
+
+
+</p><p>It is a big ask, but graph 3.4 perhaps shows why NHS England is banking on the twin hopes of substantial extra provider efficiencies in the first instance, followed by commissioner investment to achieve a percentage point reduction in the rate at which activity is growing. 
+</p><p>The impact of this strategy, if successful, is shown by the green and red dotted lines above. The annual saving in provider costs (green line) – above “extra” efficiencies alone – would be in the order of £1.7bn by 2020-21. That would imply a rather heroic and rapid return on any transformational investment, for which there is little or no evidence base. Yet it is only after both those changes – provider efficiency in excess of 3 percent, for three years, combined with a 1 percentage point reduction in activity growth - that commissioners will be able to meet the cost of the activity from their core budgets, and providers nudge close (although still around £500m off) covering their costs.
+</p><p>That’s a lot of ifs, which leave us asking: what if those extra efficiencies were not forthcoming in the three years from 2016-17? After all, the current size of the provider deficit is testament to the inability of providers to make similarly scaled cost savings over the last three years. 
+<h2>Rationing without investment</h2>
+</p><p>It is not a palatable scenario, but, as we have seen, without additional provider efficiencies, there can be no S&TF. And with no S&TF there can be no investment in genuinely reducing the rate at which demand is growing by improving population health. The risk is then that commissioners resort instead to curtailing growth by through service rationing. They might do this directly – by raising the threshold for treatment and access to certain services – or they might attempt to do it indirectly, by shutting services and hoping that patient expectations for care and treatment will wane, rather than simply divert to alternative services elsewhere.  
+</p><p>Beside from the ethical, political and long term health implications of such a move, how viable would it be as a cost saving measure in the short term?
+</p><p>The current secondary care activity growth rate of just under 3 per cent a year is comprised of 1.5 per cent growth due to population growth and aging and the remaining 1.5 per cent growth due to so-called “non-demographic growth” which is the pressure to increase activity levels due to factors such as rising public expectations (for example, that X condition will be treated, rather than endured) improvements in quality and clinical advancements.
+</p><p>Reducing the rate of activity growth to below the 1.5 per cent driven by population growth and change would involve drastic measures: it would effectively mean denying today’s 72 year olds the same hip replacement their 75 year old neighbours received last year. But commissioners might,  in the absence of sufficient investment funds, be tempted to make in-roads into the remaining 1.5 per cent of growth which we could loosely term as driven by improvements in quality and access. 
+</p><p>Graph 3.5 below shows the impact (in solid lines) of the same staged reduction in the activity growth rate to 1.9 per cent explored above, but with provider efficiencies “only” at 2 per cent a year. As the graph shows, attempting to balance the NHS budget through a 1 percentage point reduction in activity alone is not a viable option: It simply would not save enough cash and the entire S&TF would still be needed to bail out provider deficits for the rest of the decade.
+Graph 3.5
+</p><p>Bringing the NHS into financial balance without provider efficiencies in excess of 2 percent a year and concomitant successful commissioner investment in reducing growth in demand would then only be achievable were the rate of activity growth slashed even further - to the 1.5 percent required to meet only that element of demand driven by demographic change. 
+</p><p>Doing that, as the dotted lines on graph 3.5 shows, would bring provider costs down to below the level of the total budget (after spending all of the S&TF). But this precarious balance would be achieved at the cost of preserving the NHS in aspic: Standing still and deliberately halting any further advancement in healthcare quality, such as the adoption of new treatments available elsewhere in the developed world. 
+</p><p>That is a scenario most will want to avoid. But another “if” has crept into our analysis: avoiding the need to balance budgets through crude rationing and quality stagnation is not just dependent on providers finding levels of efficiencies that have evaded them over recent years. It will require commissioners to use any investment funds freed up by that efficiency successfully – to genuinely reduce the demand for health services rather than simply slash its supply. However the evidence for achieving that – particularly over just a four year timescale - is limited.
+</div>
+
+</body>
+</html>
