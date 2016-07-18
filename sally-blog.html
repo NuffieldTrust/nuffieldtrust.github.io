@@ -415,6 +415,16 @@ function growDiv() {
 document.getElementById("more-button").value=document.getElementById("more-button").value=='+'?'x':'+';
 };
 
+function growDiv2() {
+    var growDiv = document.getElementById('grow2');
+    if (growDiv.clientHeight) {
+      growDiv.style.height = 0;
+    } else {
+      var wrapper = document.querySelector('.measuringWrapper');
+      growDiv.style.height = wrapper.clientHeight + "px";
+    }
+document.getElementById("more-button").value=document.getElementById("more-button").value=='+'?'x':'+';
+};
 
 </script>
 
