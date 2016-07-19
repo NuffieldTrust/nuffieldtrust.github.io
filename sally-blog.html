@@ -34,7 +34,12 @@ window.onscroll = function (oEvent) {
  
   
   if(scrollPos <= mydivpos-50) {
-    $('#chart1').show(300);}
+    $('#chart1').show(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+    $('#chart4').hide(300);
+    
+  }
     
   else if(scrollPos >= mydivpos-50 && scrollPos <= mydivpos2-50) {
     $('#chart1').hide(300); }
@@ -710,7 +715,6 @@ $(function () {
               ],
     plotOptions: {
         series: {
-            pointWidth: 10,
             groupPadding:0.5,
             pointPadding:0,
             stacking: 'normal',
@@ -775,7 +779,6 @@ $(function () {
               ],
     plotOptions: {
         series: {
-            pointWidth: 10,
             groupPadding:0.5,
             pointPadding:0,
             stacking: 'normal',
@@ -841,7 +844,6 @@ $(function () {
               ],
     plotOptions: {
         series: {
-            pointWidth: 10,
             groupPadding:0.5,
             pointPadding:0,
             stacking: 'normal',
@@ -906,7 +908,6 @@ $(function () {
               ],
     plotOptions: {
         series: {
-            pointWidth: 10,
             groupPadding:0.5,
             pointPadding:0,
             stacking: 'normal',
