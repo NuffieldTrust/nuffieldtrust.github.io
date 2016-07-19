@@ -38,29 +38,28 @@ window.onscroll = function (oEvent) {
     $('#chart2').hide(300);
     $('#chart3').hide(300);
     $('#chart4').hide(300);
-    
   }
     
   else if(scrollPos >= mydivpos-50 && scrollPos <= mydivpos2-50) {
-    $('#chart1').hide(300); }
-    
-  else if(scrollPos >= mydivpos-50 && scrollPos <= mydivpos2-50) {
-    $('#chart2').show(300);}      
-    
+    $('#chart2').show(300);
+    $('#chart1').hide(300);
+    $('#chart3').hide(300);
+    $('#chart4').hide(300);}
+
   else if(scrollPos >= mydivpos2-50 && scrollPos <= mydivpos3-50) {
-    $('#chart2').hide(300);}
-    
-  else if(scrollPos >= mydivpos2-50 && scrollPos <= mydivpos3-50) {
-    $('#chart3').show(300);}
+    $('#chart3').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart4').hide(300);}
 
   else if(scrollPos >= mydivpos3-50) {
-    $('#chart3').hide(300);}
+    $('#chart4').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+  	
+  }
  
-  else if(scrollPos >= mydivpos3-50) {
-    $('#chart2').hide(300);   }
-
-  else if(scrollPos >= mydivpos3-50) {
-    $('#chart1').hide(300);}
 
           
 };
@@ -1161,7 +1160,7 @@ button:hover {
 <div class="container" id="chart1"></div>
 <div class="container" id="chart2"></div>
 <div class="container" id="chart3"></div>
-<div class="container"><div id="chart4title"><center><p><b>Scenarios:</b> <button id="base" class="on">Base reform case</button> <button id="31provider" class="off">Extra provider efficiency to 3.1% for 3 years</button> <button id="1pp" class="off">1 pp reduction scenario</button> <button id="demo" class="off">Demographic growth only scenario</button></p></center></div>
+<div class="container" id="chart4"><div id="chart4title"><center><p><b>Scenarios:</b> <button id="base" class="on">Base reform case</button> <button id="31provider" class="off">Extra provider efficiency to 3.1% for 3 years</button> <button id="1pp" class="off">1 pp reduction scenario</button> <button id="demo" class="off">Demographic growth only scenario</button></p></center></div>
 <div class="foura" id="chart4a1"></div><div class="fourb" id="chart4b1"></div><div class="foura" id="chart4a2"></div><div class="foura" id="chart4a3"></div><div class="foura" id="chart4a4"></div><div class="fourb" id="chart4b2"></div><div class="fourb" id="chart4b3"></div><div class="fourb" id="chart4b4"></div></div>
 <div id="text">
 <p>The NHS faces a £22bn funding shortfall four and a half years from now. We know that, because <a href="https://www.england.nhs.uk/2013/07/call-to-action/">the Department of Health and its main arms-length body, NHS England, have told us so, several times, for three years how</a>.</p>
