@@ -264,7 +264,7 @@ $(function () {
 });
 
 $(function () {
-    $('#chart4a').highcharts({
+    $('#chart4a1').highcharts({
       chart: {
          defaultSeriesType: 'line',
          spacingBottom: 25,         
@@ -281,7 +281,7 @@ $(function () {
         href: 'http://www.nuffieldtrust.org.uk'
     },
       tooltip: {
-          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> {point.y}<br />',
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
           valueDecimals: 2,
           shared: true,
         },
@@ -292,8 +292,9 @@ $(function () {
         },
 				yAxis: {
         title: {text:'£bn cash', x: -5},
-        min: 65,
-        max: 105,
+        endOnTick: false,
+        startOnTick: false,
+        tickInterval: 10,
         labels: {
             formatter: function() {
                 return this.value;
@@ -317,7 +318,6 @@ $(function () {
             name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
             color: "#3c1f75",
             visible: false,
-            dashStyle: 'longdash',
             marker: { enabled: false },
             data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
         },{
@@ -330,49 +330,233 @@ $(function () {
             name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
             color: "#3c1f75",
             marker: { enabled: false },
-            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
-        },{
-            name: 'Cost to providers of 2.9% growth with extra effiency (to 3.1% ) 2016-17 to 2018-19',
             dashStyle: 'longdash',
-            color: "#3c1f75",
+            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a2').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         renderTo: 'chart4a',     
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'£bn cash', x: -5},
+        endOnTick: false,
+        startOnTick: false,
+        tickInterval: 10,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no STF',
+            color: "#af0a21",
             visible: false,
             marker: { enabled: false },
-            data:  [69.8324057480175,72.3367225485695,74.3317679097245,76.382341398808,77.8804478298186,79.1750691556179,82.2369749350455,85.3343631616545]
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
-            name: 'Cost to providers of 2.9% growth to 2017-18 then staged reductions by 1 % point from 2018-19 to 2020-21, with extra efficiency (to 3.1%) 2016-17 to 2018-19 of edu cost',
-            color: "#3c1f75",
-            visible: false,
+            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            color: "#af0a21",
             marker: { enabled: false },
-            dashStyle: 'shortDash',
-            data:  [69.8331300754291,72.3374728516765,74.3325389061763,76.3831336645626,77.8812556344844,78.883501288984,81.3687938369046,83.6129435435505]
+            dashStyle: 'longdash',
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
         },{
-            name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
             color: "#3c1f75",
-            marker: { enabled: false },
-            dashStyle: 'dot',
             visible: false,
-            data: [68.6801186545368,69.8281630332418,70.6630178862509,74.0956038119783,76.4915474711495,78.3877668136355,80.8574408205785,83.0874874212612]
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
         },{
-            name: 'Cost to provider after reduction in activity growth to 1.9% by 2020-21 with only 2% efficiencies each year',
-            color: "#3c1f75",
+            name: 'Cost to commissioners, 2.9% activity growth',
+            color: "#2b505e",
             visible: false,
             marker: { enabled: false },
-            dashStyle: 'shortDash',
-            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.7253008469226,81.7016846768937,84.2757665160881,86.6000904710865]
+            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
         },{
-            name: 'Cost to provider of activity growth reduction to 1.5% by 2020-21 and only 2% efficiency',
+            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
             color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a3').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         renderTo: 'chart4a',     
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'£bn cash', x: -5},
+        endOnTick: false,
+        startOnTick: false,
+        tickInterval: 10,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no STF',
+            color: "#af0a21",
             visible: false,
             marker: { enabled: false },
-            dashStyle: 'shortDash',
-            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.454126354246,81.1696362871858,83.4483845393486,85.4132852362275]
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
-            name: 'Cost to commissioners of activity growth reduction to 1.5% by 2020-21',
+            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            color: "#af0a21",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
             color: "#3c1f75",
             visible: false,
             marker: { enabled: false },
-            dashStyle: 'shortDash',
-            data: [68.6801186545369,69.8281630332418,70.6630178862509,74.0427626471247,76.1237174614867,77.7673198699411,79.9505518312379,81.8330915098218]
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
+        },{
+            name: 'Cost to commissioners, 2.9% activity growth',
+            color: "#2b505e",
+            visible: false,
+            marker: { enabled: false },
+            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
+        },{
+            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a4').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         renderTo: 'chart4a',     
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'£bn cash', x: -5},
+        endOnTick: false,
+        startOnTick: false,
+        tickInterval: 10,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no STF',
+            color: "#af0a21",
+            visible: false,
+            marker: { enabled: false },
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
+        },{
+            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            color: "#af0a21",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            color: "#3c1f75",
+            visible: false,
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
+        },{
+            name: 'Cost to commissioners, 2.9% activity growth',
+            color: "#2b505e",
+            visible: false,
+            marker: { enabled: false },
+            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
+        },{
+            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
         },
                
 ]
@@ -708,7 +892,7 @@ button:hover {
 </p><p>This is the backdrop against which NHS England, NHS Improvement and most particularly the Treasury are demanding two further changes from local NHS organisations: From providers, they want to see additional efficiencies, above and beyond the 2 per cent they have achieved in recent years; and from commissioners they hope to see a full percentage point reduction in the rate of activity growth.
 </p><p>To explore the likely impact of those further efficiencies and spending reductions it is useful now to shift away from the NHS England budget as a whole to look more specifically and in cash terms at the secondary care sector, which makes up approximately 72 per cent of the NHS commissioning budget, and from where the vast bulk of NHS England’s estimated £15bn of “locally delivered” savings will come. 
 </p>
-<div id="prvdr3"></div>
+<div id="chart4-1"></div>
 <h2>Zoom in on secondary care: sharing the pain of 5 more years of deficits?</h2>
 </p><p>Graph 3.2 below presents the secondary care-only version of the £22bn funding gap. The core secondary care budget (solid blue line) is set at 72 per cent of NHS England’s resource budget – a figure taken from the modelling behind the NHS England’s Five Year Forward View – while the blue dashed line supplements that by adding the entire S&TF</p>
 <p>You can read more about our workings on this here. <input type="button" onClick="growDiv2()" value="+" id="more-button2"></p><div id='grow2'>
@@ -718,11 +902,15 @@ button:hover {
     </div>    </div> </div>
 <p>A slightly lower rate of activity increase is shown here (2.9 percent a year rather than 3.07 percent) as this echoes NHS England’s assumption for activity growth in the sector in the years until 2020-21 (the overall growth rate is pushed up to 3.07 per cent by an expected increase in community prescribing activity of just under 5 per cent a year).
 </p><p>Our headline starting “gap” here is the £15bn gap between the secondary care budget (including the full S&TF) and the cost of providing activity with no additional efficiencies since 2013-14 (shown again by the purple line). This is analogous to what NHS England refers to as the local share of the £22bn funding gap, or productivity challenge. Provider efficiencies of 2 per cent a year would reduce that gap by £9.4bn to leave a secondary care-wide deficit of £1.8bn in 2020-21 [fn on why this £9.4bn is more than NHS E 8.5bn fig] – but only after it had absorbed the entire S&TF on funding the cost of the growing volume of day-to-day care.
-</p><p>The core secondary care budget without the S&TF is shown by the solid blue line. Our analysis shows that without the S&TF, the secondary care deficit would be £5.2bn by 2020-21. That is the stubborn end of the £15bn funding gap that is now causing sleepless nights amongst commissioners and providers in the secondary care sector.
-</p><p>We can get a sense of how commissioners and providers are sharing the pain of that £5.2bn funding gap by looking now at how much the growing quantity of secondary care would cost commissioners. This is shown by our red line, which prices up the expected volume of care by the NHS tariff to show the price that will need to be paid to providers by commissioners. 
+</p>
+<p>The core secondary care budget without the S&TF is shown by the solid blue line. Our analysis shows that without the S&TF, the secondary care deficit would be £5.2bn by 2020-21. That is the stubborn end of the £15bn funding gap that is now causing sleepless nights amongst commissioners and providers in the secondary care sector.
+</p>
+<blockquote>Even if providers make 2 percent cost savings a year, the amount they will get paid under the tariff will be cut by an equal amount, and so the level of their deficit will remain similar in proportion to what it is today – reaching around £3.7bn by 2020-21.</blockquote>
+<p>We can get a sense of how commissioners and providers are sharing the pain of that £5.2bn funding gap by looking now at how much the growing quantity of secondary care would cost commissioners. This is shown by our red line, which prices up the expected volume of care by the NHS tariff to show the price that will need to be paid to providers by commissioners. 
 </p><p>At no point does it meet the actual cost of providing care – that much we know: Even if providers make 2 percent cost savings a year, the amount they will get paid under the tariff will be cut by an equal amount, and so the level of their deficit will remain similar in proportion to what it is today – reaching around £3.7bn by 2020-21.
 </p><p>The bigger change, as discussed above, will be for commissioners. The gradual modest cash increases in tariff prices, combined with the growing volume of care purchased, means that from 2018-19 onwards, the core secondary care budget would be insufficient to cover commissioner tariff bills, forcing them to dip ever further into the S&TF to pay for the day to day costs of secondary care. 
 </p><p>By 2019-20, over a third of the S&TF would be needed to subsidise commissioner costs under the tariff, while the remaining £2bn or so would be absorbed in provider deficits. No S&TF would be available for investment in “service transformation”. The underling £5.2bn deficit against the core commissioning budget would be formed of a £3.7bn deficit in provider accounts and a £1.5bn overspend by commissioners. 
+<div id="chart4-2"></div>
 <h2>Increase provider efficiency free up investment for transformation?</h2>
 </p><p>We saw earlier that the £3.5bn underlying provider deficit in 2015-16 was testament to the redundancy of relying almost exclusively on high levels of provider cost saving to curtail NHS spending. Indeed, Lord Carter’s report on hospital efficiency published earlier this year looked extensively at the opportunities for further cost savings in acute hospitals to 2020 and found a rate of just 2 percent could be expected: half the rate required of hospitals in recent years.
 </p><p>Nevertheless, secondary care providers are now been asked to exceed that. The rationale is simply that without further efficiencies from providers, the entire S&TF will be dwindled to naught.
