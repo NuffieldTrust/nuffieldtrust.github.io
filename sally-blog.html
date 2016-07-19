@@ -34,29 +34,17 @@ window.onscroll = function (oEvent) {
  
   
   if(scrollPos <= mydivpos-50) {
-    if($.browser.msie){
-   $('#chart1').css({"visibility":"visible"});
-   $('#chart2').css({"visibility":"hidden"});
-   $('#chart3').css({"visibility":"hidden"});
-   $('#chart4').css({"visibility":"hidden"});
-} else {
     $('#chart1').show(300);
     $('#chart2').hide(300);
     $('#chart3').hide(300);
     $('#chart4').hide(300);
-  }}
+  }
     
   else if(scrollPos >= mydivpos-50 && scrollPos <= mydivpos2-50) {
-   if($.browser.msie){
-   $('#chart1').css({"visibility":"hidden"});
-   $('#chart2').css({"visibility":"visible"});
-   $('#chart3').css({"visibility":"hidden"});
-   $('#chart4').css({"visibility":"hidden"});
-} else { 
-    $('#chart2').show(300);
-    $('#chart1').hide(300);
+    $('#chart2').toggle(300);
+    $('#chart1').toggle(300);
     $('#chart3').hide(300);
-    $('#chart4').hide(300);}}
+    $('#chart4').hide(300);}
 
   else if(scrollPos >= mydivpos2-50 && scrollPos <= mydivpos3-50) {
     $('#chart3').show(300);
