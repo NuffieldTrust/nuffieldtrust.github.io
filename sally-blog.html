@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 
 <html lang="en">
@@ -21,11 +22,13 @@
 
 <script>
 
+$(document).ready(function(){
+
 window.onscroll = function (oEvent) {
   var mydivpos = document.getElementById("prvdr1").offsetTop;
   var scrollPos = document.getElementsByTagName("body")[0].scrollTop;
   var mydivpos2 = document.getElementById("prvdr2").offsetTop;
-  var mydivpos3 = document.getElementById("prvdr3").offsetTop;
+  var mydivpos3 = document.getElementById("chart4-1").offsetTop;
   var chart1 = document.getElementById("chart1");
   var chart2 = document.getElementById("chart2"); 
  
@@ -53,8 +56,92 @@ window.onscroll = function (oEvent) {
 
  if(scrollPos >= mydivpos3-50)
     $('#chart1').hide(300);
+
           
 };
+
+
+        $button = $('#base');
+    $button.click(function () {
+        if ($button.hasClass( "on" )) {
+        } else {
+            $('#chart4a1').show(300);
+            $('#chart4a2').hide(300);
+            $('#chart4a3').hide(300);
+            $('#chart4a4').hide(300);
+            $('#chart4b1').show(300);
+            $('#chart4b2').hide(300);
+            $('#chart4b3').hide(300);
+            $('#chart4b4').hide(300);
+            $button.attr('class', 'on');
+            $('#31provider').attr('class', 'off');
+            $('#1pp').attr('class', 'off');
+            $('#demo').attr('class', 'off');
+        }
+    });
+ 
+        $button1 = $('#31provider');
+    $button1.click(function () {
+        if ($button1.hasClass( "on" )) {
+        } else {
+            $('#chart4a2').show(300);
+            $('#chart4a1').hide(300);
+            $('#chart4a3').hide(300);
+            $('#chart4a4').hide(300);
+            $('#chart4b2').show(300);
+            $('#chart4b1').hide(300);
+            $('#chart4b3').hide(300);
+            $('#chart4b4').hide(300);
+            $button1.attr('class', 'on');
+            $('#base').attr('class', 'off');
+            $('#1pp').attr('class', 'off');
+            $('#demo').attr('class', 'off');
+        }
+    });
+
+        $button2 = $('#1pp');
+    $button2.click(function () {
+        if ($button2.hasClass( "on" )) {
+        } else {
+            $('#chart4a3').show(300);
+            $('#chart4a1').hide(300);
+            $('#chart4a2').hide(300);
+            $('#chart4a4').hide(300);
+            $('#chart4b3').show(300);
+            $('#chart4b1').hide(300);
+            $('#chart4b2').hide(300);
+            $('#chart4b4').hide(300);
+            $button2.attr('class', 'on');
+            $('#base').attr('class', 'off');
+            $('#31provider').attr('class', 'off');
+            $('#demo').attr('class', 'off');
+        }
+    });
+
+
+        $button3 = $('#demo');
+    $button3.click(function () {
+        if ($button3.hasClass( "on" )) {
+        } else {
+            $('#chart4a4').show(300);
+            $('#chart4a1').hide(300);
+            $('#chart4a2').hide(300);
+            $('#chart4a3').hide(300);
+            $('#chart4b4').show(300);
+            $('#chart4b1').hide(300);
+            $('#chart4b2').hide(300);
+            $('#chart4b3').hide(300);
+            $button3.attr('class', 'on');
+            $('#base').attr('class', 'off');
+            $('#31provider').attr('class', 'off');
+            $('#1pp').attr('class', 'off');
+        }
+    });
+
+});
+
+
+
 
 $(function chart1() {
     $('#chart1').highcharts({
@@ -274,7 +361,7 @@ $(function () {
             } 
       },
       title: {
-         text: 'Funding gap in secondary care'
+         text: 'Funding gap in secondary care - Base reform case'
       },
       credits: {
         text: '© Nuffield Trust',
@@ -305,7 +392,6 @@ $(function () {
         {
             name: 'Core secondary care commissioning budget, no STF',
             color: "#af0a21",
-            visible: false,
             marker: { enabled: false },
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
@@ -317,13 +403,11 @@ $(function () {
         },{
             name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
             color: "#3c1f75",
-            visible: false,
             marker: { enabled: false },
             data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
         },{
             name: 'Cost to commissioners, 2.9% activity growth',
             color: "#2b505e",
-            visible: false,
             marker: { enabled: false },
             data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
         },{
@@ -349,7 +433,7 @@ $(function () {
             } 
       },
       title: {
-         text: 'Funding gap in secondary care'
+         text: 'Funding gap in secondary care - Extra provider efficiency to 3.1% for 3 years'
       },
       credits: {
         text: '© Nuffield Trust',
@@ -369,7 +453,7 @@ $(function () {
         title: {text:'£bn cash', x: -5},
         endOnTick: false,
         startOnTick: false,
-        tickInterval: 10,
+        tickInterval: 5,
         labels: {
             formatter: function() {
                 return this.value;
@@ -380,7 +464,6 @@ $(function () {
         {
             name: 'Core secondary care commissioning budget, no STF',
             color: "#af0a21",
-            visible: false,
             marker: { enabled: false },
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
@@ -392,21 +475,19 @@ $(function () {
         },{
             name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
             color: "#3c1f75",
-            visible: false,
             marker: { enabled: false },
             data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
         },{
             name: 'Cost to commissioners, 2.9% activity growth',
             color: "#2b505e",
-            visible: false,
             marker: { enabled: false },
             data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
         },{
-            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
+            name: 'Cost to providers of 2.9% growth with extra effiency (to 3.1% ) 2016-17 to 2018-19',
             color: "#3c1f75",
             marker: { enabled: false },
-            dashStyle: 'longdash',
-            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+            dashStyle: 'shortdash',
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,76.382341398808,77.8804478298186,79.1750691556179,82.2369749350455,85.3343631616545] 
         },
                
 ]
@@ -424,7 +505,7 @@ $(function () {
             } 
       },
       title: {
-         text: 'Funding gap in secondary care'
+         text: 'Funding gap in secondary care - 1 pp reduction scenario'
       },
       credits: {
         text: '© Nuffield Trust',
@@ -444,7 +525,7 @@ $(function () {
         title: {text:'£bn cash', x: -5},
         endOnTick: false,
         startOnTick: false,
-        tickInterval: 10,
+        tickInterval: 5,
         labels: {
             formatter: function() {
                 return this.value;
@@ -455,7 +536,6 @@ $(function () {
         {
             name: 'Core secondary care commissioning budget, no STF',
             color: "#af0a21",
-            visible: false,
             marker: { enabled: false },
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
@@ -467,21 +547,31 @@ $(function () {
         },{
             name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
             color: "#3c1f75",
-            visible: false,
             marker: { enabled: false },
             data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
         },{
             name: 'Cost to commissioners, 2.9% activity growth',
             color: "#2b505e",
-            visible: false,
             marker: { enabled: false },
             data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
         },{
-            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
+            name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
+            color: "#2b505e",
+            dashStyle: 'shortdash',
+            marker: { enabled: false },
+            data: [68.6801186545368,69.8281630332418,70.6630178862509,74.0956038119783,76.4915474711495,78.3877668136355,80.8574408205785,83.0874874212612] 
+        },{
+            name: 'Cost to providers of 2.9% growth with extra effiency (to 3.1% ) 2016-17 to 2018-19',
             color: "#3c1f75",
             marker: { enabled: false },
             dashStyle: 'longdash',
-            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+            data: [69.8324057480175,72.3367225485695,74.3317679097245,76.382341398808,77.8804478298186,79.1750691556179,82.2369749350455,85.3343631616545] 
+        },{
+            name: 'Cost to providers of 2.9% growth to 2017-18 then staged reductions by 1 % point from 2018-19 to 2020-21, with extra efficiency (to 3.1%) 2016-17 to 2018-19of edu cost',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'shortdash',
+            data: [69.8331300754291,72.3374728516765,74.3325389061763,76.3831336645626,77.8812556344844,78.883501288984,81.3687938369046,83.6129435435505] 
         },
                
 ]
@@ -499,7 +589,7 @@ $(function () {
             } 
       },
       title: {
-         text: 'Funding gap in secondary care'
+         text: 'Funding gap in secondary care - Demographic growth only scenario'
       },
       credits: {
         text: '© Nuffield Trust',
@@ -530,7 +620,6 @@ $(function () {
         {
             name: 'Core secondary care commissioning budget, no STF',
             color: "#af0a21",
-            visible: false,
             marker: { enabled: false },
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
@@ -540,23 +629,27 @@ $(function () {
             dashStyle: 'longdash',
             data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
         },{
-            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
-            color: "#3c1f75",
-            visible: false,
-            marker: { enabled: false },
-            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
-        },{
-            name: 'Cost to commissioners, 2.9% activity growth',
+            name: 'Cost to commissioners of activity growth reduction to 1.5% by 2020-21',
             color: "#2b505e",
-            visible: false,
             marker: { enabled: false },
-            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
+            data: [68.6801186545369,69.8281630332418,70.6630178862509,74.0427626471247,76.1237174614867,77.7673198699411,79.9505518312379,81.8330915098218] 
         },{
-            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
+            name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
+            color: "#2b505e",
+            dashStyle: 'longdash',
+            marker: { enabled: false },
+            data: [68.6801186545368,69.8281630332418,70.6630178862509,74.0956038119783,76.4915474711495,78.3877668136355,80.8574408205785,83.0874874212612] 
+        },{
+            name: 'Cost to provider of activity growth reduction to 1.5% by 2020-21 and only 2% efficiency',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.454126354246,81.1696362871858,83.4483845393486,85.4132852362275]
+        },{
+            name: 'Cost to provider after reduction in activity growth to 1.9% by 2020-21 with only 2% efficiencies each year',
             color: "#3c1f75",
             marker: { enabled: false },
             dashStyle: 'longdash',
-            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.7253008469226,81.7016846768937,84.2757665160881,86.6000904710865]
         },
                
 ]
@@ -564,7 +657,7 @@ $(function () {
 });
 
 $(function () {
-    $('#chart4b').highcharts({
+    $('#chart4b1').highcharts({
       colors: ["#af0a21", "#2b505e"],
       chart: {
          defaultSeriesType: 'column',
@@ -572,7 +665,10 @@ $(function () {
          spacingBottom: 25
       },
       title: {
-         text: 'How much STF will be available for genuine transformation?'
+         text: 'STF available for transformation - Base reform case',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
       },
       credits: {
         text: '© Nuffield Trust'
@@ -617,6 +713,203 @@ $(function () {
             pointWidth: 10,
             groupPadding:0.5,
             pointPadding:0,
+            stacking: 'normal',
+            colorByPoint: false
+
+        }
+    }
+     
+   });
+});
+
+$(function () {
+    $('#chart4b2').highcharts({
+      colors: ["#af0a21", "#2b505e"],
+      chart: {
+         defaultSeriesType: 'column',
+         renderTo: 'chart',
+         spacingBottom: 25
+      },
+      title: {
+         text: 'STF available for transformation - Extra provider efficiency to 3.1% for 3 years',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+      labels: {
+          enabled: true,
+      },
+          categories: ['2016-17','2017-18','2018-19','2019-20','2020-21']
+            
+      },
+      yAxis: {
+         title: {
+         text: '£bn',
+         },
+      labels: {
+            formatter: function() {
+                return '£' + this.value;
+            }
+      },
+
+      },
+      
+      tooltip: {
+         pointFormat: '<span style="color: {point.color};"><b>{series.name} {point.category}:</b></span> £{point.y}bn<br />',
+         valueDecimals: 2,
+      },
+      
+      series: [
+         	   {
+         name: 'STF needed to balance commissioner and provider deficits',
+         pointWidth: 100,
+         data: [1.71834139880798,1.34444782981863,0.875069155617922,2.02897493504548,2.17436316165448] },
+         {
+         name: 'STF available for transformation',
+         pointWidth: 100,
+         data: [0.381658601192015,1.55555217018137,2.07493084438208,1.37102506495452,1.22563683834552]},
+              ],
+    plotOptions: {
+        series: {
+            pointWidth: 10,
+            groupPadding:0.5,
+            pointPadding:0,
+            stacking: 'normal',
+            colorByPoint: false
+
+        }
+    }
+     
+   });
+});
+
+
+$(function () {
+    $('#chart4b3').highcharts({
+      colors: ["#af0a21", "#2b505e"],
+      chart: {
+         defaultSeriesType: 'column',
+         renderTo: 'chart',
+         spacingBottom: 25
+      },
+      title: {
+         text: 'STF available for transformation - 1 pp reduction scenario',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+      labels: {
+          enabled: true,
+      },
+          categories: ['2016-17','2017-18','2018-19','2019-20','2020-21']
+            
+      },
+      yAxis: {
+         title: {
+         text: '£bn',
+         },
+      labels: {
+            formatter: function() {
+                return '£' + this.value;
+            }
+      },
+
+      },
+      
+      tooltip: {
+         pointFormat: '<span style="color: {point.color};"><b>{series.name} {point.category}:</b></span> £{point.y}bn<br />',
+         valueDecimals: 2,
+      },
+      
+      series: [
+         	   {
+         name: 'STF needed to balance commissioner and provider deficits',
+         pointWidth: 100,
+         data: [1.71913366456256,1.34525563448445,0.583501288984039,1.16079383690462,0.452943543550546]},
+         {
+         name: 'STF available for transformation',
+         pointWidth: 100,
+         data: [0.380866335437432,1.55474436551556,2.36649871101596,2.23920616309539,2.94705645644946]},
+              ],
+    plotOptions: {
+        series: {
+            pointWidth: 10,
+            groupPadding:0.5,
+            pointPadding:0,
+            stacking: 'normal',
+            colorByPoint: false
+
+        }
+    }
+     
+   });
+});
+
+$(function () {
+    $('#chart4b4').highcharts({
+      colors: ["#af0a21", "#2b505e"],
+      chart: {
+         defaultSeriesType: 'column',
+         renderTo: 'chart',
+         spacingBottom: 25
+      },
+      title: {
+         text: 'STF available for transformation - Demographic growth only scenario',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+      labels: {
+          enabled: true,
+      },
+          categories: ['2016-17','2017-18','2018-19','2019-20','2020-21']
+            
+      },
+      yAxis: {
+         title: {
+         text: '£bn',
+         },
+      labels: {
+            formatter: function() {
+                return '£' + this.value;
+            }
+      },
+
+      },
+      
+      tooltip: {
+         pointFormat: '<span style="color: {point.color};"><b>{series.name} {point.category}:</b></span> £{point.y}bn<br />',
+         valueDecimals: 2,
+      },
+      
+      series: [
+         	   {
+         name: 'STF needed to balance commissioner and provider deficits',
+         pointWidth: 100,
+         data: [2.61812986916303,2.91812635424598,2.86963628718578,3.24038453934863,2.25328523622747]},
+         {
+         name: 'STF available for transformation',
+         pointWidth: 100,
+         data: [-0.518129869163033,-0.0181263542459789,0.0803637128142185,0.159615460651381,1.14671476377254]},
+              ],
+    plotOptions: {
+        series: {
+            pointWidth: 10,
+            groupPadding:0.5,
+            pointPadding:0,
+            stacking: 'normal',
             colorByPoint: false
 
         }
@@ -699,19 +992,35 @@ document.getElementById("more-button2").value=document.getElementById("more-butt
 	z-index: 80;
 }
 
+#chart4a1 {
+	display: inline;
+	z-index: 100;
+}
+
+#chart4b1 {
+	display: inline;
+	z-index: 1000;
+}
+
+#chart4b2 {
+	display: inline;
+	z-index: 50;
+}
+
+
 #chart4title {
 	height: 10vh;
 	width: 100%;
 	float: left;
 }
 
-#chart4a {
+.foura {
 	height: 50vh;
 	width: 100%;
 	float: left;
 }
 
-#chart4b {
+.fourb {
 	height: 40vh;
 	width: 100%;
 	float: left;
@@ -852,7 +1161,7 @@ button:hover {
 <div class="container" id="chart2"></div>
 <div class="container" id="chart3"></div>
 <div class="container"><div id="chart4title"><center><p><b>Scenarios:</b> <button id="base" class="on">Base reform case</button> <button id="31provider" class="off">Extra provider efficiency to 3.1% for 3 years</button> <button id="1pp" class="off">1 pp reduction scenario</button> <button id="demo" class="off">Demographic growth only scenario</button></p></center></div>
-<div id="chart4a"></div><div id="chart4b"></div></div>
+<div class="foura" id="chart4a1"></div><div class="fourb" id="chart4b1"></div><div class="foura" id="chart4a2"></div><div class="foura" id="chart4a3"></div><div class="foura" id="chart4a4"></div><div class="fourb" id="chart4b2"></div><div class="fourb" id="chart4b3"></div><div class="fourb" id="chart4b4"></div></div>
 <div id="text">
 <p>The NHS faces a £22bn funding shortfall four and a half years from now. We know that, because <a href="https://www.england.nhs.uk/2013/07/call-to-action/">the Department of Health and its main arms-length body, NHS England, have told us so, several times, for three years how</a>.</p>
 <p>What NHS England and the DH have been less forthcoming about is how that gap will be closed. This analysis is an attempt to set out how it might be closed in theory, if things go well, and raise some alarms about what might happen in practice if they don’t.</p>
