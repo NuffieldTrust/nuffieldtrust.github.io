@@ -328,11 +328,6 @@ $(function () {
             data: [100,103.02,106.81,112.89,116.46,119.33,122.79,127.34]
         },
                 {
-            name: 'Cash cost to commissioner under tariff rates',
-            color: "#2b505e",
-            marker: { enabled: false },
-            data: [100,103.104777283795,104.569772443265,109.720105617504,113.375757682626,116.809650886105,121.527426815691,126.312993863388]
-        },{
             name: 'Cash cost to provider after 2% recurrent efficiencies (2013-14=100.7)',
             color: "#3c1f75",
             marker: { enabled: false },
@@ -1167,12 +1162,13 @@ a:hover {
 
 <p>That is a significant problem for commissioners because demand for hospital and other NHS services is currently growing at 3.1 percent a year; considerably faster than commissioner ability to pay for it, this year and beyond.</p>
 <p>This means that while measures to curtail NHS spending in the first half of this decade centred almost exclusively on reducing the unit cost of care by squeezing ever more efficiencies out of providers, the second half of this decade will see a sharpening of the incentive for commissioners to curtail spending by scaling back the quantity of care purchased.</p>
-<div id="prvdr2"></div>
+
 <h2>Unit costs up + activity up = commissioners go bust?</h2>
 <p>We can bring this incentive into sharp relief – and explore its potential implications – by calculating the future cost to commissioners and providers of NHS care, if the volume of care provided continues to grow at its current rate. These costs can then be compared to the NHS’s commissioning budget up to 2020-21.</p>
 <p>NHS England’s base case assumption for activity growth across the NHS as a whole is a continuation of the recent trend of 3.07 percent a year until 2020-21; that is, that <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf ">NHS hospitals and other services will provide 3.07 percent more care in each year, by treating more patients, with more complications through more intense and advanced medicine</a>. 
 </p><p>We can price up that growing quantum of care by using the information set out in the NHS tariff prices to 2020-21. This shows how much inflation providers are expected to face, and how much prices will increase for commissioners. Although the tariff only applies directly to secondary care (over two thirds of all NHS care) it is reasonable to assume - at least for this headline analysis - that similar cost pressures (staff, drugs, equipment) will apply across all NHS services. 
-</p><p>Graph 3.1 shows these costs and sets them against the NHS commissioning budget, announced as part of the November 2015 Spending Review. We display this graph as an index, where costs in 2013-14 are set at 100, and a 10 per cent increase in cost is syhown as 110, because in practice the tariff does not apply to primary care or community prescribing. (We will zoom in on the secondary care cash budget alone in more detail further below). 
+</p>
+<div id="prvdr2"></div><p>Graph 3.1 shows these costs and sets them against the NHS commissioning budget, announced as part of the November 2015 Spending Review. We display this graph as an index, where costs in 2013-14 are set at 100, and a 10 per cent increase in cost is syhown as 110, because in practice the tariff does not apply to primary care or community prescribing. (We will zoom in on the secondary care cash budget alone in more detail further below). 
 </p><p>You can read more about our method for doing this here. <input type="button" onClick="growDiv()" value="+" id="more-button"><div id='grow'>
     <div class='measuringWrapper'>
     <div class="text"><hr /><p>To model the cost of future activity we have first established the baseline cash costs of secondary care for each year from 2009-10 to 2014-15. This was derived from the NHS Reference Cost data set, which details the cash cost to NHS hospitals and other secondary care services of providing £75bn worth of the total £100bn annually spent on NHS care.</p>
