@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 
 <html lang="en">
@@ -154,11 +152,16 @@ $(function chart1() {
       chart: {
          defaultSeriesType: 'line',
          spacingBottom: 25,
-         renderTo: 'chart1',
+         plotBackgroundColor:'#F4F4F1',
          style: {
                 fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
             } 
       },
+      
+        exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'Index of tariff unit prices versus provider unit costs'
       },
@@ -178,6 +181,8 @@ $(function chart1() {
         },
 				yAxis: {
         title: {text:'Index: 2009-10 = 1', x: -5},
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
         labels: {
             formatter: function() {
                 return this.value;
@@ -211,11 +216,15 @@ $(function chart2() {
       chart: {
          defaultSeriesType: 'line',
          spacingBottom: 25,
-         renderTo: 'chart2',
+         plotBackgroundColor:'#F4F4F1',
          style: {
                 fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
             } 
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'The declining fortunes of commissioners'
       },
@@ -235,6 +244,8 @@ $(function chart2() {
         },
 				yAxis: {
         title: {text:'Year-on-year per cent change', x: -5},
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
         labels: {
             formatter: function() {
                 return this.value + '%';
@@ -280,12 +291,17 @@ $(function () {
     $('#chart3').highcharts({
       chart: {
          defaultSeriesType: 'line',
+         plotBackgroundColor:'#F4F4F1',
          spacingBottom: 25,
          renderTo: 'chart3',     
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'Index of 3.1% annual activity growth applied to NHS-wide costs'
       },
@@ -303,10 +319,12 @@ $(function () {
             labels: {rotation: -45, y: 40},
             categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
         },
-				yAxis: {
+		yAxis: {
         title: {text:'Index, NHS commissioning budget 2013-14 = 100', x: -5},
         min: 100,
         max: 160,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
         labels: {
             formatter: function() {
                 return this.value;
@@ -319,13 +337,16 @@ $(function () {
             name: 'NHS England commissioning budget, without STF (2013-14=100)',
             color: "#af0a21",
             marker: { enabled: false },
+            line: {enabled: false},
+            lineWidth: 0,
             type: "area",
             data: [100,103.0180934,106.5976672,110.5692999,113.3506375,116.1254589,119.0610135,123.6375681],
         },{
             name: 'NHS England commissioning budget, with STF (2013-14=100)',
-            color: "#af0a21",
+            color: "#C75363",
             marker: { enabled: false },
             dashStyle: 'longdash',
+            lineWidth: 0,
             type: "area",
             data: [100,103.02,106.81,112.89,116.46,119.33,122.79,127.34]
         },
@@ -358,11 +379,15 @@ $(function () {
       chart: {
          defaultSeriesType: 'line',
          spacingBottom: 25,         
-         renderTo: 'chart4a',     
+         plotBackgroundColor:'#F4F4F1',   
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'Funding gap in secondary care - Base reform case'
       },
@@ -385,6 +410,8 @@ $(function () {
         endOnTick: false,
         startOnTick: false,
         tickInterval: 10,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
         labels: {
             formatter: function() {
                 return this.value;
@@ -430,11 +457,15 @@ $(function () {
       chart: {
          defaultSeriesType: 'line',
          spacingBottom: 25,         
-         renderTo: 'chart4a',     
+         plotBackgroundColor:'#F4F4F1',     
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'Funding gap in secondary care - Extra provider efficiency to 3.1% for 3 years'
       },
@@ -457,6 +488,8 @@ $(function () {
         endOnTick: false,
         startOnTick: false,
         tickInterval: 5,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
         labels: {
             formatter: function() {
                 return this.value;
@@ -502,11 +535,15 @@ $(function () {
       chart: {
          defaultSeriesType: 'line',
          spacingBottom: 25,         
-         renderTo: 'chart4a',     
+         plotBackgroundColor:'#F4F4F1',
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'Funding gap in secondary care - 1 pp reduction scenario'
       },
@@ -530,6 +567,8 @@ $(function () {
         startOnTick: false,
         min: 65,
         tickInterval: 5,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
         labels: {
             formatter: function() {
                 return this.value;
@@ -591,11 +630,15 @@ $(function () {
       chart: {
          defaultSeriesType: 'line',
          spacingBottom: 25,         
-         renderTo: 'chart4a',     
+         plotBackgroundColor:'#F4F4F1',    
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'Funding gap in secondary care - Demographic growth only scenario'
       },
@@ -617,7 +660,9 @@ $(function () {
         title: {text:'£bn cash', x: -5},
         endOnTick: false,
         startOnTick: false,
-        tickInterval: 10,
+        tickInterval: 5,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
         labels: {
             formatter: function() {
                 return this.value;
@@ -669,9 +714,13 @@ $(function () {
       colors: ["#af0a21", "#2b505e"],
       chart: {
          defaultSeriesType: 'column',
-         renderTo: 'chart',
+         plotBackgroundColor:'#F4F4F1',
          spacingBottom: 25
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'STF available for transformation - Base reform case',
          style: {
@@ -692,6 +741,8 @@ $(function () {
          title: {
          text: '£bn',
          max: 100,
+         alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
          },
       labels: {
             formatter: function() {
@@ -734,9 +785,13 @@ $(function () {
       colors: ["#af0a21", "#2b505e"],
       chart: {
          defaultSeriesType: 'column',
-         renderTo: 'chart',
+         plotBackgroundColor:'#F4F4F1',
          spacingBottom: 25
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'STF available for transformation - Extra provider efficiency to 3.1% for 3 years',
          style: {
@@ -756,6 +811,8 @@ $(function () {
       yAxis: {
          title: {
          text: '£bn',
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3', 
          },
       labels: {
             formatter: function() {
@@ -799,9 +856,13 @@ $(function () {
       colors: ["#af0a21", "#2b505e"],
       chart: {
          defaultSeriesType: 'column',
-         renderTo: 'chart',
+         plotBackgroundColor:'#F4F4F1',
          spacingBottom: 25
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'STF available for transformation - 1 pp reduction scenario',
          style: {
@@ -863,9 +924,13 @@ $(function () {
       colors: ["#af0a21", "#2b505e"],
       chart: {
          defaultSeriesType: 'column',
-         renderTo: 'chart',
+         plotBackgroundColor:'#F4F4F1',
          spacingBottom: 25
       },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
       title: {
          text: 'STF available for transformation - Demographic growth only scenario',
          style: {
@@ -977,8 +1042,9 @@ document.getElementById("more-button2").value=document.getElementById("more-butt
   float: right;
   position: fixed;
   right: 0;
-  width: 50%;
+  width: 49%;
   height: 98vh;
+  margin-right: 15px
 }
 
 
@@ -1003,6 +1069,9 @@ document.getElementById("more-button2").value=document.getElementById("more-butt
 #text{
   float: left;
   width: 48%;
+  border-right: solid #eae8e3;
+  margin: 0px 0px 0px 15px;
+  padding-right: 15px;
 }
 
 p {
