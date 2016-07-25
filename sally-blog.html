@@ -528,6 +528,7 @@ $(function () {
         title: {text:'£bn cash', x: -5},
         endOnTick: false,
         startOnTick: false,
+        mix: 65,
         tickInterval: 5,
         labels: {
             formatter: function() {
@@ -541,12 +542,14 @@ $(function () {
             color: "#af0a21",
             marker: { enabled: false },
             type: "area",
+            fillOpacity: 0.1,
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
             name: 'Secondary care budget inc Sustainability & Transformation Fund',
             color: "#af0a21",
             marker: { enabled: false },
             type: "area",
+            fillOpacity: 0.1,
             dashStyle: 'longdash',
             data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
         },{
