@@ -572,6 +572,12 @@ $(function () {
       title: {
          text: 'Funding gap in secondary care - 1 pp reduction scenario'
       },
+      subtitle: {
+         text: '1 pp reduction scenario',
+         style: {
+         	display: none}
+         }
+      },
       credits: {
         text: '© Nuffield Trust',
         href: 'http://www.nuffieldtrust.org.uk'
@@ -586,7 +592,7 @@ $(function () {
             labels: {rotation: -45, y: 40},
             categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
         },
-				yAxis: {
+	yAxis: {
         title: {text:'£bn cash', x: -5},
         endOnTick: false,
         startOnTick: false,
@@ -605,33 +611,33 @@ $(function () {
             name: 'Core secondary care commissioning budget, no STF',
             color: "#af0a21",
             marker: { enabled: false },
+            lineWidth: 0,
             type: "area",
-            fillOpacity: 0.1,
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
             name: 'Secondary care budget inc Sustainability & Transformation Fund',
-            color: "#af0a21",
+            color: "#C75363",
             marker: { enabled: false },
-            type: "area",
-            fillOpacity: 0.1,
             dashStyle: 'longdash',
+            lineWidth: 0,
+            type: "area",
             data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
-        },{
-            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
-            color: "#3c1f75",
-            marker: { enabled: false },
-            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
         },{
             name: 'Cost to commissioners, 2.9% activity growth',
             color: "#2b505e",
             marker: { enabled: false },
-            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
+            data: [68.6866376012409,69.834915761205,70.9883318212262,74.0406186206309,76.3943245280132,78.5919720830709,81.4079983122654,84.4894444558776]
         },{
             name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
             color: "#2b505e",
             dashStyle: 'shortdash',
             marker: { enabled: false },
-            data: [68.6801186545368,69.8281630332418,70.6630178862509,74.0956038119783,76.4915474711495,78.3877668136355,80.8574408205785,83.0874874212612] 
+            data: [68.6801186545368,69.8281630332418,70.9813928531608,74.0862454720885,76.4949042440042,78.4048124178449,80.6537441173549,82.8931450025523]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.6997679097245,77.8993282787857,80.3750221213396,82.6864714514744,85.6484556917842,88.8896151854208]
         },{
             name: 'Cost to providers of 2.9% growth with extra effiency (to 3.1% ) 2016-17 to 2018-19',
             color: "#3c1f75",
