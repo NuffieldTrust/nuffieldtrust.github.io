@@ -436,21 +436,21 @@ $(function () {
             dashStyle: 'longdash',
             data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
         },{
-            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
-            color: "#3c1f75",
-            marker: { enabled: false },
-            data: [69.8324057480175,72.3367225485695,74.3317679097245,77.2813282787857,79.7244739153396,82.0036690654209,85.1749641577203,88.3830093392502]
-        },{
             name: 'Cost to commissioners, 2.9% activity growth',
             color: "#2b505e",
             marker: { enabled: false },
-            data: [68.6866376012409,69.834915761205,70.6699568543164,74.0499769605207,76.3909677551584,78.57486329773,81.6135575560978,84.687465278331]
+            data: [68.6866376012409,69.834915761205,70.9883318212262,74.0406186206309,76.3943245280132,78.5919720830709,81.4079983122654,84.4894444558776]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.6997679097245,77.8993282787857,80.3750221213396,82.6864714514744,85.6484556917842,88.8896151854208]
         },{
             name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
             color: "#3c1f75",
             marker: { enabled: false },
             dashStyle: 'longdash',
-            data: [69.8324057480175,73.6539841525778,77.2299587371696,81.9331859943045,86.2483611010665,90.5245548444574,95.944259942995,101.589716142301]
+            data: [69.8324057480175,73.6539841525778,77.5979587371696,82.5511859943044,86.8989093070665,91.2073572305108,96.3863845961309,102.057855852152]
         },
                
 ]
@@ -1092,6 +1092,7 @@ $(function () {
       chart: {
          type: 'waterfall',
          spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
          style: {
                 fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
             } 
@@ -1174,6 +1175,7 @@ $(function () {
       chart: {
          type: 'waterfall',
          spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
          style: {
                 fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
             } 
@@ -1404,17 +1406,14 @@ button:hover {
   
 @media (max-width: 768px) {
   button {
-    padding:2px 4px;
-    font-size:80%;
+    font-size:50%;
     line-height: 1;
-    border-radius:3px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
   button {
-    padding:4px 9px;
-    font-size:90%;
+    font-size:75%;
     line-height: 1.2;
   }
 }
