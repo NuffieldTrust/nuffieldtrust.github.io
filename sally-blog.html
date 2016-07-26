@@ -17,6 +17,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="//code.highcharts.com/highcharts.js"></script>
 <script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.highcharts.com/highcharts-more.js"></script>
 
 <script>
 
@@ -76,6 +77,10 @@ window.onscroll = function (oEvent) {
             $('#chart4b2').hide(300);
             $('#chart4b3').hide(300);
             $('#chart4b4').hide(300);
+            $('#chart4c1').show(300);
+            $('#chart4c2').hide(300);
+            $('#chart4c3').hide(300);
+            $('#chart4c4').hide(300);
             $button.attr('class', 'on');
             $('#31provider').attr('class', 'off');
             $('#1pp').attr('class', 'off');
@@ -760,22 +765,29 @@ $(function () {
       series: [
          	   {
          name: 'STF needed to balance commissioner and provider deficits',
-         pointWidth: 100,
          data: [2.61732827878569,3.1884739153396,3.70366906542088,4.9669641577203,5.2230093392502]},
          {
          name: 'STF available for transformation',
-         pointWidth: 100,
          data: [-0.517328278785698,-0.288473915339594,-0.75366906542088,-1.56696415772029,-1.82300933925019]},
               ],
     plotOptions: {
         series: {
-            groupPadding:0.5,
-            pointPadding:0,
             stacking: 'normal',
-            colorByPoint: false
-
+            colorByPoint: false,
+                dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return '£' + Highcharts.numberFormat(this.y, 1, '.') + 'bn';
+                },
+                style: {
+                    color: '#FFFFFF',
+                    fontWeight: 'bold',
+                    textShadow: '0px 0px 3px black'
+                }
+            },
         }
-    }
+    },
+
      
    });
 });
@@ -830,22 +842,29 @@ $(function () {
       series: [
          	   {
          name: 'STF needed to balance commissioner and provider deficits',
-         pointWidth: 100,
          data: [1.71834139880798,1.34444782981863,0.875069155617922,2.02897493504548,2.17436316165448] },
          {
          name: 'STF available for transformation',
-         pointWidth: 100,
          data: [0.381658601192015,1.55555217018137,2.07493084438208,1.37102506495452,1.22563683834552]},
               ],
     plotOptions: {
         series: {
-            groupPadding:0.5,
-            pointPadding:0,
             stacking: 'normal',
             colorByPoint: false
 
         }
-    }
+    },
+    dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return '£' + Highcharts.numberFormat(this.y, 1, '.') + 'bn';
+                },
+                style: {
+                    color: '#FFFFFF',
+                    fontWeight: 'bold',
+                    textShadow: '0px 0px 3px black'
+                }
+            },
      
    });
 });
@@ -899,17 +918,13 @@ $(function () {
       series: [
          	   {
          name: 'STF needed to balance commissioner and provider deficits',
-         pointWidth: 100,
          data: [1.71913366456256,1.34525563448445,0.583501288984039,1.16079383690462,0.452943543550546]},
          {
          name: 'STF available for transformation',
-         pointWidth: 100,
          data: [0.380866335437432,1.55474436551556,2.36649871101596,2.23920616309539,2.94705645644946]},
               ],
     plotOptions: {
         series: {
-            groupPadding:0.5,
-            pointPadding:0,
             stacking: 'normal',
             colorByPoint: false
 
@@ -967,24 +982,276 @@ $(function () {
       series: [
          	   {
          name: 'STF needed to balance commissioner and provider deficits',
-         pointWidth: 100,
          data: [2.61812986916303,2.91812635424598,2.86963628718578,3.24038453934863,2.25328523622747]},
          {
          name: 'STF available for transformation',
-         pointWidth: 100,
          data: [-0.518129869163033,-0.0181263542459789,0.0803637128142185,0.159615460651381,1.14671476377254]},
               ],
     plotOptions: {
         series: {
-            groupPadding:0.5,
-            pointPadding:0,
             stacking: 'normal',
             colorByPoint: false
-
         }
-    }
+    },
+    dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return '£' + Highcharts.numberFormat(this.y, 1, '.') + 'bn';
+                },
+                style: {
+                    color: '#FFFFFF',
+                    fontWeight: 'bold',
+                    textShadow: '0px 0px 3px black'
+                }
+            },
      
    });
+});
+
+$(function () {
+    $('#chart4c1').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         type: 'waterfall',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Waterfall'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		type: 'category'
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#2b505e",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'STF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },{
+                name: 'Funding gap by 2020-21',
+                isSum: true,
+                color: "#55504c"
+            }],
+            dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return '£' + Highcharts.numberFormat(this.y, 1, '.') + 'bn';
+                },
+                style: {
+                    color: '#FFFFFF',
+                    fontWeight: 'bold',
+                    textShadow: '0px 0px 3px black'
+                }
+            },
+            pointPadding: 0
+        }]
+    });
+});
+
+
+$(function () {
+    $('#chart4c2').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         type: 'waterfall',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Waterfall'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		type: 'category'
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#2b505e",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'STF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },
+            {
+                name: 'Extra "reset" efficiencies above 2% a year 2016-17 to 2018-19',
+                y:  4.42
+
+            },{
+                name: 'Funds available by 2020-21 for transformation',
+                isSum: true,
+                color: "#55504c"
+            }],
+            dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return '£' + Highcharts.numberFormat(this.y, 1, '.') + 'bn';
+                },
+                style: {
+                    color: '#FFFFFF',
+                    fontWeight: 'bold',
+                    textShadow: '0px 0px 3px black'
+                }
+            },
+            pointPadding: 0
+        }]
+    });
+});
+
+$(function () {
+    $('#chart4c3').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         type: 'waterfall',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Waterfall'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		type: 'category'
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#2b505e",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'STF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },
+            {
+                name: 'Extra "reset" efficiencies above 2% a year 2016-17 to 2018-19',
+                y:  4.42
+
+            },{
+                name: '1% point reduction in activity growth rate from 2018-19 onwards to 1.9% by 2020-21',
+                y:  1.70
+
+            },{
+                name: 'Funds available by 2020-21 for transformation',
+                isSum: true,
+                color: "#55504c"
+            }],
+            dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return '£' + Highcharts.numberFormat(this.y, 1, '.') + 'bn';
+                },
+                style: {
+                    color: '#FFFFFF',
+                    fontWeight: 'bold',
+                    textShadow: '0px 0px 3px black'
+                }
+            },
+            pointPadding: 0
+        }]
+    });
 });
 
 $(document).ready(function(){
@@ -1043,7 +1310,7 @@ document.getElementById("more-button2").value=document.getElementById("more-butt
   position: fixed;
   right: 0;
   width: 49%;
-  height: 98vh;
+  height: 100vh;
   margin-right: 15px
 }
 
@@ -1062,7 +1329,13 @@ document.getElementById("more-button2").value=document.getElementById("more-butt
 
 .fourb {
 	height: 40vh;
-	width: 100%;
+	width: 60%;
+	float: left;
+}
+
+.fourc {
+	height: 40vh;
+	width: 40%;
 	float: left;
 }
 
@@ -1222,7 +1495,7 @@ a:hover {
 <div class="container" id="chart2"></div>
 <div class="container" id="chart3"></div>
 <div class="container" id="chart4"><div id="chart4title"><center><p><b>Scenarios:</b> <button id="base" class="on">Base reform case</button> <button id="31provider" class="off">Extra provider efficiency to 3.1% for 3 years</button> <button id="1pp" class="off">1 pp reduction scenario</button> <button id="demo" class="off">Demographic growth only scenario</button></p></center></div>
-<div class="foura" id="chart4a1"></div><div class="fourb" id="chart4b1"></div><div class="foura" id="chart4a2"></div><div class="foura" id="chart4a3"></div><div class="foura" id="chart4a4"></div><div class="fourb" id="chart4b2"></div><div class="fourb" id="chart4b3"></div><div class="fourb" id="chart4b4"></div></div>
+<div class="foura" id="chart4a1"></div><div class="fourb" id="chart4b1"></div><div class="fourc" id="chart4c1"></div><div class="foura" id="chart4a2"></div><div class="foura" id="chart4a3"></div><div class="foura" id="chart4a4"></div><div class="fourb" id="chart4b2"></div><div class="fourb" id="chart4b3"></div><div class="fourb" id="chart4b4"></div></div>
 <div id="text">
 <p>The NHS faces a £22bn funding shortfall four and a half years from now. We know that, because <a href="https://www.england.nhs.uk/2013/07/call-to-action/">the Department of Health and its main arms-length body, NHS England, have told us so, several times, for three years how</a>.</p>
 <p>What NHS England and the DH have been less forthcoming about is how that gap will be closed. This analysis is an attempt to set out how it might be closed in theory, if things go well, and raise some alarms about what might happen in practice if they don’t.</p>
