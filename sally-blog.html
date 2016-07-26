@@ -1258,6 +1258,83 @@ $(function () {
     });
 });
 
+$(function () {
+    $('#chart4c4').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         type: 'waterfall',
+         spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Waterfall'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		type: 'category'
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#2b505e",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'STF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },
+            {
+                name: 'Reduce activity growth by 1% point to 1.9% by 2020-21',
+                y:   1.79
+
+            },{
+                name: 'Reduce activity growth by more again, to 1.5% by 2020-21',
+                y:  1.19
+
+            },{
+                name: 'Funds available by 2020-21 for transformation',
+                isSum: true,
+                color: "#55504c"
+            }],
+            
+            pointPadding: 0
+        }]
+    });
+});
+
 $(document).ready(function(){
  
             // hide #back-top first
