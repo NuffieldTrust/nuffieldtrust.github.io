@@ -1422,16 +1422,16 @@ h1 {
 button {
   font-family: Arial;
   color: #ffffff;
-  font-size: 14px;
   background: #55504c;
   padding: 5px 10px 5px 10px;
   text-decoration: none;
+  font-size:50%;
+  line-height: 1;
 }
 
 button.on {
   font-family: Arial;
   color: #ffffff;
-  font-size: 14px;
   background: #af0a21;
   padding: 5px 10px 5px 10px;
   text-decoration: none;
@@ -1440,7 +1440,6 @@ button.on {
 button.off {
   font-family: Arial;
   color: #ffffff;
-  font-size: 14px;
   background: #C75363;
   padding: 5px 10px 5px 10px;
   text-decoration: none;
@@ -1451,20 +1450,20 @@ button:hover {
   text-decoration: none;
 }
 
-  
-@media (max-width: 768px) {
-  button {
-    font-size:50%;
-    line-height: 1;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 992px) {
-  button {
+@media screen and (min-width: 480px) {
+    button {
     font-size:75%;
+    line-height: 1;
+    }
+}  
+
+@media screen and (min-width: 769px) {
+    button {
+    font-size:100%;
     line-height: 1.2;
-  }
-}
+    }
+} 
+
 
 #back-top {
             position: fixed;
