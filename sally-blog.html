@@ -30,6 +30,7 @@ window.onscroll = function (oEvent) {
               document.getElementsByTagName("body")[0].scrollTop;
   var mydivpos2 = document.getElementById("chart2-div").offsetTop;
   var mydivpos3 = document.getElementById("chart3-div").offsetTop;
+  var mydivpos4 = document.getElementById("chart4-div").offsetTop;
   var chart1 = document.getElementById("chart1");
   var chart2 = document.getElementById("chart2"); 
  
@@ -1386,9 +1387,9 @@ document.getElementById("more-button2").value=document.getElementById("more-butt
   float: right;
   position: fixed;
   right: 0;
-  width: calc(49% - 15px);
+  width: 49%;
   height: 100vh;
-  margin-right: 15px
+  padding-right: 15px
 }
 
 
@@ -1746,7 +1747,7 @@ a:hover {
             Finally, as the reference cost dataset covers service cost (£62 billion in 2014-15) rather than full operational cost (£75 billion), values for
             each year are multiplied up to reflect provider full operational costs, net of education and training costs (approximately 3.6%) as those costs are
             typically funded by Health Education England, rather than commissioners. These adjustments are made using the  <a href="https://www.gov.uk/government/publications/nhs-reference-costs-2014-to-2015">reconciliation data published by the
-            Department of Health for the years from 2012-13 onwards</a></p><hr /><br /></div>
+            Department of Health for the years from 2012-13 onwards</a>.</p><hr /><br /></div>
     </div>
 </div>
 
@@ -1768,11 +1769,11 @@ a:hover {
     Our purple dashed line factors that revision into the “do nothing” cost forecast. It reduces the gap to £19 billion – the £4 billion difference making up
     part of the “central savings” claimed by NHS England towards the total £22 billion/£23 billion target.
     <a
-        href="#_ftn10"
-        name="_ftnref10"
+        href="#_ftn7"
+        name="_ftnref7"
         title=""
     >
-        [10]
+        [7]
     </a>
 </p>
 <p>
@@ -1807,60 +1808,268 @@ a:hover {
 </p>
 <div id="chart3-div"></div>
 <h2>Zoom in on secondary care: sharing the pain of 5 more years of deficits?</h2>
-<p>Graph 3.2 below presents the secondary care-only version of the £22bn funding gap. The core secondary care budget (solid blue line) is set at 72 per cent of NHS England’s resource budget – a figure taken from the modelling behind the NHS England’s Five Year Forward View – while the blue dashed line supplements that by adding the entire S&TF</p>
+<p>The charts opposite present the secondary care-only version of the £23 billion funding gap. The core secondary care budget (solid blue line) is set at 72%
+    of NHS England’s resource budget – a figure taken from the modelling behind the NHS England’s Five Year Forward View – while the blue dashed line
+    supplements that by adding the entire S&amp;TF.</p>
 <p>You can read more about our workings on this here. <input type="button" onClick="growDiv2()" value="+" id="more-button2"></p><div id='grow2'>
     <div class='measuringWrapper2'>
     <div class="text"><hr />
-    <p>To model the affordability or otherwise of rising secondary care activity we have first defined “secondary care” as all hospital (general and specialist), community (including continuing healthcare) and mental health activity. NHS England’s recent briefing paper on the modelling behind the Five Year Forward View showed how core spending on this area accounted for £69bn of NHS England’s total spending in 2014-15, or 71 per cent. Apportioning a 71 per cent share of the additional £2bn combined cost of other NHS England “commitment pressure” spending  and health spending in the military and justice systems to “secondary care” gave a  total baseline for secondary care spending for that year of £70.2bn, or 72 per cent of NHS England’s resource allocation. We have used that 72 per cent figure to extrapolate an NHS secondary care commissioning budget from 2013-14 to 2020-21. To calculate the figure for the years from 2016-17 onwards (where the full NHS England budget is supplemented by the ring fenced S&TF) we have calculated first a “core” secondary care budget as 72 per cent of NHS England’s total planned spending for each year, minus planned S&TF spending, as set out in its November 2015 board paper detailing financial allocations. Our S&TF enhanced figure for secondary care then includes the entire STF for that year, rather than a 72 per cent proportion, as we believe it most likely that the vast bulk of the S&TF will be spent in secondary care. No adjustment is made to reflect NHS transfers to local authority social care spending under the Better Care Fund, or to reflect the 1 per cent non-recurrent spending and 0.5 per cent contingency requirements set by NHS England.</p> <hr /><br />
+    <p>To model the cost of future activity we have first established the baseline cash cost of secondary care for each year from 2009-10 to 2014-15. This
+            was derived from the NHS Reference Cost dataset, which details the cash cost to NHS hospitals and other secondary care services of providing £75
+            billion worth of the total £100 billion annually spent on NHS care.
+        </p>
+        <p>
+            Provider and commissioner cash costs for projected activity beyond 2014-15 are calculated by first applying the activity growth rate from the
+            2014-15 cash cost to provider and then multiplying the value of activity by either the expected net change in provider costs for the year (ie, the
+            product of inflation as defined by the tariff and the 2% efficiency assumption) or the planned net change in tariff cash prices.
+        </p>
+        <p>
+            For all years except 2019-20 we have taken our measure of provider inflation from the figures published as part of the NHS tariff (or NHS
+            Improvement’s guidance on the future tariff). 2019-20 is the exception because the published figure for provider inflation that year (2%) does not
+            include the impact of the change in the public sector pension discount rate announced as part of the 2016 Budget. We calculate that will add
+            approximately 0.7% to secondary care provider costs in 2019-20 and so have adjusted the inflation figure for that year from 2% to 2.7% and assumed
+            the cost will be passed onto commissioners in the form of a 0.7% increase to tariff rates. <strong><em> </em></strong>We have assessed the
+            sensitivity of our analysis to this adjustment which is to increase the size of the reported overall deficit in the secondary care sector by
+            2020-21 by approximately £600m. As the size of the projected deficit discussed in almost all our scenarios is far in excess of this sum, the thrust
+            of this analysis is unaffected<strong><em>.</em></strong>
+        </p>
+        <p>
+            Finally, as the reference cost dataset covers service cost (£62 billion in 2014-15) rather than full operational cost (£75 billion), values for
+            each year are multiplied up to reflect provider full operational costs, net of education and training costs (approximately 3.6%) as those costs are
+            typically funded by Health Education England, rather than commissioners. These adjustments are made using the <a href="https://www.gov.uk/government/publications/nhs-reference-costs-2014-to-2015">reconciliation data published by the
+            Department of Health for the years from 2012-13 onwards</a>
+        </p> <hr /><br />
     </div>    </div> </div>
-<p>A slightly lower rate of activity increase is shown here (2.9 percent a year rather than 3.07 percent) as this echoes NHS England’s assumption for activity growth in the sector in the years until 2020-21 (the overall growth rate is pushed up to 3.07 per cent by an expected increase in community prescribing activity of just under 5 per cent a year).
-</p><p>Our headline starting “gap” here is the £15bn gap between the secondary care budget (including the full S&TF) and the cost of providing activity with no additional efficiencies since 2013-14 (shown again by the purple line). This is analogous to what NHS England refers to as the local share of the £22bn funding gap, or productivity challenge. Provider efficiencies of 2 per cent a year would reduce that gap by £9.4bn to leave a secondary care-wide deficit of £1.8bn in 2020-21 [fn on why this £9.4bn is more than NHS E 8.5bn fig] – but only after it had absorbed the entire S&TF on funding the cost of the growing volume of day-to-day care.
+<p>
+    A slightly lower rate of activity increase is shown here (2.9% a year rather than 3.1%) as this echoes NHS England’s assumption for activity growth in the
+    sector (the overall growth rate is pushed up to 3.1% by an expected increase in community prescribing activity of almost 5% a year).
 </p>
-<p>The core secondary care budget without the S&TF is shown by the solid blue line. Our analysis shows that without the S&TF, the secondary care deficit would be £5.2bn by 2020-21. That is the stubborn end of the £15bn funding gap that is now causing sleepless nights amongst commissioners and providers in the secondary care sector.
+<p>
+    Our headline “gap” by 2020-21 here is the £15.5 billion gap between the secondary care budget (including the full S&amp;TF) and the cost of providing
+    activity with no additional efficiencies from 2013-14 (shown again by the purple line).
 </p>
-<blockquote>Even if providers make 2 percent cost savings a year, the amount they will get paid under the tariff will be cut by an equal amount, and so the level of their deficit will remain similar in proportion to what it is today – reaching around £3.7bn by 2020-21.</blockquote>
-<p>We can get a sense of how commissioners and providers are sharing the pain of that £5.2bn funding gap by looking now at how much the growing quantity of secondary care would cost commissioners. This is shown by our red line, which prices up the expected volume of care by the NHS tariff to show the price that will need to be paid to providers by commissioners. 
-</p><p>At no point does it meet the actual cost of providing care – that much we know: Even if providers make 2 percent cost savings a year, the amount they will get paid under the tariff will be cut by an equal amount, and so the level of their deficit will remain similar in proportion to what it is today – reaching around £3.7bn by 2020-21.
-</p><p>The bigger change, as discussed above, will be for commissioners. The gradual modest cash increases in tariff prices, combined with the growing volume of care purchased, means that from 2018-19 onwards, the core secondary care budget would be insufficient to cover commissioner tariff bills, forcing them to dip ever further into the S&TF to pay for the day to day costs of secondary care. 
-</p><p>By 2019-20, over a third of the S&TF would be needed to subsidise commissioner costs under the tariff, while the remaining £2bn or so would be absorbed in provider deficits. No S&TF would be available for investment in “service transformation”. The underling £5.2bn deficit against the core commissioning budget would be formed of a £3.7bn deficit in provider accounts and a £1.5bn overspend by commissioners. 
-<div id="chart4-2"></div>
+<p>
+    The good news: provider efficiencies in 2014-15 and 2015-16 have already reduced that by around £3.4 billion gap, and if providers continue to make
+    recurrent efficiencies of 2% a year they will close the gap by a further £9.8 billion by 2020-21. The resulting cost to providers after those efficiencies
+    is shown by our solid green line. That would leave a secondary care-wide deficit of around £2.3 billion in 2020-21– but only after it had absorbed the
+    entire S&amp;TF on funding the cost of the growing volume of day-to-day care.
+</p>
+<p>
+    Without the S&amp;TF, the secondary care deficit after recurrent provider efficiencies of 2% a year would be £5.7 billion by 2020-21. That £5.7 billion is
+    the intransigent end of the £15.5 billion secondary care funding gap that is now causing sleepless nights amongst commissioners and providers. It is that
+    which is the focus of the rest of this paper.
+</p>
+<h2>Sharing the £5.7 billion pain: Commissioners hit bust by 2018-19</h2>
+<div id="chart4-div"></div>
+<p>
+    We can get a sense of how commissioners and providers are sharing the pain of that £5.7 billion gap by looking now at how much the growing quantity of
+    secondary care would cost commissioners. This is shown by our red line, which prices up the expected volume of care by the NHS tariff to show the price
+    that would need to be paid to providers by commissioners.
+</p>
+<p>
+    At no point would those commissioner payments meet the actual cost of providing care – that much we know: even if providers make 2% cost savings a year,
+    the amount they will get paid under the tariff will be cut by an equal amount, and so the level of their deficit will remain similar in proportion to what
+    it is today – reaching around £4.4 billion in cash terms by 2020-21.
+</p>
+<p>
+    That is bad enough, but the more dramatic swing into the red will be for commissioners. The gradual cash increases in tariff prices, combined with the
+    growing volume of care purchased, means that from 2018-19 onwards, the core secondary care budget will be insufficient to cover the tariff rate for the
+    quantity of care provided.
+</p>
+<p>
+    That would mean that by 2019-20, over a third of the S&amp;TF would be needed to subsidise commissioner costs under the tariff, while the remaining £2
+    billion or so would be absorbed by provider deficits. No S&amp;TF would be available for investment in “service transformation”. The underling £5.7 billion
+    deficit against the 2020-21 core commissioning budget would be formed of a £4.4 billion deficit in provider accounts and a £1.3 billion overspend by
+    commissioners.
+</p>
+
+
 <h2>Increase provider efficiency free up investment for transformation?</h2>
-<p>We saw earlier that the £3.5bn underlying provider deficit in 2015-16 was testament to the redundancy of relying almost exclusively on high levels of provider cost saving to curtail NHS spending. Indeed, Lord Carter’s report on hospital efficiency published earlier this year looked extensively at the opportunities for further cost savings in acute hospitals to 2020 and found a rate of just 2 percent could be expected: half the rate required of hospitals in recent years.
-</p><p>Nevertheless, secondary care providers are now been asked to exceed that. The rationale is simply that without further efficiencies from providers, the entire S&TF will be dwindled to naught.
-</p><p>The need for a higher level of efficiency was implicit in the original “control total” set for the provider sector for 2016-17. This commanded that secondary care providers needed to end 2016-17 with an underlying deficit of £1.8bn, down from £3.5bn in 2015-16. That would entail a 3.8 percent cut in costs in 2016-17, and the same again in 2017-18, to get the provider deficit down to around £500m a year.
-</p><p>By the end of June 2016 however, it had become apparent that such a level of cost reduction (almost twice the rate achieved in recent years) was not realistic, resulting in an easing (or “re-set”) of the control total to an underlying deficit for 2016-17 of £2.35bn (which will be reported in provider accounts as a deficit of £0.55bn, after the absorption to their bottom lines of £1.8bn of “sustainability” funding).
-</p><p>Meeting that re-set target will require providers to make an extra 1.1 per cent recurrent efficiency saving, over and above the 2 percent already planned (and required by the tariff). Providers will need to make that level of efficiency for at least three years if they are to come close to bringing their costs into line with the income they receive under the tariff. 
-</p><p>Graph 3.3 shows the impact that extra “re-set” efficiency would have on provider costs, assuming it was achieved for three years in a row from 2016-17, with recurrent efficiency savings returning to 2 per cent from 2019-20 onwards. (To make viewing easier, we have dispensed with the purple “do nothing” lines. Doing nothing, after all, is not a plausible option).
-Graph 3.3
+<p>
+    We saw earlier that the £3.7 billion underlying provider deficit in 2015-16 was testament to the redundancy of relying almost exclusively on high levels of
+    provider cost saving to curtail NHS spending. Indeed, <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/499229/Operational_productivity_A.pdf">Lord Carter’s report on hospital efficiency</a> published earlier this year looked extensively at the
+    opportunities for further cost savings in acute hospitals to 2020 and found a rate of just 2% a year could be expected: half the rate required of (and
+    missed by) hospitals in recent years.
+</p>
+<p>
+    Nevertheless, secondary care providers are now being asked to exceed that 2% again. The rationale is simply that without further efficiencies from
+    providers, the entire S&amp;TF will be dwindled to naught and the NHS as a whole would be bust.
+</p>
+<p>
+    Secondary care providers have been asked to end 2016-17 with an underlying deficit no greater than £2.35 billion – down from £3.7 billion in 2015-16.
+    <a
+        href="#_ftn8"
+        name="_ftnref8"
+        title=""
+    >
+        [8]
+    </a>
+</p>
+<p>
+    [chart 4.2 abc here]
+</p>
 
+<p>
+    Meeting that target will require providers to make an extra 2% recurrent efficiency saving, over and above the 2% already planned (and required by the
+    tariff). Four percent efficiency in 2016-17 is equivalent to around £3.8 billion in cost savings. Doing that all over again in 2017-18 with another 4% cost
+    cuts, and following that in 2018-19 with only a slightly lower cost cut of 3% would finally bring provider costs down into line with their income under the
+    tariff.
+</p>
+<p>
+    Our next (4.2) shows the impact these extra efficiencies would have on provider costs, with recurrent efficiency savings returning to 2% from 2019-20
+    onwards. (To make viewing easier, we have dispensed with the purple “do nothing” lines. Doing nothing, after all, is not a plausible option).
+</p>
+<p>
+    Graph 3.3
+</p>
+<p>
+    As graph 4.2 shows, two years of recurrent efficiency savings at 4% (that is, twice the rate of recent trends) followed by a year at 3% would bring
+    provider costs into line with the payments due to them under the tariff by the end of 2018-19. Over the three years, that would require providers to remove
+    an extra £4 billion from their cost base, permanently, and in addition to the £6 billion already required by the 2% annual cut in the tariff.
+</p>
+<p>
+    It is a big ask, but it is only after that level of cost reduction that the need to spend the S&amp;TF on filling the provider deficit would be removed,
+    freeing up part of it for investment in transformation.
+</p>
+<p>
+    What that would not do, however, is reduce tariff costs for commissioners. That is because extra provider efficiency does nothing – at least in the short
+    term – to reduce tariff bills for commissioners, which are determined by the volume of care purchased. By 2018-19 commissioners would still hit the point
+    where they would be unable to pay the invoices from providers out of their core budgets. In 2019-20 a large £1.2 billion annual overspend would emerge in
+    commissioner accounts requiring them to use over a third of the S&amp;TF just to fund recurrent activity growth under the tariff, that is: activity
+    increases that get consolidated, or “baked” into the activity baseline for each following year.
+</p>
+<p>
+    Beside from the begging bowl outside the Treasury, that would leave commissioners with nowhere else to turn but to reduce the rate at which activity levels
+    are growing.
+</p>
+<p>
 
-</p><p>As graph 3.3 shows, three years of recurrent efficiency savings at just over 3 per cent (that is, over a third higher than the rate achieved since 2013-14) would bring provider costs almost in line with the payments due to them under the tariff by 2018-19 (although our “almost” here is relative: providers would still be left with an annual trading deficit of around £600m).  That would bring provider costs down to under the level of the total budget (after it had been supplemented with the S&TF) and reduce the secondary care deficit against its core budget in 2020-21 from £5.2bn to £2.2bn. 
-</p><p>Crucially, the extra provider efficiency would remove the need for very large “sustainability” payments to providers from 2018-19 onwards, freeing up part of the S&TF for investment instead in transformation.
-</p><p>What it would not do, however, is reduce core tariff costs for commissioners, on whose side the bulk of the £2.2bn core deficit would then sit. That is because provider efficiency does nothing – at least in the short term – to reduce tariff bills for commissioners, which are determined by the volume of care purchased. Commissioners would still be left unable to pay their tariff bills out of their core budgets from 2019-20, and would instead need to use almost two thirds of the STF just to fund recurrent activity under the tariff. The pain of the core £2.2bn deficit, then, rest predominantly (£1.5bn worth) with commissioners. 
-</p><p>Beside from the begging bowl outside the Treasury, that leaves commissioners with nowhere else to turn but to reduce the rate at which activity levels are growing.
-</p><p>We are in the realm of theory rather than evidence-based practice here, but it is worth considering what the impact on secondary care costs would be if the modest amounts of S&TF freed up through extra provider efficiencies were invested in measures to reduce the speed at which activity levels were growing. 
-</p><p>Chart 1 below shows how much S&TF would be available for genuine investment in service transformation in each of the five years to 2020-21 if, and only if, providers managed to find three years of 3 per cent recurrent efficiencies. 
-
-</p><p>While the vast bulk of the S&TF would be eaten up by provider deficits in 2016-17, around £1.6bn (still only around half of the headline £2.9bn amount) would, in theory, be available for investment in 2017-18. Somewhat paradoxically, 2018-19 (the year the NHS as a whole is set to receive its lowest real terms funding increase) would emerge as the year with the most significant investment fund for transformation, at around £2bn. After that, the continued rise in secondary care activity would again require the bulk of the S&TF to be used to fund the cost of that recurrent demand, as commissioner tariff bills exceeded their core budgets.
-</p><p>There is very little systematic evidence on the scale and cost effectiveness of investment in demand management, but it is NHS England’s hope that investment in early diagnosis, better primary care and improved patient self-management, for example, will serve to improve population health and therefore slow the pace of activity growth by around one percentage point: from 2.9 per cent activity growth a year in secondary care to 1.9 per cent.
-</p><p>As we have seen, substantial funds will not be available for investment in that transformation until 2017-18. It therefore does not seem plausible to expect any real change in the activity growth rate until after then. Graph 3.4 then models the impact on secondary care costs of a staged 1 percentage point reduction in the activity growth rate over the three years from 2018-19 to 2020-21.
- Graph 3.4
-
-
-</p><p>It is a big ask, but graph 3.4 perhaps shows why NHS England is banking on the twin hopes of substantial extra provider efficiencies in the first instance, followed by commissioner investment to achieve a percentage point reduction in the rate at which activity is growing. 
-</p><p>The impact of this strategy, if successful, is shown by the green and red dotted lines above. The annual saving in provider costs (green line) – above “extra” efficiencies alone – would be in the order of £1.7bn by 2020-21. That would imply a rather heroic and rapid return on any transformational investment, for which there is little or no evidence base. Yet it is only after both those changes – provider efficiency in excess of 3 percent, for three years, combined with a 1 percentage point reduction in activity growth - that commissioners will be able to meet the cost of the activity from their core budgets, and providers nudge close (although still around £500m off) covering their costs.
-</p><p>That’s a lot of ifs, which leave us asking: what if those extra efficiencies were not forthcoming in the three years from 2016-17? After all, the current size of the provider deficit is testament to the inability of providers to make similarly scaled cost savings over the last three years. 
-<h2>Rationing without investment</h2>
-<p>It is not a palatable scenario, but, as we have seen, without additional provider efficiencies, there can be no S&TF. And with no S&TF there can be no investment in genuinely reducing the rate at which demand is growing by improving population health. The risk is then that commissioners resort instead to curtailing growth by through service rationing. They might do this directly – by raising the threshold for treatment and access to certain services – or they might attempt to do it indirectly, by shutting services and hoping that patient expectations for care and treatment will wane, rather than simply divert to alternative services elsewhere.  
-</p><p>Beside from the ethical, political and long term health implications of such a move, how viable would it be as a cost saving measure in the short term?
-</p><p>The current secondary care activity growth rate of just under 3 per cent a year is comprised of 1.5 per cent growth due to population growth and aging and the remaining 1.5 per cent growth due to so-called “non-demographic growth” which is the pressure to increase activity levels due to factors such as rising public expectations (for example, that X condition will be treated, rather than endured) improvements in quality and clinical advancements.
-</p><p>Reducing the rate of activity growth to below the 1.5 per cent driven by population growth and change would involve drastic measures: it would effectively mean denying today’s 72 year olds the same hip replacement their 75 year old neighbours received last year. But commissioners might,  in the absence of sufficient investment funds, be tempted to make in-roads into the remaining 1.5 per cent of growth which we could loosely term as driven by improvements in quality and access. 
-</p><p>Graph 3.5 below shows the impact (in solid lines) of the same staged reduction in the activity growth rate to 1.9 per cent explored above, but with provider efficiencies “only” at 2 per cent a year. As the graph shows, attempting to balance the NHS budget through a 1 percentage point reduction in activity alone is not a viable option: It simply would not save enough cash and the entire S&TF would still be needed to bail out provider deficits for the rest of the decade.
-Graph 3.5
-</p><p>Bringing the NHS into financial balance without provider efficiencies in excess of 2 percent a year and concomitant successful commissioner investment in reducing growth in demand would then only be achievable were the rate of activity growth slashed even further - to the 1.5 percent required to meet only that element of demand driven by demographic change. 
-</p><p>Doing that, as the dotted lines on graph 3.5 shows, would bring provider costs down to below the level of the total budget (after spending all of the S&TF). But this precarious balance would be achieved at the cost of preserving the NHS in aspic: Standing still and deliberately halting any further advancement in healthcare quality, such as the adoption of new treatments available elsewhere in the developed world. 
-</p><p>That is a scenario most will want to avoid. But another “if” has crept into our analysis: avoiding the need to balance budgets through crude rationing and quality stagnation is not just dependent on providers finding levels of efficiencies that have evaded them over recent years. It will require commissioners to use any investment funds freed up by that efficiency successfully – to genuinely reduce the demand for health services rather than simply slash its supply. However the evidence for achieving that – particularly over just a four year timescale - is limited.
-
+    We are in the realm of theory rather than evidence-based practice here, but it is worth considering what the impact on secondary care costs would be if the
+    modest amounts of S&amp;TF freed up through extra provider efficiencies were successfully invested in measures to reduce the speed at which activity levels
+    were growing.
+</p>
+<p>
+Our bar chart here shows how much S&amp;TF would be available for genuine investment in service transformation in each of the five years to 2020-21    <em>if</em>, and only <em>if</em>, providers managed to find 4% recurrent efficiencies in 2016-17 and 2017-18 and then follow that with a year of 3%
+    efficiencies before returning, in 2019-20, to the 2% level required to keep up with the year-on-year real terms cuts to the tariff.
+</p>
+<p>
+    While the vast bulk of the S&amp;TF would be eaten up by provider deficits in 2016-17, around £2.3 billion would, in theory, be available for investment in
+    transformation in 2017-18. Somewhat paradoxically, 2018-19 (the year the NHS as a whole is set to receive the lowest cash increase in its funding) would
+    emerge as the year with the most significant investment fund for transformation, at around £2.7 billion of the total £3 billion fund for that year. In the
+    years after then, the continued rise in secondary care activity would again require increasing chunks of the S&amp;TF to be used to fund the cost of that
+    activity growth, as commissioner tariff bills exceeded their core budgets.
+</p>
+<p>
+    There is very little systematic evidence on the scale and cost-effectiveness of investment in demand management, but it is NHS England’s hope that
+    investment in early diagnosis, better primary care and improved patient self-management, for example, will serve to improve population health and reduce
+    demand for secondary care and therefore slow the pace of activity growth by around one percentage point: from 2.9% a year to 1.9%.
+</p>
+<p>
+    As we have seen, substantial funds will not be available for investment in that transformation until 2017-18. It therefore does not seem plausible to
+    expect any real change in the activity growth rate until after then. Our next set of charts (4.3) then models the impact on secondary care costs of a
+    gradual, staged 1 percentage point reduction in the activity growth rate over the three years from 2018-19 to 2020-21.
+</p>
+<p>
+    [Charts 4.3 abc]
+</p>
+<p>
+    <em>Jeff can we please relabel this chart to state that is also includes extra efficiency (ie as per below)?</em>
+</p>
+<p>
+    <em> </em>
+</p>
+<p>
+    It is a big ask, but graph 4.3 perhaps shows why NHS England is banking on the twin hopes of substantial extra provider efficiencies in the first instance,
+    followed by commissioner investment to achieve a percen<em>ta</em>ge point reduction in the rate at which activity is growing.
+</p>
+<p>
+    As we already saw in graph 4.2, extra provider efficiencies of up to 4% a year bring provider costs into line with the income they are able to command from
+    commissioners under the tariff. Reducing the growth rate in overall activity from 2.9% to 1.9% then moves that provider cost – and the invoices providers
+    send to commissioners – into line with what commissioners can afford, from their core budgets, meaning that by 2020-21, the lines in our graph converge and
+    the system would finally be in balance.
+</p>
+<p>
+    Success in this strategy would imply an annual saving by 2020-21 through stemming activity growth of £1.7 billion a year and rising. That would imply a
+    rather heroic and rapid return on any transformational investment, for which there is little or no evidence base.
+</p>
+<p>
+    And are further reasons to be sceptical as to whether or not this can be achieved. What if, for example, those extra efficiencies were not forthcoming in
+    the three years from 2016-17? After all, the current size of the provider deficit is testament to the inability of providers to make similarly scaled cost
+    savings over the last three years. It is also worth noting that the current level of recurrent efficiencies (2% a year) are being made amid annual activity
+    growth of 2.9%, enabling providers to reduce their average unit costs in areas where extra activity can be generated at only marginal extra cost.
+    <a
+        href="#_ftn9"
+        name="_ftnref9"
+        title=""
+    >
+        [9]
+    </a>
+    Slowing the growth rate to 1.9% might reduce the scope for further provider savings through that means.
+</p>
+<p>
+    And even if those efficiencies were forthcoming, there is still no guarantee that commissioner investments in new models of care designed to reduce the
+    activity growth rate will succeed. Indeed, while planned initiatives such as giving dementia patients their own named clinician and bespoke care pathway,
+    or linking care homes to hospital clinicians, may well improve the quality of care for patients, they might also serve to simply add additional activity
+    rather than supplant and diminish growth in existing levels.
+</p>
+<p align="center">
+    <strong>Rationing without investment</strong>
+</p>
+<p>
+    It is not a palatable scenario, but there is a risk that without either or both additional provider efficiencies and subsequent successful investment in
+    genuinely reducing the growth in demand, commissioners will resort instead to curtailing growth through crude service rationing. They might do that
+    directly – by raising the threshold for treatment and access to certain services – or they might attempt to do it indirectly, by shutting services and
+    hoping that patient and clinicians’ expectations for care and treatment will wane, rather than simply divert to alternative services elsewhere.
+</p>
+<p>
+    Aside from the ethical, political and long term health implications of such a move, how viable would crude rationing be as a cost saving measure in the
+    short term?
+</p>
+<p>
+    According to NHS England, the current secondary care activity growth rate of just under 3% a year is comprised of 1.5% growth due to population growth and
+    aging and the remaining 1.5% growth due to so-called “non-demographic growth” which is the pressure to increase activity levels due to factors such as
+    rising public expectations (for example, that X condition will be treated, rather than endured) improvements in quality and clinical advancements.
+    <a
+        href="#_ftn10"
+        name="_ftnref10"
+        title=""
+    >
+        [10]
+    </a>
+</p>
+<p>
+    Reducing the rate of activity growth to below the 1.5% driven by population growth and change would involve drastic measures: it would effectively mean
+    denying today’s 74 year olds the same hip replacement their 75 year old neighbours received last year. But commissioners might, in the absence of
+    sufficient investment funds, be tempted to make in-roads into the 1.5 percentage points of growth above that level, which might be seen as more
+    discretionary; which we could loosely term as driven by improvements in quality and access.
+</p>
+<p>
+    [charts 4.4 abc here. But is it possible to not have the 1.5% lines switched on until later?]
+</p>
+<p>
+    Our final charts show the impact of the same staged reduction in the activity growth rate to 1.9% explored above, but with provider efficiencies at “just”
+    2% a year. But as the graph shows, that won’t work: attempting to balance the NHS budget through a 1 percentage point reduction in activity alone is not a
+    viable option: Provider costs by 2020-21 would still be £4 billion above the core secondary care commissioning budget. Even after spending all of the
+    S&amp;TF on plugging provider deficits, the system as a whole would be spending £0.5 billion a year more than its total available resource.
+</p>
+<p>
+    To bring the NHS into financial balance without provider efficiencies above 2% a year would require crude rationing to go even further and to reduce the
+    rate of growth right down to the 1.5% needed to keep up with only that element of demand driven by demographic change.
+</p>
+<p>
+    [switch on 1.5% lines on chart 4.4a here]
+</p>
+<p>
+    Doing that, as the dotted lines on graph 3.5 show, would bring provider costs down to below the level of the total budget. Those costs would still be
+    significantly higher than their tariff income, and the core commissioning budget, but in such a scenario the NHS would have dispensed with the ambition to
+    invest in genuinely reducing the growth in demand through improved services and population health, and so could instead simply spend the entire S&amp;TF on
+    plugging the gap in provider finances (or alternatively use it to increase tariff rates to meet provider costs). But this precarious balance would be
+    achieved at the cost of preserving the NHS in aspic: standing still and deliberately halting any further advancement in healthcare quality, such as the
+    adoption of new treatments available elsewhere in the developed world.
+</p>
+<p>
+    The political acceptability of that – following a Brexit campaign which highlighted a potential £350m extra for the NHS a week – is highly questionable.
+</p>
 <div>
     <br clear="all"/>
     <hr align="left" size="1" width="33%"/>
@@ -1948,7 +2157,48 @@ The £22 billion gap (£30 billion before additional funding was announced in th
             commissioners for activities outside the tariff</a>.
         </p>
     </div>
-    <div id="ftn10">
+    <div id="ftn">
+        <p>
+            <a
+                href="#_ftnref"
+                name="_ftn7"
+                title=""
+            >
+                [7]
+            </a>
+            NHS England’s calculations suggest a saving from the pay cap of nearer £5 billion. However this was calculated prior to the announcement at Budget
+            2016 of a change in the public sector pension discount rate which we estimate will increase the pension cost of NHS employers by around 1% from
+            2019-20 onwards, reducing the central savings on the NHS pay budget from £5 billion to £4 billion.
+        </p>
+    </div>
+    <div id="ftn8">
+        <p>
+            <a
+                href="#_ftnref8"
+                name="_ftn8"
+                title=""
+            >
+                [8]
+            </a>
+            If delivered, the £2.35 billion underlying deficit in 2016-17 would be reported in provider accounts as a deficit of £550m, with the remaining £1.8
+            billion in deficit offset by extra non-recurrent income from the Sustainability and Transformation Fund.
+        </p>
+    </div>
+    <div id="ftn9">
+        <p>
+            <a
+                href="#_ftnref9"
+                name="_ftn9"
+                title=""
+            >
+                [9]
+            </a>
+            A simple example of this would be where a provider has already covered the fixed costs of providing a service and so caring for additional patients
+            only entails the marginal cost of each extra patient – i.e. the medicines and devices consumed in their care and the additional costs of providing
+            clinical staff time.
+        </p>
+    </div>
+    <div id="ftn9">
         <p>
             <a
                 href="#_ftnref10"
@@ -1956,83 +2206,6 @@ The £22 billion gap (£30 billion before additional funding was announced in th
                 title=""
             >
                 [10]
-            </a>
-            NHS England’s calculations suggest a saving from the pay cap of nearer £5 billion. However this was calculated prior to the announcement at Budget
-            2016 of a change in the public sector pension discount rate which we estimate will increase the pension cost of NHS employers by around 1% from
-            2019-20 onwards, reducing the central savings on the NHS pay budget from £5 billion to £4 billion.
-        </p>
-    </div>
-    <div id="ftn11">
-        <p>
-            <a
-                href="#_ftnref11"
-                name="_ftn11"
-                title=""
-            >
-                [11]
-            </a>
-            To model the affordability or otherwise of rising secondary care activity we have first defined “secondary care” as all hospital (general and
-            specialist), community (including continuing healthcare) and mental health activity. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf">NHS England’s recent briefing paper on the modelling behind
-            the Five Year Forward View</a> showed how core spending in this area accounted for £69 billion (or 71%) of NHS England’s total spending in 2014-15. A
-            further £2 billion worth of NHS’s England spending that year is categorised in the paper as “commitment pressure” and as military and justice
-            system spending. Assuming that 71% of that spending was made in the secondary care sector brings the combined total secondary care spend to £70.2
-            billion, or 72% of NHS England’s resource allocation. We have used that 72% figure to extrapolate an NHS secondary care commissioning budget from
-            2013-14 to 2020-21. To calculate the figure for the years from 2016-17 onwards (where the full NHS England budget is supplemented by the ring
-            fenced S&amp;TF) we have calculated first a “core” secondary care budget as 72% of NHS England’s total planned spending for each year, minus
-            planned S&amp;TF spending, as set out in <a href="https://www.england.nhs.uk/wp-content/uploads/2015/12/04.PB_.17.12.15-Allocations.pdf">NHS England’s December 2015 board paper detailing financial allocations</a>. Our S&amp;TF enhanced figure for
-            secondary care then includes the entire S&amp;TF for that year, rather than a 72% proportion, as we believe it most likely that the vast bulk of
-            the S&amp;TF will be spent in secondary care. No adjustment is made to reflect NHS transfers to local authority social care spending under the
-            Better Care Fund, or to reflect the 1% non-recurrent spending and 0.5% contingency requirements set by NHS England.
-        </p>
-            
-    </div>
-    <div id="ftn12">
-        <p>
-            <a
-                href="#_ftnref12"
-                name="_ftn12"
-                title=""
-            >
-                [12]
-            </a>
-            Lord Carter, February 2016 https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/499229/Operational_productivity_A.pdf
-        </p>
-    </div>
-    <div id="ftn13">
-        <p>
-            <a
-                href="#_ftnref13"
-                name="_ftn13"
-                title=""
-            >
-                [13]
-            </a>
-            If delivered, the £2.35 billion underlying deficit in 2016-17 would be reported in provider accounts as a deficit of £550m, with the remaining £1.8
-            billion in deficit offset by extra non-recurrent income from the Sustainability and Transformation Fund.
-        </p>
-    </div>
-    <div id="ftn14">
-        <p>
-            <a
-                href="#_ftnref14"
-                name="_ftn14"
-                title=""
-            >
-                [14]
-            </a>
-            A simple example of this would be where a provider has already covered the fixed costs of providing a service and so caring for additional patients
-            only entails the marginal cost of each extra patient – i.e. the medicines and devices consumed in their care and the additional costs of providing
-            clinical staff time.
-        </p>
-    </div>
-    <div id="ftn15">
-        <p>
-            <a
-                href="#_ftnref15"
-                name="_ftn15"
-                title=""
-            >
-                [15]
             </a>
             NHS England’s breakdown of the components of activity growth are set out in chapter 2 of its <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf">May 2016 technical note on the FYFV</a>. However see also <a href="http://www.kingsfund.org.uk/sites/files/kf/field/field_publication_file/Spending%20on%20health%20...%2050%20years%20low%20res%20for%20web.pdf">John Appleby’s 2013 report on long term trends on health spending for the Kings Fund</a> which identified several problems in isolating individual drivers of activity growth. 
         </p>
