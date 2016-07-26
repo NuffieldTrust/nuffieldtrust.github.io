@@ -25,10 +25,10 @@
 $(document).ready(function(){
 
 window.onscroll = function (oEvent) {
-  var mydivpos = document.getElementById("chart2").offsetTop;
+  var mydivpos = document.getElementById("chart1-div").offsetTop;
   var scrollPos = (document.documentElement && document.documentElement.scrollTop) || 
               document.getElementsByTagName("body")[0].scrollTop;
-  var mydivpos2 = document.getElementById("chart3").offsetTop;
+  var mydivpos2 = document.getElementById("chart2-div").offsetTop;
   var mydivpos3 = document.getElementById("chart4-1").offsetTop;
   var chart1 = document.getElementById("chart1");
   var chart2 = document.getElementById("chart2"); 
@@ -1659,7 +1659,7 @@ a:hover {
     will only need to find 2% cost cuts a year, rather than the 4% required of late. That will not leave NHS providers laughing, but it should mean their
     deficits will stop increasing as a proportion of their turnover, just as long as they keep up their recent trend of 2% recurrent cost cuts a year.
 </p>
-<div id="chart1"></div>
+<div id="chart1-div"></div>
 <p>
     The more significant impact, however, is on NHS commissioners: NHS England centrally, and clinical commissioning groups locally. For them, the main measure
     of their spending power is not simply much how much extra cash they get from the government each year, but what direction cash prices in the tariff are
@@ -1692,7 +1692,7 @@ a:hover {
 <p>NHS England’s base case assumption for activity growth across the NHS as a whole is a continuation of the recent trend of 3.07 percent a year until 2020-21; that is, that <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf ">NHS hospitals and other services will provide 3.07 percent more care in each year, by treating more patients, with more complications through more intense and advanced medicine</a>. 
 </p><p>We can price up that growing quantum of care by using the information set out in the NHS tariff prices to 2020-21. This shows how much inflation providers are expected to face, and how much prices will increase for commissioners. Although the tariff only applies directly to secondary care (over two thirds of all NHS care) it is reasonable to assume - at least for this headline analysis - that similar cost pressures (staff, drugs, equipment) will apply across all NHS services. 
 </p>
-<div id="chart2"></div><p>Graph 3.1 shows these costs and sets them against the NHS commissioning budget, announced as part of the November 2015 Spending Review. We display this graph as an index, where costs in 2013-14 are set at 100, and a 10 per cent increase in cost is syhown as 110, because in practice the tariff does not apply to primary care or community prescribing. (We will zoom in on the secondary care cash budget alone in more detail further below). 
+<div id="chart2-div"></div><p>Graph 3.1 shows these costs and sets them against the NHS commissioning budget, announced as part of the November 2015 Spending Review. We display this graph as an index, where costs in 2013-14 are set at 100, and a 10 per cent increase in cost is syhown as 110, because in practice the tariff does not apply to primary care or community prescribing. (We will zoom in on the secondary care cash budget alone in more detail further below). 
 </p><p>You can read more about our method for doing this here. <input type="button" onClick="growDiv()" value="+" id="more-button"><div id='grow'>
     <div class='measuringWrapper'>
     <div class="text"><hr /><p>To model the cost of future activity we have first established the baseline cash costs of secondary care for each year from 2009-10 to 2014-15. This was derived from the NHS Reference Cost data set, which details the cash cost to NHS hospitals and other secondary care services of providing £75bn worth of the total £100bn annually spent on NHS care.</p>
