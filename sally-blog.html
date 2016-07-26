@@ -623,7 +623,7 @@ $(function () {
             type: "area",
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
-            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            name: 'Secondary care budget, with STF',
             color: "#C75363",
             marker: { enabled: false },
             dashStyle: 'longdash',
@@ -643,7 +643,7 @@ $(function () {
             marker: { enabled: false },
             data: [68.6801186545368,69.8281630332418,70.9813928531608,74.0862454720885,76.4949042440042,78.4048124178449,80.6537441173549,82.8931450025523]
         },{
-            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            name: 'Cost to providers, 2.9% activity growth<br />with 2% annual efficiencies',
             color: "#3c1f75",
             marker: { enabled: false },
             visible: false,
@@ -656,7 +656,7 @@ $(function () {
             dashStyle: 'longdash',
             data: [69.8324057480175,72.3367225485695,74.6997679097245,76.3221583139125,77.1541666570381,78.5705702042788,81.3858335134234,84.4664448380623]
         },{
-            name: 'Cost to providers of 2.9% growth to 2017-18 then staged reductions by 1pp from 2018-19 to 2020-21, with reset efficiencies',
+            name: 'Cost to providers of 2.9% growth to 2017-18<br />then staged reductions by 1pp from 2018-19 to 2020-21,<br />with reset efficiencies',
             color: "#3c1f75",
             marker: { enabled: false },
             dashStyle: 'shortdash',
@@ -724,7 +724,7 @@ $(function () {
             type: "area",
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
-            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            name: 'Secondary care budget, with STF',
             color: "#C75363",
             marker: { enabled: false },
             dashStyle: 'longdash',
@@ -774,9 +774,12 @@ $(function () {
       exporting: {
             sourceWidth: 800,
             sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Base reform case'}
+            }
         },
       title: {
-         text: 'STF available for transformation - Base reform case',
+         text: 'STF available for transformation',
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
@@ -813,10 +816,10 @@ $(function () {
       
       series: [
          	   {
-         name: 'STF needed to balance commissioner and provider deficits',
+         name: 'STF for financial balance',
          data: [2.61732827878569,3.1884739153396,3.70366906542088,4.9669641577203,5.2230093392502]},
          {
-         name: 'STF available for transformation',
+         name: 'STF for transformation',
          data: [-0.517328278785698,-0.288473915339594,-0.75366906542088,-1.56696415772029,-1.82300933925019]},
               ],
     plotOptions: {
@@ -852,9 +855,12 @@ $(function () {
       exporting: {
             sourceWidth: 800,
             sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Extra provider efficiency to 3.1% for 3 years'}
+            }
         },
       title: {
-         text: 'STF available for transformation - Extra provider efficiency to 3.1% for 3 years',
+         text: 'STF available for transformation',
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
@@ -890,10 +896,10 @@ $(function () {
       
       series: [
          	   {
-         name: 'STF needed to balance commissioner and provider deficits',
+         name: 'STF for financial balance',
          data: [1.71834139880798,1.34444782981863,0.875069155617922,2.02897493504548,2.17436316165448] },
          {
-         name: 'STF available for transformation',
+         name: 'STF for transformation',
          data: [0.381658601192015,1.55555217018137,2.07493084438208,1.37102506495452,1.22563683834552]},
               ],
     plotOptions: {
@@ -930,9 +936,12 @@ $(function () {
       exporting: {
             sourceWidth: 800,
             sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: '1 pp reduction scenario'}
+            }
         },
       title: {
-         text: 'STF available for transformation - 1 pp reduction scenario',
+         text: 'STF available for transformation',
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
@@ -966,10 +975,10 @@ $(function () {
       
       series: [
          	   {
-         name: 'STF needed to balance commissioner and provider deficits',
+         name: 'STF for financial balance',
          data: [1.71913366456256,1.34525563448445,0.583501288984039,1.16079383690462,0.452943543550546]},
          {
-         name: 'STF available for transformation',
+         name: 'STF for transformation',
          data: [0.380866335437432,1.55474436551556,2.36649871101596,2.23920616309539,2.94705645644946]},
               ],
     plotOptions: {
@@ -994,9 +1003,12 @@ $(function () {
       exporting: {
             sourceWidth: 800,
             sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Demographic growth only scenario'}
+            }
         },
       title: {
-         text: 'STF available for transformation - Demographic growth only scenario',
+         text: 'STF available for transformation',
          style: {
                 fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
             } 
@@ -1030,10 +1042,10 @@ $(function () {
       
       series: [
          	   {
-         name: 'STF needed to balance commissioner and provider deficits',
+         name: 'STF for financial balance',
          data: [2.61812986916303,2.91812635424598,2.86963628718578,3.24038453934863,2.25328523622747]},
          {
-         name: 'STF available for transformation',
+         name: 'STF for transformation',
          data: [-0.518129869163033,-0.0181263542459789,0.0803637128142185,0.159615460651381,1.14671476377254]},
               ],
     plotOptions: {
