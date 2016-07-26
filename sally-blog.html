@@ -404,9 +404,12 @@ $(function () {
       exporting: {
             sourceWidth: 800,
             sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Base reform case'}
+            }
         },
       title: {
-         text: 'Funding gap in secondary care - Base reform case'
+         text: 'Funding gap in secondary care'
       },
       credits: {
         text: '© Nuffield Trust',
@@ -465,7 +468,7 @@ $(function () {
             name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
             color: "#3c1f75",
             marker: { enabled: false },
-            dashStyle: 'longdash',
+            dashStyle: 'dot',
             data: [69.8324057480175,73.6539841525778,77.5979587371696,82.5511859943044,86.8989093070665,91.2073572305108,96.3863845961309,102.057855852152]
         },
                
@@ -486,9 +489,12 @@ $(function () {
       exporting: {
             sourceWidth: 800,
             sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Extra provider efficiency to 3.1% for 3 years'}
+            }
         },
       title: {
-         text: 'Funding gap in secondary care - Extra provider efficiency to 3.1% for 3 years'
+         text: 'Funding gap in secondary care'
       },
       credits: {
         text: '© Nuffield Trust',
@@ -543,12 +549,13 @@ $(function () {
             name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
             color: "#3c1f75",
             marker: { enabled: false },
+            visible: false,
             data: [69.8324057480175,72.3367225485695,74.6997679097245,77.8993282787857,80.3750221213396,82.6864714514744,85.6484556917842,88.8896151854208]
         },{
             name: 'Cost to providers, 2.9% activity growth cost to provider with reset efficiencies',
             color: "#3c1f75",
             marker: { enabled: false },
-            dashStyle: 'shortdash',
+            dashStyle: 'longdash',
             data: [69.8324057480175,72.3367225485695,74.6997679097245,76.3221583139125,77.1541666570381,78.5705702042788,81.3858335134234,84.4664448380623]
         },
                
@@ -626,6 +633,7 @@ $(function () {
         },{
             name: 'Cost to commissioners, 2.9% activity growth',
             color: "#2b505e",
+            visible: false,
             marker: { enabled: false },
             data: [68.6866376012409,69.834915761205,70.9883318212262,74.0406186206309,76.3943245280132,78.5919720830709,81.4079983122654,84.4894444558776]
         },{
@@ -672,9 +680,12 @@ $(function () {
       exporting: {
             sourceWidth: 800,
             sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Demographic growth only scenario'}
+            }
         },
       title: {
-         text: 'Funding gap in secondary care - Demographic growth only scenario'
+         text: 'Funding gap in secondary care'
       },
       credits: {
         text: '© Nuffield Trust',
@@ -695,6 +706,7 @@ $(function () {
         endOnTick: false,
         startOnTick: false,
         tickInterval: 5,
+        min: 65,
         alternateGridColor: '#eae8e3',
          gridLineColor: '#eae8e3',
         labels: {
@@ -708,35 +720,39 @@ $(function () {
             name: 'Core secondary care commissioning budget, no STF',
             color: "#af0a21",
             marker: { enabled: false },
+            lineWidth: 0,
+            type: "area",
             data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
         },{
             name: 'Secondary care budget inc Sustainability & Transformation Fund',
-            color: "#af0a21",
+            color: "#C75363",
             marker: { enabled: false },
             dashStyle: 'longdash',
+            lineWidth: 0,
+            type: "area",
             data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
         },{
             name: 'Cost to commissioners of activity growth reduction to 1.5% by 2020-21',
             color: "#2b505e",
             marker: { enabled: false },
-            data: [68.6801186545369,69.8281630332418,70.6630178862509,74.0427626471247,76.1237174614867,77.7673198699411,79.9505518312379,81.8330915098218] 
+            data: [68.6801186545369,69.8281630332418,70.9813928531608,74.0334043072349,76.1270628167467,77.7842544717116,79.7491842518435,81.6417495184931]
         },{
             name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
             color: "#2b505e",
             dashStyle: 'longdash',
             marker: { enabled: false },
-            data: [68.6801186545368,69.8281630332418,70.6630178862509,74.0956038119783,76.4915474711495,78.3877668136355,80.8574408205785,83.0874874212612] 
+            data: [68.6801186545368,69.8281630332418,70.9813928531608,74.0862454720885,76.4949042440042,78.4048124178449,80.6537441173549,82.8931450025523]
         },{
             name: 'Cost to provider of activity growth reduction to 1.5% by 2020-21 and only 2% efficiency',
             color: "#3c1f75",
             marker: { enabled: false },
-            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.454126354246,81.1696362871858,83.4483845393486,85.4132852362275]
+            data: [69.8331300754291,72.3374728516765,74.7005389061763,77.900129869163,80.102461811246,81.8454871009809,83.9122706054509,85.9028611523084]
         },{
             name: 'Cost to provider after reduction in activity growth to 1.9% by 2020-21 with only 2% efficiencies each year',
             color: "#3c1f75",
             marker: { enabled: false },
             dashStyle: 'longdash',
-            data: [69.8331300754291,72.3374728516765,74.3325389061763,77.282129869163,79.7253008469226,81.7016846768937,84.2757665160881,86.6000904710865]
+            data: [69.8331300754291,72.3374728516765,74.7005389061763,77.900129869163,80.3758490529226,82.3819655381008,84.7442519638617,87.0964689736557]
         },
                
 ]
