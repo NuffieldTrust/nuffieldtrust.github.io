@@ -37,35 +37,46 @@ window.onscroll = function (oEvent) {
   var chart2 = document.getElementById("chart2"); 
  
   
-  if(scrollPos <= mydivpos-50) {
+  if(scrollPos <= mydivpos-150) {
     $('#chart1').show(300);
     $('#chart2').hide(300);
     $('#chart3').hide(300);
     $('#chart4').hide(300);
   }
     
-  else if(scrollPos >= mydivpos-50 && scrollPos <= mydivpos2-50) {
+  else if(scrollPos >= mydivpos-150 && scrollPos <= mydivpos2-50) {
     $('#chart2').show(300);
     $('#chart1').hide(300);
     $('#chart3').hide(300);
     $('#chart4').hide(300);}
 
-  else if(scrollPos >= mydivpos2-50 && scrollPos <= mydivpos3-50) {
+  else if(scrollPos >= mydivpos2-150 && scrollPos <= mydivpos3-50) {
     $('#chart3').show(300);
     $('#chart1').hide(300);
     $('#chart2').hide(300);
     $('#chart4').hide(300);}
 
-  else if(scrollPos >= mydivpos3-50) {
+  else if(scrollPos >= mydivpos3-150) {
     $('#chart4').show(300);
     $('#chart1').hide(300);
     $('#chart2').hide(300);
     $('#chart3').hide(300);
-  	
   }
- 
-
-          
+  
+  else if(scrollPos >= mydivpos3-150 && scrollPos <= mydivpos4-150) {
+  	$('#chart4a1').show(300);
+        $('#chart4a2').hide(300);
+        $('#chart4a3').hide(300);
+        $('#chart4a4').hide(300);
+        $('#chart4b1').show(300);
+        $('#chart4b2').hide(300);
+        $('#chart4b3').hide(300);
+        $('#chart4b4').hide(300);
+        $('#chart4c1').show(300);
+        $('#chart4c2').hide(300);
+        $('#chart4c3').hide(300);
+        $('#chart4c4').hide(300);
+  }
 };
 
 
@@ -1736,7 +1747,7 @@ a:hover {
     To explore the likely impact of those further efficiencies and spending reductions it is useful now to shift away from the NHS England budget as a whole to look more specifically and in cash terms at the secondary care sector, which makes up approximately 72% of the NHS commissioning budget, and from where the vast bulk of NHS England’s estimated £15 billion of “locally delivered” savings will come.
 </p>
 <div id="chart3-div"></div>
-<h2>Zoom in on secondary care: sharing the pain of 5 more years of deficits?</h2>
+<h2>Zoom in on secondary care: sharing the pain of five more years of deficits?</h2>
 <p>The charts opposite present the secondary care-only version of the £23 billion funding gap. The core secondary care budget (red area in the top chart) is set at 72% of NHS England’s resource budget – a figure taken from the modelling behind the NHS England’s Five Year Forward View – while the light red area supplements that by adding the entire S&amp;TF.</p>
 <p>You can read more about our workings on this here. <input type="button" onClick="growDiv2()" value="+" id="more-button2"></p><div id='grow2'>
     <div class='measuringWrapper2'>
