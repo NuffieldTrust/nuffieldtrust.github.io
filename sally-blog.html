@@ -56,14 +56,11 @@ window.onscroll = function (oEvent) {
     $('#chart2').hide(300);
     $('#chart4').hide(300);}
 
-  else if(scrollPos >= mydivpos3-150) {
+  else if(scrollPos >= mydivpos3-150 && scrollPos <= mydivpos4-150) {
     $('#chart4').show(300);
     $('#chart1').hide(300);
     $('#chart2').hide(300);
     $('#chart3').hide(300);
-  }
-  
-  else if(scrollPos >= mydivpos3-150 && scrollPos <= mydivpos4-150) {
   	$('#chart4a1').show(300);
         $('#chart4a2').hide(300);
         $('#chart4a3').hide(300);
