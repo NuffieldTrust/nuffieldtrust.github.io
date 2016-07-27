@@ -80,6 +80,10 @@ window.onscroll = function (oEvent) {
   }
   
   else if(scrollPos >= mydivpos4-150 && scrollPos <= mydivpos5-150) {
+    $('#chart4').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
   	$('#chart4a1').hide(300);
         $('#chart4a2').show(300);
         $('#chart4a3').hide(300);
@@ -88,13 +92,36 @@ window.onscroll = function (oEvent) {
         $('#chart4b2').show(300);
         $('#chart4b3').hide(300);
         $('#chart4b4').hide(300);
-        $('#chart4c1').show(300);
-        $('#chart4c2').hide(300);
+        $('#chart4c1').hide(300);
+        $('#chart4c2').show(300);
         $('#chart4c3').hide(300);
         $('#chart4c4').hide(300);
         $('#base').attr('class', 'off');
         $('#31provider').attr('class', 'on');
         $('#1pp').attr('class', 'off');
+        $('#demo').attr('class', 'off');
+  }
+  
+    else if(scrollPos >= mydivpos5-150 && scrollPos <= mydivpos6-150) {
+    $('#chart4').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+  	$('#chart4a1').hide(300);
+        $('#chart4a2').hide(300);
+        $('#chart4a3').show(300);
+        $('#chart4a4').hide(300);
+        $('#chart4b1').hide(300);
+        $('#chart4b2').hide(300);
+        $('#chart4b3').show(300);
+        $('#chart4b4').hide(300);
+        $('#chart4c1').hide(300);
+        $('#chart4c2').hide(300);
+        $('#chart4c3').show(300);
+        $('#chart4c4').hide(300);
+        $('#base').attr('class', 'off');
+        $('#31provider').attr('class', 'of');
+        $('#1pp').attr('class', 'on');
         $('#demo').attr('class', 'off');
   }
 };
