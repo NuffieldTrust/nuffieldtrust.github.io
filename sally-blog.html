@@ -169,6 +169,8 @@ window.onscroll = function (oEvent) {
         $('#31provider').attr('class', 'off');
         $('#1pp').attr('class', 'off');
         $('#demo').attr('class', 'on');
+        chart.series[3].update({visible: true}, true);
+        chart.series[5].update({visible: true}, true);
   } 
   
 };
