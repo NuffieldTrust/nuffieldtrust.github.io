@@ -147,6 +147,8 @@ window.onscroll = function (oEvent) {
         $('#31provider').attr('class', 'off');
         $('#1pp').attr('class', 'off');
         $('#demo').attr('class', 'on');
+        $('#chart4a4').highcharts().series[2].hide();
+        $('#chart4a4').highcharts().series[4].hide();
   } 
       else if(scrollPos >= mydivpos7-150) {
     $('#chart4').show(300);
