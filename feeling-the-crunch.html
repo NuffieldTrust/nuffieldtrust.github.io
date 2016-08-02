@@ -1767,6 +1767,54 @@ h3 {
             background-color: rgba(43,80,94,0.9);
 }
 
+#scroll {
+            position: fixed;
+            bottom: 5px;
+            left: 47%;
+            z-index: 1050;
+}
+ 
+#scroll a {
+            width: 50px;
+            display: block;
+            text-align: center;
+            font: 11px/100% Arial sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #6A848E;
+ 
+            /* transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+}
+#scroll a:hover {
+            color: #2b505e;
+}
+ 
+/* arrow icon (span tag) */
+#scroll span {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin-bottom: 7px;
+            background: rgba(43,80,94,0.7) url(http://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55bba872e4b0a3278f9a5941/1438361714274/up-arrow-small.png) no-repeat center center;
+			-webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+ 
+ 
+            /* transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+}
+#scroll a:hover span {
+            background-color: rgba(43,80,94,0.9);
+}
+
 #more-button{border-style:none;background-color:#af021a;font:16px Arial,Sans-Serif;color:#ffffff;margin: 0 0 10px 0;box-shadow: 0px 0px 0px #888888;}
  
 #grow input:checked{color:#C75363;}
@@ -1822,7 +1870,11 @@ a:hover {
 <div id="logo"><img src="https://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55a7d3d8e4b0fa0db166646c/1470057721874/?format=1500w" align="right"/></div>
 <div id="cover-text"><h1>Feeling the crunch:</h1><h1 id="subtitle">NHS finances to 2020</h1>
 <br /><br/><h3>Sally Gainsbury</h3>
-<h3>August 2016</h3></div>
+<h3>August 2016</h3>
+<p id="scroll">
+		<a href="#top"><span></span>Scroll for report</a>
+	</p>
+</div>
 </div>
 <div class="container" id="chart1"></div>
 <div class="container" id="chart2"></div>
@@ -1832,6 +1884,7 @@ a:hover {
 <div id="spacer"></div>
 <div id="text">
 <div id="keypoints">
+<a name="top"></a>
 <h2>Key points</h2>
 <ul><li>New analysis from the Nuffield Trust warns that the NHS in England will struggle to meet the requirement, set by the Five Year Forward View, to save £22 billion by 2020.</li> 
   <li>Our analysis examines the funding gap in detail and concludes that even if hospitals and other NHS providers made cost savings of 2 per cent a year, year after year, the funding gap would still stand at around £6 billion by 2020-21.</li>
