@@ -1,0 +1,2279 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sally blog 1</title>
+  <meta name="description" content="Sally blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+<script src="//code.highcharts.com/highcharts-more.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+window.onscroll = function (oEvent) {
+  var scrollPos = (document.documentElement && document.documentElement.scrollTop) || 
+              document.getElementsByTagName("body")[0].scrollTop;
+  var cover = document.getElementById("keypoints").offsetTop;
+  var mydivpos = document.getElementById("chart1-div").offsetTop;
+  var mydivpos2 = document.getElementById("chart2-div").offsetTop;
+  var mydivpos3 = document.getElementById("chart3-div").offsetTop;
+  var mydivpos4 = document.getElementById("chart4-div").offsetTop;
+  var mydivpos5 = document.getElementById("chart5-div").offsetTop;
+  var mydivpos6 = document.getElementById("chart6-div").offsetTop;
+  var mydivpos7 = document.getElementById("chart7-div").offsetTop;
+  var chart1 = document.getElementById("chart1");
+  var chart2 = document.getElementById("chart2"); 
+ 
+  if(scrollPos <= cover-150) {
+    $('#cover').show(300);
+  }
+  
+  else if(scrollPos >= cover-150) {
+    $('#cover').hide(300);
+  } 
+  
+  if(scrollPos >= cover-150 && scrollPos <= mydivpos-150) {
+	$('#chart1').show(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+    $('#chart4').hide(300);
+  }
+    
+  else if(scrollPos >= mydivpos-150 && scrollPos <= mydivpos2-150) {
+    $('#chart1').hide(300);
+    $('#chart2').show(300);
+    $('#chart3').hide(300);
+    $('#chart4').hide(300);}
+
+  else if(scrollPos >= mydivpos2-150 && scrollPos <= mydivpos3-150) {
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').show(300);
+    $('#chart4').hide(300);}
+
+  else if(scrollPos >= mydivpos3-150 && scrollPos <= mydivpos4-150) {
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+    $('#chart4').show(300);
+  	$('#chart4a1').show(300);
+        $('#chart4a2').hide(300);
+        $('#chart4a3').hide(300);
+        $('#chart4a4').hide(300);
+        $('#chart4b1').show(300);
+        $('#chart4b2').hide(300);
+        $('#chart4b3').hide(300);
+        $('#chart4b4').hide(300);
+        $('#chart4c1').show(300);
+        $('#chart4c2').hide(300);
+        $('#chart4c3').hide(300);
+        $('#chart4c4').hide(300);
+        $('#base').attr('class', 'on');
+        $('#31provider').attr('class', 'off');
+        $('#1pp').attr('class', 'off');
+        $('#demo').attr('class', 'off');
+  }
+  
+  else if(scrollPos >= mydivpos4-150 && scrollPos <= mydivpos5-150) {
+    $('#chart4').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+  	$('#chart4a1').hide(300);
+        $('#chart4a2').show(300);
+        $('#chart4a3').hide(300);
+        $('#chart4a4').hide(300);
+        $('#chart4b1').hide(300);
+        $('#chart4b2').show(300);
+        $('#chart4b3').hide(300);
+        $('#chart4b4').hide(300);
+        $('#chart4c1').hide(300);
+        $('#chart4c2').show(300);
+        $('#chart4c3').hide(300);
+        $('#chart4c4').hide(300);
+        $('#base').attr('class', 'off');
+        $('#31provider').attr('class', 'on');
+        $('#1pp').attr('class', 'off');
+        $('#demo').attr('class', 'off');
+  }
+  
+    else if(scrollPos >= mydivpos5-150 && scrollPos <= mydivpos6-150) {
+    $('#chart4').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+  	$('#chart4a1').hide(300);
+        $('#chart4a2').hide(300);
+        $('#chart4a3').show(300);
+        $('#chart4a4').hide(300);
+        $('#chart4b1').hide(300);
+        $('#chart4b2').hide(300);
+        $('#chart4b3').show(300);
+        $('#chart4b4').hide(300);
+        $('#chart4c1').hide(300);
+        $('#chart4c2').hide(300);
+        $('#chart4c3').show(300);
+        $('#chart4c4').hide(300);
+        $('#base').attr('class', 'off');
+        $('#31provider').attr('class', 'off');
+        $('#1pp').attr('class', 'on');
+        $('#demo').attr('class', 'off');
+  }
+
+    else if(scrollPos >= mydivpos6-150 && scrollPos <= mydivpos7-150) {
+    $('#chart4').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+  	$('#chart4a1').hide(300);
+        $('#chart4a2').hide(300);
+        $('#chart4a3').hide(300);
+        $('#chart4a4').show(300);
+        $('#chart4b1').hide(300);
+        $('#chart4b2').hide(300);
+        $('#chart4b3').hide(300);
+        $('#chart4b4').show(300);
+        $('#chart4c1').hide(300);
+        $('#chart4c2').hide(300);
+        $('#chart4c3').hide(300);
+        $('#chart4c4').show(300);
+        $('#base').attr('class', 'off');
+        $('#31provider').attr('class', 'off');
+        $('#1pp').attr('class', 'off');
+        $('#demo').attr('class', 'on');
+        $('#chart4a4').highcharts().series[2].hide();
+        $('#chart4a4').highcharts().series[4].hide();
+  } 
+      else if(scrollPos >= mydivpos7-150) {
+    $('#chart4').show(300);
+    $('#chart1').hide(300);
+    $('#chart2').hide(300);
+    $('#chart3').hide(300);
+  	$('#chart4a1').hide(300);
+        $('#chart4a2').hide(300);
+        $('#chart4a3').hide(300);
+        $('#chart4a4').show(300);
+        $('#chart4b1').hide(300);
+        $('#chart4b2').hide(300);
+        $('#chart4b3').hide(300);
+        $('#chart4b4').show(300);
+        $('#chart4c1').hide(300);
+        $('#chart4c2').hide(300);
+        $('#chart4c3').hide(300);
+        $('#chart4c4').show(300);
+        $('#base').attr('class', 'off');
+        $('#31provider').attr('class', 'off');
+        $('#1pp').attr('class', 'off');
+        $('#demo').attr('class', 'on');
+        $('#chart4a4').highcharts().series[2].show();
+        $('#chart4a4').highcharts().series[4].show();
+        
+  } 
+  
+};
+
+
+        $button = $('#base');
+    $button.click(function () {
+        if ($button.hasClass( "on" )) {
+        } else {
+            $('#chart4a1').show(300);
+            $('#chart4a2').hide(300);
+            $('#chart4a3').hide(300);
+            $('#chart4a4').hide(300);
+            $('#chart4b1').show(300);
+            $('#chart4b2').hide(300);
+            $('#chart4b3').hide(300);
+            $('#chart4b4').hide(300);
+            $('#chart4c1').show(300);
+            $('#chart4c2').hide(300);
+            $('#chart4c3').hide(300);
+            $('#chart4c4').hide(300);
+            $button.attr('class', 'on');
+            $('#31provider').attr('class', 'off');
+            $('#1pp').attr('class', 'off');
+            $('#demo').attr('class', 'off');
+        }
+    });
+ 
+        $button1 = $('#31provider');
+    $button1.click(function () {
+        if ($button1.hasClass( "on" )) {
+        } else {
+            $('#chart4a2').show(300);
+            $('#chart4a1').hide(300);
+            $('#chart4a3').hide(300);
+            $('#chart4a4').hide(300);
+            $('#chart4b2').show(300);
+            $('#chart4b1').hide(300);
+            $('#chart4b3').hide(300);
+            $('#chart4b4').hide(300);
+            $('#chart4c1').hide(300);
+            $('#chart4c2').show(300);
+            $('#chart4c3').hide(300);
+            $('#chart4c4').hide(300);
+            $button1.attr('class', 'on');
+            $('#base').attr('class', 'off');
+            $('#1pp').attr('class', 'off');
+            $('#demo').attr('class', 'off');
+        }
+    });
+
+        $button2 = $('#1pp');
+    $button2.click(function () {
+        if ($button2.hasClass( "on" )) {
+        } else {
+            $('#chart4a3').show(300);
+            $('#chart4a1').hide(300);
+            $('#chart4a2').hide(300);
+            $('#chart4a4').hide(300);
+            $('#chart4b3').show(300);
+            $('#chart4b1').hide(300);
+            $('#chart4b2').hide(300);
+            $('#chart4b4').hide(300);
+            $('#chart4c1').hide(300);
+            $('#chart4c2').hide(300);
+            $('#chart4c3').show(300);
+            $('#chart4c4').hide(300);
+            $button2.attr('class', 'on');
+            $('#base').attr('class', 'off');
+            $('#31provider').attr('class', 'off');
+            $('#demo').attr('class', 'off');
+        }
+    });
+
+
+        $button3 = $('#demo');
+    $button3.click(function () {
+        if ($button3.hasClass( "on" )) {
+        } else {
+            $('#chart4a4').show(300);
+            $('#chart4a1').hide(300);
+            $('#chart4a2').hide(300);
+            $('#chart4a3').hide(300);
+            $('#chart4b4').show(300);
+            $('#chart4b1').hide(300);
+            $('#chart4b2').hide(300);
+            $('#chart4b3').hide(300);
+            $('#chart4c1').hide(300);
+            $('#chart4c2').hide(300);
+            $('#chart4c3').hide(300);
+            $('#chart4c4').show(300);
+            $button3.attr('class', 'on');
+            $('#base').attr('class', 'off');
+            $('#31provider').attr('class', 'off');
+            $('#1pp').attr('class', 'off');
+        }
+    });
+
+});
+
+
+
+
+$(function chart1() {
+    $('#chart1').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      
+        exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
+      title: {
+         text: 'Index of tariff unit prices versus provider unit costs'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2009-10','2010-11','2011-12','2012-13','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'Index: 2009-10 = 1', x: -5},
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'Tariff unit cash prices',
+            data: [1,1,0.96727,0.95469549,0.94037505765,0.9253290567276,0.941984979748697,0.944377621597259,0.94399987054862,0.952873469331777,0.96089666394355]
+        },{
+            name: 'Provider unit cash costs, after inflation and reported efficiencies - actual',
+            data: [1,0.996705,0.967862105504622,0.970138517176769,0.972913113335895,0.971570493239491,0.981655394959317,null,null,null,null]
+        },{
+            name: 'Provider unit cash costs, after inflation and reported efficiencies - anticipated',
+            data: [null,null,null,null,null,null,0.981655394959317,0.984148799662513,0.983755140142648,0.993002438459989,1.00136351899182],
+            color: '#2b505e',
+            dashStyle: 'shortdash',
+
+        },
+                
+]
+    });
+});
+
+
+$(function chart2() {
+    $('#chart2').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
+      title: {
+         text: 'The declining fortunes of commissioners'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<b>{series.name}:</b> {point.y}%<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2010-11','2011-12','2012-13','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'Year-on-year per cent change', x: -5},
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value + '%';
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'Change in commissioner cash allocations',
+            data: [4.36319018404907,3.34132806621521,2.75432888120319,1.94754149182343,3.01809335563326,3.47470402816872,3.72581581816145,2.51546999312446,2.44799800710924,2.52791650300208,3.84387342765145]
+        },{
+
+                name: 'Trend - cash',
+                data: [3.32,3.28,3.24,3.2,3.16,3.12,3.08,3.04,3,2.96,2.92],
+                showInLegend: true,
+                enableMouseTracking: false,
+                dashStyle: 'shortdot',
+                marker: { enabled: false },
+                color: '#AF021A'
+            },
+        
+{
+            name: 'Change in commissioner buying power',
+            data: [4.36319018404907,4.91505387433016,4.63780945132708,3.29031559455262,4.58689680774951,5.15721954082187,1.89176406499161,2.25574041247678,2.48899360455106,1.5731290895602,2.97680869841084]
+        },
+        {
+                name: 'Trend - buying power',
+                data: [4.9,4.61,4.32,4.03,3.74,3.45,3.16,2.87,2.58,2.29,2],
+                showInLegend: true,
+                enableMouseTracking: false,
+                dashStyle: 'shortdot',
+                marker: { enabled: false },
+                color: '#2b505e'
+            },
+
+                
+]
+    });
+});
+
+$(function () {
+    $('#chart3').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25,
+         renderTo: 'chart3',     
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+        },
+      title: {
+         text: 'Index of 3.1% annual activity growth applied to NHS-wide costs'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> {point.y}<br />',
+          valueDecimals: 1,
+          shared: false,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+		yAxis: {
+        title: {text:'Index, NHS commissioning budget 2013-14 = 100', x: -5},
+        min: 100,
+        max: 160,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'NHS England commissioning budget, without S&TF (2013-14=100)',
+            color: "#af0a21",
+            marker: { enabled: false },
+            lineWidth: 0,
+            type: "area",
+            data: [100,103.0180934,106.5976672,110.5692999,113.3506375,116.1254589,119.0610135,123.6375681],
+        },{
+            name: 'NHS England commissioning budget, with S&TF (2013-14=100)',
+            color: "#C75363",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            lineWidth: 0,
+            type: "area",
+            data: [100,103.02,106.81,112.89,116.46,119.33,122.79,127.34]
+        },
+                {
+            name: 'Cash cost to provider after 2% recurrent efficiencies (2013-14=100.7)',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [100.7,105.709090909091,108.8040029832,113.308343562164,117.083548460185,120.629742192554,125.13626694416,130.063944681203]
+
+        },{
+            name: 'Cash cost to provider with no efficiencies after 2013-14 (2013-14 =100.7)',
+            dashStyle: 'longdash',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [100.7,106.38627725,111.735730344845,118.736163801691,125.196135403102,131.620449895177,139.324050045047,147.765736034491]
+        },{
+            name: '5YFV provider cost counterfactual, no efficiencies and cost growth of 3.02%/year (2013-14=100.7)',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [100.7,106.38627725,112.963836507615,119.948067442308,127.364113400793,135.238672271,143.600092594913,152.478475623791]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a1').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         plotBackgroundColor:'#F4F4F1',   
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Base reform case'}
+            }
+        },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
+          valueDecimals: 2,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+	yAxis: {
+        title: {text:'£bn cash', x: -5},
+        min: 65,
+        endOnTick: false,
+        startOnTick: false,
+        tickInterval: 10,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no S&TF',
+            color: "#af0a21",
+            marker: { enabled: false },
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
+        },{
+            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            color: "#C75363",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cost to commissioners, 2.9% activity growth',
+            color: "#2b505e",
+            marker: { enabled: false },
+            data: [68.6866376012409,69.834915761205,70.9883318212262,74.0406186206309,76.3943245280132,78.5919720830709,81.4079983122654,84.4894444558776]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [69.8324057480175,72.3367225485695,74.6997679097245,77.8993282787857,80.3750221213396,82.6864714514744,85.6484556917842,88.8896151854208]
+        },{
+            name: 'Cost to providers of 2.9% activity growth with no more efficiencies after 2013-14',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'dot',
+            data: [69.8324057480175,73.6539841525778,77.5979587371696,82.5511859943044,86.8989093070665,91.2073572305108,96.3863845961309,102.057855852152]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a2').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         plotBackgroundColor:'#F4F4F1',     
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Extra provider efficiency for 3 years'}
+            }
+        },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+	yAxis: {
+        title: {text:'£bn cash', x: -5},
+        endOnTick: false,
+        startOnTick: false,
+        tickInterval: 5,
+        min: 65,
+		max: 90,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no S&TF',
+            color: "#af0a21",
+            marker: { enabled: false },
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
+        },{
+            name: 'Secondary care budget inc Sustainability & Transformation Fund',
+            color: "#C75363",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cost to commissioners, 2.9% activity growth',
+            color: "#2b505e",
+            marker: { enabled: false },
+            data: [68.6866376012409,69.834915761205,70.9883318212262,74.0406186206309,76.3943245280132,78.5919720830709,81.4079983122654,84.4894444558776]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            visible: false,
+            data: [69.8324057480175,72.3367225485695,74.6997679097245,77.8993282787857,80.3750221213396,82.6864714514744,85.6484556917842,88.8896151854208]
+        },{
+            name: 'Cost to providers, 2.9% activity growth cost to provider with reset efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [69.8324057480175,72.3367225485695,74.6997679097245,76.3221583139125,77.1541666570381,78.5705702042788,81.3858335134234,84.4664448380623]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a3').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         plotBackgroundColor:'#F4F4F1',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: '1 pp reduction scenario'}
+            }
+        },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      subtitle: {
+      	text: ''
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+	yAxis: {
+        title: {text:'£bn cash', x: -5},
+        endOnTick: false,
+        startOnTick: false,
+        min: 65,
+		max: 90,
+        tickInterval: 5,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no S&TF',
+            color: "#af0a21",
+            marker: { enabled: false },
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
+        },{
+            name: 'Secondary care budget, with S&TF',
+            color: "#C75363",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cost to commissioners, 2.9% activity growth',
+            color: "#2b505e",
+            visible: false,
+            marker: { enabled: false },
+            data: [68.6866376012409,69.834915761205,70.9883318212262,74.0406186206309,76.3943245280132,78.5919720830709,81.4079983122654,84.4894444558776]
+        },{
+            name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
+            color: "#2b505e",
+            dashStyle: 'shortdash',
+            marker: { enabled: false },
+            data: [68.6801186545368,69.8281630332418,70.9813928531608,74.0862454720885,76.4949042440042,78.4048124178449,80.6537441173549,82.8931450025523]
+        },{
+            name: 'Cost to providers, 2.9% activity growth with 2% annual efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            visible: false,
+            data: [69.8324057480175,72.3367225485695,74.6997679097245,77.8993282787857,80.3750221213396,82.6864714514744,85.6484556917842,88.8896151854208]
+        },{
+            name: 'Cost to providers of 2.9% growth with reset efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            visible: false,
+            dashStyle: 'longdash',
+            data: [69.8324057480175,72.3367225485695,74.6997679097245,76.3221583139125,77.1541666570381,78.5705702042788,81.3858335134234,84.4664448380623]
+        },{
+            name: 'Cost to providers of 2.9% growth to 2017-18 then staged reductions by 1pp from 2018-19 to 2020-21, with reset efficiencies',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'shortdash',
+            data: [69.8331300754291,72.3374728516765,74.7005389061763,76.3229435453025,77.1549601807229,78.2812213922342,80.526630565341,82.7625256613162]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4a4').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         plotBackgroundColor:'#F4F4F1',    
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Demographic growth only scenario'}
+            }
+        },
+      title: {
+         text: 'Funding gap in secondary care'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> £{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'£bn cash', x: -5},
+        endOnTick: false,
+        startOnTick: false,
+        tickInterval: 5,
+        min: 65,
+		max: 90,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [
+        {
+            name: 'Core secondary care commissioning budget, no S&TF',
+            color: "#af0a21",
+            marker: { enabled: false },
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.07,74.664,76.536,78.3,80.208,83.16],
+        },{
+            name: 'Secondary care budget, with S&TF',
+            color: "#C75363",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            lineWidth: 0,
+            type: "area",
+            data: [69.02856,71.05824,72.372,76.764,79.436,81.25,83.608,86.56]
+        },{
+            name: 'Cost to commissioners of activity growth reduction to 1.5% by 2020-21',
+            color: "#2b505e",
+            dashStyle: 'ShortDashDot',
+            marker: { enabled: false },
+            visible: false,
+            data: [68.6801186545369,69.8281630332418,70.9813928531608,74.0334043072349,76.1270628167467,77.7842544717116,79.7491842518435,81.6417495184931]
+        },{
+            name: 'Cost to commissioners after reduction in activity growth to 1.9% by 2020-21',
+            color: "#2b505e",
+            dashStyle: 'shortDot',
+            marker: { enabled: false },
+            data: [68.6801186545368,69.8281630332418,70.9813928531608,74.0862454720885,76.4949042440042,78.4048124178449,80.6537441173549,82.8931450025523]
+        },{
+            name: 'Cost to provider of activity growth reduction to 1.5% by 2020-21 and only 2% efficiency',
+            color: "#3c1f75",
+            dashStyle: 'ShortDashDot',
+            marker: { enabled: false },
+            visible: false,
+            data: [69.8331300754291,72.3374728516765,74.7005389061763,77.900129869163,80.102461811246,81.8454871009809,83.9122706054509,85.9028611523084]
+        },{
+            name: 'Cost to provider after reduction in activity growth to 1.9% by 2020-21 with only 2% efficiencies each year',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'shortDot',
+            data: [69.8331300754291,72.3374728516765,74.7005389061763,77.900129869163,80.3758490529226,82.3819655381008,84.7442519638617,87.0964689736557]
+        },
+               
+]
+    });
+});
+
+$(function () {
+    $('#chart4b1').highcharts({
+      colors: ["#af0a21", "#2b505e"],
+      chart: {
+         defaultSeriesType: 'column',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Base reform case'}
+            }
+        },
+      title: {
+         text: 'S&TF available for transformation',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+      labels: {
+          enabled: true,
+      },
+          categories: ['2016-17','2017-18','2018-19','2019-20','2020-21']
+            
+      },
+      yAxis: {
+         title: {
+         text: '£bn',
+         max: 100,
+         alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+         },
+      labels: {
+            formatter: function() {
+                return this.value;
+            }
+      },
+
+      },
+      
+      tooltip: {
+         pointFormat: '<span style="color: {point.color};"><b>{series.name} {point.category}:</b></span> £{point.y}bn<br />',
+         valueDecimals: 2,
+      },
+      
+      series: [
+         	   {
+         name: 'S&TF for financial balance',
+         data: [3.23532827878569,3.8390221213396,4.38647145147436,5.44045569178419,5.72961518542083]},
+         {
+         name: 'S&TF for transformation',
+         data: [-1.13532827878569,-0.93902212133959,-1.43647145147436,-2.04045569178419,-2.32961518542082]},
+              ],
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            colorByPoint: false,
+             
+        }
+    },
+
+     
+   });
+});
+
+$(function () {
+    $('#chart4b2').highcharts({
+      colors: ["#af0a21", "#2b505e"],
+      chart: {
+         defaultSeriesType: 'column',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Extra provider efficiency for 3 years'}
+            }
+        },
+      title: {
+         text: 'S&TF available for transformation',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+      labels: {
+          enabled: true,
+      },
+          categories: ['2016-17','2017-18','2018-19','2019-20','2020-21']
+            
+      },
+      yAxis: {
+         title: {
+         text: '£bn',
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3', 
+         },
+      labels: {
+            formatter: function() {
+                return this.value;
+            }
+      },
+
+      },
+      
+      tooltip: {
+         pointFormat: '<span style="color: {point.color};"><b>{series.name} {point.category}:</b></span> £{point.y}bn<br />',
+         valueDecimals: 2,
+      },
+      
+      series: [
+         	   {
+         name: 'S&TF for financial balance',
+         data: [1.65815831391249,0.61816665703806,0.270570204278798,1.17783351342339,1.30644483806228]},
+         {
+         name: 'S&TF for transformation',
+         data: [0.4418416860875,2.28183334296195,2.67942979572121,2.22216648657661,2.09355516193773]},
+              ],
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            colorByPoint: false
+
+        }
+    },
+    
+     
+   });
+});
+
+
+$(function () {
+    $('#chart4b3').highcharts({
+      colors: ["#af0a21", "#2b505e"],
+      chart: {
+         defaultSeriesType: 'column',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: '1 pp reduction scenario'}
+            }
+        },
+      title: {
+         text: 'S&TF available for transformation',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+      labels: {
+          enabled: true,
+      },
+          categories: ['2016-17','2017-18','2018-19','2019-20','2020-21']
+            
+      },
+      yAxis: {
+         title: {
+         text: '£bn',
+         },
+      labels: {
+            formatter: function() {
+                return this.value;
+            }
+      },
+
+      },
+      
+      tooltip: {
+         pointFormat: '<span style="color: {point.color};"><b>{series.name} {point.category}:</b></span> £{point.y}bn<br />',
+         valueDecimals: 2,
+      },
+      
+      series: [
+         	   {
+         name: 'S&TF for financial balance',
+         data: [1.65894354530253,0.618960180722851,-0.0187786077658387,0.318630565341024,-0.397474338683779]},
+         {
+         name: 'S&TF for transformation',
+         data: [0.44105645469746,2.28103981927715,2.96877860776584,3.08136943465898,3.79747433868378]},
+              ],
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            colorByPoint: false
+
+        }
+    }
+     
+   });
+});
+
+$(function () {
+    $('#chart4b4').highcharts({
+      colors: ["#af0a21", "#2b505e"],
+      chart: {
+         defaultSeriesType: 'column',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25
+      },
+      exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Demographic growth only scenario'}
+            }
+        },
+      title: {
+         text: 'S&TF available for transformation',
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      credits: {
+        text: '© Nuffield Trust'
+    },
+      xAxis: {
+      labels: {
+          enabled: true,
+      },
+          categories: ['2016-17','2017-18','2018-19','2019-20','2020-21']
+            
+      },
+      yAxis: {
+         title: {
+         text: '£bn',
+         },
+      labels: {
+            formatter: function() {
+                return this.value;
+            }
+      },
+
+      },
+      
+      tooltip: {
+         pointFormat: '<span style="color: {point.color};"><b>{series.name} {point.category}:</b></span> £{point.y}bn<br />',
+         valueDecimals: 2,
+      },
+      
+      series: [
+         	   {
+         name: 'S&TF for financial balance',
+         data: [3.23612986916302,3.56646181124599,3.54548710098086,3.70427060545087,2.74286115230839]},
+         {
+         name: 'S&TF for transformation',
+         data: [-1.13612986916303,-0.666461811245981,-0.595487100980861,-0.304270605450867,0.657138847691613]},
+              ],
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            colorByPoint: false
+        }
+    },
+    
+     
+   });
+});
+
+$(function () {
+    $('#chart4c1').highcharts({
+      chart: {
+         type: 'waterfall',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+	  exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Base reform case'},
+				xAxis: {labels: {enabled: true}},
+            }
+        },
+      title: {
+         text: 'Waterfall'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		type: 'category',
+				labels: {enabled: false}
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#55504c",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'S&TF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },{
+                name: 'Funding gap by 2020-21',
+                isSum: true,
+                color: "#af0a21"
+            }],
+            
+            pointPadding: 0
+        }]
+    });
+});
+
+
+$(function () {
+    $('#chart4c2').highcharts({
+      chart: {
+         type: 'waterfall',
+         spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Waterfall'
+      },
+	  exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Extra provider efficiency for 3 years'},
+				xAxis: {labels: {enabled: true}},
+            }
+        },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		type: 'category',
+				labels: {enabled: false}
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#55504c",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'S&TF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },
+            {
+                name: 'Extra "reset" efficiencies above 2% a year 2016-17 to 2018-19',
+                y:  4.42
+
+            },{
+                name: 'Funds available by 2020-21 for transformation',
+                isSum: true,
+                color: "#2b505e"
+            }],
+            
+            pointPadding: 0
+        }]
+    });
+});
+
+$(function () {
+    $('#chart4c3').highcharts({
+      chart: {
+         type: 'waterfall',
+         spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Waterfall'
+      },
+	  exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: '1 pp reduction scenario'},
+				xAxis: {labels: {enabled: true}},
+            }
+        },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		type: 'category',
+				labels: {enabled: false}
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#55504c",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'S&TF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },
+            {
+                name: 'Extra "reset" efficiencies above 2% a year 2016-17 to 2018-19',
+                y:  4.42
+
+            },{
+                name: '1% point reduction in activity growth rate from 2018-19 onwards to 1.9% by 2020-21',
+                y:  1.70
+
+            },{
+                name: 'Funds available by 2020-21 for transformation',
+                isSum: true,
+                color: "#2b505e"
+            }],
+            
+            pointPadding: 0
+        }]
+    });
+});
+
+$(function () {
+    $('#chart4c4').highcharts({
+      chart: {
+         type: 'waterfall',
+         spacingBottom: 25,
+         plotBackgroundColor:'#F4F4F1',
+         style: {
+                fontFamily: "'Futura','FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Waterfall'
+      },
+	  exporting: {
+            sourceWidth: 800,
+            sourceHeight: 500,
+            chartOptions: {
+                subtitle: {text: 'Deomgraphic growth only scenario'},
+				xAxis: {labels: {enabled: true}},
+            }
+        },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+    legend: {
+            enabled: false
+        },
+      tooltip: {
+          pointFormat: '£{point.y}bn<br />',
+          valueDecimals: 2,
+          shared: false,
+        },
+        xAxis: {
+        		type: 'category',
+				labels: {enabled: false}
+        },
+				yAxis: {
+        title: {text:'£bn', x: -5},
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+        },
+        series: [{
+            upColor: "#55504c",
+            color: "#af0a21",
+            data: [ {
+                name: 'Secondary care fund gap',
+                y:  -18.90 
+
+            }, {
+                name: 'S&TF',
+                y: 3.40 
+
+            },{
+                name: 'Efficiency already achieved',
+                y: 3.41 
+
+            },
+            {
+                name: 'Provider efficiency at 2% a year 2015-16 onwards',
+                y: 9.76
+
+            },
+            {
+                name: 'Reduce activity growth by 1% point to 1.9% by 2020-21',
+                y:   1.79
+
+            },{
+                name: 'Reduce activity growth by more again, to 1.5% by 2020-21',
+                y:  1.19
+
+            },{
+                name: 'Funds available by 2020-21 for transformation',
+                isSum: true,
+                color: "#2b505e"
+            }],
+            
+            pointPadding: 0
+        }]
+    });
+});
+
+$(document).ready(function(){
+ 
+            // hide #back-top first
+            $("#back-top").hide();
+           
+            // fade in #back-top
+            $(function () {
+                        $(window).scroll(function () {
+                                    if ($(this).scrollTop() > 2000) {
+                                                $('#back-top').fadeIn();
+                                    } else {
+                                                $('#back-top').fadeOut();
+                                    }
+                        });
+ 
+                        // scroll body to 0px on click
+                        $('#back-top a').click(function () {
+                                    $('body,html').animate({
+                                                scrollTop: 1800
+                                    }, 800);
+                                    return false;
+                        });
+            });
+            
+});
+
+function growDiv() {
+    var growDiv = document.getElementById('grow');
+    if (growDiv.clientHeight) {
+      growDiv.style.height = 0;
+    } else {
+      var wrapper = document.querySelector('.measuringWrapper');
+      growDiv.style.height = wrapper.clientHeight + "px";
+    }
+document.getElementById("more-button").value=document.getElementById("more-button").value=='+'?'x':'+';
+};
+
+function growDiv2() {
+    var growDiv = document.getElementById('grow2');
+    if (growDiv.clientHeight) {
+      growDiv.style.height = 0;
+    } else {
+      var wrapper = document.querySelector('.measuringWrapper2');
+      growDiv.style.height = wrapper.clientHeight + "px";
+    }
+document.getElementById("more-button2").value=document.getElementById("more-button2").value=='+'?'x':'+';
+};
+
+</script>
+
+<style>
+.container {
+  float: right;
+  position: fixed;
+  right: 0;
+  width: 49%;
+  height: 100vh;
+  padding-right: 15px
+}
+
+
+#chart4title {
+	height: 10vh;
+	width: 100%;
+	float: left;
+}
+
+.foura {
+	height: 50vh;
+	width: 100%;
+	float: left;
+}
+
+.fourb {
+	height: 40vh;
+	width: 60%;
+	float: left;
+}
+
+.fourc {
+	height: 40vh;
+	width: 40%;
+	float: left;
+}
+
+#text{
+  float: left;
+  width: 48%;
+  border-right: solid #eae8e3;
+  padding: 15px 15px 0px 15px;
+}
+
+p {
+ font-family: arial;
+ line-height: 1.4em;
+}
+
+ul {
+ font-family: arial;
+ line-height: 1.4em;
+}
+
+#chart1 {
+ z-index: 100;
+}
+
+#keypoints {
+ background-color: #F4F4F1;
+ border-style: solid;
+ border-width: 3px;
+ border-color: #eae8e3;
+ padding: 15px;
+ 
+}
+
+#cover {
+	z-index: 1000;
+	width: 100%;
+	height: 100vh;
+	background-color: #ffffff;
+	position: fixed;
+}
+
+#cover-text {
+	padding: 5%;
+}
+
+#logo {
+	background-color: #2b505e;
+	height: 50px;
+	padding: 50px;
+}
+
+blockquote {
+    border-top: 1px solid #b6b1aa;
+    border-bottom: 1px solid #b6b1aa;
+    margin: 0 0 28px 0;
+    padding: 14px 14px 21px 60px;
+    font-family: FuturaPTDemi-Reg,helvetica,arial,sans-serif;
+    color: #2e3437;
+    font-size: 1.20em;
+    line-height: 1.3em;
+    background: url(http://www.nuffieldtrust.org.uk//sites/default/themes/custom/nuffield/images/icon_quote.png) no-repeat 15px 18px #fff;
+}
+
+button {
+  font-family: Arial;
+  color: #ffffff;
+  background: #55504c;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  font-size:50%;
+  line-height: 1;
+}
+
+button.on {
+  font-family: Arial;
+  color: #ffffff;
+  background: #af0a21;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button.off {
+  font-family: Arial;
+  color: #ffffff;
+  background: #C75363;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #E7B5BC;
+  text-decoration: none;
+}
+
+h1 {
+	color: #6A848E;
+	font-family: Futura, 'FuturaTS-Regular',Arial;
+	font-size: 100px;
+}
+
+#subtitle {
+	color: #2b505e;
+}
+
+h2 {
+ color: #b72731;
+    font-size: 1.7em;
+    font-weight: normal;
+    letter-spacing: 0;
+    margin-bottom: 20px;
+    text-shadow: 0.5px 0.5px 1px rgba(255,255,255,0.6);
+ font-family: 'FuturaTS-Regular', Futura, Arial;
+}
+
+h3 {
+ font-family: 'FuturaTS-Regular', Futura, Arial;
+ color: #2b505e;
+ font-size: 1.7em;
+}
+
+@media screen and (min-width: 480px) {
+    button {
+    font-size:75%;
+    line-height: 1;
+    }
+	
+	h1 {
+    font-size:75%;
+    line-height: 1;
+    }
+}  
+
+@media screen and (min-width: 1000px) {
+    button {
+    font-size:100%;
+    line-height: 1.2;
+    }
+	
+	h2 {
+    font-size:75%;
+    line-height: 1.2;
+    }
+} 
+
+
+#back-top {
+            position: fixed;
+            bottom: 5px;
+            left: 47%;
+            z-index: 1000;
+}
+ 
+#back-top a {
+            width: 50px;
+            display: block;
+            text-align: center;
+            font: 11px/100% Arial sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #6A848E;
+ 
+            /* transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+}
+#back-top a:hover {
+            color: #2b505e;
+}
+ 
+/* arrow icon (span tag) */
+#back-top span {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin-bottom: 7px;
+            background: rgba(43,80,94,0.7) url(http://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55bba872e4b0a3278f9a5941/1438361714274/up-arrow-small.png) no-repeat center center;
+ 
+ 
+            /* transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+}
+#back-top a:hover span {
+            background-color: rgba(43,80,94,0.9);
+}
+
+#more-button{border-style:none;background-color:#af021a;font:16px Arial,Sans-Serif;color:#ffffff;margin: 0 0 10px 0;box-shadow: 0px 0px 0px #888888;}
+ 
+#grow input:checked{color:#C75363;}
+ 
+#more-button:hover{color:#C75363;}
+ 
+#grow {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+  }
+
+#grow2 {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+  }
+  
+#more-button2{border-style:none;background-color:#af021a;font:16px Arial,Sans-Serif;color:#ffffff;margin: 0 0 10px 0;box-shadow: 0px 0px 0px #888888;}
+ 
+#grow2 input:checked{color:#C75363;}
+ 
+#more-button2:hover{color:#C75363;}
+
+a, a:link, a:active, a:visited {
+    color: #006073;
+    text-decoration: none;
+}
+
+a:hover {
+	color:#af021a;
+}
+
+#spacer {
+	height: 250px;
+}
+
+</style>
+
+
+</head>
+
+<body>
+<div id="cover">
+<div id="logo"><img src="https://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55a7d3d8e4b0fa0db166646c/1470057721874/?format=1500w" align="right"/></div>
+<div id="cover-text"><h1>Feeling the crunch:</h1><h1 id="subtitle">NHS finances to 2020</h1>
+<br /><br/><h3>Sally Gainsbury</h3>
+<h3>August 2016</h3></div>
+</div>
+<div class="container" id="chart1"></div>
+<div class="container" id="chart2"></div>
+<div class="container" id="chart3"></div>
+<div class="container" id="chart4"><div id="chart4title"><center><p><b>Scenarios:</b> <button id="base" class="on">Base reform case</button> <button id="31provider" class="off">Extra provider efficiency for 3 years</button> <button id="1pp" class="off">1 pp reduction scenario</button> <button id="demo" class="off">Demographic growth only scenario</button></p></center></div>
+<div class="foura" id="chart4a1"></div><div class="fourb" id="chart4b1"></div><div class="fourc" id="chart4c1"></div><div class="foura" id="chart4a2"></div><div class="foura" id="chart4a3"></div><div class="foura" id="chart4a4"></div><div class="fourb" id="chart4b2"></div><div class="fourb" id="chart4b3"></div><div class="fourb" id="chart4b4"></div><div class="fourc" id="chart4c2"></div><div class="fourc" id="chart4c3"></div><div class="fourc" id="chart4c4"></div></div>
+<div id="spacer"></div>
+<div id="text">
+<div id="keypoints">
+<h2>Key points</h2>
+<ul><li>New analysis from the Nuffield Trust warns that the NHS in England will struggle to meet the requirement, set by the Five Year Forward View, to save £22 billion by 2020.</li> 
+  <li>Our analysis examines the funding gap in detail and concludes that even if hospitals and other NHS providers made cost savings of 2 per cent a year, year after year, the funding gap would still stand at around £6 billion by 2020-21.</li>
+  <li>For the most part, the task of closing the health service’s funding gap will be borne by health care providers making efficiency savings. From 2011-12 to 2014-15 the target for annual efficiency savings was set at four per cent per year. Providers have actually achieved savings closer to two per cent over the last three years, resulting in an underlying provider deficit in 2015–16 of £3.7 billion.</li>
+  <li>Continuing with two per cent annual efficiencies to 2020–21 would not be sufficient to close the funding gap by itself. The recent ‘financial reset’ assumes even higher efficiency savings for 2016-17 of 4 per cent. But that would still leave providers with an underlying deficit in 2016-17 of £2.35 billion. Reducing that deficit altogether would require providers to make further efficiencies of 4 per cent in 2017-18 and follow that with efficiencies of 3 per cent in 2018-19. That level of recurrent, sustained efficiency saving has never been achieved to date and would still require funds to be taken from the Sustainability and Transformation Fund (S&TF) to balance provider deficits in the meantime.</li>
+  <li>The S&TF can only be spent once. If most of the funds are used to plug the deficit, there will be little money for the transformative service change that is required to modernise and reshape NHS services for long term financial sustainability.</li> 
+  <li>Activity is growing by an estimated 3.1% per year. Even if NHS providers manage to make the huge additional efficiencies set out above, a sustainability balance can only be brought into the system by 2020–21 if NHS commissioners also manage to curb the rate at which NHS activity is growing by a third.</li>
+  <li>The NHS is relying on service change and new models of care to curb the growth in activity and treat patients more cheaply. This is highly unlikely without access to the S&TF for transformation. As such, the dual tasks of huge provider efficiencies and successful reductions in demand growth need to happen in a timely and coordinated fashion.</li>
+  <li>Providers are in deficit in part because the rate they have been paid for the procedures and treatments they carry out– set by the national NHS tariff – does not cover their costs and has been cut by an average 1.6 per cent in cash terms over the last six years.</li>
+  <li>NHS England has agreed to increase the tariff this financial year, easing the pressure on providers slightly, but pushing commissioners into deficit for the first time by 2018-19.</li>
+  <li>If commissioner attempts to reduce the growth rate in demand for NHS services fail, or if additional funding cannot be secured, the NHS will face some unpalatable decisions in order to curb the growth in activity and bring the books into balance. These could include extending waiting times for treatment, raising the threshold at which patients become eligible for treatment, cutting some services altogether, or closing whole sites or hospitals.</li>
+  <li>These rationing dilemmas come immediately after the EU referendum, which may have heightened public expectations that there will  be new investment for the NHS.</li>
+</ul>
+</div>
+
+<p>
+    The NHS faces a £22 billion funding shortfall four-and-a-half years from now.
+    <a
+        href="#_ftn1"
+        name="_ftnref1"
+        title=""
+    >
+        [1]
+    </a>
+     That is no longer an abstract number designed to scare the NHS into action. Its reality is hitting home already: a £3.7 billion underlying provider deficit in 2015-16; commissioners only balancing their books through one-off, non-recurrent funds; and finally the Department of Health busting its budget by £200 million despite having made over £1 billion worth of technical adjustments and switches.
+    <a
+        href="#_ftn2"
+        name="_ftnref2"
+        title=""
+    >
+        [2]
+    </a>
+</p>
+<p>
+    Yet we still know little about how the £22 billion gap will be closed. Regional Sustainability and Transformation Plans are in development – largely behind closed doors – and are not due to be completed until October this year. A new 'financial special measures' regime is now underway, but that is an attempt to stop the hole getting any deeper, rather than filling it. This analysis is an attempt to set out how the gap might be closed in theory, if things – many things – go well, and to raise some alarms about what might happen in practice if they don’t.
+</p>
+
+<h2>The trouble with tariff: Or how things went £3.5 billion wrong</h2>
+<p>
+    The huge financial deficit now pervading NHS hospitals and other providers – around £3.7 billion after the smoke and mirrors of one-off accountancy adjustments have been removed – is testament to the fact that the traditional method of saving NHS cash has run out of steam.
+    <a
+        href="#_ftn3"
+        name="_ftnref3"
+        title=""
+    >
+        [3]
+    </a> That method cannot be put too simply: over the last five years it has boiled down to paying hospitals less – in cash terms – for the same procedure, for each year that passes.
+</p>
+<p>
+    The mechanism for doing that was the NHS tariff, which determines a national price for thousands of treatments and packages of care. Every year between 2010-11 and 2015-16 the tariff was ratchetted down another notch, cutting the cash amount hospitals were effectively paid for each patient by 1.6% a year. Factor in NHS-specific inflation, and that was a real terms cut of 3.8%, year after year.
+</p>
+<p>
+    The rationale for that was to drive waste out of NHS providers; to force hospitals and other services to cut their unit costs in order to stay afloat, by ensuring their rapidly diminishing income-per-treatment covered the expense of providing that care. It worked for a few years, but by 2013-14, the pace of provider cost-cutting started to fall behind the pace of the year-on-year cuts to the tariff. To keep up with the cuts in their income, providers needed to make a 4% cut in their operating costs every year from 2011-12.
+</p>
+<blockquote>By [2015-16], NHS providers were being paid £925 in cash for the same procedure they would have been paid £1,000 to perform in 2009-10: the equivalent of a real-terms cut of 20% to just £800.</blockquote>
+<p>
+    By 2013-14, however, their annual cost-cutting efforts were nearer 2%. As a result, that year, a £600 million underlying deficit emerged in NHS provider accounts.
+    <a
+        href="#_ftn4"
+        name="_ftnref4"
+        title=""
+    >
+        [4]
+    </a>
+     The following year the underlying deficit more than doubled to £1.5 billion, and then in 2015-16 it more than doubled again. By that year, NHS providers were being paid £925 in cash for the same procedure they would have been paid £1,000 to perform in 2009-10: the equivalent of a real-terms cut of 20% to just £800.
+</p>
+<p>
+    This year, things have had to be different. Forced by the sheer size and unsustainability of the provider deficit, tariff prices have been increased, in cash terms, for the first time this decade. The increase is modest – just 1.8%, which is more than outstripped by the expected inflation in provider costs (determined predominantly by salary, drug and equipment costs), but it will at least mean that in order to keep pace with cuts to the tariff, providers will only need to find 2% cost cuts a year, rather than the 4% required of late. That will not leave NHS providers laughing, but it should mean their deficits will stop increasing as a proportion of their turnover, just as long as they keep up their recent trend of 2% recurrent cost cuts a year.
+</p>
+<div id="chart1-div"></div>
+<p>
+    The more significant impact, however, is on NHS commissioners – NHS England centrally, and clinical commissioning groups (CCGs) locally. For them, the main measure of their spending power is not simply much how much extra cash they get from the government each year, but what direction cash prices in the tariff are moving. When tariff cash prices are cut, commissioner buying power is increased above and beyond the headline increase in their allocations. But when tariff cash prices shift upwards, the reverse is true, and commissioner buying power is diminished.</p>
+    <p>So while annual increases in NHS commissioner headline cash allocations are set to remain fairly constant over this current decade – averaging 3.1% a year from 2009-10 to 2015-16 and 3% in the budgets announced from 2016-17 onwards, the cash increase in tariff prices means that 3% cash increase will translate into significantly less buying power than commissioners have been used to: an average of just 2.4% growth a year from 2016-17 onwards – down from an average of 4.5% between 2009-10 and 2015-16.
+    <a
+        href="#_ftn5"
+        name="_ftnref5"
+        title=""
+    >
+        [5]
+    </a>
+</p>
+<p>
+    That is a significant problem for commissioners because demand for hospital and other NHS services is currently growing at 3.1% a year – considerably faster than commissioners’ ability to pay for it, this year and beyond.
+</p>
+<p>
+    So while measures to curtail NHS spending in the first half of this decade centred almost exclusively on reducing the unit cost of care by squeezing ever greater efficiencies out of providers, the second half of this decade – and the quest to make £22 billion worth of savings – will see a sharpening of the incentive for commissioners to curtail spending by scaling back the <em>quantity</em> of care purchased, and possibly its <em>quality</em> too.
+</p>
+<h2>Unit costs up + activity up = commissioners go bust?</h2>
+<p>
+    We can bring this incentive into sharp relief – and explore its potential implications – by calculating the future cost to commissioners and providers of NHS care if the volume of care provided continues to grow at its current rate. These costs can then be compared to the NHS’s commissioning budget up to 2020-21, to give a measure of their affordability, or otherwise.
+</p>
+<p>
+    <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf">NHS England’s central assumption</a> for activity growth across the NHS as a whole is a continuation of the recent trend of 3.1% a year until 2020-21; that is,  NHS hospitals and other services are assumed to provide 3.1% more care each year by treating more patients with more complications through more intense and more advanced medicine.</p>
+<p>
+    We can calculate how much that growing quantity of care will cost to provide, and how much commissioners will be asked to pay for it, by using the <a href="https://www.gov.uk/government/publications/economic-assumptions-201617-to-202021/economic-assumptions-201617-to-202021 ">guidance set out by NHS Improvement on NHS tariff prices to 2020-21</a>.
+    
+    This shows how much inflation providers are expected to face, how much of that they will be expected to offset through efficiencies (as we have seen, 2% from now on) and how much prices will increase for commissioners. Although the tariff only applies directly to secondary care (over two thirds of all NHS care), it is reasonable to assume – at least for this headline analysis – that similar cost pressures (staff, drugs, equipment) will apply across all NHS services.
+    <a
+        href="#_ftn6"
+        name="_ftnref6"
+        title=""
+    >
+        [6]
+    </a>
+</p>
+<div id="chart2-div"></div>
+<p>
+    The 'index' chart shows these rising costs and sets them against the NHS commissioning budget to 2020-21, announced as part of the November 2015 Spending Review. Costs in 2013-14 are set at 100 in the index, and a 10% increase in cost is shown as 110. (A little further below we will look at these costs in cash terms, when we zoom in on the secondary care budget, where we are able to be more precise about the relationship between the volume and cost of healthcare).
+</p>
+<p>
+        You can read more about our method for doing this here. <input type="button" onClick="growDiv()" value="+" id="more-button"><div id='grow'></p>
+    <div class='measuringWrapper'>
+    <div class="text"><hr /><p>To model the cost of future activity we have first established the baseline cash cost of secondary care for each year from 2009-10 to 2014-15. This was derived from the NHS Reference Cost dataset, which details the cash cost to NHS hospitals and other secondary care services of providing £75 billion worth of the total £100 billion annually spent on NHS care.
+        </p>
+        <p>
+            Provider and commissioner cash costs for projected activity beyond 2014-15 are calculated by first applying the activity growth rate from the 2014-15 cash cost to provider and then multiplying the value of activity by either the expected net change in provider costs for the year (in other words, the product of inflation as defined by the tariff and the 2% efficiency assumption) or the planned net change in tariff cash prices.
+        </p>
+        <p>
+            For all years except 2019-20 we have taken our measure of provider inflation from the figures published as part of the NHS tariff (or NHS Improvement’s guidance on the future tariff). 2019-20 is the exception because the published figure for provider inflation that year (2%) does not include the impact of the change in the public sector pension discount rate announced as part of the 2016 Budget. We calculate that will add approximately 0.7% to secondary care provider costs in 2019-20 and so have adjusted the inflation figure for that year from 2% to 2.7% and assumed the cost will be passed onto commissioners in the form of a 0.7% increase to tariff rates. We have assessed the sensitivity of our analysis to this adjustment which is to increase the size of the reported overall deficit in the secondary care sector by 2020-21 by approximately £600 million. As the size of the projected deficit discussed in almost all our scenarios is far in excess of this sum, the thrust of this analysis is unaffected.
+        </p>
+        <p>
+            Finally, as the reference cost dataset covers service cost (£62 billion in 2014-15) rather than full operational cost (£75 billion), values for each year are multiplied up to reflect provider full operational costs, net of education and training costs (approximately 3.6%) as those costs are typically funded by Health Education England, rather than commissioners. These adjustments are made using the <a href="https://www.gov.uk/government/publications/nhs-reference-costs-2014-to-2015">reconciliation data published by the Department of Health for the years from 2012-13 onwards</a>.</p><hr /><br /></div>
+    </div>
+</div>
+
+<p>
+    The shape of the graph is familiar: the purple dotted line at the top represents NHS England’s 'do nothing' scenario, where unit costs simply rise in line with inflation (around 3% a year from 2015-16 onwards) because providers make no efficiencies to mitigate it. The red shaded area shows the NHS’s total available resources – made up of its core budget (dark red) and then topped up by the £2 billion to £3.4 billion a year Sustainability and Transformation Fund (S&TF, in light red), which we will discuss more later. The gap of almost one fifth between the two by 2020-21 is close to £22 billion – the original 'NHS funding gap' highlighted in NHS England’s Five Year Forward View (FYFV).
+</p>
+<p>
+    The bad news, though, is that it isn’t £22 billion, it is £23 billion: sharp eyes may notice the provider cost lines do not start at 100, but at just under 101. That is to account for the £600 million underlying provider deficit in 2013-14, which entails that the baseline cost of NHS services in 2013-14 was £600 million (or 0.7%) more than implied by NHS England’s original calculations.
+</p>
+<p>
+    Time, then, for some good news: since the calculation of that £22 billion gap three years ago, NHS England has revised down its estimate of average annual NHS provider inflation from 2015-16 onwards, from 3% to 2.5% – largely to reflect the effect of continued public sector pay restraint announced in 2015. Our purple dashed line factors that revision into the 'do nothing' cost forecast. It reduces the gap to £19 billion – the £4 billion difference making up part of the 'central savings' claimed by NHS England towards the total £22 billion/£23 billion target.
+    <a
+        href="#_ftn7"
+        name="_ftnref7"
+        title=""
+    >
+        [7]
+    </a>
+</p>
+<p>
+    There is further good news: things may be bad for NHS providers, but we do not (yet) live in a world where hospitals and other services do not make any year-on-year efficiency savings. The solid purple line in the middle shows provider costs after recurrent provider efficiencies of 2% a year – around the level of year-on-year efficiencies achieved in recent years, and the level of annual cost cuts providers will now need to keep making if they are to keep up with the 2% real terms cut to tariff prices each year.
+</p>
+<p>
+    It looks like those 2% annual provider efficiencies save a lot – and they do: around £16 billion a year by 2020-21 compared to the 'do nothing' scenario.
+</p>
+<p>
+    But here is our problem: even after those 2% cost savings, year on year, the gap between the provider costs (solid purple line) and the total NHS budget (red area) gets progressively wider from 2018-19 onwards. By 2020-21 it reaches 2.1% of total available resources, indicating a £2.5 billion net deficit in the NHS budget.
+</p>
+<p>
+    And then there is the question of the S&TF. That £2 billion to £3.4 billion a year fund was announced as part of the 2015 Spending Review and is supposed to fund investment in much-needed service transformation; to secure the long-term sustainability of NHS services and to deliver the new models of care set out in the FYFV. But here we see it swallowed up just funding the annual increases in day-to-day activity; nothing is spare for investment. The dark red area at the bottom of the graph shows what the core budget would be without the S&TF: heading straight for a £6 billion NHS-wide deficit by 2020-21.
+</p>
+<p>
+    This is the backdrop against which NHS England, NHS Improvement and most particularly the Treasury are demanding two further changes from local NHS organisations. From providers, they want to see additional efficiencies, above and beyond the 2% they have achieved in recent years; and from commissioners they hope to see a full percentage-point reduction in the speed at which the volume of care provided by the NHS is growing.
+</p>
+<p>
+    To explore the likely impact of those further efficiencies and spending reductions it is useful now to shift away from the NHS England budget as a whole to look more specifically and in cash terms at the secondary care sector, which makes up approximately 72% of the NHS commissioning budget, and from which the vast bulk of NHS England’s estimated £15 billion of 'locally delivered' savings will come.
+</p>
+<div id="chart3-div"></div>
+<h2>Zoom in on secondary care: sharing the pain of five more years of deficits?</h2>
+<p>The charts opposite present the secondary care-only version of the £23 billion funding gap. The core secondary care budget (red area in the top chart) is set at 72% of NHS England’s resource budget – a figure taken from the modelling behind the NHS England’s Five Year Forward View – while the light red area supplements that by adding the entire S&TF.</p>
+<p>You can read more about our workings on this here. <input type="button" onClick="growDiv2()" value="+" id="more-button2"></p><div id='grow2'>
+    <div class='measuringWrapper2'>
+    <div class="text"><hr />
+    <p> To model the affordability or otherwise of rising secondary care activity we have first defined 'secondary care' as all hospital (general and specialist), community (including continuing health care) and mental health activity. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf">NHS England’s recent briefing paper on the modelling behind the Five Year Forward View</a> showed how core spending in this area accounted for £69 billion (or 71%) of NHS England’s total spending in 2014-15. A further £2 billion worth of NHS’s England spending that year is categorised in the paper as 'commitment pressure' and as military and justice system spending.</p>
+    <p>Assuming that 71% of that spending was made in the secondary care sector brings the combined total secondary care spend to £70.2 billion, or 72% of NHS England’s resource allocation. We have used that 72% figure to extrapolate an NHS secondary care commissioning budget from 2013-14 to 2020-21. To calculate the figure for the years from 2016-17 onwards (where the full NHS England budget is supplemented by the ring fenced S&TF) we have calculated first a 'core' secondary care budget as 72% of NHS England’s total planned spending for each year, minus planned S&TF spending, as set out in <a href="https://www.england.nhs.uk/wp-content/uploads/2015/12/04.PB_.17.12.15-Allocations.pdf">NHS England’s December 2015 board paper detailing financial allocations</a>. Our S&TF enhanced figure for secondary care then includes the entire S&TF for that year, rather than a 72% proportion, as we believe it most likely that the vast bulk of the S&TF will be spent in secondary care. No adjustment is made to reflect NHS transfers to local authority social care spending under the Better Care Fund, or to reflect the 1% non-recurrent spending and 0.5% contingency requirements set by NHS England.</p> <hr /><br />
+    </div>    </div> </div>
+<p>
+    A slightly lower rate of activity increase is shown here (2.9% a year rather than 3.1%) as this echoes NHS England’s assumption for activity growth in the sector (the overall growth rate is pushed up to 3.1% by an expected increase in community prescribing activity of almost 5% a year).
+</p>
+<p>
+    Our headline 'gap' by 2020-21 here is the £15.5 billion gap between the secondary care budget (including the full S&TF) and the cost of providing activity with no additional efficiencies after 2013-14 (shown again by the dotted purple line).
+</p>
+<p>
+    The good news: provider efficiencies in 2014-15 and 2015-16 have already reduced that gap by around £3.4 billion, and if providers continue to make recurrent efficiencies of 2% a year they will close the gap by a further £9.8 billion by 2020-21. The resulting cost to providers after those efficiencies is shown by our solid purple line. That would leave a secondary care-wide deficit of around £2.3 billion in 2020-21– but only after it had absorbed the entire S&TF on funding the cost of the growing volume of day-to-day care.
+</p>
+<p>
+    Without the S&TF, the secondary care deficit after recurrent provider efficiencies of 2% a year would be £5.7 billion by 2020-21. This £5.7 billion is the intransigent end of the £15.5 billion secondary care funding gap that is now causing sleepless nights amongst commissioners and providers, and which is our focus for the rest of this analysis.
+</p>
+<h2>Sharing the £5.7 billion pain: Commissioners hit bust by 2018-19</h2>
+<p>
+    We can get a sense of how commissioners and providers are sharing the pain of that £5.7 billion gap by looking now at how much the growing quantity of secondary care would cost commissioners. This is shown by our teal line, which prices up the expected volume of care by the NHS tariff to show the price that would need to be paid to providers by commissioners.
+</p>
+<p>
+    At no point would those commissioner payments meet the actual cost of providing care – that much we know: even if providers make 2% cost savings a year, the amount they will get paid under the tariff will be cut by an equal amount, and so the level of their deficit will remain similar in proportion to what it is today – reaching around £4.4 billion in cash terms by 2020-21.
+</p>
+<p>
+    That is bad enough, but the more dramatic swing into the red will be for commissioners. The gradual cash increases in tariff prices, combined with the growing volume of care purchased, means that from 2018-19 onwards, the core secondary care budget will be insufficient to cover the tariff rate for the quantity of care provided.
+</p>
+<blockquote>By 2019-20, over a third of the S&TF would be needed to subsidise commissioner costs under the tariff, while the remaining £2 billion or so would be absorbed by provider deficits. No S&TF would be available for investment in 'service transformation'.</blockquote>
+<p>
+    That would mean that by 2019-20, over a third of the S&TF would be needed to subsidise commissioner costs under the tariff, while the remaining £2 billion or so would be absorbed by provider deficits. No S&TF would be available for investment in 'service transformation'. The underlying £5.7 billion deficit against the 2020-21 core commissioning budget would be formed of a £4.4 billion deficit in provider accounts and a £1.3 billion overspend by  commissioners.
+</p>
+
+<h2>Increase provider efficiency to free up investment for transformation?</h2>
+<p>
+    We saw earlier that the £3.7 billion underlying provider deficit in 2015-16 was testament to the redundancy of relying almost exclusively on high levels of provider cost saving to curtail NHS spending. Indeed, <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/499229/Operational_productivity_A.pdf">Lord Carter’s report on hospital efficiency</a> published earlier this year looked extensively at the opportunities for further cost savings in acute hospitals to 2020 and found a rate of just 2% a year could be expected: half the rate required of (and missed by) hospitals in recent years.
+</p>
+<p>
+    Nevertheless, secondary care providers are now being asked to exceed that 2% again. The rationale is simply that without further efficiencies from providers, the entire S&TF will  dwindle to naught and the NHS as a whole would be bust.
+</p>
+<p>
+    Secondary care providers have been asked to end 2016-17 with an underlying deficit no greater than £2.35 billion – down from £3.7 billion in 2015-16.
+    <a
+        href="#_ftn8"
+        name="_ftnref8"
+        title=""
+    >
+        [8]
+    </a>
+</p>
+<div id="chart4-div"></div>
+<p>
+    Meeting that target will require providers to make an extra 2% recurrent efficiency saving, over and above the 2% already planned (and required by the tariff). Four per cent efficiency in 2016-17 is equivalent to around £3.8 billion in cost savings. Doing that all over again in 2017-18 with another 4% cost cuts, and following that in 2018-19 with only a slightly lower cost cut of 3% would finally bring provider costs down into line with their income under the tariff.
+</p>
+<p>
+    Our next chart shows the impact these extra efficiencies would have on provider costs, with recurrent efficiency savings returning to 2% from 2019-20 onwards. (To make viewing easier, we have dispensed with the dotted purple 'do nothing' line. Doing nothing, after all, is not a plausible option. For comparison, different lines can be toggled on and off by clicking them in the chart legend.)
+</p>
+<p>
+    As these charts show, two years of recurrent efficiency savings at 4% (that is, twice the rate of recent trends) followed by a year at 3% would bring provider costs into line with the payments due to them under the tariff by the end of 2018-19. Over the three years, that would require providers to remove an extra £4 billion from their cost base, permanently, and in addition to the £6 billion already required by the 2% annual cut in the tariff.
+</p>
+<p>
+    It is a big ask, but it is only after that level of cost reduction that the need to spend the S&TF on filling the provider deficit would be removed, freeing up part of it for investment in transformation.
+</p>
+<p>
+    What that would not do, however, is reduce tariff costs for commissioners (teal line). That is because extra provider efficiency does nothing – at least in the short term – to reduce tariff bills for commissioners, which are determined by the volume of care purchased. By 2018-19 commissioners would still hit the point where they would be unable to pay the invoices from providers out of their core budgets. In 2019-20 a large £1.2 billion annual overspend would emerge in commissioner accounts, requiring them to use over a third of the S&TF just to fund recurrent activity growth under the tariff – that is, activity increases that get consolidated, or 'baked' into the activity baseline for each following year.
+</p>
+<p>
+    Besides a begging bowl outside the Treasury, this would leave commissioners with nowhere else to turn but to reduce the rate at which activity levels are growing.
+</p>
+<p>
+    We are in the realm of theory rather than evidence-based practice here, but it is worth considering what the impact on secondary care costs would be if the modest amounts of S&TF freed up through extra provider efficiencies were successfully invested in measures to reduce the speed at which activity levels were growing.
+</p>
+<p>
+Our bar chart here shows how much S&TF would be available for genuine investment in service transformation in each of the five years to 2020-21 <em>if</em>, and only <em>if</em>, providers managed to find 4% recurrent efficiencies in 2016-17 and 2017-18 and then follow that with a year of 3% efficiencies before returning, in 2019-20, to the 2% level required to keep up with the year-on-year real terms cuts to the tariff.
+</p>
+<p>
+    While the vast bulk of the S&TF would be eaten up by provider deficits in 2016-17, around £2.3 billion would, in theory, be available for investment in transformation in 2017-18. Somewhat paradoxically, 2018-19 (the year the NHS as a whole is set to receive the lowest cash increase in its funding) would emerge as the year with the most significant investment fund for transformation, at around £2.7 billion of the total £3 billion fund for that year. In the years after 2018-19, the continued rise in secondary care activity would again require increasing chunks of the S&TF to be used to fund the cost of that activity growth, as commissioner tariff bills exceeded their core budgets.
+</p>
+<p>
+    There is very little systematic evidence on the scale and cost-effectiveness of investment in demand management, but it is NHS England’s hope that investment in early diagnosis, better primary care and improved patient self-management, for example, will serve to improve population health and reduce demand for secondary care and therefore slow the pace of activity growth by around one percentage point: from 2.9% a year to 1.9%.
+</p>
+<p>
+    As we have seen, substantial funds will not be available for investment in that transformation until 2017-18. It therefore does not seem plausible to expect any real change in the activity growth rate until after then. Our next set of charts then models the impact on secondary care costs of a gradual, staged, one percentage point reduction in the activity growth rate over the three years from 2018-19 to 2020-21.
+</p>
+<div id="chart5-div"></div>
+<p>
+    It is a big ask, but these graphs perhaps show why NHS England is banking on the twin hopes of substantial extra provider efficiencies in the first instance, followed by commissioner investment to achieve a percentage point reduction in the rate at which activity is growing.
+</p>
+<p>
+    As we already saw in the previous set of charts, extra provider efficiencies of up to 4% a year bring provider costs into line with the income they are able to command from commissioners under the tariff. Reducing the growth rate in overall activity from 2.9% to 1.9% then moves that provider cost – and the invoices providers send to commissioners – into line with what commissioners can afford, from their core budgets, meaning that by 2020-21, the lines in our graph converge and the system would finally be in balance.
+</p>
+<p>
+    Success in this strategy would imply an annual saving by 2020-21 through stemming activity growth of £1.7 billion a year and rising. That would imply a rather heroic and rapid return on any transformational investment, for which there is little or no evidence base.
+</p>
+<p>
+    And there are further reasons to be sceptical as to whether or not this can be achieved. What if, for example, those extra efficiencies were not forthcoming in the three years from 2016-17? After all, the current size of the provider deficit is testament to the inability of providers to make similarly scaled cost savings over the last three years. It is also worth noting that the current level of recurrent efficiencies (2% a year) are being made amid annual activity growth of 2.9%, enabling providers to reduce their average unit costs in areas where extra activity can be generated at only marginal extra cost.
+    <a
+        href="#_ftn9"
+        name="_ftnref9"
+        title=""
+    >
+        [9]
+    </a>
+    Slowing the growth rate to 1.9% might reduce the scope for further provider savings through that means.
+</p>
+<p>
+    And even if those efficiencies were forthcoming, there is still no guarantee that commissioner investments in new models of care designed to reduce the activity growth rate will succeed. Indeed, while planned initiatives such as giving dementia patients their own named clinician and bespoke care pathway, or linking care homes to hospital clinicians, may well improve the quality of care for patients, they might also serve to simply add additional activity rather than supplant and diminish growth in existing levels.
+</p>
+<h2>Rationing without investment</h2>
+<p>
+    It is not a palatable scenario, but there is a risk that without either or both additional provider efficiencies and subsequent successful investment in genuinely reducing the growth in demand, commissioners will resort instead to curtailing growth through crude service rationing. They might do that directly – by raising the threshold for treatment and access to certain services – or they might attempt to do it indirectly, by shutting services and hoping that patient and clinicians’ expectations for care and treatment will wane, rather than simply divert to alternative services elsewhere.
+</p>
+<p>
+    Aside from the ethical, political and long-term health implications of such a move, how viable would crude rationing be as a cost-saving measure in the short term?
+</p>
+<p>
+    According to NHS England, the current secondary care activity growth rate of just under 3% a year is comprised of 1.5% growth due to population growth and ageing and the remaining 1.5% growth due to so-called 'non-demographic growth' which is the pressure to increase activity levels due to factors such as rising public expectations (for example, that X condition will be treated, rather than endured), improvements in quality and clinical advancements.
+    <a
+        href="#_ftn10"
+        name="_ftnref10"
+        title=""
+    >
+        [10]
+    </a>
+</p>
+<p>
+    Reducing the rate of activity growth to below the 1.5% driven by population growth and change would involve drastic measures: it would effectively mean denying today’s 74-year-olds the same hip replacement their 75-year-old neighbours received last year. But commissioners might, in the absence of sufficient investment funds, be tempted to make in-roads into the 1.5 percentage points of growth above that level, which might be seen as more discretionary; which we could loosely term as being driven by improvements in quality and access.
+</p>
+<div id="chart6-div"></div>
+<p>
+    Our final charts show the impact of the same staged reduction in the activity growth rate to 1.9% explored above, but with provider efficiencies at <em>just</em> 2% a year. But as the graph shows, that won’t work: attempting to balance the NHS budget through a one percentage point reduction in activity alone is not a viable option: provider costs by 2020-21 would still be £4 billion above the core secondary care commissioning budget. Even after spending all of the S&TF on plugging provider deficits, the system as a whole would be spending £0.5 billion a year more than its total available resource.
+</p>
+<p>
+    To bring the NHS into financial balance without provider efficiencies above 2% a year would require crude rationing to go even further and to reduce the rate of growth right down to the 1.5% needed to keep up with only that element of demand driven by demographic change.
+</p>
+<div id="chart7-div"></div>
+<p>
+    Doing that, as the dot-dashed lines on the top chart show, would bring provider costs down to below the level of the total budget. Those costs would still be significantly higher than their tariff income, and the core commissioning budget, but in such a scenario the NHS would have dispensed with the ambition to invest in genuinely reducing the growth in demand through improved services and population health, and so could instead simply spend the entire S&TF on plugging the gap in provider finances (or alternatively use it to increase tariff rates to meet provider costs). But this precarious balance would be achieved at the cost of preserving the NHS in aspic, standing still and deliberately halting any further advancement in healthcare quality, such as the adoption of new treatments available elsewhere in the developed world.
+</p>
+<p>
+    The political acceptability of that – following a Brexit campaign which highlighted a potential £350 million extra for the NHS a week – is highly questionable.
+</p>
+<div>
+    <br clear="all"/>
+    <hr align="left" size="1" width="33%"/><h2>Footnotes</h2>
+    <div id="ftn1">
+        <p>
+            <a
+                href="#_ftnref1"
+                name="_ftn1"
+                title=""
+            >
+                [1]
+            </a>
+The £22 billion gap (£30 billion before additional funding was announced in the 2015 Spending Review) was <a href="https://www.england.nhs.uk/2013/07/call-to-action/">first set out by NHS England in July 2015</a>.</p>
+    </div>
+    <div id="ftn2">
+        <p>
+            <a
+                href="#_ftnref2"
+                name="_ftn2"
+                title=""
+            >
+                [2]
+            </a>
+            For the most succinct and timely analysis of the Department of Health&rsquo;s accounts for 2015-16, see the <a href="http://www.incisivehealth.com/news/232/18/Accounts-day-for-the-NHS">blog post written by the Department’s former director general for finance, Richard Douglas.</a></p>
+    </div>
+    <div id="ftn3">
+      <p>
+            <a
+                href="#_ftnref3"
+                name="_ftn3"
+                title=""
+            >
+                [3]
+            </a>
+            <a
+                href="http://www.hsj.co.uk/topics/finance-and-efficiency/exclusive-controversial-technical-measures-cut-900m-from-provider-deficit/7006337.fullarticle"
+            >NHS accounts report a deficit for the provider sector in 2015-16 of £2.5 billion</a>. That figure follows a significant effort by (and pressure upon)
+            NHS providers to reduce the reported deficit through a series of one-off accountancy adjustments.</p>
+        <p>
+            Our £3.7 billion underlying deficit figure is drawn from our analysis of provider income and expenditure  – detailed later on in this analysis.
+            However, it is also borne out by <a href="https://improvement.nhs.uk/uploads/documents/BM1653_Q4_sector_performance_report.pdf">note 2.7 in NHS Improvement’s report on the fourth-quarter finances for the provider sector</a>, which explained that
+            the reported £2.5 billion deficit was after £1.5 billion of financial improvement of which only £300 million was termed 'operational improvement'.
+        </p>
+    </div>
+    <div id="ftn4">
+        <p>
+            <a
+                href="#_ftnref4"
+                name="_ftn4"
+                title=""
+            >
+                [4]
+            </a>
+            The underlying provider deficit for 2013-14 was made up of a £108 million deficit reported in the accounts, plus £509 million in revenue support to providers in
+            financial distress. That support was provided in the form of revenue injections, which flattered the reported deficit between provider income and
+            expenditure.
+        </p>
+    </div>
+    <div id="ftn5">
+        <p>
+            <a
+                href="#_ftnref5"
+                name="_ftn5"
+                title=""
+            >
+                [5]
+            </a>
+            This figure excludes the Sustainability and Transformation Fund (S&TF), which is discussed further below. When the S&TF is included,
+            commissioner real terms buying power between 2015-16 and 2020-21 would increase at an average rate of 3% a year.
+        </p>
+    </div>
+    <div id="ftn6">
+        <p>
+            <a
+                href="#_ftnref6"
+                name="_ftn6"
+                title=""
+            >
+                [6]
+            </a>
+            While the tariff only applies directly to around 40% of secondary care, it is <a
+                href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/302433/How_can_the_NHS_payment_system_do_more_for_patients_0.pdf"
+            >used as the main reference point for determining changes in costs to
+            commissioners for activities outside the tariff</a>.
+        </p>
+    </div>
+    <div id="ftn">
+        <p>
+            <a
+                href="#_ftnref"
+                name="_ftn7"
+                title=""
+            >
+                [7]
+            </a>
+            NHS England’s calculations suggest a saving from the pay cap of nearer £5 billion. However, this was calculated prior to the announcement at Budget
+            2016 of a change in the public sector pension discount rate, which we estimate will increase the pension cost of NHS employers by around 1% from
+            2019-20 onwards, reducing the central savings on the NHS pay budget from £5 billion to £4 billion.
+        </p>
+    </div>
+    <div id="ftn8">
+        <p>
+            <a
+                href="#_ftnref8"
+                name="_ftn8"
+                title=""
+            >
+                [8]
+            </a>
+            If delivered, the £2.35 billion underlying deficit in 2016-17 would be reported in provider accounts as a deficit of £550 million, with the remaining £1.8
+            billion in deficit offset by extra non-recurrent income from the Sustainability and Transformation Fund.
+        </p>
+    </div>
+    <div id="ftn9">
+        <p>
+            <a
+                href="#_ftnref9"
+                name="_ftn9"
+                title=""
+            >
+                [9]
+            </a>
+            A simple example of this would be where a provider has already covered the fixed costs of providing a service and so caring for additional patients
+            only entails the marginal cost of each extra patient – i.e. the medicines and devices consumed in their care and the additional costs of providing
+            clinical staff time.
+        </p>
+    </div>
+    <div id="ftn9">
+        <p>
+            <a
+                href="#_ftnref10"
+                name="_ftn10"
+                title=""
+            >
+                [10]
+            </a>
+            NHS England’s breakdown of the components of activity growth are set out in chapter 2 of its <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf">May 2016 technical note on the Five Year Forward View</a>. See also <a href="http://www.kingsfund.org.uk/sites/files/kf/field/field_publication_file/Spending%20on%20health%20...%2050%20years%20low%20res%20for%20web.pdf">John Appleby’s 2013 report on long-term trends in health spending for The King's Fund</a>, which identified several problems in isolating individual drivers of activity growth. 
+        </p>
+    </div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
