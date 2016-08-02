@@ -39,16 +39,12 @@ window.onscroll = function (oEvent) {
   var chart2 = document.getElementById("chart2"); 
  
   if(scrollPos <= cover-150) {
-    $('#text').hide(300);
-    $('#container').hide(300);
     $('#cover').show(300);
   }
  
   
   if(scrollPos >= cover-150 && scrollPos <= mydivpos-150) {
     $('#cover').hide(300);
-	$('#text').show(300);
-    $('#container').show(300);
 	$('#chart1').show(300);
     $('#chart2').hide(300);
     $('#chart3').hide(300);
