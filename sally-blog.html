@@ -25,9 +25,10 @@
 $(document).ready(function(){
 
 window.onscroll = function (oEvent) {
-  var mydivpos = document.getElementById("chart1-div").offsetTop;
   var scrollPos = (document.documentElement && document.documentElement.scrollTop) || 
               document.getElementsByTagName("body")[0].scrollTop;
+  var cover = document.getElementById("keypoints").offsetTop;
+  var mydivpos = document.getElementById("chart1-div").offsetTop;
   var mydivpos2 = document.getElementById("chart2-div").offsetTop;
   var mydivpos3 = document.getElementById("chart3-div").offsetTop;
   var mydivpos4 = document.getElementById("chart4-div").offsetTop;
@@ -37,8 +38,14 @@ window.onscroll = function (oEvent) {
   var chart1 = document.getElementById("chart1");
   var chart2 = document.getElementById("chart2"); 
  
+  if(scrollPos <= cover-150) {
+    $('#text').hide(300);
+    $('#container').hide(300);
+    $('#cover').show(300);
+  }
+ 
   
-  if(scrollPos <= mydivpos-150) {
+  if(scrollPos >= cover-150 && scrollPos <= mydivpos-150) {
     $('#chart1').show(300);
     $('#chart2').hide(300);
     $('#chart3').hide(300);
@@ -1586,6 +1593,12 @@ ul {
 }
 
 
+h1 {
+	color: #ffffff;
+	font-family: Futura, FuturaTS-Regular,Arial;
+	font-size: 54px;
+}
+
 h2 {
  color: #b72731;
     font-size: 1.7em;
@@ -1612,6 +1625,15 @@ h1 {
  padding: 15px;
  
 }
+
+#cover {
+	z-index: 1000;
+	width: 100%;
+	height: 100vh;
+	background-color: #2b505e;
+	position: fixed;	
+}
+
 
 blockquote {
     border-top: 1px solid #b6b1aa;
@@ -1755,17 +1777,27 @@ a:hover {
 	color:#af021a;
 }
 
+spacer {
+	height: 100vh;
+}
+
 </style>
 
 
 </head>
 
 <body>
+<div id="cover">
+<h1>Feeling the crunch: NHS finances to 2020</h1>
+<p>Sally Gainsbury</p>
+<p>August 2016</p>
+</div>
 <div class="container" id="chart1"></div>
 <div class="container" id="chart2"></div>
 <div class="container" id="chart3"></div>
 <div class="container" id="chart4"><div id="chart4title"><center><p><b>Scenarios:</b> <button id="base" class="on">Base reform case</button> <button id="31provider" class="off">Extra provider efficiency for 3 years</button> <button id="1pp" class="off">1 pp reduction scenario</button> <button id="demo" class="off">Demographic growth only scenario</button></p></center></div>
 <div class="foura" id="chart4a1"></div><div class="fourb" id="chart4b1"></div><div class="fourc" id="chart4c1"></div><div class="foura" id="chart4a2"></div><div class="foura" id="chart4a3"></div><div class="foura" id="chart4a4"></div><div class="fourb" id="chart4b2"></div><div class="fourb" id="chart4b3"></div><div class="fourb" id="chart4b4"></div><div class="fourc" id="chart4c2"></div><div class="fourc" id="chart4c3"></div><div class="fourc" id="chart4c4"></div></div>
+<div id="spacer"></div>
 <div id="text">
 <div id="keypoints">
 <h2>Key points</h2>
