@@ -1,0 +1,182 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Health spending as share of GDP</title>
+  <meta name="description" content="Health spending as share of GDP in the UK. Historic figures and projections.">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.highcharts.com/modules/offline-exporting.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+chart: {
+         defaultSeriesType: 'line',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 1280,
+            sourceHeight: 720,
+            chartOptions: {
+      title: {
+         style: {
+            fontSize: '0px'
+         }
+      },
+      yAxis:{
+       title: {text:'Shared of GDP spent on health (%)',
+       				x: -5,
+              style:{
+           fontSize: '22px'}
+              },
+        labels:{
+         style:{
+           fontSize: '22px'
+         }
+        },
+      },
+      xAxis:{
+        labels:{
+         style:{
+           fontSize: '22px'
+         }
+        },
+        rotation: 90
+      }               
+   }
+        },
+      title: {
+         text: 'UK public health spending as share of GDP, various projections'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+            pointFormatter: function() {
+                return '<b>' + this.series.name + ': </b>' + Highcharts.numberFormat((this.y*100),2,'.') + '%<br />';
+            },
+          pointFormat: '<b>{series.name}:</b> {point.y}%<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            tickInterval: 5,
+            categories:  ['1950-51','1951-52','1952-53','1953-54','1954-55','1955-56','1956-57','1957-58','1958-59','1959-60','1960-61','1961-62','1962-63','1963-64','1964-65','1965-66','1966-67','1967-68','1968-69','1969-70','1970-71','1971-72','1972-73','1973-74','1974-75','1975-76','1976-77','1977-78','1978-79','1979-80','1980-81','1981-82','1982-83','1983-84','1984-85','1985-86','1986-87','1987-88','1988-89','1989-90','1990-91','1991-92','1992-93','1993-94','1994-95','1995-96','1996-97','1997-98','1998-99','1999-00','2000-01','2001-02','2002-03','2003-04','2004-05','2005-06','2006-07','2007-08','2008-09','2009-10','2010-11','2011-12','2012-13','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21','2021-22','2022-23','2023-24','2024-25','2025-26','2026-27','2027-28','2028-29','2029-30','2030-31','2031-32','2032-33','2033-34','2034-35','2035-36','2036-37','2037-38','2038-39','2039-40','2040-41','2041-42','2042-43','2043-44','2044-45','2045-46','2046-47','2047-48','2048-49','2049-50','2050-51','2051-52','2052-53','2053-54','2054-55','2055-56','2056-57','2057-58','2058-59','2059-60','2060-61','2061-62','2062-63','2063-64','2064-65','2065-66']
+        },
+				yAxis: {
+        title: {text:'Shared of GDP spent on health (%)', x: -5},
+        max: .16,
+        tickInterval: .025,
+        endOnTick: false,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value*100 + '%';
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'UK historic and existing spending plans',
+            id: 'UK-1',
+            color: "#af0a21",
+            marker: { enabled: false },
+            data: [0.0292884199134199,0.0283426140274041,0.0297879796740845,0.026922652543308,0.0265777321703438,0.0284073738289513,0.028993692930434,0.0298766641435505,0.031041172666523,0.0321865042552333,0.0342335488779003,0.0332186198152509,0.033920507428729,0.0342836984060806,0.0341907981772747,0.0361806012727672,0.0374249948272295,0.0387506100536847,0.0384010426029121,0.0376342960061991,0.0397927461139896,0.0425291618906345,0.0399573156272231,0.0405500471203494,0.045530353569046,0.0488009421169081,0.0477223261674749,0.0452561738320088,0.0449674868139373,0.0438644614379147,0.0499462651116306,0.0504389216480187,0.0500450527238633,0.0491450806997815,0.0484528763697175,0.046902413244052,0.0470508347932328,0.046283691805064,0.0459108716944172,0.0452632814202612,0.0471568902804795,0.047024662837733,0.0504467933835048,0.0509150094943973,0.0522457726009378,0.0520765852854715,0.0504779483308664,0.0499825341931078,0.0502424277483893,0.050444658431457,0.0524047698009296,0.0557372556951265,0.0582834211839986,0.0619376307078338,0.0653010425323256,0.0665158086152046,0.0664859540523786,0.0674632355394456,0.0723548542984907,0.0778466640473606,0.0760040882332602,0.0744250023795122,0.0747051759928937,0.0746060948328927,0.0741411568010828,0.0739526318427218,0.0732825319614031,0.0721715355316592,0.0706224051864209,0.069357800213525,0.0686541206226144]
+        },{
+            name: 'UK trend',
+            id: 'UK-3',
+            color: "#af0a21",
+            dashStyle: 'dash',
+            marker: { enabled: false },
+            data: [0.0287075973754593,0.0291210652675433,0.0295404882277422,0.0299659520253186,0.0303975436648472,0.0308353514040062,0.0312794647716259,0.0317299745859964,0.0321869729734395,0.0326505533871481,0.0331208106262963,0.0335978408554257,0.0340817416241101,0.034572611886904,0.035070552023578,0.0355756638596458,0.0360880506871869,0.0366078172859692,0.0371350699448756,0.0376699164836399,0.0382124662748943,0.0387628302665365,0.0393211210044168,0.0398874526553538,0.0404619410304802,0.0410447036089258,0.0416358595618411,0.0422355297767667,0.0428438368823548,0.043460905273445,0.0440868611365029,0.0447218324754243,0.045365949137711,0.0460193428410237,0.0466821472001177,0.0473544977541662,0.0480365319944767,0.048728389392608,0.0494302114288901,0.050142141621357,0.0508643255550945,0.0515969109120119,0.0523400475010416,0.0530938872887744,0.0538585844305353,0.0546342953019077,0.0554211785307106,0.0562193950294377,0.0570291080281623,0.0578504831079171,0.0586836882345545,0.0595288937930942,0.0603862726225663,0.0612560000513552,0.0621382539330536,0.0630332146828321,0.0639410653143333,0.0648619914770963,0.0657961814945212,0.0667438264023801,0.0677051199878826,0.0686802588293036,0.069669442336183,0.0706728727901031,0.0716907553860541,0.072723298274395,0.0737707126034192,0.0748332125625327,0.0759110154260548,0.0770043415976487,0.0781134146553932,0.0792384613975027,0.080379711888706,0.0815373995072929,0.0827117609928387,0.0839030364946158,0.0851114696207031,0.0863373074878013,0.0875808007717676,0.0888422037588769,0.0901217743978217,0.0914197743524607,0.0927364690553278,0.0940721277619112,0.0954270236057142,0.0968014336541092,0.0981956389649964,0.0996099246442783,0.101044579904162,0.1024998981223,0.103976176901788,0.105473718132016,0.106992828050409,0.108533817305049,0.110097001018198,0.111682698850741,0.113291235067552,0.114922938603809,0.116578143132254,0.118257187131428,0.11996041395489,0.121688171901427,0.123440814286284,0.12521869951341,0.127022191148749,0.12885165799459,0.130707474164985,0.132590019162248,0.134499677954567,0.136436841054723,0.138401904599947,0.140395270432933,0.142417346184006,0.144468545354482,0.146549287401228,0.148659997822435],
+            
+        },{
+            name: 'Wanless – Slow uptake',
+            color: "#2b505e",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0606227106227106,0.066286013320647,0.071665585644909,0.0765244329330508,0.0801463132100691,0.083,0.0885819566904141,0.0943979101506966,0.0947393734352798,0.0967992504930967,0.098,0.101219253874092,0.10343702,0.104810561283306,0.105879870994333,0.107,0.109021481818538,0.110594825446082,0.111758762909979,0.112549322507126,0.113]
+        },
+{
+            name: 'Wanless – Solid progress',
+            color: "#6A848E",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0606227106227106,0.0660393045584292,0.0711960490575356,0.0758528529942705,0.0792991460607411,0.082,0.0866655568879171,0.0915491327836224,0.091154259422153,0.092467087442472,0.093,0.0949335504842615,0.096030144137931,0.0964408244698206,0.0966599183925812,0.097,0.09799328209743,0.0986617601910536,0.0990346177707285,0.099138970870946,0.099]
+        },{
+            name: 'Wanless – Fully engaged',
+            color: "#BFCACE",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0606227106227106,0.0660393045584292,0.0711960490575356,0.0758528529942705,0.0792991460607411,0.082,0.0862208929956973,0.0906529144156952,0.0898746058596657,0.0908092307692308,0.091,0.0926662414043584,0.0935363572413793,0.0937585059271343,0.0938127373518805,0.094,0.0944895992420254,0.0947103412062251,0.0946871657489534,0.094443225380092,0.094]
+        },
+        {
+            name: 'McKinsey – Baseline',
+            color: "#3c1f75",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.084,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.104,null,null,null,null,null,null,null,null,null,0.11] 
+        },
+        {
+            name: 'McKinsey – High',
+            color: "#3c1f75",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.084,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.123,null,null,null,null,null,null,null,null,null,0.139]
+        },        {
+            name: 'EC – Cost pressure',
+            color: "#55504c",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.08,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.106,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.146] 
+        },        {
+            name: 'EC – Low cost containment',
+            color: "#55504c",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.08,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.098,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.125] 
+        },        {
+            name: 'EC – High cost containment',
+            color: "#55504c",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.08,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.094,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.115]
+        },{
+            name: 'OECD – Cost pressure',
+            color: "#495b11",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.065,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.084,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.124] 
+        },{
+            name: 'OECD – Cost containment',
+            color: "#495b11",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.065,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.079,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.085]
+        },{
+            name: 'OBR – Low',
+            color: "#E7B5BC",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0686541206226144,0.0691479545960374,0.0697311104733043,0.0703132069744969,0.0708681675957994,0.0713718191304707,0.071841376082445,0.0722709423225575,0.072729844200064,0.0732597844230277,0.0737893756275143,0.074293072405394,0.0747715192889341,0.0752268980319339,0.0757082796127492,0.0761313933645775,0.0765340533992725,0.0769150368932967,0.0772570350225879,0.0775726104845055,0.0778398963958611,0.0780693651816393,0.0782771906005479,0.0784605050057824,0.0786187795794629,0.0787536759431584,0.0788406402817259,0.0789597400407281,0.0790210243122234,0.0791265014478245,0.0792639317910866,0.079385486849987,0.079493143503759,0.0795939368609943,0.0796837222320131,0.0797378625462477,0.0797649151058937,0.0797662225787182,0.0797433580847984,0.079703078603014,0.0795970049651671,0.0795038223985618,0.0793781931397721,0.0792332674727635,0.079098864800859,0.0789532372000696] 
+        },{
+            name: 'OBR – Central',
+            color: "#C75363",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0686541206226144,0.0703941672880784,0.0722916287500217,0.0741989073887555,0.0761076450650447,0.0779930422215878,0.0798659810408368,0.0817783056153355,0.0837854971374534,0.0858793784570648,0.0879640838141843,0.0900683847013822,0.0923569352009935,0.0944959874307136,0.0965849169715531,0.0986431565923889,0.100745660230261,0.10285080832941,0.104917490158662,0.106967707811927,0.108966172874608,0.110944418944225,0.112932218861724,0.114935867465498,0.1169751378503,0.11900058790658,0.12100032066661,0.123018349545862,0.124925926653304,0.12686330878287,0.128849966027437,0.130799584685271,0.132728999723041,0.134670920970157,0.136638555733592,0.138582475997961,0.140550364297993,0.142423979051563,0.144171924570518,0.145810155978288,0.147295962013742,0.148728147573839,0.150119689134613,0.151544792722963,0.153097046754018,0.154692573457223]
+        },
+                
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
