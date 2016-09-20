@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Health spending as share of GDP</title>
+  <meta name="description" content="Health spending as share of GDP in the UK. Historic figures and projections.">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.highcharts.com/modules/offline-exporting.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'bar',
+            plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+        },
+        credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+        title: {
+            text: ''
+        },
+        xAxis: {
+            categories: ['Germany','France','US','Austria','Netherlands','New Zealand','Portugal','Denmark','Sweden','UK','Japan','Italy','Canada','Switzerland','Iceland','Australia','Belgium','Ireland','Spain','OECD','Czech Republic','Greece','Slovak Republic','Slovenia','Finland','Norway','Luxembourg','Hungary','Israel','Poland','Estonia','Korea','Turkey','Chile','Mexico']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Public spending on health as a percentage of GDP (%)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal',
+                borderColor: '#F4F4F1'
+            }
+        },
+        series: [
+        	{name: '2030',
+          color: '#878180',
+        	data: [2.1,1.9,2,2.1,2.2,2.1,2,2.1,1.8,{y:1.9, color: '#af0a21'},2.3,2.1,2.2,2.1,2,2,1.8,2.1,2,2,1.9,1.9,1.9,2.1,{y:2, color:'#2b505e'},1.9,2.2,1.6,2,1.9,1.6,2.6,2,2.3,2.1]},
+          {name: '2015',
+          color: '#F4F4F1',
+        	data: [7.3,7.4,7.1,6.6,6.4,6.4,6.5,6.3,6.6,6.5,6.1,6.1,5.8,5.7,5.8,5.6,5.8,5.5,5.6,5.5,5.5,5.4,5.4,5.2,5.2,5.1,4.4,4.8,4,4.1,4.3,3.3,3.8,3.1,2.5]},
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container" style="height:700px"></div>
+</body>
+</html>
