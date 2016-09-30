@@ -1,0 +1,185 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Health spending as share of GDP</title>
+  <meta name="description" content="Health spending as share of GDP in the UK. Historic figures and projections.">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.highcharts.com/modules/offline-exporting.js"></script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+chart: {
+         defaultSeriesType: 'line',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 1280,
+            sourceHeight: 720,
+            
+            chartOptions: {
+            plotOptions: {
+            series: {
+                lineWidth: 3
+            }
+        },
+      title: {
+         style: {
+            fontSize: '0px'
+         }
+      },
+      yAxis:{
+       title: {text:'Share of GDP spent on health (%)',
+       				x: -5,
+              style:{
+           fontSize: '22px'}
+              },
+        labels:{
+         style:{
+           fontSize: '22px'
+         }
+        },
+      },
+      xAxis:{
+        labels:{
+         style:{
+           fontSize: '22px'
+         }
+        },
+        rotation: 90
+      }               
+   }
+        },
+      title: {
+         text: 'UK public social care spending as share of GDP, various projections'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+            pointFormatter: function() {
+                return '<b>' + this.series.name + ': </b>' + Highcharts.numberFormat((this.y*100),2,'.') + '%<br />';
+            },
+          pointFormat: '<b>{series.name}:</b> {point.y}%<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            tickInterval: 5,
+            categories:  ['1994-95','1995-96','1996-97','1997-98','1998-99','1999-00','2000-01','2001-02','2002-03','2003-04','2004-05','2005-06','2006-07','2007-08','2008-09','2009-10','2010-11','2011-12','2012-13','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21','2021-22','2022-23','2023-24','2024-25','2025-26','2026-27','2027-28','2028-29','2029-30','2030-31','2031-32','2032-33','2033-34','2034-35','2035-36','2036-37','2037-38','2038-39','2039-40','2040-41','2041-42','2042-43','2043-44','2044-45','2045-46','2046-47','2047-48','2048-49','2049-50','2050-51','2051-52','2052-53','2053-54','2054-55','2055-56','2056-57','2057-58','2058-59','2059-60','2060-61','2061-62','2062-63','2063-64','2064-65','2065-66']
+        },
+				yAxis: {
+        title: {text:'Share of GDP spent on social care (%)', x: -5},
+        max: .03,
+        min: 0,
+        tickInterval: .005,
+        endOnTick: false,
+        alternateGridColor: '#eae8e3',
+         gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return this.value*100 + '%';
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'UK historic and existing spending plans',
+            id: 'UK-1',
+            color: "#af0a21",
+            marker: { enabled: false },
+            data: [0.00725097023409127,0.00775408741323158,0.00796137387877907,0.00804561054217846,0.00810124007498669,0.00836379463467058,0.00849246845511617,0.00863770924670176,0.00933112017949886,0.0101733706270871,0.0106771938287378,0.0107155825002945,0.0105525769895887,0.0102945913690889,0.011810579424289,0.0123157291304825,0.0120119290108442,0.011229613016703,0.0107565796193089,0.0103903700897755,0.00996124523272369]
+        },{
+            name: 'Wanless – Core business',
+            color: "#2b505e",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.015]
+        },
+{
+            name: 'Wanless – Well-being',
+            color: "#6A848E",
+            data: [null,null,null,null,null,null,null,null,0.013,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.016]
+        },
+        {
+            name: 'Barker – Critical',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0107565796193089,0.013740890224703,0.0137489949449423,0.0127709494010179,0.0137641371828899,0.0137740887976961,0.0137923881544085,0.0147970129362584,0.0157956956626095,0.0158046876540557,0.0158238120087299,0.0158410809317219,0.0168448034811065,0.016856593099103,0.016866719759748,0.0168803842517523,0.0178755120613094,0.0178907350156719,0.0178945566522708] 
+        },
+        {
+            name: 'Barker – Moderate',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0107565796193089,0.0169969371690282,0.0170550512215529,0.0161425579208505,0.0172096346956257,0.0173005062680168,0.0174130826972944,0.0185117989358244,0.0196260186812285,0.0197552675025401,0.0198930689104821,0.0200385842364572,0.0211737446759368,0.0213207276506658,0.0214678373557206,0.0216147409033945,0.0227543711005957,0.0229096139282463,0.0230585431065045]
+        },        {
+            name: 'EC – Base case',
+            color: "#55504c",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.02,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.024,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.029]
+
+        },        {
+            name: 'EC – Delayed dependency',
+            color: "#55504c",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.02,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.022,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.025]
+        },        {
+            name: 'EC – Shift to normal',
+            color: "#55504c",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.02,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.027,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.039]
+        },{
+            name: 'OECD – Cost pressure',
+            color: "#495b11",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.009,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.012,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.018]
+        },{
+            name: 'OECD – Cost containment',
+            color: "#495b11",
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.009,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.011,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.014]
+
+        },{
+            name: 'OBR – Central',
+            color: "#d7808e",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.011,0.011,0.011,0.012,0.012,0.012,0.013,0.013,0.013,0.014,0.014,0.014,0.015,0.015,0.015,0.016,0.016,0.016,0.016,0.017,0.017,0.017,0.017,0.018,0.018,0.018,0.018,0.018,0.019,0.019,0.019,0.019,0.02,0.02,0.02,0.02,0.02,0.021,0.021,0.021,0.021,0.021,0.021,0.021,0.021,0.022,0.022,0.022,0.022,0.022,0.022]
+        },{
+            name: 'OBR – Old',
+            color: "#E7B5BC",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.011,0.011,0.011,0.012,0.012,0.012,0.013,0.013,0.014,0.014,0.014,0.015,0.015,0.015,0.016,0.016,0.016,0.016,0.017,0.017,0.017,0.018,0.018,0.018,0.018,0.019,0.019,0.019,0.02,0.02,0.02,0.021,0.021,0.022,0.022,0.022,0.023,0.023,0.023,0.024,0.024,0.024,0.024,0.025,0.025,0.025,0.025,0.026,0.026,0.026,0.026]
+
+        },{
+            name: 'OBR – Young',
+            color: "#C75363",
+            marker: { enabled: false },
+            data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.011,0.011,0.011,0.012,0.012,0.012,0.013,0.013,0.013,0.014,0.014,0.014,0.014,0.015,0.015,0.015,0.015,0.016,0.016,0.016,0.016,0.016,0.016,0.016,0.017,0.017,0.017,0.017,0.017,0.017,0.017,0.017,0.017,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018,0.018]
+
+        },
+                
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container" style="height:700px"></div>
+</body>
+</html>
