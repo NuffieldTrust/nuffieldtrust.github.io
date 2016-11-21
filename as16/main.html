@@ -109,14 +109,33 @@ a:hover {
   <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.2.1/nouislider.min.js"></script>
   <script>var rangeSlider = document.getElementById('slider');
 
+
+$(document).ready(function(){
+
+var rangeSlider = document.getElementById('slider');
+
 noUiSlider.create(rangeSlider, {
 	start: 0,
   step: 50,
+  tooltips: wNumb({ decimals: 0, prefix:'£', postfix:'m'}),
 	range: {
 		'min': [  0 ],
 		'max': [ 600 ],
-	},  
+	},
+  cssClasses: {
+  cssPrefix: 'noUi-',
+  handle: 'handle2',
+  }
+  
 });
+
+var rangeSliderValueElement = document.getElementById('slider-range-value');
+
+rangeSlider.noUiSlider.on('update', function( values, handle ) {
+	rangeSliderValueElement.innerHTML = values[handle]*52/1000 + ' bn';
+});
+
+};
 
 
 </script>
