@@ -9,10 +9,11 @@
   <meta name="author" content="Nuffield Trust">
 
   <style>
-    #container {
+#container {
   margin: 2%;
   padding: 10px 60px 60px 60px;
-  background-color: #6A848E;
+  background-color: #BFCACE
+;
   border-radius:10px;
   border:1px solid #6A848E;
 }
@@ -20,7 +21,28 @@
 .noUi-tooltip {
   padding-left: 15px;
   color: #ffffff;
+  font-size: 1.7em;
 }
+
+#descriptor {
+  font-size: .8em;
+  align: center;
+  padding: 10px 20% 0 20%;
+  text-align: center;
+}
+
+.vertical {
+  position: relative;
+  height: 150px;
+  margin: 0 0 0 100px;
+}
+
+#controls {
+  align: center;
+  width: 70%;
+  display: flex; 
+}
+
 
 p {
  font-family: Garamond, Georgia;
@@ -71,7 +93,7 @@ blockquote {
 h1 {
 	color: #ffffff;
 	font-family: Futura, 'FuturaTS-Regular', Arial;
-	font-size: 28px;
+	font-size: 2.0em;
 }
 
 h2 {
@@ -80,7 +102,6 @@ h2 {
     font-weight: normal;
     letter-spacing: 0;
     margin-bottom: 20px;
-    text-shadow: 0.5px 0.5px 1px rgba(255,255,255,0.6);
  font-family: 'FuturaTS-Regular', Futura, Arial;
 }
 
@@ -98,6 +119,21 @@ a, a:link, a:active, a:visited {
 a:hover {
 	color:#af021a;
 }
+
+#row {
+    display: flex; 
+}
+
+div.item {
+  width: 30%;
+  height: 300px;
+  align: center;
+  float: left;
+  font-size: 1.2em;
+  margin: 0px 0px 50px 0px;
+  padding: 20px;
+}
+
     
   </style>
  
@@ -107,36 +143,97 @@ a:hover {
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="//refreshless.com/nouislider/documentation/assets/wNumb.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.2.1/nouislider.min.js"></script>
-  <script>var rangeSlider = document.getElementById('slider');
-
-
+  <script>
+	  
 $(document).ready(function(){
 
 var rangeSlider = document.getElementById('slider');
 
 noUiSlider.create(rangeSlider, {
 	start: 0,
-  step: 50,
+  snap: true,
   tooltips: wNumb({ decimals: 0, prefix:'£', postfix:'m'}),
 	range: {
-		'min': [  0 ],
-		'max': [ 600 ],
+		'min': [0],
+    '5%': [29],
+    '14%': [86],
+    '16%': [100],
+    '18%': [105],
+    '32%': [192],
+    '58%': [350],
+    'max': [575],
 	},
-  cssClasses: {
-  cssPrefix: 'noUi-',
-  handle: 'handle2',
-  }
-  
 });
 
 var rangeSliderValueElement = document.getElementById('slider-range-value');
+var gpValue = document.getElementById('gp-value');
+var consultantValue = document.getElementById('consultant-value');
+var nurseValue = document.getElementById('nurse-value');
+var carerValue = document.getElementById('carer-value');
+var srhValue = document.getElementById('srh-value');
+var bthValue = document.getElementById('bth-value');
+var careHomeValue = document.getElementById('care-home-value');
+var hipValue = document.getElementById('hip-value');
+var ambulanceValue = document.getElementById('ambulance-value');
+var gpVisitValue = document.getElementById('gp-visit-value');
+var talkingValue = document.getElementById('talking-value');
+var careVisitValue = document.getElementById('care-visit-value');
 
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
-	rangeSliderValueElement.innerHTML = values[handle]*52/1000 + ' bn';
+	annual = values[handle]*(365/7)/1000;
+  gp = values[handle]*(365/7)*0.0666666666667;
+  consultant = values[handle]*(365/7)*0.0333333333333;
+  nurse = values[handle]*(365/7)*0.3333333333333;
+  carer = values[handle]*(365/7)*0.6666666666667;
+  srh = values[handle]*(365/7)*0.0033333333333;
+  bth = values[handle]*(365/7)*0.0006666666667;
+  careHome = values[handle]*(365/7)*0.0066666666667;
+  hip = values[handle]*(365/7)*6.6666666666667;
+  ambulance = values[handle]*(365/7)*50;
+  gpVisit = values[handle]*(365/7)*100;
+  talking = values[handle]*(365/7)*133.3333333333330;
+  careVisit = values[handle]*(365/7)*186.9513333333330;
+  
+  rangeSliderValueElement.innerHTML =  Math.round(annual * 10)/10 + 'bn';
+  gpValue.innerHTML =  Math.round(gp);
+  consultantValue.innerHTML =  Math.round(consultant);
+  nurseValue.innerHTML =  Math.round(nurse);
+  carerValue.innerHTML =  Math.round(carer);
+  srhValue.innerHTML =  Math.round(srh);
+  bthValue.innerHTML =  Math.round(bth);
+  careHomeValue.innerHTML =  Math.round(careHome);
+  hipValue.innerHTML =  Math.round(hip);
+  ambulanceValue.innerHTML =  Math.round(ambulance);
+  gpVisitValue.innerHTML =  Math.round(gpVisit);
+  talkingValue.innerHTML =  Math.round(talking);
+  careVisitValue.innerHTML =  Math.round(careVisit);
+  
+});
+
+var descriptorValueElement = document.getElementById('descriptor-value');
+
+rangeSlider.noUiSlider.on('update', function( values, handle ) {
+   if(values[handle] == 0) {
+  descriptor = '<br \> ';
+  } else if(values[handle] == 29) {
+  descriptor = 'That\'s the amount of extra funding that is set to be allocated to <b>social care</b> by 2019 through the Better Care Fund. ';
+  }  else if(values[handle] == 86) {
+  descriptor = 'That\'s the amount the health think tanks and the Health Select Committee think this government will actually give to the health system by 2020.';
+  } else if(values[handle] == 100) {
+  descriptor = 'That\'s the amount we could raise through a 1pp rise in income tax.';
+  }  else if(values[handle] == 105) {
+  descriptor = 'That\'s the amount we could raise through a 1pp rise in VAT.';
+  } else if(values[handle] == 192) {
+  descriptor = 'That\'s the amount by which the Government argues it will increase the NHS budget by 2020.';
+  } else if(values[handle] == 350) {
+  descriptor = 'That\'s the extra amount the Leave campaign suggested could be spent on the NHS if we left the EU.';
+  } else if(values[handle] == 575) {
+  descriptor = 'That\'s the total estimated funding gap for the NHS by 2020.';
+  }
+  descriptorValueElement.innerHTML = descriptor;
 });
 
 });
-
 
 </script>
 </head>
@@ -146,7 +243,7 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   <div id=logo><h1>How much for health and social care?<img src="https://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55a7d3d8e4b0fa0db166646c/1470057721874/?format=1500w" align="right"/></h1></div></div>
 
 <div id=preface>
-<p>The British government has claimed that it has given the NHS £10 billion more to help fund the service to 2020/21. Our analysis has showed that figure is much closer to £4.5 billion, or even just £800 million if we look at health-specific inflation.</p>
+<p>The British government has claimed that it has given the NHS £10 billion more to help fund the service to 2020/21. Our analysis has showed that figure is much closer to £4.5 billion.</p>
 <p>Meanwhile, during the campaign to leave the EU, more cash was touted for the NHS on the scale of £350 million per week. That's  figure that's been highly contested and disavowed by Leave campaigners after the referendum result.</p>
 <p>What is not contested is that by 2020/21, the health care sector in the the UK is expected to face a £30 billion gap between its funding and what it will cost to run based on increasing demand from a growing and ageing population.</p>
 <p>To close that gap, the NHS has been asked to find £22 billion in efficiency savings.</p>
@@ -154,14 +251,34 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 </div>
 
 <div id=container>
-<div id=howmuch><h2><b>How much?</b></h2>
-<p>Slide the bus to select how much extra money to give to the health and social care system.</p><br /></div>
+<div id=howmuch><h2><b>How much per week?</b></h2>
+<p>Slide the chancellor's red box to select how much extra money to give to the health and social care system per week.</p><br /><br /></div>
 <div id=slider><div id=handle></div>
 </div>
-<div id=howmuch><br/></div>
+<div id=descriptor><br/><p>
+<span id="descriptor-value"></span>
+</p></div>
 <div id=howmuch><br/><h2>
-That's the equivalent of <b>£<span class="example-val" id="slider-range-value"></span></b> per year</h2></div>
+That's the equivalent of <b>£<span id="slider-range-value"></span></b> per year.</h2></div>
 </div>
+<br/><br/><HR />
+<div id=howmuch>
+<h2>...which would pay for all of the following:</h2>
+<div class=item><img src="//nuffieldtrust.github.io/as16/teal-gp.png" width="80%"><br/><p><b><span id="gp-value"></span></b> GPs</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/purple-consultant.png" width="80%"><br/><p><b><span id="consultant-value"></span></b> consultants</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/purple-nurse.png" width="80%"><br/><p><b><span id="nurse-value"></span></b> nurses</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/red-hand.png" width="80%"><br/><p><b><span id="carer-value"></span></b> carers</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/purple-small-hosp.png" width="80%"><br/><p><b><span id="srh-value"></span></b> small rural hospitals</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/purple-big-hosp.png" width="80%"><br/><p><b><span id="bth-value"></span></b> big teaching hospitals</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/red-care-home.png" width="80%"><br/><p><b><span id="care-home-value"></span></b> care homes</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/purple-hip.png" width="80%"><br/><p><b><span id="hip-value"></span></b> hip replacements</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/teal-ambulance.png" width="80%"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/teal-gp-visit.png" width="80%"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/teal-talking.png" width="80%"><br/><p><b><span id="talking-value"></span></b> courses of talking therapy</p></div>
+<div class=item><img src="//nuffieldtrust.github.io/as16/red-care-visit.png" width="80%"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p></div>
+
+</div>
+
 
 </body>
 </html>
