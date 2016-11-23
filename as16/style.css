@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+
+#container {
+  margin: 0 5% 0 5%;
+  padding: 10px 80px 10px 80px;
+  background-color: #BFCACE;
+  border-radius:10px;
+  border:1px solid #6A848E;
+}
+.noUi-tooltip {
+  padding-left: 15px;
+  color: #ffffff;
+  font-size: 1.7em;
+}
+#descriptor {
+  font-size: .8em;
+  align: center;
+  padding: 10px 20% 0 20%;
+  text-align: center;
+}
+.vertical {
+  position: relative;
+  height: 150px;
+  margin: 0 0 0 100px;
+}
+#header {
+  padding: 50px; 
+	background-color: #2b505e;
+}
+#controls {
+  align: center;
+  width: 70%;
+  display: flex; 
+}
+p {
+ font-family: Garamond, Georgia;
+ line-height: 1.6em;
+ font-size: 1.6em;
+ color: #333;
+}
+#keypoints {
+ background-color: #F4F4F1;
+ border-style: solid;
+ border-width: 3px;
+ border-color: #eae8e3;
+ padding: 15px;
+ 
+}
+#logo {
+	height: 50px;
+}
+#preface {
+  padding: 0 20% 0 20%;
+}
+#howmuch {
+  text-align: center;
+}
+blockquote {
+    border-top: 1px solid #b6b1aa;
+    border-bottom: 1px solid #b6b1aa;
+    margin: 0 0 28px 0;
+    padding: 14px 14px 21px 60px;
+    font-family: FuturaPTDemi-Reg,helvetica,arial,sans-serif;
+    color: #2b505e;
+    font-size: 1.20em;
+    line-height: 1.3em;
+    background: url(http://www.nuffieldtrust.org.uk//sites/default/themes/custom/nuffield/images/icon_quote.png) no-repeat 15px 18px #fff;
+}
+#subtitle {
+	color: #2b505e;
+}
+h1 {
+	color: #ffffff;
+	font-family: Futura, 'FuturaTS-Regular', Arial;
+	font-size: 2.0em;
+}
+h2 {
+ color: #2b505e;
+    font-size: 1.7em;
+    font-weight: normal;
+    letter-spacing: 0;
+    margin-bottom: 20px;
+ font-family: 'FuturaTS-Regular', Futura, Arial;
+}
+h3 {
+ font-family: 'FuturaTS-Regular', Futura, Arial;
+ color: #2b505e;
+ font-size: 18px;
+}
+a, a:link, a:active, a:visited {
+    color: #006073;
+    text-decoration: none;
+}
+a:hover {
+	color:#af021a;
+}
+#row {
+    display: flex; 
+}
+div.item {
+  height: 300px;
+  align: center;
+  float: left;
+  font-size: 1.2em;
+  margin: 0px 0px 50px 0px;
+  padding: 20px;
+  width: 85%;
+}
+img.tile {
+  width: 80%;
+}
+@media screen and (min-width: 500px) {
+div.item {
+  width: 40%;
+}
+img.tile {
+  width: 60%;
+}
+}
+@media screen and (min-width: 685px) {
+div.item {
+  width: 44%;
+}
+img.tile {
+  width: 80%;
+}
+#logo {
+  float: right;
+  padding: 15px;
+}
+@media only screen and (min-width: 800px) {
+div.item {
+  width: 28%;
+}
+img.tile {
+  width: 80%;
+}
+}
+@media only screen and (min-width: 1008px) {
+div.item {
+  width: 20%;
+}
+img.tile {
+  width: 80%;
+}
+}
+@media only screen and (min-width: 1351px) {
+div.item {
+  width: 13%;
+}
+img.tile {
+  width: 50%;
+}
+}
+@media only screen and (min-width: 1520px) {
+div.item {
+  width: 14%;
+}
+img.tile {
+  width: 80%;
+}
+}
