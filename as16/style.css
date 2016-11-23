@@ -110,7 +110,7 @@ div.item {
 img.tile {
   width: 80%;
 }
-@media screen and (min-width: 500px) {
+@media only screen and (min-width: 500px) {
 div.item {
   width: 40%;
 }
@@ -118,7 +118,7 @@ img.tile {
   width: 60%;
 }
 }
-@media screen and (min-width: 685px) {
+@media only screen and (min-width: 685px) {
 div.item {
   width: 44%;
 }
