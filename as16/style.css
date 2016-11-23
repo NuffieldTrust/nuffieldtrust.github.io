@@ -100,7 +100,6 @@ a:hover {
 }
 div.item {
   height: 300px;
-  align: center;
   float: left;
   font-size: 1.2em;
   margin: 0px 0px 50px 0px;
@@ -128,6 +127,7 @@ img.tile {
 #logo {
   float: right;
   padding: 15px;
+}
 }
 @media only screen and (min-width: 800px) {
 div.item {
