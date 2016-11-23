@@ -50,6 +50,17 @@ noUiSlider.create(rangeSlider, {
 	},
 });
 
+var totalFormat = wNumb({
+	decimals: 0,
+	thousand: ','
+});
+
+var bnFormat = wNumb({
+	decimals: 1,
+	prefix: '£',
+  suffix: 'bn'
+});
+
 var rangeSliderValueElement = document.getElementById('slider-range-value');
 var gpValue = document.getElementById('gp-value');
 var consultantValue = document.getElementById('consultant-value');
@@ -79,19 +90,19 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   talking = values[handle]*(365/7)*133.3333333333330;
   careVisit = values[handle]*(365/7)*186.9513333333330;
   
-  rangeSliderValueElement.innerHTML =  Math.round(annual * 10)/10 + 'bn';
-  gpValue.innerHTML =  Math.round(gp);
-  consultantValue.innerHTML =  Math.round(consultant);
-  nurseValue.innerHTML =  Math.round(nurse);
-  carerValue.innerHTML =  Math.round(carer);
-  srhValue.innerHTML =  Math.round(srh);
-  bthValue.innerHTML =  Math.round(bth);
-  careHomeValue.innerHTML =  Math.round(careHome);
-  hipValue.innerHTML =  Math.round(hip);
-  ambulanceValue.innerHTML =  Math.round(ambulance);
-  gpVisitValue.innerHTML =  Math.round(gpVisit);
-  talkingValue.innerHTML =  Math.round(talking);
-  careVisitValue.innerHTML =  Math.round(careVisit);
+  rangeSliderValueElement.innerHTML =  bnFormat.to(annual);
+  gpValue.innerHTML =  totalFormat.to(gp);
+  consultantValue.innerHTML =  totalFormat.to(consultant);
+  nurseValue.innerHTML =  totalFormat.to(nurse);
+  carerValue.innerHTML =  totalFormat.to(carer);
+  srhValue.innerHTML =  totalFormat.to(srh);
+  bthValue.innerHTML =  totalFormat.to(bth);
+  careHomeValue.innerHTML =  totalFormat.to(careHome);
+  hipValue.innerHTML =  totalFormat.to(hip);
+  ambulanceValue.innerHTML =  totalFormat.to(ambulance);
+  gpVisitValue.innerHTML =  totalFormat.to(gpVisit);
+  talkingValue.innerHTML =  totalFormat.to(talking);
+  careVisitValue.innerHTML =  totalFormat.to(careVisit);
   
 });
 
