@@ -1,0 +1,105 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sally blog 1</title>
+  <meta name="description" content="Chart 3 - Sally blog">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {
+    $('#chart1').highcharts({
+      chart: {
+         defaultSeriesType: 'line',
+         spacingBottom: 25,         
+         style: {
+                fontFamily: "'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      title: {
+         text: 'Index of 3.07% annual activity growth applied to NHS-wide costs'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+          pointFormat: '<span style="color: {series.color};"><b>{series.name}:</b></span> {point.y}<br />',
+          valueDecimals: 2,
+          shared: true,
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 40},
+            categories: ['2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+        },
+				yAxis: {
+        title: {text:'', x: -5},
+        min: 100,
+        max: 160,
+        labels: {
+            formatter: function() {
+                return this.value;
+            }
+            },
+
+        },
+        series: [
+        {
+            name: 'NHS England commissioning budget, without STF (2013-14=100)',
+            color: "#af0a21",
+            marker: { enabled: false },
+            data: [100,103.0180934,106.5976672,110.5692999,113.3506375,116.1254589,119.0610135,123.6375681],
+        },{
+            name: 'NHS England commissioning budget, with STF (2013-14=100)',
+            color: "#af0a21",
+            marker: { enabled: false },
+            dashStyle: 'longdash',
+            data: [100,103.02,106.81,112.89,116.46,119.33,122.79,127.34]
+        },
+                {
+            name: 'Cash cost to commissioner under tariff rates',
+            color: "#2b505e",
+            marker: { enabled: false },
+            data: [100,103.104777283795,104.569772443265,109.720105617504,113.375757682626,116.809650886105,121.527426815691,126.312993863388]
+        },{
+            name: 'Cash cost to provider after 2% recurrent efficiencies (2013-14=100.7)',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [100.7,105.709090909091,108.8040029832,113.308343562164,117.083548460185,120.629742192554,125.501806185477,130.443878307341]
+        },{
+            name: 'Cash cost to provider with no efficiencies after 2013-14 (2013-14 =100.7)',
+            dashStyle: 'longdash',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            data: [100.7,106.38627725,111.735730344845,118.736163801691,125.196135403102,131.620449895177,139.731033638168,148.197378885614]
+        },{
+            name: '5YFV provider cost counterfactual, no efficiencies and cost growth of 3.02%/year (2013-14=100.7)',
+            color: "#3c1f75",
+            marker: { enabled: false },
+            dashStyle: 'shortDash',
+            data: [100.7,106.86284,113.402845808,120.34309997145,127.708097689702,135.523833268312,143.817891864333,152.61954684643]
+        },
+               
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="chart1"></div>
+</body>
+</html>
