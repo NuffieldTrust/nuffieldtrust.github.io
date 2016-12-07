@@ -8,13 +8,12 @@
   <meta name="description" content="How much for health and social care?">
   <meta name="author" content="Nuffield Trust">
 
-  <link rel="stylesheet" href="//nuffieldtrust.github.io/as16/style.css">
+  <link rel="stylesheet" href="/as16/style.css">
 
   <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->  
-  <link rel="stylesheet" href="//nuffieldtrust.github.io/as16/nouislider.min.css">
-  
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="//refreshless.com/nouislider/documentation/assets/wNumb.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.2.1/nouislider.min.js"></script>
@@ -36,7 +35,8 @@ var rangeSlider = document.getElementById('slider');
 
 noUiSlider.create(rangeSlider, {
 	start: 0,
-  snap: true,
+	step: 1,
+  snap: false,
   tooltips: wNumb({ decimals: 0, prefix:'£', postfix:'m'}),
 	range: {
 		'min': [0],
@@ -44,10 +44,14 @@ noUiSlider.create(rangeSlider, {
     '14%': [86],
     '16%': [100],
     '18%': [105],
-    '32%': [192],
+    '27%': [153],
     '58%': [350],
     'max': [575],
 	},
+  pips: {
+		mode: 'range',
+		density: 4,
+	}
 });
 
 var totalFormat = wNumb({
@@ -58,7 +62,7 @@ var totalFormat = wNumb({
 var bnFormat = wNumb({
 	decimals: 1,
 	prefix: '£',
-  suffix: 'bn'
+  	postfix: 'bn',
 });
 
 var rangeSliderValueElement = document.getElementById('slider-range-value');
@@ -66,10 +70,17 @@ var gpValue = document.getElementById('gp-value');
 var consultantValue = document.getElementById('consultant-value');
 var nurseValue = document.getElementById('nurse-value');
 var carerValue = document.getElementById('carer-value');
+var pharmValue = document.getElementById('pharm-value');
+var visitorValue = document.getElementById('visitor-value');
+var civilValue = document.getElementById('civil-value');
 var srhValue = document.getElementById('srh-value');
+var srhPlural = document.getElementById('srh-plural');
 var bthValue = document.getElementById('bth-value');
+var bthPlural = document.getElementById('bth-plural');
 var careHomeValue = document.getElementById('care-home-value');
-var hipValue = document.getElementById('hip-value');
+var careHomePlural = document.getElementById('care-home-plural');
+var upValue = document.getElementById('up-value');
+var ppValue = document.getElementById('pp-value');
 var ambulanceValue = document.getElementById('ambulance-value');
 var gpVisitValue = document.getElementById('gp-visit-value');
 var talkingValue = document.getElementById('talking-value');
@@ -77,54 +88,89 @@ var careVisitValue = document.getElementById('care-visit-value');
 
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
 	annual = values[handle]*(365/7)/1000;
-  gp = values[handle]*(365/7)*0.0666666666667;
-  consultant = values[handle]*(365/7)*0.0333333333333;
-  nurse = values[handle]*(365/7)*0.3333333333333;
-  carer = values[handle]*(365/7)*0.6666666666667;
-  srh = values[handle]*(365/7)*0.0033333333333;
-  bth = values[handle]*(365/7)*0.0006666666667;
-  careHome = values[handle]*(365/7)*0.0066666666667;
-  hip = values[handle]*(365/7)*6.6666666666667;
-  ambulance = values[handle]*(365/7)*50;
-  gpVisit = values[handle]*(365/7)*100;
-  talking = values[handle]*(365/7)*133.3333333333330;
-  careVisit = values[handle]*(365/7)*186.9513333333330;
+  gp = values[handle]*(365/7)*0.66110695524;
+  consultant = values[handle]*(365/7)*0.94059990243;
+  nurse = values[handle]*(365/7)*3.44690055182;
+  carer = values[handle]*(365/7)*1.99530810822;
+  pharm = values[handle]*(365/7)*1.32504242124;
+  visitor = values[handle]*(365/7)*0.57007365409;
+  civil = values[handle]*(365/7)*0.37800339894;
+  srh = values[handle]*(365/7)*0.00014295002;
+  bth = values[handle]*(365/7)*0.00001943301;
+  careHome = values[handle]*(365/7)*0.00087648316;
+  up = values[handle]*(365/7)*59.87888481291;
+  pp = values[handle]*(365/7)*98.42794174830;
+  ambulance = values[handle]*(365/7)*90.66174801413;
+  gpVisit = values[handle]*(365/7)*1649.00684645023;
+  talking = values[handle]*(365/7)*890.99732346662;
+  careVisit = values[handle]*(365/7)*1443.60541630012;
   
   rangeSliderValueElement.innerHTML =  bnFormat.to(annual);
   gpValue.innerHTML =  totalFormat.to(gp);
   consultantValue.innerHTML =  totalFormat.to(consultant);
   nurseValue.innerHTML =  totalFormat.to(nurse);
   carerValue.innerHTML =  totalFormat.to(carer);
+  pharmValue.innerHTML =  totalFormat.to(pharm);
+  visitorValue.innerHTML =  totalFormat.to(visitor);
+  civilValue.innerHTML =  totalFormat.to(civil);
   srhValue.innerHTML =  totalFormat.to(srh);
   bthValue.innerHTML =  totalFormat.to(bth);
   careHomeValue.innerHTML =  totalFormat.to(careHome);
-  hipValue.innerHTML =  totalFormat.to(hip);
+  upValue.innerHTML =  totalFormat.to(up);
+  ppValue.innerHTML =  totalFormat.to(pp);
   ambulanceValue.innerHTML =  totalFormat.to(ambulance);
   gpVisitValue.innerHTML =  totalFormat.to(gpVisit);
   talkingValue.innerHTML =  totalFormat.to(talking);
   careVisitValue.innerHTML =  totalFormat.to(careVisit);
   
+if(careHome >= 0.5 && careHome <= 1.5) {
+	careHomePlural.innerHTML = "home";
+} else {
+	careHomePlural.innerHTML = "homes";
+};
+
+if(bth >= 0.5 && bth <= 1.5) {
+	bthPlural.innerHTML = "hospital";
+} else {
+	bthPlural.innerHTML = "hospitals";
+};
+
+if(srh >= 0.5 && srh <= 1.5) {
+	srhPlural.innerHTML = "hospital";
+} else {
+	srhPlural.innerHTML = "hospitals";
+};
+
+
+
+
+  
 });
+
+
+
 
 var descriptorValueElement = document.getElementById('descriptor-value');
 
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
    if(values[handle] == 0) {
-  descriptor = '<br \> ';
-  } else if(values[handle] == 29) {
+  descriptor = '<br \><br \> ';
+  } else if(values[handle] >= 27 && values[handle] <= 31) {
   descriptor = 'That\'s the amount of extra funding that is set to be allocated to <b>social care</b> by 2019 through the <a href="https://www.england.nhs.uk/ourwork/part-rel/transformation-fund/bcf-plan/" target="window">Better Care Fund.</a> ';
-  }  else if(values[handle] == 86) {
+  }  else if(values[handle] >= 84 && values[handle] <= 88) {
   descriptor = 'That\'s the amount the <a href="http://www.nuffieldtrust.org.uk/blog/behind-numbers-nhs-finances" target="window">health think tanks</a> and the <a href="https://www.parliament.uk/documents/commons-committees/Health/Correspondence/2016-17/chair-to-chancellor-NHS-funding-26-10-2016.pdf" target="window">Health Select Committee</a> think this government will actually give to the health system by 2020.';
-  } else if(values[handle] == 100) {
-  descriptor = 'That\'s the amount we could raise through a 1pp rise in income tax.';
-  }  else if(values[handle] == 105) {
-  descriptor = 'That\'s the amount we could raise through a 1pp rise in VAT.';
-  } else if(values[handle] == 192) {
+  } else if(values[handle] >= 98 && values[handle] <= 102) {
+  descriptor = 'That\'s the amount we could raise through a 1pp rise in income tax.<br \><br \>';
+  }  else if(values[handle] >= 103 && values[handle] <= 107) {
+  descriptor = 'That\'s the amount we could raise through a 1pp rise in VAT.<br \><br \>';
+  } else if(values[handle] >= 151 && values[handle] <= 155) {
   descriptor = 'That\'s the amount by which <a href="https://www.parliament.uk/documents/commons-committees/Health/Correspondence/2016-17/reply-from-chancellor-to-chair-8-11-2016.pdf" target="window">the Government claims</a> it will increase the NHS budget by 2020.';
-  } else if(values[handle] == 350) {
+  } else if(values[handle] >= 348 && values[handle] <= 352) {
   descriptor = 'That\'s the extra amount the <a href="https://www.theguardian.com/politics/2016/sep/10/brexit-camp-abandons-350-million-pound-nhs-pledge" target="window">Leave campaign</a> suggested could be spent on the NHS if we left the EU.';
   } else if(values[handle] == 575) {
-  descriptor = 'That\'s the total estimated funding gap for the NHS by 2020.';
+  descriptor = 'That\'s the total estimated funding gap for the NHS by 2020.<br \><br \>';
+  } else {
+  descriptor = '<br \><br \>';
   }
   descriptorValueElement.innerHTML = descriptor;
 });
@@ -134,42 +180,47 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 </head>
 
 <body>
-<div id=header>
+  <div id=header>
 	<div id=logo><img src="https://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55a7d3d8e4b0fa0db166646c/1470057721874/?format=1500w"/></div>
-	<h1>How much extra for health and social care?</h1>
+	<h1>A Christmas gift for health and social care?</h1>
 </div>
 
 <div id=preface>
-<p>Today the Chancellor outlines the principles for next year’s budget in the UK. Opinion polls show health and social care as a key area of concern among voters. While the NHS budget specifically has been protected from cuts, it’s clear that the health and social care system are facing a difficult financial time.</p>
-<p>How much extra would you give the health and social care system? And what could that actually buy? Use the sliders to explore.</p>
+<p>As Christmas draws near, many are making lists of Christmas presents and checking them twice. The Chancellor didn't gift any extra money to health or social care in last month's Autumn Statement.</p>
+<p>But while the NHS budget specifically has been protected from cuts, it’s clear that the health and social care system is facing a difficult financial time.</p>
+<p>How big of a cash injection do you think the Chancellor should give health and social care this Christmas? And what could that actually buy?</p>
 </div>
 
 <div id=container>
 <div id=howmuch><h2><b>How much extra per week?</b></h2>
-<p>Slide the Chancellor's red box to select how much extra money to give to the health and social care system per week.</p><br /><br /></div>
+<p><b>Slide the the Christmas present</b> to select how much extra money to gift to the health and social care system per week.</p><br /><br /></div>
 <div id=slider><div id=handle></div>
 </div>
 <div id=descriptor><br/><p>
 <span id="descriptor-value"></span>
 </p></div>
-<div id=howmuch><br/><h2>
-That's the equivalent of <b><span id="slider-range-value"></span></b> per year.</h2></div>
 </div>
 <br/><br/><HR />
 <div id=howmuch>
+<br/>
+<h2>That's the equivalent of <b><span id="slider-range-value"></span></b> per year.</h2>
 <h2>...which would pay for all of the following:</h2>
-<div class=item><img src="//nuffieldtrust.github.io/as16/teal-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/purple-hip.png" class="tile"><br/><p><b><span id="hip-value"></span></b> hip replacements</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/red-care-home.png" class="tile"><br/><p><b><span id="care-home-value"></span></b> care homes</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/teal-ambulance.png" class="tile"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/teal-gp-visit.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/purple-consultant.png" class="tile"><br/><p><b><span id="consultant-value"></span></b> consultants</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/purple-nurse.png" class="tile"><br/><p><b><span id="nurse-value"></span></b> nurses</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/red-hand.png" class="tile"><br/><p><b><span id="carer-value"></span></b> carers</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/purple-small-hosp.png" class="tile"><br/><p><b><span id="srh-value"></span></b> small rural hospitals</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/teal-talking.png" class="tile"><br/><p><b><span id="talking-value"></span></b> courses of talking therapy</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/purple-big-hosp.png" class="tile"><br/><p><b><span id="bth-value"></span></b> big teaching hospitals</p></div>
-<div class=item><img src="//nuffieldtrust.github.io/as16/red-care-visit.png" class="tile"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p></div>
+<div id="container2"><div class=item><img src="/as16/teal-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are currently <b>41,985</b>.</p></div>
+<div class=item><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> happen every year</p></div>
+<div class=item><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="up-value"></span></b> urgent procedures</p><p id=descriptor><b>6,996,601</b> occur every year</p></div>
+<div class=item><img src="/as16/red-care-home.png" class="tile"><br/><p><b><span id="care-home-value"></span></b> care <span id="care-home-plural"></span></p><p id=descriptor>There are <b>465,000</b></p></div>
+<div class=item><img src="/as16/teal-ambulance.png" class="tile"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,131</b> occur every year</p></div>
+<div class=item><img src="/as16/teal-gp-visit.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year</p></div>
+<div class=item><img src="/as16/purple-consultant.png" class="tile"><br/><p><b><span id="consultant-value"></span></b> consultants</p><p id=descriptor>There are <b>46,564</b></p></div>
+<div class=item><img src="/as16/purple-nurse.png" class="tile"><br/><p><b><span id="nurse-value"></span></b> nurses</p><p id=descriptor>There are <b>315,499</b></p></div>
+<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="carer-value"></span></b> carers</p><p id=descriptor>There are <b>645,0001</b></p></div>
+<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="civil-value"></span></b> civil servants</p><p id=descriptor>There are <b>2,030</b></p></div>
+<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="pharm-value"></span></b> pharmacists</p><p id=descriptor>There are <b>29,400</b></p></div>
+<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,214</b></p></div>
+<div class=item><img src="/as16/purple-small-hosp.png" class="tile"><br/><p><b><span id="srh-value"></span></b> small rural <span id="srh-plural"></span></p><p id=descriptor>There are a total of <b>101,589</b> hospitals of all types</p></div>
+<div class=item><img src="/as16/teal-talking.png" class="tile"><br/><p><b><span id="talking-value"></span></b> courses of talking therapy</p><p id=descriptor><b>4,878,210</b> occur every year</p></div>
+<div class=item><img src="/as16/purple-big-hosp.png" class="tile"><br/><p><b><span id="bth-value"></span></b> big teaching <span id="bth-plural"></span></p><p id=descriptor>There are a total of <b>101,589</b> hospitals of all types</p></div>
+<div class=item><img src="/as16/red-care-visit.png" class="tile"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p><p id=descriptor><b>1,806,569</b>c occur every year</p></div></div>
 
 </div>
 
