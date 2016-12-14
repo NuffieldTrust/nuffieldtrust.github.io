@@ -10,7 +10,6 @@
 }
 
 #container2 {
-  margin: 0 5% 0 5%;
   display: flex;
   flex-flow: row wrap;
 }
