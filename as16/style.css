@@ -51,18 +51,6 @@ noUi-connect {
   flex: 1;
 }
 
-.vertical {
-  position: relative;
-  height: 150px;
-  margin: 0 0 0 100px;
-}
-
-#controls {
-  align: center;
-  width: 70%;
-  display: flex; 
-}
-
 
 p {
  font-family: Garamond, Georgia;
@@ -90,18 +78,6 @@ p {
 
 #howmuch {
   text-align: center;
-}
-
-blockquote {
-    border-top: 1px solid #b6b1aa;
-    border-bottom: 1px solid #b6b1aa;
-    margin: 0 0 28px 0;
-    padding: 14px 14px 21px 60px;
-    font-family: FuturaPTDemi-Reg,helvetica,arial,sans-serif;
-    color: #2b505e;
-    font-size: 1.20em;
-    line-height: 1.3em;
-    background: url(http://www.nuffieldtrust.org.uk//sites/default/themes/custom/nuffield/images/icon_quote.png) no-repeat 15px 18px #fff;
 }
 
 #subtitle {
@@ -197,3 +173,10 @@ button.purple-off {
   margin: auto;
   padding: 5px 10px 5px 10px;
   }
+
+  @media only screen and (min-width: 685px) {
+#logo {
+  float: right;
+  padding: 15px;
+}
+}
