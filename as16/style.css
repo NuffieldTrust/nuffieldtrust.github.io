@@ -11,10 +11,12 @@
 
 #container2 {
   margin: 0 5% 0 5%;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .noUi-tooltip {
-  padding-left: 15px;
+  padding-left: 10px;
   color: #ffffff;
   font-size: 1.5em;
 }
@@ -36,11 +38,17 @@ noUi-connect {
 	background-color: #2b505e;
 }
 
+#description {
+  display: flex;
+  min-height: 150px;
+}
+
 #descriptor {
   font-size: .8em;
   align: center;
   padding: 10px 20% 0 20%;
   text-align: center;
+  flex: 1;
 }
 
 .vertical {
@@ -129,74 +137,25 @@ a:hover {
 	color:#af021a;
 }
 
-#row {
-    display: flex; 
+#care-home-tile {
+  display: none;
 }
 
 div.item {
   height: 300px;
   float: left;
   font-size: 1em important!;
-  margin: 0px 5px 50px 5px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px;
-  width: 85%;
+  width: 275px;
   border-radius:10px;
   border:1px solid #6A848E;
+
   
 }
 img.tile {
   max-width: 50%;
 
-}
-@media only screen and (min-width: 500px) {
-div.item {
-  width: 38%;
-}
-img.tile {
-  width: 60%;
-}
-}
-@media only screen and (min-width: 685px) {
-div.item {
-  width: 41%;
-}
-img.tile {
-  width: 80%;
-}
-#logo {
-  float: right;
-  padding: 15px;
-}
-}
-@media only screen and (min-width: 800px) {
-div.item {
-  width: 26%;
-}
-img.tile {
-  width: 80%;
-}
-}
-@media only screen and (min-width: 1008px) {
-div.item {
-  width: 19%;
-}
-img.tile {
-  width: 80%;
-}
-}
-@media only screen and (min-width: 1351px) {
-div.item {
-  width: 12%;
-}
-img.tile {
-  width: 50%;
-}
-}
-@media only screen and (min-width: 1520px) {
-div.item {
-  width: 14%;
-}
-img.tile {
-  width: 80%;
-}
 }
