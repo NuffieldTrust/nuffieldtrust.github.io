@@ -10,6 +10,7 @@
 }
 
 #container2 {
+
   display: flex;
   flex-flow: row wrap;
 }
@@ -123,7 +124,7 @@ h2 {
 
 h3 {
  font-family: 'FuturaTS-Regular', Futura, Arial;
- color: #2b505e;
+ color: #af021a;
  font-size: 18px;
 }
 
@@ -158,3 +159,41 @@ img.tile {
   max-width: 50%;
 
 }
+
+  button {
+  font-family: Futura, 'FuturaTS-Regular', Arial;
+  color: #ffffff;
+  font-size:  1em;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-radius:10px;
+  border:1px solid #6A848E;
+}
+button.teal-on {
+  background: #2b505e;
+}
+
+button.red-on {
+  background: #af021a;
+}
+
+button.purple-on {
+  background: #3c1f75;
+}
+
+button.teal-off {
+  background: #BFCACE;
+}
+
+button.red-off {
+  background: #E7B5BC;
+}
+
+button.purple-off {
+  background: #c4bbd5;
+}
+
+#legend {
+  margin: auto;
+  padding: 5px 10px 5px 10px;
+  }
