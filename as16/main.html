@@ -31,9 +31,7 @@
   <script>
 	  
 $(document).ready(function(){
-
 var rangeSlider = document.getElementById('slider');
-
 noUiSlider.create(rangeSlider, {
 	start: 0,
 	step: 1,
@@ -54,18 +52,15 @@ noUiSlider.create(rangeSlider, {
 		density: 4,
 	}
 });
-
 var totalFormat = wNumb({
 	decimals: 0,
 	thousand: ','
 });
-
 var bnFormat = wNumb({
 	decimals: 1,
 	prefix: '£',
   	postfix: 'bn',
 });
-
 var rangeSliderValueElement = document.getElementById('slider-range-value');
 var gpValue = document.getElementById('gp-value');
 var consultantValue = document.getElementById('consultant-value');
@@ -86,7 +81,6 @@ var ambulanceValue = document.getElementById('ambulance-value');
 var gpVisitValue = document.getElementById('gp-visit-value');
 var talkingValue = document.getElementById('talking-value');
 var careVisitValue = document.getElementById('care-visit-value');
-
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
 	annual = values[handle]*(365/7)/1000;
   gp = values[handle]*(365/7)*0.66110695524;
@@ -129,30 +123,118 @@ if(careHome >= 0.5 && careHome <= 1.5) {
 } else {
 	careHomePlural.innerHTML = "homes";
 };
-
 if(bth >= 0.5 && bth <= 1.5) {
 	bthPlural.innerHTML = "hospital";
 } else {
 	bthPlural.innerHTML = "hospitals";
 };
-
 if(srh >= 0.5 && srh <= 1.5) {
 	srhPlural.innerHTML = "hospital";
 } else {
 	srhPlural.innerHTML = "hospitals";
 };
 
+if(gp <= 0.5) {
+	$('#gp-tile').hide(300);
+} else {
+	$('#gp-tile').show(300);
+};
 
+if(pp <= 0.5) {
+	$('#pp-tile').hide(300);
+} else {
+	$('#pp-tile').show(300);
+};
 
+if(careHome <= 0.5) {
+	$('#care-home-tile').hide(300);
+} else {
+	$('#care-home-tile').show(300);
+};
 
-  
+if(gpVisit <= 0.5) {
+	$('#gp-visit-tile').hide(300);
+} else {
+	$('#gp-visit-tile').show(300);
+};
+
+if(up <= 0.5) {
+	$('#up-tile').hide(300);
+} else {
+	$('#up-tile').show(300);
+};
+
+if(ambulance <= 0.5) {
+	$('#ambulance-tile').hide(300);
+} else {
+	$('#ambulance-tile').show(300);
+};
+
+if(consultant <= 0.5) {
+	$('#consultant-tile').hide(300);
+} else {
+	$('#consultant-tile').show(300);
+};
+
+if(nurse <= 0.5) {
+	$('#nurse-tile').hide(300);
+} else {
+	$('#nurse-tile').show(300);
+};
+
+if(carer <= 0.5) {
+	$('#carer-tile').hide(300);
+} else {
+	$('#carer-tile').show(300);
+};
+
+if(civil <= 0.5) {
+	$('#civil-tile').hide(300);
+} else {
+	$('#civil-tile').show(300);
+};
+
+if(pharm <= 0.5) {
+	$('#pharm-tile').hide(300);
+} else {
+	$('#pharm-tile').show(300);
+};
+
+if(visitor <= 0.5) {
+	$('#visitor-tile').hide(300);
+} else {
+	$('#visitor-tile').show(300);
+};
+
+if(srh <= 0.5) {
+	$('#srh-tile').hide(300);
+} else {
+	$('#srh-tile').show(300);
+};
+
+if(talking <= 0.5) {
+	$('#talking-tile').hide(300);
+} else {
+	$('#talking-tile').show(300);
+};
+
+if(bth <= 0.5) {
+	$('#bth-tile').hide(300);
+} else {
+	$('#bth-tile').show(300);
+};
+
+if(careVisit <= 0.5) {
+	$('#care-visit-tile').hide(300);
+} else {
+	$('#care-visit-tile').show(300);
+};
+
 });
 
 
 
-
 var descriptorValueElement = document.getElementById('descriptor-value');
-
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
    if(values[handle] == 0) {
   descriptor = '<br \><br \> ';
@@ -175,7 +257,6 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   }
   descriptorValueElement.innerHTML = descriptor;
 });
-
 });
 </script>
 </head>
@@ -197,35 +278,36 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 <p><b>Slide the the Christmas present</b> to select how much extra money to gift to the health and social care system per week.</p><br /><br /></div>
 <div id=slider><div id=handle></div>
 </div>
-<div id=descriptor><br/><p>
+<div id=description><div id=descriptor><br/><p>
 <span id="descriptor-value"></span>
 </p></div>
+</div>
+<div id=howmuch><h2>That's the equivalent of <b><span id="slider-range-value"></span></b> per year.</h2></div>
 </div>
 <br/><br/><HR />
 <div id=howmuch>
 <br/>
-<h2>That's the equivalent of <b><span id="slider-range-value"></span></b> per year.</h2>
+
 <h2>...which would pay for all of the following:</h2>
-<div id="container2"><div class=item><img src="/as16/teal-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are currently <b>41,985</b>.</p></div>
-<div class=item><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> happen every year</p></div>
-<div class=item><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="up-value"></span></b> urgent procedures</p><p id=descriptor><b>6,996,601</b> occur every year</p></div>
-<div class=item><img src="/as16/red-care-home.png" class="tile"><br/><p><b><span id="care-home-value"></span></b> care <span id="care-home-plural"></span></p><p id=descriptor>There are <b>465,000</b></p></div>
-<div class=item><img src="/as16/teal-ambulance.png" class="tile"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,131</b> occur every year</p></div>
-<div class=item><img src="/as16/teal-gp-visit.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year</p></div>
-<div class=item><img src="/as16/purple-consultant.png" class="tile"><br/><p><b><span id="consultant-value"></span></b> consultants</p><p id=descriptor>There are <b>46,564</b></p></div>
-<div class=item><img src="/as16/purple-nurse.png" class="tile"><br/><p><b><span id="nurse-value"></span></b> nurses</p><p id=descriptor>There are <b>315,499</b></p></div>
-<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="carer-value"></span></b> carers</p><p id=descriptor>There are <b>645,0001</b></p></div>
-<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="civil-value"></span></b> civil servants</p><p id=descriptor>There are <b>2,030</b></p></div>
-<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="pharm-value"></span></b> pharmacists</p><p id=descriptor>There are <b>29,400</b></p></div>
-<div class=item><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,214</b></p></div>
-<div class=item><img src="/as16/purple-small-hosp.png" class="tile"><br/><p><b><span id="srh-value"></span></b> small rural <span id="srh-plural"></span></p><p id=descriptor>There are a total of <b>101,589</b> hospitals of all types</p></div>
-<div class=item><img src="/as16/teal-talking.png" class="tile"><br/><p><b><span id="talking-value"></span></b> courses of talking therapy</p><p id=descriptor><b>4,878,210</b> occur every year</p></div>
-<div class=item><img src="/as16/purple-big-hosp.png" class="tile"><br/><p><b><span id="bth-value"></span></b> big teaching <span id="bth-plural"></span></p><p id=descriptor>There are a total of <b>101,589</b> hospitals of all types</p></div>
-<div class=item><img src="/as16/red-care-visit.png" class="tile"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p><p id=descriptor><b>1,806,569</b>c occur every year</p></div></div>
+<div id="container2">
+<div class="item" id="gp-tile"><img src="/as16/teal-gp.png" ><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are <b>41,985</b></p></div>
+<div class=item id="pp-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> occur every year</p></div>
+<div class=item id="up-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="up-value"></span></b> urgent procedures</p><p id=descriptor><b>6,996,601</b> occur every year</p></div>
+<div class=item id="care-home-tile"><img src="/as16/red-care-home.png" class="tile"><br/><p><b><span id="care-home-value"></span></b> care <span id="care-home-plural"></span></p><p id=descriptor>There are <b>465,000</b></p></div>
+<div class=item id="ambulance-tile"><img src="/as16/teal-ambulance.png" class="tile"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,131</b> occur every year</p></div>
+<div class=item id="gp-visit-tile"><img src="/as16/teal-gp-visit.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year</p></div>
+<div class=item id="consultant-tile"><img src="/as16/purple-consultant.png" class="tile"><br/><p><b><span id="consultant-value"></span></b> consultants</p><p id=descriptor>There are <b>46,564</b></p></div>
+<div class=item id="nurse-tile"><img src="/as16/purple-nurse.png" class="tile"><br/><p><b><span id="nurse-value"></span></b> nurses</p><p id=descriptor>There are <b>315,499</b></p></div>
+<div class=item id="carer-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="carer-value"></span></b> carers</p><p id=descriptor>There are <b>645,0001</b></p></div>
+<div class=item id="civil-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="civil-value"></span></b> civil servants</p><p id=descriptor>There are <b>2,030</b></p></div>
+<div class=item id="pharm-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="pharm-value"></span></b> pharmacists</p><p id=descriptor>There are <b>29,400</b></p></div>
+<div class=item id="visitor-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,214</b></p></div>
+<div class=item id="srh-tile"><img src="/as16/purple-small-hosp.png" class="tile"><br/><p><b><span id="srh-value"></span></b> small rural <span id="srh-plural"></span></p><p id=descriptor>There are <b>101,589</b> hospital beds in England. An average hospital has about 650 beds</p></div>
+<div class=item id="talking-tile"><img src="/as16/teal-talking.png" class="tile"><br/><p><b><span id="talking-value"></span></b> courses of talking therapy</p><p id=descriptor><b>4,878,210</b> occur every year</p></div>
+<div class=item id="bth-tile"><img src="/as16/purple-big-hosp.png" class="tile"><br/><p><b><span id="bth-value"></span></b> big teaching <span id="bth-plural"></span></p><p id=descriptor>There are a total of <b>101,589</b> hospital beds in England. An average hospital has about 650 beds.</p></div>
+<div class=item id="care-visit-tile"><img src="/as16/red-care-visit.png" class="tile"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p><p id=descriptor><b>1,806,569</b> occur every year</p></div></div>
 
 </div>
-
-
 
 </body>
 </html>
