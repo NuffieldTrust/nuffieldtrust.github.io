@@ -62,6 +62,7 @@ var bnFormat = wNumb({
   	postfix: 'bn',
 });
 var rangeSliderValueElement = document.getElementById('slider-range-value');
+var rangeSliderValueElement2 = document.getElementById('slider-range-value2');
 var gpValue = document.getElementById('gp-value');
 var consultantValue = document.getElementById('consultant-value');
 var nurseValue = document.getElementById('nurse-value');
@@ -101,6 +102,7 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   careVisit = values[handle]*(365/7)*1443.60541630012;
   
   rangeSliderValueElement.innerHTML =  bnFormat.to(annual);
+  rangeSliderValueElement2.innerHTML =  bnFormat.to(annual);
   gpValue.innerHTML =  totalFormat.to(gp);
   consultantValue.innerHTML =  totalFormat.to(consultant);
   nurseValue.innerHTML =  totalFormat.to(nurse);
@@ -256,7 +258,51 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   descriptor = '<br \><br \>';
   }
   descriptorValueElement.innerHTML = descriptor;
+  if(values[handle] != 0) {
+  	$('#error1').hide(300);
+} else {
+	$('#error1').show(300);
+  }
 });
+
+var buttonValueElement = document.getElementById('button-value');
+
+
+    $('#health-social').click(function () {
+        if ($('#health-social').hasClass( "teal-on" )) {
+        } else {
+            buttonValue = 'both health and social care';
+            buttonValueElement.innerHTML = buttonValue;
+            $('#health-social').attr('class', 'teal-on');
+            $('#health-only').attr('class', 'purple-off');
+            $('#social-only').attr('class', 'red-off');
+        }
+    });
+    
+        $('#health-only').click(function () {
+        if ($('#health-only').hasClass( "purple-on" )) {
+        } else {
+   		     buttonValue = 'health care only';
+            buttonValueElement.innerHTML = buttonValue;
+            $('#health-social').attr('class', 'teal-off');
+            $('#health-only').attr('class', 'purple-on');
+            $('#social-only').attr('class', 'red-off');
+        }
+    });
+    
+        $('#social-only').click(function () {
+        if ($('#social-only').hasClass( "teal-on" )) {
+        } else {
+        	buttonValue = 'social care only';
+            buttonValueElement.innerHTML = buttonValue;
+            $('#health-social').attr('class', 'teal-off');
+            $('#health-only').attr('class', 'purple-off');
+            $('#social-only').attr('class', 'red-on');
+        }
+    });
+
+
+
 });
 </script>
 </head>
@@ -284,11 +330,22 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 </div>
 <div id=howmuch><h2>That's the equivalent of <b><span id="slider-range-value"></span></b> per year.</h2></div>
 </div>
+<br/>
+<div id=container>
+<div id=howmuch><h2>Where would you like to invest that money?</h2></div>
+<div id="legend">
+<center><button id="health-social" class="teal-on">Both health and social care</button> <button id="health-only" class="purple-off">Health care only</button> <button id="social-only" class="red-off">Social care only</button></center></div>
+</div>
 <br/><br/><HR />
 <div id=howmuch>
 <br/>
 
-<h2>...which would pay for all of the following:</h2>
+<h2>Spending an extra <span id="slider-range-value2"></span> per year on <span id="button-value">both health and social care</span> would pay for all of the following:</h2>
+<div id=error1>
+<h3>
+Please use the slider above to select an amount of additional money to give the health and social care system. More information will appear here when you do!
+</h3>
+</div>
 <div id="container2">
 <div class="item" id="gp-tile"><img src="/as16/teal-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are <b>41,985</b></p></div>
 <div class=item id="pp-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> occur every year</p></div>
@@ -306,8 +363,20 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 <div class=item id="talking-tile"><img src="/as16/teal-talking.png" class="tile"><br/><p><b><span id="talking-value"></span></b> courses of talking therapy</p><p id=descriptor><b>4,878,210</b> occur every year</p></div>
 <div class=item id="bth-tile"><img src="/as16/purple-big-hosp.png" class="tile"><br/><p><b><span id="bth-value"></span></b> big teaching <span id="bth-plural"></span></p><p id=descriptor>There are a total of <b>101,589</b> hospital beds in England. An average hospital has about 650 beds.</p></div>
 <div class=item id="care-visit-tile"><img src="/as16/red-care-visit.png" class="tile"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p><p id=descriptor><b>1,806,569</b> occur every year</p></div></div>
-
 </div>
+<br/><br/><HR />
+<div id=preface>
+  <h2>About this interactive slider</h2>
+  <p>
+  Information contained in this slider relates only to NHS England. The number of each item is calculated based not only on the cost per item but also on the rough spending breakdown of the NHS's budget. So, for example, the annual average salary of a GP is £109,750, but only about 7% of the total NHS and social care budget is spent on GPs. So, to calculate the number of extra GPs that a certain amount of money could purchase, we take the equivalent percent of the annual spend and then divide by the cost.</p>
+  <p>
+  See below for a table of reference costs and proportions of the health and social care budget along with sources for those costs.
+  </p>
+  <p>
+  Please note that this slider combines activity costs, staffing costs and capital costs (like investing in a new building). Staffing costs are calculated on an annual basis. Activity costs may include other types of cost -- like staff costs. It's difficult to sort out these elements of the activity costs, which is why all of the things that could be bought with a certain amount of money should be viewed as additive -- that is to say that it would pay for a GP and for a GP consultation. We have included capital costs because, although it may take more than a year to build a hospital for example, these costs often come onto the books in a single year.
+  </p>
+</div>
+
 
 </body>
 </html>
