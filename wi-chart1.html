@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chart 1 - Winter Insights</title>
+  <meta name="description" content="Chart 1 - Winter Insights">
+  <meta name="author" content="Nuffield Trust">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () {
+    $('#chart').highcharts({
+     colors: ["#af0a21","#2b505e","#3c1f75","#55504c"],
+chart: {
+         defaultSeriesType: 'line',
+         plotBackgroundColor:'#F4F4F1',
+         spacingBottom: 25,
+         style: {
+                fontFamily: "Futura,'FuturaTS-Regular','Arial'", 
+            } 
+      },
+      exporting: {
+            sourceWidth: 1280,
+            sourceHeight: 720,
+            
+            chartOptions: {
+            plotOptions: {
+            series: {
+                lineWidth: 3
+            }
+        },
+      title: {
+         style: {
+            fontSize: '0px'
+         }
+      },
+      yAxis:{
+       title: {text:'Number of extra beds',
+       				x: -5,
+              style:{
+           fontSize: '22px'}
+              },
+        labels:{
+         style:{
+           fontSize: '22px'
+         }
+        },
+      },
+      xAxis:{
+        labels:{
+         style:{
+           fontSize: '22px'
+         }
+        },
+        rotation: 90
+      }               
+   }
+        },
+      title: {
+         text: 'Extra beds opened each day during 2015/16 winter period in England'
+      },
+      credits: {
+        text: '© Nuffield Trust',
+        href: 'http://www.nuffieldtrust.org.uk'
+    },
+      tooltip: {
+            pointFormatter: function() {
+                return Highcharts.numberFormat((this.y),0,'.',',');
+            },
+        },
+        xAxis: {
+        		title: '',
+            labels: {rotation: -45, y: 20},
+            tickInterval: 1,
+            categories:  ['30 Nov','1 Dec','2 Dec','3 Dec','4-6 Dec','7 Dec','8 Dec','9 Dec','10 Dec','11-13 Dec','14 Dec','15 Dec','16 Dec','17 Dec','18-20 Dec','21 Dec','22 Dec','23 Dec','Christmas','29 Dec','30 Dec','New Year','4 Jan','5 Jan','6 Jan','7 Jan','8-10 Jan','11 Jan','12 Jan','13 Jan','14 Jan','15-17 Jan','18 Jan','19 Jan','20 Jan','21 Jan','22-24 Jan','25 Jan','26 Jan','27 Jan','28 Jan','29-31 Jan','1 Feb','2 Feb','3 Feb','4 Feb','5-7 Feb','8 Feb','9 Feb','10 Feb','11 Feb','12-14 Feb','15 Feb','16 Feb','17 Feb','18 Feb','19-21 Feb','22 Feb','23 Feb','24 Feb','25 Feb','26-28 Feb']
+        },
+				yAxis: {
+        title: {text:'Number of extra beds', x: -5},
+        max: 5000,
+        min: 0,
+        tickInterval: 500,
+        endOnTick: false,
+        gridLineWidth:0,
+        gridLineColor: '#eae8e3',
+        labels: {
+            formatter: function() {
+                return Highcharts.numberFormat((this.value),0,'.',',');
+            }
+            },
+
+        },
+        series: [
+				{
+name: 'Winter months',
+type: 'column',
+color: '#eae8e3',
+enableMouseTracking: false,
+borderWidth: 0,
+pointPadding: -1,
+showInLegend: false,
+            animation: false,
+marker: {
+enabled: false,
+},
+data: [0,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000,5000]
+},
+
+        {
+            color: "#af0a21",
+            dashStyle: 'solid',
+            showInLegend: false,
+            marker: { enabled: false },
+            data: [2650,2585,2711,2686,2723,3095,2786,2639,2585,2616,2954,2774,2784,2608,2547,2582,2228,1705,2032,2531,2461,3233,4022,4116,3994,3706,3838,4017,3658,3463,3491,3570,3866,4010,3623,3858,3909,4196,4390,4070,4003,4081,4309,4171,4004,3790,4182,4283,4122,3861,3904,3697,3948,3768,3637,3526,3895,4301,4208,3969,3949,3969],   
+        },
+                
+]
+    });
+});
+</script>
+</head>
+
+<body>
+<div class="chart" id='chart'></div>
+</body>
+</html>
