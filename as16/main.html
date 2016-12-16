@@ -4,8 +4,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>How much for health and social care?</title>
-  <meta name="description" content="How much for health and social care?">
+  <title>A Christmas gift for health and social care?</title>
+  <meta name="description" content="A Christmas gift for health and social care?">
   <meta name="author" content="Nuffield Trust">
 
   <link rel="stylesheet" href="/as16/style.css">
@@ -61,181 +61,171 @@ var bnFormat = wNumb({
 	prefix: '£',
   	postfix: 'bn',
 });
+
+var gpMult = 0.26348575199470000;
+var gpVisitMult = 2761.20642181456000000;
+var consultantMult = 0.58787130988630000;
+var nurseMult = 3.98318036246494000;
+var upMult = 88.33220931667800000;
+var ppMult = 87.62811209667200000;
+var visitorMult = 0.59088667262834800;
+var srhMult = 0.00035737504466663;
+var mentalMult = 99.03707144305770000;
+var pharmMult = 1.37341885869894000;
+var ambulanceMult = 93.97174949994850000;
+var talkingMult = 746.72006400733600000;
+var careVisitMult = 143.56097756968900000;
+var careHomeMult = 0.00316848660636621;
+var carerMult = 2.52678884988831000;
+
+
 var rangeSliderValueElement = document.getElementById('slider-range-value');
 var rangeSliderValueElement2 = document.getElementById('slider-range-value2');
 var gpValue = document.getElementById('gp-value');
+var gpVisitValue = document.getElementById('gp-visit-value');
 var consultantValue = document.getElementById('consultant-value');
 var nurseValue = document.getElementById('nurse-value');
-var carerValue = document.getElementById('carer-value');
-var pharmValue = document.getElementById('pharm-value');
-var visitorValue = document.getElementById('visitor-value');
-var civilValue = document.getElementById('civil-value');
-var srhValue = document.getElementById('srh-value');
-var srhPlural = document.getElementById('srh-plural');
-var bthValue = document.getElementById('bth-value');
-var bthPlural = document.getElementById('bth-plural');
-var careHomeValue = document.getElementById('care-home-value');
-var careHomePlural = document.getElementById('care-home-plural');
 var upValue = document.getElementById('up-value');
 var ppValue = document.getElementById('pp-value');
+var visitorValue = document.getElementById('visitor-value');
+var srhValue = document.getElementById('srh-value');
+var srhPlural = document.getElementById('srh-plural');
+var mentalValue = document.getElementById('mental-value');
+var pharmValue = document.getElementById('pharm-value');
 var ambulanceValue = document.getElementById('ambulance-value');
-var gpVisitValue = document.getElementById('gp-visit-value');
 var talkingValue = document.getElementById('talking-value');
 var careVisitValue = document.getElementById('care-visit-value');
+var careHomeValue = document.getElementById('care-home-value');
+var careHomePlural = document.getElementById('care-home-plural');
+var carerValue = document.getElementById('carer-value');
+
+
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
 	annual = values[handle]*(365/7)/1000;
-  gp = values[handle]*(365/7)*0.66110695524;
-  consultant = values[handle]*(365/7)*0.94059990243;
-  nurse = values[handle]*(365/7)*3.44690055182;
-  carer = values[handle]*(365/7)*1.99530810822;
-  pharm = values[handle]*(365/7)*1.32504242124;
-  visitor = values[handle]*(365/7)*0.57007365409;
-  civil = values[handle]*(365/7)*0.37800339894;
-  srh = values[handle]*(365/7)*0.00014295002;
-  bth = values[handle]*(365/7)*0.00001943301;
-  careHome = values[handle]*(365/7)*0.00087648316;
-  up = values[handle]*(365/7)*59.87888481291;
-  pp = values[handle]*(365/7)*98.42794174830;
-  ambulance = values[handle]*(365/7)*90.66174801413;
-  gpVisit = values[handle]*(365/7)*1649.00684645023;
-  talking = values[handle]*(365/7)*890.99732346662;
-  careVisit = values[handle]*(365/7)*1443.60541630012;
+  gp = values[handle]*(365/7)*gpMult;
+  gpVisit = values[handle]*(365/7)*gpVisitMult;
+  consultant = values[handle]*(365/7)*consultantMult;
+  nurse = values[handle]*(365/7)*nurseMult;
+  up = values[handle]*(365/7)*upMult;
+  pp = values[handle]*(365/7)*ppMult;
+  visitor = values[handle]*(365/7)*visitorMult;
+  srh = values[handle]*(365/7)*srhMult;
+  mental = values[handle]*(365/7)*mentalMult;
+  pharm = values[handle]*(365/7)*pharmMult;
+  ambulance = values[handle]*(365/7)*ambulanceMult;
+  talking = values[handle]*(365/7)*talkingMult;
+  careVisit = values[handle]*(365/7)*careVisitMult;
+  careHome = values[handle]*(365/7)*careHomeMult;
+  carer = values[handle]*(365/7)*carerMult;
   
   rangeSliderValueElement.innerHTML =  bnFormat.to(annual);
   rangeSliderValueElement2.innerHTML =  bnFormat.to(annual);
   gpValue.innerHTML =  totalFormat.to(gp);
+  gpVisitValue.innerHTML =  totalFormat.to(gpVisit);
   consultantValue.innerHTML =  totalFormat.to(consultant);
   nurseValue.innerHTML =  totalFormat.to(nurse);
-  carerValue.innerHTML =  totalFormat.to(carer);
-  pharmValue.innerHTML =  totalFormat.to(pharm);
-  visitorValue.innerHTML =  totalFormat.to(visitor);
-  civilValue.innerHTML =  totalFormat.to(civil);
-  srhValue.innerHTML =  totalFormat.to(srh);
-  bthValue.innerHTML =  totalFormat.to(bth);
-  careHomeValue.innerHTML =  totalFormat.to(careHome);
   upValue.innerHTML =  totalFormat.to(up);
   ppValue.innerHTML =  totalFormat.to(pp);
+  visitorValue.innerHTML =  totalFormat.to(visitor);
+  srhValue.innerHTML =  totalFormat.to(srh);
+  mentalValue.innerHTML =  totalFormat.to(mental);
+  pharmValue.innerHTML =  totalFormat.to(pharm);
   ambulanceValue.innerHTML =  totalFormat.to(ambulance);
-  gpVisitValue.innerHTML =  totalFormat.to(gpVisit);
   talkingValue.innerHTML =  totalFormat.to(talking);
   careVisitValue.innerHTML =  totalFormat.to(careVisit);
+  careHomeValue.innerHTML =  totalFormat.to(careHome);
+  carerValue.innerHTML =  totalFormat.to(carer);
+
   
 if(careHome >= 0.5 && careHome <= 1.5) {
 	careHomePlural.innerHTML = "home";
 } else {
 	careHomePlural.innerHTML = "homes";
 };
-if(bth >= 0.5 && bth <= 1.5) {
-	bthPlural.innerHTML = "hospital";
-} else {
-	bthPlural.innerHTML = "hospitals";
-};
+
 if(srh >= 0.5 && srh <= 1.5) {
 	srhPlural.innerHTML = "hospital";
 } else {
 	srhPlural.innerHTML = "hospitals";
 };
-
 if(gp <= 0.5) {
 	$('#gp-tile').hide(300);
 } else {
 	$('#gp-tile').show(300);
 };
-
-if(pp <= 0.5) {
-	$('#pp-tile').hide(300);
-} else {
-	$('#pp-tile').show(300);
-};
-
-if(careHome <= 0.5) {
-	$('#care-home-tile').hide(300);
-} else {
-	$('#care-home-tile').show(300);
-};
-
 if(gpVisit <= 0.5) {
 	$('#gp-visit-tile').hide(300);
 } else {
 	$('#gp-visit-tile').show(300);
 };
-
-if(up <= 0.5) {
-	$('#up-tile').hide(300);
-} else {
-	$('#up-tile').show(300);
-};
-
-if(ambulance <= 0.5) {
-	$('#ambulance-tile').hide(300);
-} else {
-	$('#ambulance-tile').show(300);
-};
-
 if(consultant <= 0.5) {
 	$('#consultant-tile').hide(300);
 } else {
 	$('#consultant-tile').show(300);
 };
-
 if(nurse <= 0.5) {
 	$('#nurse-tile').hide(300);
 } else {
 	$('#nurse-tile').show(300);
 };
-
+if(up <= 0.5) {
+	$('#up-tile').hide(300);
+} else {
+	$('#up-tile').show(300);
+};
+if(pp <= 0.5) {
+	$('#pp-tile').hide(300);
+} else {
+	$('#pp-tile').show(300);
+};
+if(visitor <= 0.5) {
+	$('#visitor-tile').hide(300);
+} else {
+	$('#visitor-tile').show(300);
+};
+if(srh <= 0.5) {
+	$('#srh-tile').hide(300);
+} else {
+	$('#srh-tile').show(300);
+};
+if(mental <= 0.5) {
+	$('#mental-tile').hide(300);
+} else {
+	$('#mental-tile').show(300);
+};
+if(pharm <= 0.5) {
+	$('#pharm-tile').hide(300);
+} else {
+	$('#pharm-tile').show(300);
+};
+if(ambulance <= 0.5) {
+	$('#ambulance-tile').hide(300);
+} else {
+	$('#ambulance-tile').show(300);
+};
+if(talking <= 0.5) {
+	$('#talking-tile').hide(300);
+} else {
+	$('#talking-tile').show(300);
+};
+if(careVisit <= 0.5) {
+	$('#care-visit-tile').hide(300);
+} else {
+	$('#care-visit-tile').show(300);
+};
+if(careHome <= 0.5) {
+	$('#care-home-tile').hide(300);
+} else {
+	$('#care-home-tile').show(300);
+};
 if(carer <= 0.5) {
 	$('#carer-tile').hide(300);
 } else {
 	$('#carer-tile').show(300);
 };
 
-if(civil <= 0.5) {
-	$('#civil-tile').hide(300);
-} else {
-	$('#civil-tile').show(300);
-};
-
-if(pharm <= 0.5) {
-	$('#pharm-tile').hide(300);
-} else {
-	$('#pharm-tile').show(300);
-};
-
-if(visitor <= 0.5) {
-	$('#visitor-tile').hide(300);
-} else {
-	$('#visitor-tile').show(300);
-};
-
-if(srh <= 0.5) {
-	$('#srh-tile').hide(300);
-} else {
-	$('#srh-tile').show(300);
-};
-
-if(talking <= 0.5) {
-	$('#talking-tile').hide(300);
-} else {
-	$('#talking-tile').show(300);
-};
-
-if(bth <= 0.5) {
-	$('#bth-tile').hide(300);
-} else {
-	$('#bth-tile').show(300);
-};
-
-if(careVisit <= 0.5) {
-	$('#care-visit-tile').hide(300);
-} else {
-	$('#care-visit-tile').show(300);
-};
 
 });
-
-
-
 var descriptorValueElement = document.getElementById('descriptor-value');
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
    if(values[handle] == 0) {
@@ -264,10 +254,7 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 	$('#error1').show(300);
   }
 });
-
 var buttonValueElement = document.getElementById('button-value');
-
-
     $('#health-social').click(function () {
         if ($('#health-social').hasClass( "teal-on" )) {
         } else {
@@ -276,47 +263,92 @@ var buttonValueElement = document.getElementById('button-value');
             $('#health-social').attr('class', 'teal-on');
             $('#health-only').attr('class', 'purple-off');
             $('#social-only').attr('class', 'red-off');
+            gpMult = 0.26348575199470000;
+						gpVisitMult = 2761.20642181456000000;
+            consultantMult = 0.58787130988630000;
+            nurseMult = 3.98318036246494000;
+            upMult = 88.33220931667800000;
+            ppMult = 87.62811209667200000;
+            visitorMult = 0.59088667262834800;
+            srhMult = 0.00035737504466663;
+            mentalMult = 99.03707144305770000;
+            pharmMult = 1.37341885869894000;
+            ambulanceMult = 93.97174949994850000;
+            talkingMult = 746.72006400733600000;
+            careVisitMult = 143.56097756968900000;
+            careHomeMult = 0.00316848660636621;
+            carerMult = 2.52678884988831000;
+            slider.noUiSlider.set(rangeSliderValueElement);
         }
     });
     
         $('#health-only').click(function () {
         if ($('#health-only').hasClass( "purple-on" )) {
         } else {
-   		     buttonValue = 'health care only';
+   		     buttonValue = '<span style="color:#3c1f75;">health care only</span>';
             buttonValueElement.innerHTML = buttonValue;
             $('#health-social').attr('class', 'teal-off');
             $('#health-only').attr('class', 'purple-on');
             $('#social-only').attr('class', 'red-off');
+            gpMult = 0.28005098666358400;
+						gpVisitMult = 2934.80226902951000000;
+            consultantMult = 0.62483052354263000;
+            nurseMult = 4.23360118003557000;
+            upMult = 93.88561691110910000;
+            ppMult = 93.13725340501060000;
+            visitorMult = 0.62803546082924300;
+            srhMult = 0.00037984305834437;
+            mentalMult = 105.26348906508600000;
+            pharmMult = 1.45976510520670000;
+            ambulanceMult = 99.87971253372780000;
+            talkingMult = 793.66602977058000000;
+            careVisitMult = 0;
+            careHomeMult = 0;
+            carerMult = 0;
+            slider.noUiSlider.set(rangeSliderValueElement);
         }
     });
     
         $('#social-only').click(function () {
         if ($('#social-only').hasClass( "teal-on" )) {
         } else {
-        	buttonValue = 'social care only';
+        	buttonValue = '<span style="color:#af021a;">social care only</span>';
             buttonValueElement.innerHTML = buttonValue;
             $('#health-social').attr('class', 'teal-off');
             $('#health-only').attr('class', 'purple-off');
             $('#social-only').attr('class', 'red-on');
+            gpMult = 0;
+						gpVisitMult = 0;
+            consultantMult = 0;
+            nurseMult = 0;
+            upMult = 0;
+            ppMult = 0;
+            visitorMult = 0;
+            srhMult = 0;
+            mentalMult = 0;
+            pharmMult = 0;
+            ambulanceMult = 0;
+            talkingMult = 0;
+            careVisitMult = 2427.03434140292000000;
+            careHomeMult = 0.05356626803542770;
+            carerMult = 42.71775949126530000;
+            slider.noUiSlider.set(rangeSliderValueElement);
         }
     });
-
-
-
 });
 </script>
 </head>
 
 <body>
-  <div id=header>
+   <div id=header>
 	<div id=logo><img src="https://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55a7d3d8e4b0fa0db166646c/1470057721874/?format=1500w"/></div>
 	<h1>A Christmas gift for health and social care?</h1>
 </div>
 
 <div id=preface>
-<p>As Christmas draws near, many are making lists of Christmas presents and checking them twice. The Chancellor didn't gift any extra money to health or social care in last month's Autumn Statement.</p>
-<p>But while the NHS budget specifically has been protected from cuts, it’s clear that the health and social care system is facing a difficult financial time.</p>
-<p>How big of a cash injection do you think the Chancellor should give health and social care this Christmas? And what could that actually buy?</p>
+<p>With Christmas just around the corner, you might be forgiven for focusing on more domestic issues than health and social care funding. But at the Nuffield Trust, there is no let-up in our interest in the finer points of health and social care policy.</p> 
+<p>It is no secret that both health and social care are under extreme pressure at the moment. And while more funding alone is never the whole solution to these problems, it is interesting to explore how far taxpayers’ money might go in paying for health and social care services.</p>
+<p>How much money would you gift to the NHS and social care this Christmas? And what could that actually buy?</p>
 </div>
 
 <div id=container>
@@ -340,43 +372,64 @@ var buttonValueElement = document.getElementById('button-value');
 <div id=howmuch>
 <br/>
 
-<h2>Spending an extra <span id="slider-range-value2"></span> per year on <span id="button-value">both health and social care</span> would pay for all of the following:</h2>
+<h2>Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for all of the following:</h2>
 <div id=error1>
 <h3>
 Please use the slider above to select an amount of additional money to give the health and social care system. More information will appear here when you do!
 </h3>
 </div>
 <div id="container2">
-<div class="item" id="gp-tile"><img src="/as16/teal-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are <b>41,985</b></p></div>
-<div class=item id="pp-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> occur every year</p></div>
-<div class=item id="up-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="up-value"></span></b> urgent procedures</p><p id=descriptor><b>6,996,601</b> occur every year</p></div>
-<div class=item id="care-home-tile"><img src="/as16/red-care-home.png" class="tile"><br/><p><b><span id="care-home-value"></span></b> care <span id="care-home-plural"></span></p><p id=descriptor>There are <b>465,000</b></p></div>
-<div class=item id="ambulance-tile"><img src="/as16/teal-ambulance.png" class="tile"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,131</b> occur every year</p></div>
-<div class=item id="gp-visit-tile"><img src="/as16/teal-gp-visit.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year</p></div>
+<div class="item" id="gp-tile"><img src="/as16/purple-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are <b>41,985</b></p></div>
+<div class=item id="gp-visit-tile"><img src="/as16/purple-clip.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year</p></div>
 <div class=item id="consultant-tile"><img src="/as16/purple-consultant.png" class="tile"><br/><p><b><span id="consultant-value"></span></b> consultants</p><p id=descriptor>There are <b>46,564</b></p></div>
 <div class=item id="nurse-tile"><img src="/as16/purple-nurse.png" class="tile"><br/><p><b><span id="nurse-value"></span></b> nurses</p><p id=descriptor>There are <b>315,499</b></p></div>
-<div class=item id="carer-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="carer-value"></span></b> carers</p><p id=descriptor>There are <b>645,0001</b></p></div>
-<div class=item id="civil-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="civil-value"></span></b> civil servants</p><p id=descriptor>There are <b>2,030</b></p></div>
-<div class=item id="pharm-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="pharm-value"></span></b> pharmacists</p><p id=descriptor>There are <b>29,400</b></p></div>
-<div class=item id="visitor-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,214</b></p></div>
+<div class=item id="up-tile"><img src="/as16/purple-trolley.png" class="tile"><br/><p><b><span id="up-value"></span></b> urgent procedures</p><p id=descriptor><b>6,996,601</b> occur every year</p></div>
+<div class=item id="pp-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> occur every year</p></div>
+<div class=item id="visitor-tile"><img src="/as16/purple-visitor.png" class="tile"><br/><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,214</b></p></div>
 <div class=item id="srh-tile"><img src="/as16/purple-small-hosp.png" class="tile"><br/><p><b><span id="srh-value"></span></b> small rural <span id="srh-plural"></span></p><p id=descriptor>There are <b>101,589</b> hospital beds in England. An average hospital has about 650 beds</p></div>
+<div class=item id="mental-tile"><img src="/as16/purple-mental.png" class="tile"><br/><p><b><span id="mental-value"></span></b> mental health support in A and E <span id="srh-plural"></span></p><p id=descriptor>There are <b>101,589</b> hospital beds in England. An average hospital has about 650 beds</p></div>
+<div class=item id="pharm-tile"><img src="/as16/purple-pharm.png" class="tile"><br/><p><b><span id="pharm-value"></span></b> pharmacists</p><p id=descriptor>There are <b>29,400</b></p></div>
+<div class=item id="ambulance-tile"><img src="/as16/purple-ambulance.png" class="tile"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,131</b> occur every year</p></div>
 <div class=item id="talking-tile"><img src="/as16/teal-talking.png" class="tile"><br/><p><b><span id="talking-value"></span></b> courses of talking therapy</p><p id=descriptor><b>4,878,210</b> occur every year</p></div>
-<div class=item id="bth-tile"><img src="/as16/purple-big-hosp.png" class="tile"><br/><p><b><span id="bth-value"></span></b> big teaching <span id="bth-plural"></span></p><p id=descriptor>There are a total of <b>101,589</b> hospital beds in England. An average hospital has about 650 beds.</p></div>
-<div class=item id="care-visit-tile"><img src="/as16/red-care-visit.png" class="tile"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p><p id=descriptor><b>1,806,569</b> occur every year</p></div></div>
+<div class=item id="care-visit-tile"><img src="/as16/red-care-visit.png" class="tile"><br/><p><b><span id="care-visit-value"></span></b> social care visits</p><p id=descriptor><b>1,806,569</b> occur every year</p></div>
+<div class=item id="care-home-tile"><img src="/as16/red-care-home.png" class="tile"><br/><p><b><span id="care-home-value"></span></b> care <span id="care-home-plural"></span></p><p id=descriptor>There are <b>465,000</b></p></div>
+<div class=item id="carer-tile"><img src="/as16/red-hand.png" class="tile"><br/><p><b><span id="carer-value"></span></b> carers</p><p id=descriptor>There are <b>645,0001</b></p></div>
+
+</div>
 </div>
 <br/><br/><HR />
 <div id=preface>
   <h2>About this interactive slider</h2>
-  <p>
-  Information contained in this slider relates only to NHS England. The number of each item is calculated based not only on the cost per item but also on the rough spending breakdown of the NHS's budget. So, for example, the annual average salary of a GP is £109,750, but only about 7% of the total NHS and social care budget is spent on GPs. So, to calculate the number of extra GPs that a certain amount of money could purchase, we take the equivalent percent of the annual spend and then divide by the cost.</p>
-  <p>
-  See below for a table of reference costs and proportions of the health and social care budget along with sources for those costs.
-  </p>
-  <p>
-  Please note that this slider combines activity costs, staffing costs and capital costs (like investing in a new building). Staffing costs are calculated on an annual basis. Activity costs may include other types of cost -- like staff costs. It's difficult to sort out these elements of the activity costs, which is why all of the things that could be bought with a certain amount of money should be viewed as additive -- that is to say that it would pay for a GP and for a GP consultation. We have included capital costs because, although it may take more than a year to build a hospital for example, these costs often come onto the books in a single year.
-  </p>
+ <p>
+    This slider relates specifically to the NHS and to council-funded social care for older people in England.
+</p>
+<p>
+    We distribute funding across eight different areas, based on their share of past spending. This is taken from the total expenditure and gross revenue
+spending breakdowns in the Department of Health    <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/447002/DH_accounts_14-15_web.pdf">annual accounts for 2014-15</a>, and
+    our <a href="http://www.nuffieldtrust.org.uk/publications/social-care-older-people-home-truths">estimates with the King’s Fund</a> of net social care
+    spending in the same year. We assume that the extra spending does not go on administration or “other” services, and the share that would have been taken up
+    by these is redistributed.
+</p>
+<p>
+    For illustrative purposes, each of these is represented by typical staff members and procedures. These eight areas are:
+</p>
+<ul>
+  <li>Hospital and community care by NHS trusts or private providers. This is by far the largest category and is represented by consultants, nurses, planned procedures and urgent procedures. The basis for dividing this spending from mental health and ambulance services was the proportion of NHS trust revenue across the different sectors given in NHS Improvement’s Quarter 2 2016/17 accounts.</li>
+<li>Mental health, represented by talking therapies and A&amp;E liaison support.</li>
+<li>Ambulance services, represented by ambulance callouts.</li>
+<li>Primary care, represented by GPs and GP consultations.</li>
+<li>Prescribing, represented by community pharmacists.</li>
+<li>Local authority public health, represented by health visitors.</li>
+<li>Capital expenditure, represented by a small rural hospital (we used the    <a href="http://www.ncuh.nhs.uk/about-us/west-cumberland-hospital-redevelopment/fbc.pdf">costs for West Cumberland Hospital</a> in Cumbria).</li>
+<li>Social care, represented by house visits, carers, and care homes (we used the costs for a 64 bed care home, including land purchase,    <a href="http://pdf.savills.com/documents/Aspects%20of%20Trade%20Care%20Review_2013.pdf">made available in a case study by Savills</a>).</li>
+</ul>
+<p>
+    Costs and salaries based on a range of sources, including NHS Digital workforce statistics, PSSRU unit cost analysis, and NHS Reference Costs, are then
+    used to estimate how many more staff, buildings and procedures the money would buy in each area. For areas represented by more than one thing, the money is
+    shared out so that the percentage increase in each item is the same. This is to reflect the reasonable expectation that the number of staff is likely to
+    increase in line with the number of services they provide.
+</p>
 </div>
-
 
 </body>
 </html>
