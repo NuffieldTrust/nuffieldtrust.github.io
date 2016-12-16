@@ -174,9 +174,16 @@ button.purple-off {
   padding: 5px 10px 5px 10px;
   }
 
-  @media only screen and (min-width: 685px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+div.item {
+  width: 100%;
+}
+
+@media only screen and (min-width: 685px) {
 #logo {
   float: right;
   padding: 15px;
 }
+
+
 }
