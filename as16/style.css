@@ -44,8 +44,7 @@ noUi-connect {
 }
 
 #descriptor {
-  font-size: .8em;
-  align: center;
+  font-size: 1em;
   padding: 10px 20% 0 20%;
   text-align: center;
   flex: 1;
