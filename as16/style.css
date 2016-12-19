@@ -104,6 +104,11 @@ h2 {
  font-family: 'FuturaTS-Regular', Futura, Arial;
 }
 
+#error1 {
+   border-radius:10px;
+  border:1px solid #6A848E;
+}
+
 h3 {
  font-family: 'FuturaTS-Regular', Futura, Arial;
  color: #af021a;
@@ -125,12 +130,12 @@ a:hover {
 
 div.item {
   float: left;
-  font-size: 1em;
+  font-size: 105%;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
-  width: 275px;
+  width: 250px;
   border-radius:10px;
   border:1px solid #6A848E;
 }
