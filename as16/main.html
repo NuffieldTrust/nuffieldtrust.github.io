@@ -29,7 +29,6 @@
 </script>	
 	
   <script>
-	  
 $(document).ready(function(){
 var rangeSlider = document.getElementById('slider');
 noUiSlider.create(rangeSlider, {
@@ -63,6 +62,10 @@ var bnFormat = wNumb({
 });
 	var tweetFormat = wNumb({
 	decimals: 1,
+});
+	var incFormat = wNumb({
+	decimals: 1,
+  postfix: '%',
 });
 
 var gpMult = 0.26348575199470000;
@@ -101,6 +104,7 @@ var careVisitValue = document.getElementById('care-visit-value');
 var careHomeValue = document.getElementById('care-home-value');
 var careHomePlural = document.getElementById('care-home-plural');
 var carerValue = document.getElementById('carer-value');
+var gpVisitIncValue = document.getElementById('gpVisit-inc-value');
 var forTweet = 'health %26 social care';
 
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
@@ -138,6 +142,9 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   careVisitValue.innerHTML =  totalFormat.to(careVisit);
   careHomeValue.innerHTML =  totalFormat.to(careHome);
   carerValue.innerHTML =  totalFormat.to(carer);
+  
+  gpVisitIncValue.innerHTML = incFormat.to(gpVisit/439983000/5*100);
+
 
 
 var tweet = document.getElementById('tweet');
@@ -374,7 +381,7 @@ var buttonValueElement = document.getElementById('button-value');
 <div id=preface>
 <p>With Christmas just around the corner, you might be forgiven for focusing on last-minute shopping rather than health and social care funding. But at the Nuffield Trust, there is no let-up in our interest in that sort of thing.</p> 
 <p>It is no secret that both health and social care are under extreme pressure at the moment. And while more funding alone is never the whole solution to these problems, it is interesting to explore how far taxpayers’ money might go in paying for health and social care services.</p>
-<p>So, this Chritmas, we're asking everyone what would you give? How much extra money do you think NHS and social care should get this Christmas? And what could that actually buy?</p>
+<p>So, this Christmas, we're asking everyone what would you give? How much extra money do you think NHS and social care should get this Christmas? And what could that actually buy?</p>
 </div>
 
 <div id=container>
@@ -398,17 +405,20 @@ var buttonValueElement = document.getElementById('button-value');
 <div id=howmuch>
 <br/>
 
-<h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+this+Christmas%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for all of the following:</h2>
+<h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+this+Christmas%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="40px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for <b>all</b> of the following:</h2>
+<p>
+While we have made an effort to make spending areas proportional to current budgets (see the 'about' section below), the numbers below are for illustrative purposes and do not necessarily reflect the way any extra money would actually be distributed. All calculations are based on current prices and the 
+</p>
 <div id=error1>
 <h3>
-Please use the slider above to select an amount of additional money to give the health and social care system. More information will appear here when you do!
+Please use the slider above to select an amount of additional money to give the health and social care system. A breakdown of what that money will buy will appear here when you do.
 </h3>
 </div>
 <div id="container2">
-<div class="item" id="gp-tile"><img src="/as16/purple-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are <b>41,985</b></p></div>
-<div class=item id="gp-visit-tile"><img src="/as16/purple-clipboard.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year</p></div>
+<div class="item" id="gp-tile"><img src="/as16/purple-gp.png" class="tile"><br/><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are <b>41,985</b>.</p><p id=descriptor><a href="http://www.rcgp.org.uk/news/2015/february/new-league-table-reveals-gp-shortages-across-england.aspx" target="blank">RCGP estimate</a> that England will need <b>8,000 new GPs</b> by 2020. </p></div>
+<div class=item id="gp-visit-tile"><img src="/as16/purple-clipboard.png" class="tile"><br/><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year</p><p id=descriptor>That's a <b><span id="gpVisit-inc-value"></span> increase</b> on average each year to 2020. Demand for primary care is expected to rise 3% to 2020.</p></div>
 <div class=item id="consultant-tile"><img src="/as16/purple-consultant.png" class="tile"><br/><p><b><span id="consultant-value"></span></b> consultants</p><p id=descriptor>There are <b>46,564</b></p></div>
-<div class=item id="nurse-tile"><img src="/as16/purple-nurse.png" class="tile"><br/><p><b><span id="nurse-value"></span></b> nurses</p><p id=descriptor>There are <b>315,499</b></p></div>
+<div class=item id="nurse-tile"><img src="/as16/purple-nurse.png" class="tile"><br/><p><b><span id="nurse-value"></span></b> nurses</p><p id=descriptor>There are <b>315,499</b>.</p><p id=descriptor>Current estimates are that <a href="http://www.nuffieldtrust.org.uk/blog/tapping-untapped-potential-nhs-workforce" target="blank"><b>21,000 nursing places are vacant</b></a> and demand is expected to continue to grow.</p></div>
 <div class=item id="up-tile"><img src="/as16/purple-trolley.png" class="tile"><br/><p><b><span id="up-value"></span></b> urgent procedures</p><p id=descriptor><b>6,996,601</b> occur every year</p></div>
 <div class=item id="pp-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> occur every year</p></div>
 <div class=item id="visitor-tile"><img src="/as16/purple-visitor.png" class="tile"><br/><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,214</b></p></div>
@@ -456,6 +466,5 @@ Please use the slider above to select an amount of additional money to give the 
     increase in line with the number of services they provide.
 </p>
 </div>
-
 </body>
 </html>
