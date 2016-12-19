@@ -58,6 +58,13 @@ p {
  color: #333;
 }
 
+ul {
+ font-family: Garamond, Georgia;
+ line-height: 1.6em;
+ font-size: 1.4em;
+ color: #333;
+}
+
 #keypoints {
  background-color: #F4F4F1;
  border-style: solid;
@@ -119,7 +126,7 @@ a:hover {
 div.item {
   height: 300px;
   float: left;
-  font-size: 1em;
+  font-size: 120%;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
