@@ -138,7 +138,10 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 
 
 var tweet = document.getElementById('tweet');
-
+   if(values[handle] < 0.5) {
+  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+this+Christmas%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
+  tweet.innerHTML=urlBuilder;
+   } else {
 if ($('#social-only').hasClass( "red-on" )) {
 tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per year. That would buy ' + totalFormat.to(careHome) + ' care homes and much more! %23whatwouldyougive%3F ';
   urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
@@ -147,6 +150,7 @@ tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per
 tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per year. That would buy ' + totalFormat.to(gp) + ' GPs and much more! %23whatwouldyougive%3F ';
   urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
+};
 };
 
 if(careHome >= 0.5 && careHome <= 1.5) {
@@ -365,13 +369,13 @@ var buttonValueElement = document.getElementById('button-value');
 </div>
 
 <div id=preface>
-<p>With Christmas just around the corner, you might be forgiven for focusing on more domestic issues than health and social care funding. But at the Nuffield Trust, there is no let-up in our interest in the finer points of health and social care policy.</p> 
+<p>With Christmas just around the corner, you might be forgiven for focusing on last-minute shopping rather than health and social care funding. But at the Nuffield Trust, there is no let-up in our interest in that sort of thing.</p> 
 <p>It is no secret that both health and social care are under extreme pressure at the moment. And while more funding alone is never the whole solution to these problems, it is interesting to explore how far taxpayers’ money might go in paying for health and social care services.</p>
-<p>How much money would you gift to the NHS and social care this Christmas? And what could that actually buy?</p>
+<p>So, this Chritmas, we're asking everyone what would you give? How much extra money do you think NHS and social care should get this Christmas? And what could that actually buy?</p>
 </div>
 
 <div id=container>
-<div id=howmuch><h2><b>How much extra per week?</b></h2>
+<div id=howmuch><h2><b>What would you give?</b></h2>
 <p><b>Slide the the Christmas present</b> to select how much extra money to gift to the health and social care system per week.</p><br /><br /></div>
 <div id=slider><div id=handle></div>
 </div>
@@ -406,7 +410,7 @@ Please use the slider above to select an amount of additional money to give the 
 <div class=item id="pp-tile"><img src="/as16/purple-hip.png" class="tile"><br/><p><b><span id="pp-value"></span></b> planned operations</p><p id=descriptor><b>6,940,831</b> occur every year</p></div>
 <div class=item id="visitor-tile"><img src="/as16/purple-visitor.png" class="tile"><br/><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,214</b></p></div>
 <div class=item id="srh-tile"><img src="/as16/purple-small-hosp.png" class="tile"><br/><p><b><span id="srh-value"></span></b> small rural <span id="srh-plural"></span></p><p id=descriptor>There are <b>101,589</b> hospital beds in England. Our reference hospital has 170</p></div>
-<div class=item id="mental-tile"><img src="/as16/purple-mental.png" class="tile"><br/><p><b><span id="mental-value"></span></b> mental health support in A&E <span id="srh-plural"></span></p><p id=descriptor> <b>455,512
+<div class=item id="mental-tile"><img src="/as16/purple-mental.png" class="tile"><br/><p><b><span id="mental-value"></span></b> mental health interventions in A&E <span id="srh-plural"></span></p><p id=descriptor> <b>455,512
 </b> occur every year</p></div>
 <div class=item id="pharm-tile"><img src="/as16/purple-pharm.png" class="tile"><br/><p><b><span id="pharm-value"></span></b> pharmacists</p><p id=descriptor>There are <b>29,400</b></p></div>
 <div class=item id="ambulance-tile"><img src="/as16/purple-ambulance.png" class="tile"><br/><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,131</b> occur every year</p></div>
@@ -421,11 +425,10 @@ Please use the slider above to select an amount of additional money to give the 
 <div id=preface>
   <h2>About this interactive slider</h2>
  <p>
-    This slider relates specifically to the NHS and to council-funded social care for older people in England.
+    This slider relates specifically to the NHS and to council-funded social care for older people in <b>England</b>.
 </p>
 <p>
-    We distribute funding across eight different areas, based on their share of past spending. This is taken from the total expenditure and gross revenue
-spending breakdowns in the Department of Health    <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/447002/DH_accounts_14-15_web.pdf">annual accounts for 2014-15</a>, and
+    We distribute funding across eight different areas, based on their share of past spending. This is taken from the total expenditure and gross revenue spending breakdowns in the Department of Health    <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/447002/DH_accounts_14-15_web.pdf">annual accounts for 2014-15</a>, and
     our <a href="http://www.nuffieldtrust.org.uk/publications/social-care-older-people-home-truths">estimates with the King’s Fund</a> of net social care
     spending in the same year. We assume that the extra spending does not go on administration or “other” services, and the share that would have been taken up
     by these is redistributed.
@@ -434,14 +437,14 @@ spending breakdowns in the Department of Health    <a href="https://www.gov.uk/g
     For illustrative purposes, each of these is represented by typical staff members and procedures. These eight areas are:
 </p>
 <ul>
-  <li>Hospital and community care by NHS trusts or private providers. This is by far the largest category and is represented by consultants, nurses, planned procedures and urgent procedures. The basis for dividing this spending from mental health and ambulance services was the proportion of NHS trust revenue across the different sectors given in NHS Improvement’s Quarter 2 2016/17 accounts.</li>
-<li>Mental health, represented by talking therapies and A&amp;E liaison support.</li>
-<li>Ambulance services, represented by ambulance callouts.</li>
-<li>Primary care, represented by GPs and GP consultations.</li>
-<li>Prescribing, represented by community pharmacists.</li>
-<li>Local authority public health, represented by health visitors.</li>
-<li>Capital expenditure, represented by a small rural hospital (we used the    <a href="http://www.ncuh.nhs.uk/about-us/west-cumberland-hospital-redevelopment/fbc.pdf">costs for West Cumberland Hospital</a> in Cumbria).</li>
-<li>Social care, represented by house visits, carers, and care homes (we used the costs for a 64 bed care home, including land purchase,    <a href="http://pdf.savills.com/documents/Aspects%20of%20Trade%20Care%20Review_2013.pdf">made available in a case study by Savills</a>).</li>
+  <li><b>Hospital and community care by NHS trusts or private providers:</b> This is by far the largest category and is represented by consultants, nurses, planned procedures and urgent procedures. The basis for dividing this spending from mental health and ambulance services was the proportion of NHS trust revenue across the different sectors given in NHS Improvement’s Quarter 2 2016/17 accounts.</li>
+<li><b>Mental health:</b> represented by talking therapies and A&amp;E liaison support.</li>
+<li><b>Ambulance services:</b> represented by ambulance callouts.</li>
+<li><b>Primary care</b> represented by GPs and GP consultations.</li>
+<li><b>Prescribing:</b> represented by community pharmacists.</li>
+<li><b>Local authority public health:</b> represented by health visitors.</li>
+<li><b>Capital expenditure:</b> represented by a small rural hospital (we used the    <a href="http://www.ncuh.nhs.uk/about-us/west-cumberland-hospital-redevelopment/fbc.pdf">costs for West Cumberland Hospital</a> in Cumbria).</li>
+<li><b>Social care</b> represented by house visits, carers, and care homes (we used the costs for a 64 bed care home, including land purchase,    <a href="http://pdf.savills.com/documents/Aspects%20of%20Trade%20Care%20Review_2013.pdf">made available in a case study by Savills</a>).</li>
 </ul>
 <p>
     Costs and salaries based on a range of sources, including NHS Digital workforce statistics, PSSRU unit cost analysis, and NHS Reference Costs, are then
