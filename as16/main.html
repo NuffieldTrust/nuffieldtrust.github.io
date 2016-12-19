@@ -138,16 +138,16 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 
 
 var tweet = document.getElementById('tweet');
-   if(values[handle] < 0.5) {
+ if(values[handle] < 0.5) {
   urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+this+Christmas%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
    } else {
 if ($('#social-only').hasClass( "red-on" )) {
-tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per year. That would buy ' + totalFormat.to(careHome) + ' care homes and much more! %23whatwouldyougive%3F ';
+tweetText = 'I%27d+give+' + forTweet + '+an+extra+%C2%A3' + tweetFormat.to(annual) + 'bn+per+year.+That+would+buy+' + totalFormat.to(careHome) + '+care+homes+and+much+more%21+ %23whatwouldyougive%3F';
   urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
 } else {
-tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per year. That would buy ' + totalFormat.to(gp) + ' GPs and much more! %23whatwouldyougive%3F ';
+tweetText = 'I%27d+give+' + forTweet + '+an+extra+%C2%A3' + tweetFormat.to(annual) + 'bn+per+year.+That+would+buy+' + totalFormat.to(gp) + '+GPs+and+much+more%21+%23whatwouldyougive%3F';
   urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
 };
