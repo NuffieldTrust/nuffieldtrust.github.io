@@ -175,6 +175,7 @@ button.purple-off {
 div.item {
   width: 100%;
   font-size: 1.5em important!;
+  height: 500px important!;
 }
 
 img.tile {
