@@ -138,10 +138,17 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 
 
 var tweet = document.getElementById('tweet');
-	tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per year. That would buy ' + totalFormat.to(gp) + ' GPs and much more! %23whatwouldyougive%3F ';
-  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?url=http://www.nuffieldtrust.org.uk&text=' + tweetText + '" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
+
+if ($('#social-only').hasClass( "red-on" )) {
+tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per year. That would buy ' + totalFormat.to(careHome) + ' care homes and much more! %23whatwouldyougive%3F ';
+  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
-  
+} else {
+tweetText = 'I\'d give ' + forTweet + ' an extra ' + bnFormat.to(annual) + ' per year. That would buy ' + totalFormat.to(gp) + ' GPs and much more! %23whatwouldyougive%3F ';
+  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a>';
+  tweet.innerHTML=urlBuilder;
+};
+
 if(careHome >= 0.5 && careHome <= 1.5) {
 	careHomePlural.innerHTML = "home";
 } else {
@@ -321,7 +328,7 @@ var buttonValueElement = document.getElementById('button-value');
     });
     
         $('#social-only').click(function () {
-        if ($('#social-only').hasClass( "teal-on" )) {
+        if ($('#social-only').hasClass( "red-on" )) {
         } else {
         	forTweet = 'social care';
           buttonValue = '<span style="color:#af021a;">social care only</span>';
@@ -352,7 +359,7 @@ var buttonValueElement = document.getElementById('button-value');
 </head>
 
 <body>
-    <div id=header>
+ <div id=header>
 	<div id=logo><img src="https://static1.squarespace.com/static/5594219be4b01a83c4506d86/t/55a7d3d8e4b0fa0db166646c/1470057721874/?format=1500w"/></div>
 	<h1>A Christmas gift for health and social care?</h1>
 </div>
@@ -384,7 +391,7 @@ var buttonValueElement = document.getElementById('button-value');
 <div id=howmuch>
 <br/>
 
-<h2><span id="tweet"><a href="" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for all of the following:</h2>
+<h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+this+Christmas%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="https://nuffieldtrust.github.io/as16/Twitter_logo_nt-teal.png" width="50px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for all of the following:</h2>
 <div id=error1>
 <h3>
 Please use the slider above to select an amount of additional money to give the health and social care system. More information will appear here when you do!
