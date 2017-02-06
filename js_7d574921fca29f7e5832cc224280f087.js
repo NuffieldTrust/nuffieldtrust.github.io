@@ -330,52 +330,7 @@ Drupal.theme.prototype = {
   }
 };
 ;
-$(document).ready(function() {
 
-  if (showcookienotice() == true) {
-    alerthascookies();
-    return;
-  }
-  
-  function alerthascookies() {
-    var cookieconsent = document.createElement('div');
-    cookieconsent.setAttribute('id', "cookieconsent");
-    var consenttext = document.createElement('p');
-    consenttext.innerHTML = Drupal.t('We use cookies to help ensure you have the best possible experience when using our website. By continuing we will assume you agree to us storing cookies. Read our <a href="/cookies">cookie policy</a> to find out more.');
-    var consentclose = document.createElement('a');
-    consentclose.setAttribute('id', "cookieconsentclose");
-    consentclose.innerHTML = Drupal.t("Continue");
-    consentclose.setAttribute('title', "Don't show this again.");
-
-    $(consentclose).click(function() {
-      $("body #cookieconsent").slideUp("slow");
-      dontshowalertagain();
-    })
-    
-    $(consenttext).append(consentclose);
-    $(cookieconsent).append(consenttext);
-
-    $("body").prepend(cookieconsent);
-    $("body #cookieconsent").slideDown("slow");
-  
-   }
-   
-   function dontshowalertagain() {
-      // set or extend the cookie life for a year
-      var exdate=new Date();
-      exdate.setDate(exdate.getDate() + 365);
-      document.cookie="dontshowcookienotice=" + "TRUE; expires=" + exdate.toUTCString() + "; path=/";
-   }
-   
-   function showcookienotice() {
-     // Don't show the notice if we have previously set a cookie to hide it
-     var dontshowcookienotice = (document.cookie.indexOf("dontshowcookienotice") != -1) ? false : true;
-     // Also don't show notice if they had agreed to cookies earlier on with eucookiecontrol module
-     dontshowcookienotice = (document.cookie.indexOf("cookiesareokwithme") != -1) ? false : dontshowcookienotice;
-     return dontshowcookienotice;
-   }
-
-});;
 Drupal.behaviors.sendToFriend = function(context) {
  
   // Hide the form by default. Assign click handlers to links that link to this div, 
