@@ -493,11 +493,11 @@ Drupal.behaviors.sharebar = function(context) {
 	$.fn.polymap = function(descriptions, kmlUrl) {
 		
 		var OVERLAY_TYPES = {
-			'sha': {url: 'http://tbxpolymap.appspot.com/outline-maps/country-sha.kmz', 'short-name': 'SHAs & UK countries', 'long-name': 'English Strategic Health Authority regions, Scotland, Wales & Northern Ireland'},
-			'country-sha': {url: 'http://tbxpolymap.appspot.com/outline-maps/country-sha.kmz', 'short-name': 'SHAs & UK countries', 'long-name': 'English Strategic Health Authority regions, Scotland, Wales & Northern Ireland'},
-			'pct': {url: 'http://tbxpolymap.appspot.com/outline-maps/pct.kmz', 'short-name': 'PCT or equivalent', 'long-name': 'Primary Care Trust or equivalent'},
-			'county': {url: 'http://tbxpolymap.appspot.com/outline-maps/county.kmz', 'short-name': 'LA: Upper tier', 'long-name': 'Local Authority: Upper tier'},
-			'district': {url: 'http://tbxpolymap.appspot.com/outline-maps/district.kmz', 'short-name': 'LA: Lower tier', 'long-name': 'Local Authority: Lower tier'}
+			'sha': {url: '//tbxpolymap.appspot.com/outline-maps/country-sha.kmz', 'short-name': 'SHAs & UK countries', 'long-name': 'English Strategic Health Authority regions, Scotland, Wales & Northern Ireland'},
+			'country-sha': {url: '//tbxpolymap.appspot.com/outline-maps/country-sha.kmz', 'short-name': 'SHAs & UK countries', 'long-name': 'English Strategic Health Authority regions, Scotland, Wales & Northern Ireland'},
+			'pct': {url: '//tbxpolymap.appspot.com/outline-maps/pct.kmz', 'short-name': 'PCT or equivalent', 'long-name': 'Primary Care Trust or equivalent'},
+			'county': {url: '//tbxpolymap.appspot.com/outline-maps/county.kmz', 'short-name': 'LA: Upper tier', 'long-name': 'Local Authority: Upper tier'},
+			'district': {url: '//tbxpolymap.appspot.com/outline-maps/district.kmz', 'short-name': 'LA: Lower tier', 'long-name': 'Local Authority: Lower tier'}
 		}
 		
 		var multilayer = $.isArray(descriptions);
