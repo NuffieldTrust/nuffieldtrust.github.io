@@ -659,7 +659,7 @@ Drupal.behaviors.sharebar = function(context) {
 		} else {
 			googleMapsOnloadActions.push(initialiseMap);
 			if (!googleMapsJSRequested) {
-				$.getScript("http://maps.google.com/maps/api/js?sensor=false&callback=googleMapsOnload");
+				$.getScript("//maps.google.com/maps/api/js?sensor=false&callback=googleMapsOnload");
 				googleMapsJSRequested = true;
 			}
 		}
