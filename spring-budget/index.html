@@ -72,8 +72,8 @@ var upMult = 82.56254704613270000;
 var ppMult = 81.90443988113030000;
 var visitorMult = 0.42755766309821300;
 var srhMult = 0.00035737504466663;
-var mentalChildMult = 259.52222309454300000;
-var mentalAdultMult = 124.68688367500500000;
+var mentalChildMult = 4.40440928474211000;
+var mentalAdultMult = 12.00289685376480000;
 var pharmMult = 0.17282150203165000;
 var ambulanceMult = 93.97174949994850000;
 var prescriptionMult = 6370.07706217379000000;
@@ -134,8 +134,8 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   pp = values[handle]*(365/7)*ppMult/1000;
   visitor = values[handle]*(365/7)*visitorMult/10;
   srh = values[handle]*(365/7)*srhMult;
-  mentalChild = values[handle]*(365/7)*mentalChildMult/1000;
-  mentalAdult = values[handle]*(365/7)*mentalAdultMult/1000;
+  mentalChild = values[handle]*(365/7)*mentalChildMult/100;
+  mentalAdult = values[handle]*(365/7)*mentalAdultMult/100;
   pharm = values[handle]*(365/7)*pharmMult/10;
   ambulance = values[handle]*(365/7)*ambulanceMult/1000;
   prescription = values[handle]*(365/7)*prescriptionMult/1000;
@@ -152,8 +152,8 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   upRound = roundFormat.to(up)*1000;
   ppRound = roundFormat.to(pp)*1000;
   visitorRound = roundFormat.to(visitor)*10;
-  mentalChildRound = roundFormat.to(mentalChild)*1000;
-  mentalAdultRound = roundFormat.to(mentalAdult)*1000;
+  mentalChildRound = roundFormat.to(mentalChild)*100;
+  mentalAdultRound = roundFormat.to(mentalAdult)*100;
   pharmRound = roundFormat.to(pharm)*10;
   ambulanceRound = roundFormat.to(ambulance)*1000;
   prescriptionRound = roundFormat.to(prescription)*1000;
@@ -178,8 +178,8 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   gpVisitIncValue.innerHTML = incFormat.to(gpVisitRound/439983000*100);
   upIncValue.innerHTML = incFormat.to(upRound/6996601*100);
   ppIncValue.innerHTML = incFormat.to(ppRound/6940831*100);
-  childMentalIncValue.innerHTML = incFormat.to(mentalChildRound/2181840*100);
-  adultMentalIncValue.innerHTML = incFormat.to(mentalAdultRound/9456416*100);
+  childMentalIncValue.innerHTML = incFormat.to(mentalChildRound/184226*100);
+  adultMentalIncValue.innerHTML = incFormat.to(mentalAdultRound/502053*100);
 var tweet = document.getElementById('tweet');
    if(values[handle] < 0.5) {
   urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="50px" align="middle"></a>';
@@ -334,8 +334,8 @@ var buttonValueElement = document.getElementById('button-value');
             ppMult = 81.90443988113030000;
             visitorMult = 0.42755766309821300;
             srhMult = 0.00035737504466663;
-            mentalChildMult = 259.52222309454300000;
-            mentalAdultMult = 124.68688367500500000;
+            mentalChildMult = 4.40440928474211000;
+            mentalAdultMult = 12.00289685376480000;
             pharmMult = 0.17282150203165000;
             ambulanceMult = 93.97174949994850000;
             prescriptionMult = 6370.07706217379000000;
@@ -363,8 +363,8 @@ var buttonValueElement = document.getElementById('button-value');
             ppMult = 87.05373640583100000;
             visitorMult = 0.45443802748256100;
             srhMult = 0.00037984305834437;
-            mentalChildMult = 275.83827242474800000;
-            mentalAdultMult = 132.52589383996400000;
+            mentalChildMult = 4.68131258151329000;
+            mentalAdultMult = 12.75751376031020000;
             pharmMult = 0.18368671472459700;
             ambulanceMult = 99.87971253372780000;
             prescriptionMult = 6770.56103747393000000;
@@ -443,7 +443,7 @@ var buttonValueElement = document.getElementById('button-value');
 
 <h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+if+you+were+Chancellor%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="40px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for <b>all</b> of the following:</h2>
 <p>
-While we have made an effort to make spending areas proportional to current budgets (see the 'about' section below), the numbers below are for illustrative purposes and do not necessarily reflect the way any extra money would actually be distributed. All calculations are based on current prices.
+The numbers below are for illustrative purposes only. All calculations are based on current prices.
 </p>
 <div id=error1>
 <h3>
@@ -466,12 +466,12 @@ That’s a rise of <strong><span id="pp-inc-value"></span></strong>. <a href="ht
 <div class=item id="visitor-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/visitor.png" class="tile"><br/></div><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are <b>14,210</b></p></div>
 <div class=item id="srh-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/sm-hospital.png" class="tile"><br/></div><p><b><span id="srh-value"></span></b> small rural <span id="srh-plural"></span></p><p id=descriptor>There are <b>101,600</b> hospital beds in England. Our reference hospital has 170</p><p id=descriptor>
 <a href="https://www.nuffieldtrust.org.uk/news-item/new-analysis-reveals-scale-of-future-pressure-on-hospital-beds" target="_blank">Our work on hospital beds showed</a> that the NHS would need an additional <strong>10,000 beds</strong> by 2020/21</p></div>
-<div class=item id="mental-child-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/child-mental-health.png" class="tile"><br/></div><p><b><span id="mental-child-value"></span></b> episodes of mental health treatment for a child or adolescent <span id="srh-plural"></span></p><p id=descriptor> <b>2,182,000
-</b> occur every year</p><p id=descriptor>
+<div class=item id="mental-child-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/child-mental-health.png" class="tile"><br/></div><p><b><span id="mental-child-value"></span></b> people with psychotic mental conditions in care for a year</p><p id=descriptor> An average <b>184,000
+</b> people recieve care for psychosis each year</p><p id=descriptor>
 That’s a rise of <strong><span id="child-mental-inc-value"></span></strong>. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21. 
 </p></div>
-<div class=item id="mental-adult-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/brain.png" class="tile"><br/></div><p><b><span id="mental-adult-value"></span></b> episodes of mental health treatment for an adult <span id="srh-plural"></span></p><p id=descriptor> <b>9,456,000
-</b> occur every year</p><p id=descriptor>
+<div class=item id="mental-adult-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/brain.png" class="tile"><br/></div><p><b><span id="mental-adult-value"></span></b> people with non-psychotic mental conditions in care for a year</p><p id=descriptor> An average <b>502,000
+</b> people recieve care for non-psychotic mental conditions each year</p><p id=descriptor>
 That’s a rise of <strong><span id="adult-mental-inc-value"></span></strong>. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21. 
 </p></div>
 <div class=item id="pharm-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/pharmacist.png" class="tile"><br/></div><p><b><span id="pharm-value"></span></b> pharmacists</p><p id=descriptor>There are <b>29,400</b></p></div>
