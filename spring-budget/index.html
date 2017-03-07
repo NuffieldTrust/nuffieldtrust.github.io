@@ -184,16 +184,16 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   consultantIncValue.innerHTML = incFormat.to(consultantRound/46500*100);
 var tweet = document.getElementById('tweet');
    if(values[handle] < 0.5) {
-  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="50px" align="middle"></a>';
+  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care%3F+And+what+would+that+buy%3F+Find+out+%3E&url=https://www.nuffieldtrust.org.uk/chart/what-would-you-give-health-and-social-care" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
    } else {
 if ($('#social-only').hasClass( "red-on" )) {
-tweetText = 'I%27d+give+' + forTweet + '+an+extra+%C2%A3' + tweetFormat.to(annual) + 'bn+per+year.+That+would+buy+' + totalFormat.to(careHome) + '+care+homes+and+much+more%21+ %23whatwouldyougive%3F';
-  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="50px" align="middle"></a>';
+tweetText = 'I%27d+give+' + forTweet + '+an+extra+%C2%A3' + tweetFormat.to(annual) + 'bn.+That+would+buy+' + totalFormat.to(careHome) + '+care+homes+and+much+more%21+ %23whatwouldyougive%3F';
+  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=https://www.nuffieldtrust.org.uk/chart/what-would-you-give-health-and-social-care" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
 } else {
-tweetText = 'I%27d+give+' + forTweet + '+an+extra+%C2%A3' + tweetFormat.to(annual) + 'bn+per+year.+That+would+buy+' + totalFormat.to(gpRound) + '+GPs+and+much+more%21+%23whatwouldyougive%3F';
-  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="50px" align="middle"></a>';
+tweetText = 'I%27d+give+' + forTweet + '+an+extra+%C2%A3' + tweetFormat.to(annual) + 'bn.+That+would+buy+' + totalFormat.to(gpRound) + '+GPs+and+much+more%21+%23whatwouldyougive%3F';
+  urlBuilder = '<a href="http://www.twitter.com/intent/tweet?text=' + tweetText + '&url=https://www.nuffieldtrust.org.uk/chart/what-would-you-give-health-and-social-care" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="50px" align="middle"></a>';
   tweet.innerHTML=urlBuilder;
 };
 };
@@ -424,7 +424,7 @@ var buttonValueElement = document.getElementById('button-value');
 <span id="descriptor-value"></span>
 </p></div>
 </div>
-<div id=howmuch><h2>That's the equivalent of <b><span id="slider-range-value"></span></b> per year.</h2></div>
+<div id=howmuch><h2>Over one year, that’s <b><span id="slider-range-value"></span></b>.</h2></div>
 </div>
 <br/>
 <div id=container>
@@ -436,7 +436,7 @@ var buttonValueElement = document.getElementById('button-value');
 <div id=howmuch>
 <br/>
 
-<h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+if+you+were+Chancellor%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="40px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for the following additional staff and activity:</h2>
+<h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+if+you+were+Chancellor%3F+And+what+would+that+buy%3F+Find+out+%3E&url=https://www.nuffieldtrust.org.uk/chart/what-would-you-give-health-and-social-care" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="40px" align="middle"></a></span> In one year, spending an extra <b><span id="slider-range-value2"></span></b> across <b><span id="button-value">both health and social care</span></b> would pay for the following additional staff and activity:</h2>
 <p>
 This selection is based on current pattern of spending and is for illustrative purposes only. All calculations are based on current prices.
 </p>
