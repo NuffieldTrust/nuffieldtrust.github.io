@@ -118,7 +118,7 @@ h2 {
     font-size: 1.7em;
     font-weight: normal;
     letter-spacing: 0;
- font-family: 'Circular Std Bold', 'FuturaTS-Regular', Futura, Arial;
+ font-family: 'Circular', Arial;
 }
 
 #error1 {
@@ -126,7 +126,7 @@ h2 {
 }
 
 h3 {
- font-family: 'Circular Std Bold', 'FuturaTS-Regular', Futura, Arial;
+ font-family: 'Circular', Arial;
  color: #FF6B57;
  font-size: 18px;
 }
@@ -160,10 +160,10 @@ img.tile {
 }
 
   button {
-  font-family: 'Circular Std Bold', Futura, 'FuturaTS-Regular', Arial;
+  font-family: 'Circular', Arial;
   color: #271544;
   font-size:  1em;
-  text-decoration: none;
+  text-decoration: bold;
   padding: 10px;
   border:1px solid #271544;
   }
