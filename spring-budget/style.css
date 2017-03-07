@@ -24,12 +24,12 @@
 }
 
 #slider {
-  width:80%;
+  width:70%;
   margin: auto;
 }
 
 #container {
-  padding: 5% 10% 5% 10%;
+  padding: 5% 5% 5% 5%;
   background-color: #e3e4e5;
   border:1px solid #9AA0AA;
 }
@@ -79,6 +79,10 @@ noUi-connect {
   padding: 10px 10% 0 10%;
   text-align: center;
   flex: 1;
+}
+
+spacer {
+  width: 50px;
 }
 
 #bus {
@@ -170,7 +174,7 @@ img.tile {
   font-size:  1em;
   text-decoration: bold;
   padding: 10px;
-  min-width: 80%;
+  min-width: 300px;
   border:1px solid #271544;
   margin: 5px;
   }
