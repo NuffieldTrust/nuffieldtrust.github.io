@@ -295,7 +295,7 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   } else if(values[handle] >= 27 && values[handle] <= 31) {
   descriptor = 'That\'s the amount of extra funding that is set to be allocated to <b>social care</b> by 2019 through the <a href="https://www.england.nhs.uk/ourwork/part-rel/transformation-fund/bcf-plan/" target="window">Better Care Fund.</a> ';
   }  else if(values[handle] >= 84 && values[handle] <= 88) {
-  descriptor = 'That\'s the amount the <a href="http://www.nuffieldtrust.org.uk/blog/behind-numbers-nhs-finances" target="window">health think tanks</a> and the <a href="https://www.parliament.uk/documents/commons-committees/Health/Correspondence/2016-17/chair-to-chancellor-NHS-funding-26-10-2016.pdf" target="window">Health Select Committee</a> think this government will actually give to the health system by 2020.';
+  descriptor = 'That\'s the amount the <a href="http://www.nuffieldtrust.org.uk/blog/behind-numbers-nhs-finances" target="window">health think tanks</a> and the <a href="https://www.parliament.uk/documents/commons-committees/Health/Correspondence/2016-17/chair-to-chancellor-NHS-funding-26-10-2016.pdf" target="window">Health Select Committee</a> think this Government will actually give to the health system by 2020.';
   } else if(values[handle] >= 98 && values[handle] <= 102) {
   descriptor = 'That\'s the amount we could raise through a 1 percentage point rise in <em>income tax</em>.<br \><br \>';
   }  else if(values[handle] >= 103 && values[handle] <= 107) {
@@ -310,7 +310,7 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
   descriptor = 'That\'s the amount we would need to match the levels of spending on health and care in <strong>France</strong> as a share of the economy.';
   $('#bus').hide(300);
   }else if(values[handle] == 575) {
-  descriptor = 'That\'s the total estimated funding gap for the NHS by 2020.<br \><br \>';
+  descriptor = 'That\'s the amount needed to cover the estimated funding gap for the NHS by 2020.<br \><br \>';
   } else {
   descriptor = '<br \><br \>';
   }
@@ -414,11 +414,9 @@ var buttonValueElement = document.getElementById('button-value');
 
 <body>
 
-  <script type="text/javascript" src="//rawgit.com/davidjbradshaw/iframe-resizer/master/js/iframeResizer.contentWindow.min.js"></script> 
-
 <div id=container>
 <div id=howmuch>
-<p><b>Slide the the Chancellor's red box</b> to select how much extra money to give the health and social care system in England.</p><h2><strong>£<span id="slider-range-main"></span></strong>m extra per week</h2><br /><br /></div>
+<p><b>Slide the the Chancellor's red box</b> to select how much extra money to give the health and social care system in England.</p><h2><strong>£<span id="slider-range-main"></span>m</strong> extra per week</h2><br /><br /></div>
 
 <div id=spacer></div><div id=slider><div id=handle></div>
 </div><div id=spacer></div>
@@ -438,7 +436,7 @@ var buttonValueElement = document.getElementById('button-value');
 <div id=howmuch>
 <br/>
 
-<h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+if+you+were+Chancellor%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="40px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for the following selection of additional staff and activity:</h2>
+<h2><span id="tweet"><a href="http://www.twitter.com/intent/tweet?text=How+much+extra+money+would+you+give+to+health+and+social+care+if+you+were+Chancellor%3F+And+what+would+that+buy%3F+Find+out+%3E&url=http://www.nuffieldtrust.org.uk" target="_blank"><img src="//nuffieldtrust.github.io/spring-budget/Twitter_logo_nt-red.png" width="40px" align="middle"></a></span> Spending an extra <b><span id="slider-range-value2"></span></b> per year on <b><span id="button-value">both health and social care</span></b> would pay for the following additional staff and activity:</h2>
 <p>
 This selection is based on current pattern of spending and is for illustrative purposes only. All calculations are based on current prices.
 </p>
@@ -449,8 +447,8 @@ Please use the slider above to select an amount of additional money to give the 
 </div>
 <div id="container2">
 <div class="item" id="gp-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/gp.png" class="tile"><br/></div><p><b><span id="gp-value"></span></b> GPs</p><p id=descriptor>There are currently <b>42,000</b>.</p><p id=descriptor><a href="http://www.rcgp.org.uk/news/2015/february/new-league-table-reveals-gp-shortages-across-england.aspx" target="blank">RCGP estimate</a> that England will need <b>8,000 new GPs</b> by 2020. </p></div>
-<div class=item id="gp-visit-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/clipboard.png" class="tile"><br/></div><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year.</p><p id=descriptor>That's a <b><span id="gpVisit-inc-value"></span> increase</b>. If demand for general practice continued to rise at the rate <a href="https://www.kingsfund.org.uk/sites/files/kf/field/field_publication_file/Understanding-GP-pressures-Kings-Fund-May-2016.pdf" target="_blank">estimated by the King’s Fund</a>, it would increase 19.3% by 2020/21.</p></div>
-<div class=item id="care-visit-tile"><div id="header-social"><img src="//nuffieldtrust.github.io/spring-budget/care-visit.png" class="tile"><br/></div><p>One year of residential social care for <b><span id="care-visit-value"></span></b> older people</p><p id=descriptor>An average <b>228,200</b> recieve residential social care each year.</p></div>
+<div class=item id="gp-visit-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/clipboard.png" class="tile"><br/></div><p><b><span id="gp-visit-value"></span></b> GP consultations</p><p id=descriptor><b>439,983,000</b> occur every year.</p><p id=descriptor>That's a <b><span id="gpVisit-inc-value"></span> increase</b>. If demand for general practice continues to rise at the rate <a href="https://www.kingsfund.org.uk/sites/files/kf/field/field_publication_file/Understanding-GP-pressures-Kings-Fund-May-2016.pdf" target="_blank">estimated by the King’s Fund</a>, it would increase 19.3% by 2020/21.</p></div>
+<div class=item id="care-visit-tile"><div id="header-social"><img src="//nuffieldtrust.github.io/spring-budget/care-visit.png" class="tile"><br/></div><p>One year of residential social care for <b><span id="care-visit-value"></span></b> older people</p><p id=descriptor>An average <b>228,200</b> receive residential social care each year.</p></div>
 <div class=item id="nurse-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/nurse.png" class="tile"><br/></div><p><b><span id="nurse-value"></span></b> nurses</p><p id=descriptor>There are currently <b>315,500</b>.</p><p id=descriptor>Current estimates are that <a href="http://www.nuffieldtrust.org.uk/blog/tapping-untapped-potential-nhs-workforce" target="blank"><b>21,000 nursing places are vacant</b></a> and demand is expected to continue to grow.</p></div>
 <div class=item id="up-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/trolley.png" class="tile"><br/></div><p><b><span id="up-value"></span></b> urgent procedures</p><p id=descriptor><b>6,997,000</b> occur every year.</p><p id=descriptor>
 That’s a rise of <strong><span id="up-inc-value"></span></strong>. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for hospital care will rise <strong>31%</strong> by 2020/21.
@@ -462,19 +460,19 @@ That’s a rise of <strong><span id="pp-inc-value"></span></strong>. <a href="ht
 <div class=item id="prescription-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/prescription.png" class="tile"><br/></div><p><b><span id="prescription-value"></span></b> prescriptions</p><p id=descriptor><b>1,083,663,000</b> are issued every year.</p></div>
 <div class=item id="visitor-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/visitor.png" class="tile"><br/></div><p><b><span id="visitor-value"></span></b> health visitors</p><p id=descriptor>There are currently  <b>14,210</b>.</p></div>
 <div class=item id="consultant-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/consultant.png" class="tile"><br/></div><p><b><span id="consultant-value"></span></b> consultants</p><p id=descriptor>There are currently <b>46,500</b>.</p><p id="descriptor">
-That's a <strong><span id="consultant-inc-value"></span></strong> increase. Activity in hospitals is execpted to rise by 15.9% by 2020.
+That's a <strong><span id="consultant-inc-value"></span></strong> increase. Activity in hospitals is expected to rise by 15.9% by 2020.
 </p></div>
 <div class=item id="care-home-tile"><div id="header-social"><img src="//nuffieldtrust.github.io/spring-budget/care-home.png" class="tile"><br/></div><p><b><span id="care-home-value"></span></b> care <span id="care-home-plural"></span></p><p id=descriptor>There are <b>465,000</b> care home beds. Our reference home has 60.</p><p id=descriptor>
 <a href="https://www.amaresearch.co.uk/products/care-home-construction-2015" target="_blank">Industry analysis</a> suggests <strong>33,500</strong> more beds will be needed over the next five years. That is the equivalent of <strong>560</strong> more care homes.</p></div>
 <div class=item id="srh-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/sm-hospital.png" class="tile"><br/></div><p><b><span id="srh-value"></span></b> small rural <span id="srh-plural"></span></p><p id=descriptor>There are <b>101,600</b> hospital beds in England. Our reference hospital has 170.</p><p id=descriptor>
 <a href="https://www.nuffieldtrust.org.uk/news-item/new-analysis-reveals-scale-of-future-pressure-on-hospital-beds" target="_blank">Our work on hospital beds showed</a> that the NHS would need an additional <strong>10,000 beds</strong> by 2020/21. That is the equivalent of <strong>60</strong> small hospitals.</p></div>
 <div class=item id="mental-child-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/brain.png" class="tile"><br/></div><p>One year of care for <b><span id="mental-child-value"></span></b> people with psychosis</p><p id=descriptor> An average <b>184,000
-</b> people recieve care for psychosis each year.</p><p id=descriptor>
-That’s a rise of <strong><span id="child-mental-inc-value"></span></strong>. We have assumed that all spending goes towards the main mental health interventions for adults classified by NHS Trusts. This overstates the overall increase, as in reality it is also likely to be spread across other services like care for children and addiction services. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21.  
+</b> people receive care for psychosis each year.</p><p id=descriptor>
+That’s a rise of <strong><span id="child-mental-inc-value"></span></strong>. We have assumed that all spending goes towards the main mental health interventions for adults classified by NHS trusts. This overstates the overall increase, as in reality it is also likely to be spread across other services like care for children and addiction services. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21.  
 </p></div>
 <div class=item id="mental-adult-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/child-mental-health.png" class="tile"><br/></div><p>One year of care for <b><span id="mental-adult-value"></span></b> people with non-psychotic mental conditions</p><p id=descriptor> An average <b>502,000
-</b> people recieve care for non-psychotic mental conditions each year.</p><p id=descriptor>
-That's a rise of <strong><span id="adult-mental-inc-value"></span></strong>. We have assumed that all spending goes towards the main mental health interventions for adults classified by NHS Trusts. This overstates the overall increase, as in reality it is also likely to be spread across other services like care for children and addiction services. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21. 
+</b> people receive care for non-psychotic mental conditions each year.</p><p id=descriptor>
+That's a rise of <strong><span id="adult-mental-inc-value"></span></strong>. We have assumed that all spending goes towards the main mental health interventions for adults classified by NHS trusts. This overstates the overall increase, as in reality it is also likely to be spread across other services like care for children and addiction services. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21. 
 </p></div>
 <div class=item id="ambulance-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/ambulance.png" class="tile"><br/></div><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,000</b> occur every year.</p><p id=descriptor>
 Over the last five years, the number of ambulance callouts rose by <strong>538,000</strong>.
