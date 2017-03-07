@@ -23,6 +23,12 @@
   font-style  : normal;
 }
 
+#slider {
+  width:85%;
+  align: center;
+  margin: auto;
+}
+
 #container {
   padding: 5% 10% 5% 10%;
   background-color: #e3e4e5;
@@ -76,11 +82,15 @@ noUi-connect {
   flex: 1;
 }
 
+spacer {
+  width: 50px;
+}
+
 #bus {
   float: left;
   position: relative;
   top: -40px;
-  display: none;
+  display: none;c
   align: right;
 }
 
@@ -165,7 +175,9 @@ img.tile {
   font-size:  1em;
   text-decoration: bold;
   padding: 10px;
+  min-width: 300px;
   border:1px solid #271544;
+  margin: 5px;
   }
 button.teal-on {
   background: #FF6B57;
