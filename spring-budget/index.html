@@ -414,6 +414,8 @@ var buttonValueElement = document.getElementById('button-value');
 
 <body>
 
+  <script type="text/javascript" src="//rawgit.com/davidjbradshaw/iframe-resizer/master/js/iframeResizer.contentWindow.min.js"></script> 
+
 <div id=container>
 <div id=howmuch>
 <p><b>Slide the the Chancellor's red box</b> to select how much extra money to give the health and social care system in England.</p><h2><strong>£<span id="slider-range-main"></span></strong>m extra per week</h2><br /><br /></div>
@@ -430,7 +432,7 @@ var buttonValueElement = document.getElementById('button-value');
 <div id=container>
 <div id=howmuch><h2>Where would you like to invest that money?</h2></div>
 <div id="legend">
-<center><button id="health-social" class="teal-on">Both health and social care</button> <button id="health-only" class="purple-off">Health care only</button> <button id="social-only" class="red-off">Social care only</button></center></div>
+<center><button id="health-social" class="teal-on">Both health and social care</button><button id="health-only" class="purple-off">Health care only</button><button id="social-only" class="red-off">Social care only</button></center></div>
 </div>
 <br/><br/><HR />
 <div id=howmuch>
@@ -468,11 +470,11 @@ That's a <strong><span id="consultant-inc-value"></span></strong> increase. Acti
 <a href="https://www.nuffieldtrust.org.uk/news-item/new-analysis-reveals-scale-of-future-pressure-on-hospital-beds" target="_blank">Our work on hospital beds showed</a> that the NHS would need an additional <strong>10,000 beds</strong> by 2020/21. That is the equivalent of <strong>60</strong> small hospitals.</p></div>
 <div class=item id="mental-child-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/brain.png" class="tile"><br/></div><p>One year of care for <b><span id="mental-child-value"></span></b> people with psychosis</p><p id=descriptor> An average <b>184,000
 </b> people recieve care for psychosis each year.</p><p id=descriptor>
-That’s a rise of <strong><span id="child-mental-inc-value"></span></strong> for this specific treatment area. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care services overall, which also includes activities like care for children and drug addiction services, will rise <strong>27%</strong> by 2020/21. 
+That’s a rise of <strong><span id="child-mental-inc-value"></span></strong>. We have assumed that all spending goes towards the main mental health interventions for adults classified by NHS Trusts. This overstates the overall increase, as in reality it is also likely to be spread across other services like care for children and addiction services. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21.  
 </p></div>
 <div class=item id="mental-adult-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/child-mental-health.png" class="tile"><br/></div><p>One year of care for <b><span id="mental-adult-value"></span></b> people with non-psychotic mental conditions</p><p id=descriptor> An average <b>502,000
 </b> people recieve care for non-psychotic mental conditions each year.</p><p id=descriptor>
-That's a rise of <strong><span id="adult-mental-inc-value"></span></strong> for this specific treatment area. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care services overall, which also includes activities like care for children and drug addiction services, will rise <strong>27%</strong> by 2020/21. 
+That's a rise of <strong><span id="adult-mental-inc-value"></span></strong>. We have assumed that all spending goes towards the main mental health interventions for adults classified by NHS Trusts. This overstates the overall increase, as in reality it is also likely to be spread across other services like care for children and addiction services. <a href="https://www.england.nhs.uk/wp-content/uploads/2016/05/fyfv-tech-note-090516.pdf" target="_blank">NHS England estimate</a> that demand for mental health care will rise <strong>27%</strong> by 2020/21. 
 </p></div>
 <div class=item id="ambulance-tile"><div id="header-health"><img src="//nuffieldtrust.github.io/spring-budget/ambulance.png" class="tile"><br/></div><p><b><span id="ambulance-value"></span></b> ambulance callouts</p><p id=descriptor><b>7,378,000</b> occur every year.</p><p id=descriptor>
 Over the last five years, the number of ambulance callouts rose by <strong>538,000</strong>.
