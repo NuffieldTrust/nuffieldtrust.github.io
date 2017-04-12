@@ -25,7 +25,7 @@
     {"name": "Health Visitors", "size": 614},
     {"name": "School Nursing", "size": 488},
     {"name": "Community Settings", "size": 367},
-    {"name": Paediatrics", "size": 100},
+    {"name": "Paediatrics", "size": 100},
     ]
     },
      {
@@ -38,7 +38,7 @@
     {
    "name": "Other",
    "children": [
-    {"name": Post-Registered Learners", "size": 97},
+    {"name": "Post-Registered Learners", "size": 97},
     ]
     },
  ]
