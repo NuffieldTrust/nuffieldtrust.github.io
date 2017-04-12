@@ -1,0 +1,16 @@
+{
+ "name": "Nurse shortages",
+ "children": [
+  {
+   "name": "Adults",
+   "children": [
+    {"name": "Acute, Eldery & General", "size": 19369},
+    {"name": "Community", "size": 2693},
+    {"name": "District nurses", "size": 1466},
+    {"name": "Other", "size": 306},
+    {"name": "Maternity Services (Excluding Midwives)", "size": -391}
+    ]
+    },
+  ]
+}
+   
