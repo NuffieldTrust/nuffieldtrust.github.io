@@ -1,45 +1,64 @@
 {
- "name": "Nurse shortages",
- "children": [
-  {
-   "name": "Adults",
-   "children": [
-    {"name": "Acute, Eldery & General", "size": 19369},
-    {"name": "Community", "size": 2693},
-    {"name": "District nurses", "size": 1466},
-    {"name": "Other", "size": 306},
-    {"name": "Maternity Services (Excluding Midwives)", "size": -391}
-    ]
-    },
-     {
-   "name": "Mental health",
-   "children": [
-    {"name": "Community settings", "size": 2154},
-    {"name": "Other", "size": 1772},
-    ]
-    },
-     {
-   "name": "Children's",
-   "children": [
-    {"name": "Neonatal", "size": 1116},
-    {"name": "Health Visitors", "size": 614},
-    {"name": "School Nursing", "size": 488},
-    {"name": "Community Settings", "size": 367},
-    {"name": "Paediatrics", "size": 100},
-    ]
-    },
-     {
-   "name": "Learning disability",
-   "children": [
-    {"name": "Community settings", "size": 428},
-    {"name": "Other", "size": 78},
-    ]
-    },
-    {
-   "name": "Other",
-   "children": [
-    {"name": "Post-Registered Learners", "size": 97},
-    ]
-    },
- ]
+	"name": "Nurse shortages",
+	"children": [{
+		"name": "Adults",
+		"children": [{
+			"name": "Acute, Eldery & General",
+			"size": 19369
+		}, {
+			"name": "Community",
+			"size": 2693
+		}, {
+			"name": "District nurses",
+			"size": 1466
+		}, {
+			"name": "Other",
+			"size": 306
+		}, {
+			"name": "Maternity Services (Excluding Midwives)",
+			"size": -391
+		}]
+	}, {
+		"name": "Mental health",
+		"children": [{
+			"name": "Community settings",
+			"size": 2154
+		}, {
+			"name": "Other",
+			"size": 1772
+		}]
+	}, {
+		"name": "Children's",
+		"children": [{
+			"name": "Neonatal",
+			"size": 1116
+		}, {
+			"name": "Health Visitors",
+			"size": 614
+		}, {
+			"name": "School Nursing",
+			"size": 488
+		}, {
+			"name": "Community Settings",
+			"size": 367
+		}, {
+			"name": "Paediatrics",
+			"size": 100
+		}]
+	}, {
+		"name": "Learning disability",
+		"children": [{
+			"name": "Community settings",
+			"size": 428
+		}, {
+			"name": "Other",
+			"size": 78
+		}]
+	}, {
+		"name": "Other",
+		"children": [{
+			"name": "Post-Registered Learners",
+			"size": 97
+		}]
+	}]
 }
